@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Stéphane Fréchette">
+    <meta name="description" content="Stéphane Fréchette&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal,data engineer,cloud solution architect,google cloud">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Fetching NHL Play by Play game data"/>
+<meta name="twitter:description" content="Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-node that provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.
+Hope your familiar with this&#8230;
+The following URL retrieves the complete 2016-2017 NHL season schedule
+http://live.nhl.com/GameData/SeasonSchedule-20162017.json
+While this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs."/>
+
+    <meta property="og:title" content="Fetching NHL Play by Play game data" />
+<meta property="og:description" content="Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-node that provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.
+Hope your familiar with this&#8230;
+The following URL retrieves the complete 2016-2017 NHL season schedule
+http://live.nhl.com/GameData/SeasonSchedule-20162017.json
+While this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.example.com/posts/fetching-nhl-play-play-game-data/" />
+<meta property="article:published_time" content="2016-10-25T15:16:20-04:00"/>
+<meta property="article:modified_time" content="2016-10-25T15:16:20-04:00"/>
+
+
+    
+      <base href="http://www.example.com/posts/fetching-nhl-play-play-game-data/">
+    
+    <title>
+  Fetching NHL Play by Play game data · Stéphane Fréchette
+</title>
+
+    
+      <link rel="canonical" href="http://www.example.com/posts/fetching-nhl-play-play-game-data/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://www.example.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="http://www.example.com/css/custom.css">
+    
+
+    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.54.0" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://www.example.com">
+      Stéphane Fréchette
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://www.example.com/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://www.example.com/talks/">Talks</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://www.example.com/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Fetching NHL Play by Play game data</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2016-10-25T15:16:20-04:00'>
+                October 25, 2016
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              One minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://www.example.com/categories/data-visualization/">Data Visualization</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://www.example.com/tags/github/">github</a>
+      <span class="separator">•</span>
+    <a href="http://www.example.com/tags/hockey/">hockey</a>
+      <span class="separator">•</span>
+    <a href="http://www.example.com/tags/javascript/">javascript</a>
+      <span class="separator">•</span>
+    <a href="http://www.example.com/tags/json/">json</a>
+      <span class="separator">•</span>
+    <a href="http://www.example.com/tags/nhl/">nhl</a>
+      <span class="separator">•</span>
+    <a href="http://www.example.com/tags/node.js/">node.js</a>
+      <span class="separator">•</span>
+    <a href="http://www.example.com/tags/npm/">npm</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<figure>
+    <img src="http://www.example.com/images/legacy-post/hockey-rink.png" width="640" height="349"/> 
+</figure>
+
+
+<h4 id="fetching-nhl-play-by-play-game-data">Fetching NHL Play by Play game data</h4>
+
+<p>I created a Node.js application called <a href="https://github.com/sfrechette/nhlplaybyplay-node" target="_blank">nhlplaybyplay-node</a> that provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.</p>
+
+<p>Hope your familiar with this&#8230;<br />
+The following URL retrieves the complete 2016-2017 NHL season schedule<br />
+<a href="http://live.nhl.com/GameData/SeasonSchedule-20162017.json" target="_blank"><a href="http://live.nhl.com/GameData/SeasonSchedule-20162017.json">http://live.nhl.com/GameData/SeasonSchedule-20162017.json</a></a></p>
+
+<p>While this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs. EDM on October 16 @ 19:00 EDT)<br />
+<a href="http://live.nhl.com/GameData/20162017/2016020031/PlayByPlay.json" target="_blank"><a href="http://live.nhl.com/GameData/20162017/2016020031/PlayByPlay.json">http://live.nhl.com/GameData/20162017/2016020031/PlayByPlay.json</a></a></p>
+
+<p><em><strong>Note:</strong> Schedule and Play by Play data only available from the 2011-2012 NHL Season and onward&#8230;</em></p>
+
+<h3 id="installation">Installation</h3>
+
+<p>Once you have cloned the repo from GitHub:<br />
+<code>git clone https://github.com/sfrechette/nhlplaybyplay-node</code></p>
+
+<p>You can install the dependencies with the following <a href="https://www.npmjs.com/" target="_blank">npm</a> command:<br />
+<code>npm install</code></p>
+
+<p>Create a <strong>data</strong> directory:<br />
+<code>mkdir data</code></p>
+
+<p>Before using you will need to create a specific directory for each of the seasons you will be fetching data for.<br />
+i.e. To fetch data from the 2012-2013 NHL season you need to create the following folder <strong>20122013</strong> under the data directory.<br />
+<figure>
+    <img src="http://www.example.com/images/legacy-post/nhlplaybyplay-node.png"
+         alt="nhlplaybyplay-node" width="731" height="469"/> 
+</figure>
+</p>
+
+<h3 id="usage">Usage</h3>
+
+<p><code>node fetch.js season [game]</code></p>
+
+<p>To fetch all games for a specific season:<br />
+<code>node fetch.js 20152016</code></p>
+
+<p>To fetch specific game from a specific season<br />
+<code>node fetch.js 20162017 2016020001</code></p>
+
+<p>Will be adding parsing functionallity in the near future&#8230; Enjoy!</p>
+
+<!-- AddThis Advanced Settings generic via filter on the_content -->
+
+<!-- AddThis Share Buttons generic via filter on the_content -->
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stephanefrechette" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+       · 
+      [<a href="https://github.com/luizdepra/hugo-coder/tree/"></a>]
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Stéphane Fréchette">
+    <meta name="description" content="Stéphane Fréchette&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal,data engineer,cloud solution architect,google cloud">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Configure and manage SQL Server on Linux"/>
+<meta name="twitter:description" content="SQL Server Configuration Manager is a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use mssql-conf. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&gt; https://docs.microsoft.com/en-us/sql/linux/
+The tool is installed in the following directory path /opt/mssql/bin let&#8217;s explore what mssql-conf is all about.
+Open a Terminal session and see what type of help and information we get&#8230;"/>
+
+    <meta property="og:title" content="Configure and manage SQL Server on Linux" />
+<meta property="og:description" content="SQL Server Configuration Manager is a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use mssql-conf. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&gt; https://docs.microsoft.com/en-us/sql/linux/
+The tool is installed in the following directory path /opt/mssql/bin let&#8217;s explore what mssql-conf is all about.
+Open a Terminal session and see what type of help and information we get&#8230;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.example.com/posts/configure-manage-sql-server-linux/" />
+<meta property="article:published_time" content="2017-04-10T14:42:14-04:00"/>
+<meta property="article:modified_time" content="2017-04-10T14:42:14-04:00"/>
+
+
+    
+      <base href="http://www.example.com/posts/configure-manage-sql-server-linux/">
+    
+    <title>
+  Configure and manage SQL Server on Linux · Stéphane Fréchette
+</title>
+
+    
+      <link rel="canonical" href="http://www.example.com/posts/configure-manage-sql-server-linux/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://www.example.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="http://www.example.com/css/custom.css">
+    
+
+    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.54.0" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://www.example.com">
+      Stéphane Fréchette
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://www.example.com/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://www.example.com/talks/">Talks</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://www.example.com/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Configure and manage SQL Server on Linux</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2017-04-10T14:42:14-04:00'>
+                April 10, 2017
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://www.example.com/categories/databases/">Databases</a>
+      <span class="separator">•</span>
+    <a href="http://www.example.com/categories/sql-server/">SQL Server</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://www.example.com/tags/linux/">linux</a>
+      <span class="separator">•</span>
+    <a href="http://www.example.com/tags/mssql-conf/">mssql-conf</a>
+      <span class="separator">•</span>
+    <a href="http://www.example.com/tags/sql-server/">sql server</a>
+      <span class="separator">•</span>
+    <a href="http://www.example.com/tags/sql-server-linux/">sql server linux</a>
+      <span class="separator">•</span>
+    <a href="http://www.example.com/tags/sql-server-on-linux/">sql server on linux</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<p><a href="https://docs.microsoft.com/en-us/sql/relational-databases/sql-server-configuration-manager" target="_blank">SQL Server Configuration Manager</a> is a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf" target="_blank">mssql-conf</a>. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&gt; <a href="https://docs.microsoft.com/en-us/sql/linux/" target="_blank"><a href="https://docs.microsoft.com/en-us/sql/linux/">https://docs.microsoft.com/en-us/sql/linux/</a></a></p>
+
+<p>The tool is installed in the following directory path <code>/opt/mssql/bin</code> let&#8217;s explore what mssql-conf is all about.<br />
+Open a Terminal session and see what type of help and information we get&#8230;</p>
+
+<p>Proving the -h or &#8211;help argument will return more information about how to use mssql-conf<br />
+<code>cd /opt/mssql/bin</code><br />
+<code>./mssql-conf -h</code></p>
+
+<figure>
+    <img src="http://www.example.com/images/legacy-post/mssql-conf_01.png" width="977" height="559"/> 
+</figure>
+
+
+<p>This command gives us various the options/arguments that we can use with the mssql-conf tool.</p>
+
+<p>Now Let&#8217;s explore the supported configurable settings by issuing the following command<br />
+<code>./mssql-conf list</code></p>
+
+<figure>
+    <img src="http://www.example.com/images/legacy-post/mssql-conf_02.png" width="977" height="270"/> 
+</figure>
+
+
+<p>The following are the supported settings that can be changed/modified using the &#8216;set&#8217; option:</p>
+
+<ul>
+<li>network.tcpport &#8211; Change the TCP port</li>
+<li>filelocation.defaultbackupdir &#8211; Change the default backup directory location</li>
+<li>filelocation.defaultdumpdir &#8211; Change the default dump directory location</li>
+<li>filelocation.defaultlogdir &#8211; Change the default log directory location</li>
+<li>filelocation.defaultdatadir &#8211; Change the default data directory location</li>
+<li>hadr.hadrenabled &#8211; Enable Always On Availability Groups</li>
+<li>coredump.coredumptype &#8211; Choose the type of dump memory dump file to collect</li>
+<li>coredump.captureminiandfull &#8211; Specify whether to generate both mini dumps and full dumps</li>
+</ul>
+
+<h4 id="choosing-two-settings-to-demonstrate">Choosing two settings to demonstrate</h4>
+
+<p><strong>How to change the default TCP port</strong><br />
+This option will let you change the TCP port where SQL Server will listen for connections. By default, this port is set to 1433.</p>
+
+<p>To change the port, run the following commands:<br />
+<code>sudo /opt/mssql/bin/mssql-conf set tcpport &lt;&lt;em&gt;new_tcp_port&lt;/em&gt;&gt;</code></p>
+
+<p>Restart the service<br />
+<code>sudo systemctl restart mssql-server</code></p>
+
+<p>And test&#8230;example<br />
+<code>sqlcmd -S localhost,&lt;&lt;em&gt;new_tcp_port&lt;/em&gt;&gt; -U test -P test</code></p>
+
+<p><strong>Change the default backup directory location</strong><br />
+By default, the backup files are generated in <code>/var/opt/mssql/data</code>. I personally like to store my backups in a directory named &#8216;backup&#8217; 😉 So we will need to create a new directory (folder) and then change the default backup directory.</p>
+
+<p>Let&#8217;s do this&#8230;</p>
+
+<p>We are going to create a new directory, we need to have root privileges so issue the following command and supply your password:<br />
+<code>sudo su</code></p>
+
+<p>Next we change directory -&gt; <code>cd /var/opt/mssql</code><br />
+List files and directories -&gt; <code>ls -l</code> backup directory does not exist!<br />
+Create a new directory named &#8216;backup&#8217; -&gt; <code>mkdir /var/opt/mssql/backup</code><br />
+Validate that new directory was created -&gt; <code>ls -l</code></p>
+
+<figure>
+    <img src="http://www.example.com/images/legacy-post/mssql-conf_03.png" width="896" height="440"/> 
+</figure>
+
+
+<p>Now that we have our new backup directory we can change the directory where SQL Server will send the backup files by default:</p>
+
+<p><code>/opt/mssql/bin/mssql-conf set defaultbackupdir /var/opt/mssql/backup</code></p>
+
+<p>You also need to restart the mssql-server service:</p>
+
+<p><code>systemctl restart mssql-server</code></p>
+
+<figure>
+    <img src="http://www.example.com/images/legacy-post/mssql-conf_05.png" width="1121" height="287"/> 
+</figure>
+
+
+<p>To see the content of the <strong>mssql.conf</strong> file, you use the <strong>cat</strong> command which stands for &#8220;catenate&#8221;. It reads data from files, and outputs their contents. It is the simplest way to display the contents of a file at the command line.</p>
+
+<p><code>cat /var/opt/mssql/mssql.conf</code></p>
+
+<figure>
+    <img src="http://www.example.com/images/legacy-post/mssql-conf_04.png" width="896" height="440"/> 
+</figure>
+
+
+<p>Again for further details on how to configure SQL Server on Linux with the mssql-conf tool see the following link -&gt; <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf" target="_blank"><a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf">https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf</a></a></p>
+
+<p>Enjoy!</p>
+
+<!-- AddThis Advanced Settings generic via filter on the_content -->
+
+<!-- AddThis Share Buttons generic via filter on the_content -->
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stephanefrechette" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+       · 
+      [<a href="https://github.com/luizdepra/hugo-coder/tree/"></a>]
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
