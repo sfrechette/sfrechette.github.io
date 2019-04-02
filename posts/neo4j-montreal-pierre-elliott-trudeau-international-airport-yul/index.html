@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Stéphane Fréchette">
+    <meta name="description" content="Stéphane Fréchette&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal,data engineer,cloud solution architect,google cloud">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Neo4j: Montreal-Pierre Elliott Trudeau International Airport (YUL)"/>
+<meta name="twitter:description" content="A quick exercise on graph modeling. I recently got inspired from one of Nicole White&#8217;s post who did something similar with the Dallas Fort Worth Airport (DFW) data. So I decided to create a Neo4j graph database of the shopping places (boutiques, restaurants and services) at the Montreal-Pierre Elliott Trudeau International Airport (YUL). There isn&#8217;t any raw data to download on the site. So I will spare you the details of my scrapping efforts and instead share with you my findings and results."/>
+
+    <meta property="og:title" content="Neo4j: Montreal-Pierre Elliott Trudeau International Airport (YUL)" />
+<meta property="og:description" content="A quick exercise on graph modeling. I recently got inspired from one of Nicole White&#8217;s post who did something similar with the Dallas Fort Worth Airport (DFW) data. So I decided to create a Neo4j graph database of the shopping places (boutiques, restaurants and services) at the Montreal-Pierre Elliott Trudeau International Airport (YUL). There isn&#8217;t any raw data to download on the site. So I will spare you the details of my scrapping efforts and instead share with you my findings and results." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/" />
+<meta property="article:published_time" content="2015-06-14T19:50:49-04:00"/>
+<meta property="article:modified_time" content="2015-06-14T19:50:49-04:00"/>
+
+
+    
+      <base href="http://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/">
+    
+    <title>
+  Neo4j: Montreal-Pierre Elliott Trudeau International Airport (YUL) · Stéphane Fréchette
+</title>
+
+    
+      <link rel="canonical" href="http://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.54.0" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://sfrechette.github.io/">
+      Stéphane Fréchette
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Neo4j: Montreal-Pierre Elliott Trudeau International Airport (YUL)</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2015-06-14T19:50:49-04:00'>
+                June 14, 2015
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              4 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://sfrechette.github.io/categories/nosql/">NoSQL</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://sfrechette.github.io/tags/data-modeling/">data modeling</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/graph-database/">graph database</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/graph-databases/">graph databases</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/graphdb/">graphdb</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/neo4j/">neo4j</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/nosql/">nosql</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/yul/">yul</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        <p><figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/Airplane_silhouette-150x150.png#floatleft"
+         alt="Airplane_silhouette" width="150" height="150"/> 
+</figure>
+ A quick exercise on graph modeling. I recently got inspired from one of <a href="https://nicolewhite.github.io/" target="_blank">Nicole White&#8217;s</a> post who did something similar with the Dallas Fort Worth Airport (DFW) data. So I decided to create a Neo4j graph database of the <a href="http://www.admtl.com/en/shopping" target="_blank">shopping places (boutiques, restaurants and services)</a> at the <a href="http://www.admtl.com/en" target="_blank">Montreal-Pierre Elliott Trudeau International Airport (YUL)</a>. There isn&#8217;t any raw data to download on the site. So I will spare you the details of my scrapping efforts and instead share with you my findings and results.</p>
+
+<p>You can view and download the data here from <a href="https://docs.google.com/spreadsheets/d/12VIPE8Ck2Zg19oe7k_gZaaIlClPYB7YjlwClz6nlT3s/edit?usp=sharing" target="_blank">Google Drive</a>. The code, sample queries and database backup can be found on <a href="https://github.com/sfrechette/yul-neo4j" target="_blank">Github</a>.</p>
+
+<p>Here is a sample from the Data sheet:</p>
+
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/yul_data_sheet-1024x607.png"
+         alt="yul_data_sheet" width="1024" height="607"/> 
+</figure>
+
+
+<p>Essentially from the raw data collected I was able to create individual sheets for each &#8216;entities&#8217; and for &#8216;relationships&#8217;, just like tables you would model in your favourite RDBMS and from that exported them to individual CSV files ready for import;</p>
+
+<ul>
+<li>area.csv</li>
+<li>categories.csv</li>
+<li>gatezones.csv</li>
+<li>levels.csv</li>
+<li>area.csv</li>
+<li>placecategorygatezone.csv</li>
+<li>places.csv</li>
+</ul>
+
+<p>But first let take a look at how we will approach and model our graph, FYI at YUL airport there is no &#8216;Terminals&#8217; but rather &#8216;Levels&#8217;&#8230;</p>
+
+<p>Case in Point: A <strong>Place</strong> &#8216;Tim Hortons&#8217; belongs in a <strong>Category</strong> &#8216;Cafés&#8217; and that <strong>Place</strong> is located at a <strong>Gate</strong> &#8216;Gate 3&#8217; in the following <strong>Area</strong> &#8216;Restricted area &#8211; Canada&#8217; on a certain <strong>Level</strong> &#8216;First Floor/Departures&#8217;. Pretty straight forward and from that perspective we can create our model.</p>
+
+<p><strong>YUL Graph Model:</strong><br />
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/yul_propertygraph.png"
+         alt="yul_propertygraph" width="897" height="170"/> 
+</figure>
+</p>
+
+<p><strong>Importing the Data using Cypher</strong></p>
+
+<p>With the extracted CSV files will be using Cypher’s LOAD CSV command to transform and load the content into a graph structure.<br />
+You can import and run the entire Cypher script using the neo4j-shell by issuing the following command:<br />
+<strong>bin/neo4j-shell -path yul.db -file cypher/import.cypher</strong></p>
+
+<p><em><strong>import.cypher</strong></em></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> indexes <span style="color:#007020;font-weight:bold">for</span> faster lookup
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :Category(categoryName);
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :GateZone(gateZoneName);
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :Area(areaName);
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :<span style="color:#007020;font-weight:bold">Level</span>(levelName);
+
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> <span style="color:#007020;font-weight:bold">constraints</span>
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (a:Area) ASSERT a.areaId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (<span style="color:#007020;font-weight:bold">c</span>:Category) ASSERT <span style="color:#007020;font-weight:bold">c</span>.categoryId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (<span style="color:#007020;font-weight:bold">g</span>:GateZone) ASSERT <span style="color:#007020;font-weight:bold">g</span>.gateZoneId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (l:<span style="color:#007020;font-weight:bold">Level</span>) ASSERT l.levelId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (p:Place) ASSERT p.placeId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
+
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> places
+<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/places.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">CREATE</span> (:Place <span style="">{</span>placeName: <span style="color:#007020;font-weight:bold">row</span>.PlaceName, placeId: <span style="color:#007020;font-weight:bold">row</span>.PlaceID<span style="">}</span>);
+
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> categories
+<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/categories.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">CREATE</span> (:Category <span style="">{</span>categoryName: <span style="color:#007020;font-weight:bold">row</span>.CategoryName, categoryId: <span style="color:#007020;font-weight:bold">row</span>.CategoryID<span style="">}</span>);
+
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> gatezones
+<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/gatezones.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">CREATE</span> (:GateZone <span style="">{</span>gateZoneName: <span style="color:#007020;font-weight:bold">row</span>.GateZoneName, gateZoneId: <span style="color:#007020;font-weight:bold">row</span>.GateZoneID<span style="">}</span>);
+
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> levels
+<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/levels.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">CREATE</span> (:<span style="color:#007020;font-weight:bold">Level</span> <span style="">{</span>levelName: <span style="color:#007020;font-weight:bold">row</span>.LevelName, levelId: <span style="color:#007020;font-weight:bold">row</span>.LevelID<span style="">}</span>);
+
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> areas
+<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/areas.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">CREATE</span> (:Area <span style="">{</span>areaName: <span style="color:#007020;font-weight:bold">row</span>.AreaName, areaId: <span style="color:#007020;font-weight:bold">row</span>.AreaID<span style="">}</span>);
+
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Place <span style="color:#007020;font-weight:bold">to</span> Category
+<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/placecategorygatezone.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">MATCH</span> (place:Place <span style="">{</span>placeId: <span style="color:#007020;font-weight:bold">row</span>.PlaceID<span style="">}</span>)
+<span style="color:#007020;font-weight:bold">MATCH</span> (category:Category <span style="">{</span>categoryId: <span style="color:#007020;font-weight:bold">row</span>.CategoryID<span style="">}</span>)
+MERGE (place)<span style="color:#666">-</span>[:IN_CATEGORY]<span style="color:#666">-&gt;</span>(category);
+
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Place <span style="color:#007020;font-weight:bold">to</span> GateZone
+<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/placecategorygatezone.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">MATCH</span> (place:Place <span style="">{</span>placeId: <span style="color:#007020;font-weight:bold">row</span>.PlaceID<span style="">}</span>)
+<span style="color:#007020;font-weight:bold">MATCH</span> (gatezone:GateZone <span style="">{</span>gateZoneId: <span style="color:#007020;font-weight:bold">row</span>.GateZoneID<span style="">}</span>)
+MERGE (place)<span style="color:#666">-</span>[:AT_GATEZONE]<span style="color:#666">-&gt;</span>(gatezone);
+
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: GateZone <span style="color:#007020;font-weight:bold">to</span> Area
+<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/gatezones.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">MATCH</span> (gatezone:GateZone <span style="">{</span>gateZoneId: <span style="color:#007020;font-weight:bold">row</span>.GateZoneID<span style="">}</span>)
+<span style="color:#007020;font-weight:bold">MATCH</span> (area:Area <span style="">{</span>areaId: <span style="color:#007020;font-weight:bold">row</span>.AreaID<span style="">}</span>)
+MERGE (gatezone)<span style="color:#666">-</span>[:IN_AREA]<span style="color:#666">-&gt;</span>(area);
+
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Area <span style="color:#007020;font-weight:bold">to</span> <span style="color:#007020;font-weight:bold">Level</span>
+<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/areas.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">MATCH</span> (area:Area <span style="">{</span>areaId: <span style="color:#007020;font-weight:bold">row</span>.AreaID<span style="">}</span>)
+<span style="color:#007020;font-weight:bold">MATCH</span> (<span style="color:#007020;font-weight:bold">level</span>:<span style="color:#007020;font-weight:bold">Level</span> <span style="">{</span>levelId: <span style="color:#007020;font-weight:bold">row</span>.LevelID<span style="">}</span>)
+MERGE (area)<span style="color:#666">-</span>[:AT_LEVEL]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">level</span>);</code></pre></div>
+<p>Start Neo4j and load the web console (<a href="http://localhost:7474">http://localhost:7474</a>), we are now ready to issue some Cypher queries&#8230;</p>
+
+<p><strong>Find all places and their categories located at Gate 57 (with Area and Level)</strong></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">MATCH</span> (<span style="color:#007020;font-weight:bold">c</span>:Category)<span style="color:#666">&amp;</span>lt; <span style="color:#60a0b0;font-style:italic">--(p:Place)--&gt;(g:GateZone)--&gt;(a:Area)--&gt;(l:Level)
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">WHERE</span> <span style="color:#007020;font-weight:bold">g</span>.gateZoneName <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Gate 57&#39;</span>
+<span style="color:#007020;font-weight:bold">RETURN</span> <span style="color:#007020;font-weight:bold">c</span>, p, <span style="color:#007020;font-weight:bold">g</span>, a, l;</code></pre></div>
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/gate57.png"
+         alt="gate57" width="771" height="353"/> 
+</figure>
+
+
+<p><strong>Find Boutiques in Restricted area &#8211; International on First Floor/Departures</strong></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">MATCH</span> (p:Place)<span style="color:#666">-</span>[:IN_CATEGORY]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">c</span>:Category),
+      (p)<span style="color:#666">-</span>[:AT_GATEZONE]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">g</span>:GateZone),
+      (<span style="color:#007020;font-weight:bold">g</span>)<span style="color:#666">-</span>[:IN_AREA]<span style="color:#666">-&gt;</span>(a:Area),
+      (a)<span style="color:#666">-</span>[:AT_LEVEL]<span style="color:#666">-&gt;</span>(l:<span style="color:#007020;font-weight:bold">Level</span>)
+<span style="color:#007020;font-weight:bold">WHERE</span> <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Boutiques&#39;</span> <span style="color:#007020;font-weight:bold">AND</span> a.areaName <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Restricted area - International&#39;</span> <span style="color:#007020;font-weight:bold">AND</span> l.levelName <span style="color:#666">=</span> <span style="color:#4070a0">&#39;First Floor/Departures&#39;</span>
+<span style="color:#007020;font-weight:bold">RETURN</span> p.placeName <span style="color:#007020;font-weight:bold">AS</span> Name, <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#007020;font-weight:bold">AS</span> Category, <span style="color:#007020;font-weight:bold">g</span>.gateZoneName <span style="color:#007020;font-weight:bold">AS</span> Gate, a.areaName <span style="color:#007020;font-weight:bold">AS</span> Area, l.levelName <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">Level</span></code></pre></div>
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/yul_resultquery02.png"
+         alt="yul_resultquery02" width="1072" height="254"/> 
+</figure>
+
+
+<p><strong>Return count of places in each Category</strong></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">MATCH</span> (p:Place)<span style="color:#666">-</span>[:IN_CATEGORY]<span style="color:#666">-</span>(<span style="color:#007020;font-weight:bold">c</span>:Category)
+<span style="color:#007020;font-weight:bold">RETURN</span> <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#007020;font-weight:bold">AS</span> Category, collect(<span style="color:#007020;font-weight:bold">distinct</span> p.placeName) <span style="color:#007020;font-weight:bold">as</span> Place, <span style="color:#007020;font-weight:bold">count</span>(p) <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">Count</span>
+<span style="color:#007020;font-weight:bold">ORDER</span> <span style="color:#007020;font-weight:bold">BY</span> <span style="color:#007020;font-weight:bold">Count</span> <span style="color:#007020;font-weight:bold">DESC</span></code></pre></div>
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/yul_result03.png"
+         alt="yul_result03" width="980" height="437"/> 
+</figure>
+
+
+<p>Take time to explore the data and try to write your own queries!</p>
+
+<p>Don&#8217;t forget the available online training from Neo4j: <strong>Getting Started with Neo4j</strong> and recently added <strong>Neo4j in Production</strong> <a href="http://neo4j.com/graphacademy/online-training/" target="_blank"><a href="http://neo4j.com/graphacademy/online-training/">http://neo4j.com/graphacademy/online-training/</a></a></p>
+
+<!-- AddThis Advanced Settings generic via filter on the_content -->
+
+<!-- AddThis Share Buttons generic via filter on the_content -->
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stephanefrechette" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+       · 
+      [<a href="https://github.com/luizdepra/hugo-coder/tree/"></a>]
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
