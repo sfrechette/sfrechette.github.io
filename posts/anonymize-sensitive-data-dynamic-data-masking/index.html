@@ -20,20 +20,20 @@ _Note: DDM is also available in Azure SQL Database see the following link for de
 _Note: DDM is also available in Azure SQL Database see the following link for details -&gt; http://bit.ly/1eG7Que_
   What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sfrechette.github.io/posts/anonymize-sensitive-data-dynamic-data-masking/" />
+<meta property="og:url" content="https://sfrechette.github.io/posts/anonymize-sensitive-data-dynamic-data-masking/" />
 <meta property="article:published_time" content="2016-03-06T15:17:24-04:00"/>
 <meta property="article:modified_time" content="2016-03-06T15:17:24-04:00"/>
 
 
     
-      <base href="http://sfrechette.github.io/posts/anonymize-sensitive-data-dynamic-data-masking/">
+      <base href="https://sfrechette.github.io/posts/anonymize-sensitive-data-dynamic-data-masking/">
     
     <title>
   SQL Server 2016 - Dynamic Data Masking · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://sfrechette.github.io/posts/anonymize-sensitive-data-dynamic-data-masking/">
+      <link rel="canonical" href="https://sfrechette.github.io/posts/anonymize-sensitive-data-dynamic-data-masking/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -43,7 +43,7 @@ _Note: DDM is also available in Azure SQL Database see the following link for de
     
       
       
-      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -52,8 +52,8 @@ _Note: DDM is also available in Azure SQL Database see the following link for de
 
     
 
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -62,7 +62,7 @@ _Note: DDM is also available in Azure SQL Database see the following link for de
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://sfrechette.github.io/">
+    <a class="navigation-title" href="https://sfrechette.github.io">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -71,15 +71,15 @@ _Note: DDM is also available in Azure SQL Database see the following link for de
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -112,25 +112,25 @@ _Note: DDM is also available in Azure SQL Database see the following link for de
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://sfrechette.github.io/categories/databases/">Databases</a>
+    <a href="https://sfrechette.github.io/categories/databases/">Databases</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/categories/sql-server/">SQL Server</a></div>
+    <a href="https://sfrechette.github.io/categories/sql-server/">SQL Server</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://sfrechette.github.io/tags/anonymize/">anonymize</a>
+    <a href="https://sfrechette.github.io/tags/anonymize/">anonymize</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/data-masking/">data masking</a>
+    <a href="https://sfrechette.github.io/tags/data-masking/">data masking</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/dynamic-data-masking/">dynamic data masking</a>
+    <a href="https://sfrechette.github.io/tags/dynamic-data-masking/">dynamic data masking</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/obfuscation/">obfuscation</a>
+    <a href="https://sfrechette.github.io/tags/obfuscation/">obfuscation</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/security/">security</a>
+    <a href="https://sfrechette.github.io/tags/security/">security</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/sql-server/">sql server</a>
+    <a href="https://sfrechette.github.io/tags/sql-server/">sql server</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/sql-server-2016/">sql server 2016</a></div>
+    <a href="https://sfrechette.github.io/tags/sql-server-2016/">sql server 2016</a></div>
 
         </div>
       </header>
@@ -141,7 +141,7 @@ _Note: DDM is also available in Azure SQL Database see the following link for de
 <p>_Note: DDM is also available in Azure SQL Database see the following link for details -&gt; <a href="http://bit.ly/1eG7Que" target="_blank"><a href="http://bit.ly/1eG7Que">http://bit.ly/1eG7Que</a></a>_</p>
 
 <p><figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/DDM.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/DDM.png"
          alt="Dynamic Data Masking" width="350" height="240"/> 
 </figure>
  What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries. It is implemented within the database itself, the logic is centralized and always applies when the sensitive data is queried. Traditionally, obfuscation of sensitive data as been coded in the application layer, using views to limits the exposure of sensitive pieces of data, and third-party tools&#8230; Bottom line, it is now quite simple to configure DDM rules on sensitive columns, which can be done on an existing database without affecting database operations or requiring changes in application code.</p>
@@ -179,7 +179,7 @@ This example creates a table with three different types of dynamic data masks, i
 <span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> dbo.Customer;</code></pre></div>
 <p>query output:<br />
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/q1.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/q1.png"
          alt="q1" width="1014" height="155"/> 
 </figure>
 </p>
@@ -194,7 +194,7 @@ revert;</code></pre></div>
 <p>As you can see the testuser database user is unable to see the real data values for each of the columns that have been masked<br />
 query output:<br />
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/q2.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/q2.png"
          alt="q2" width="918" height="154"/> 
 </figure>
 </p>
@@ -210,7 +210,7 @@ revert;</code></pre></div>
 <p>The output shows all columns of data in clear text, even the ones that have been masked by rule definition<br />
 query output:<br />
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/q1.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/q1.png"
          alt="q1" width="1014" height="155"/> 
 </figure>
 </p>

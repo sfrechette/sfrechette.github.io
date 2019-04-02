@@ -3,176 +3,176 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://sfrechette.github.io/posts/my-first-post/</loc>
+    <loc>https://sfrechette.github.io/posts/my-first-post/</loc>
     <lastmod>2019-03-27T10:12:22-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/pause-azure-sql-data-warehouses-with-azure-automation/</loc>
+    <loc>https://sfrechette.github.io/posts/pause-azure-sql-data-warehouses-with-azure-automation/</loc>
     <lastmod>2018-11-27T11:19:56-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/podcasts-blogs-about-data-engineering-data-science-ml-and-ai/</loc>
+    <loc>https://sfrechette.github.io/posts/podcasts-blogs-about-data-engineering-data-science-ml-and-ai/</loc>
     <lastmod>2018-07-26T09:21:40-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/</loc>
+    <loc>https://sfrechette.github.io/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/</loc>
     <lastmod>2018-04-25T13:40:28-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/ingest-real-time-streaming-data-for-time-series-analysis/</loc>
+    <loc>https://sfrechette.github.io/posts/ingest-real-time-streaming-data-for-time-series-analysis/</loc>
     <lastmod>2018-04-17T11:59:21-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</loc>
+    <loc>https://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</loc>
     <lastmod>2018-02-08T15:09:48-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/copying-data-to-the-cloud-from-the-command-line/</loc>
+    <loc>https://sfrechette.github.io/posts/copying-data-to-the-cloud-from-the-command-line/</loc>
     <lastmod>2017-11-19T16:46:01-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/fetching-nhl-play-by-play-v2/</loc>
+    <loc>https://sfrechette.github.io/posts/fetching-nhl-play-by-play-v2/</loc>
     <lastmod>2017-10-09T19:52:18-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/search-string-multiple-files/</loc>
+    <loc>https://sfrechette.github.io/posts/search-string-multiple-files/</loc>
     <lastmod>2017-09-22T10:36:08-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/installing-timescaledb-azure/</loc>
+    <loc>https://sfrechette.github.io/posts/installing-timescaledb-azure/</loc>
     <lastmod>2017-07-25T16:30:49-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/real-time-streaming-dashboard-power-bi/</loc>
+    <loc>https://sfrechette.github.io/posts/real-time-streaming-dashboard-power-bi/</loc>
     <lastmod>2017-07-18T15:32:29-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/sql-graph-sql-server-2017/</loc>
+    <loc>https://sfrechette.github.io/posts/sql-graph-sql-server-2017/</loc>
     <lastmod>2017-05-16T09:35:21-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/configure-manage-sql-server-linux/</loc>
+    <loc>https://sfrechette.github.io/posts/configure-manage-sql-server-linux/</loc>
     <lastmod>2017-04-10T14:42:14-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</loc>
+    <loc>https://sfrechette.github.io/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</loc>
     <lastmod>2017-04-04T11:13:18-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/running-sql-server-linux-docker-windows-10/</loc>
+    <loc>https://sfrechette.github.io/posts/running-sql-server-linux-docker-windows-10/</loc>
     <lastmod>2017-03-21T12:23:03-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/sql-server-linux-whats-installed/</loc>
+    <loc>https://sfrechette.github.io/posts/sql-server-linux-whats-installed/</loc>
     <lastmod>2017-01-18T23:23:49-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/fetching-nhl-play-play-game-data-part-2/</loc>
+    <loc>https://sfrechette.github.io/posts/fetching-nhl-play-play-game-data-part-2/</loc>
     <lastmod>2016-12-09T10:25:54-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/installing-sql-server-linux-ubuntu/</loc>
+    <loc>https://sfrechette.github.io/posts/installing-sql-server-linux-ubuntu/</loc>
     <lastmod>2016-11-22T22:49:55-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/fetching-nhl-play-play-game-data/</loc>
+    <loc>https://sfrechette.github.io/posts/fetching-nhl-play-play-game-data/</loc>
     <lastmod>2016-10-25T15:16:20-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/</loc>
+    <loc>https://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/</loc>
     <lastmod>2016-09-16T11:59:40-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/sql-server-2016-row-level-security/</loc>
+    <loc>https://sfrechette.github.io/posts/sql-server-2016-row-level-security/</loc>
     <lastmod>2016-05-19T16:47:34-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/anonymize-sensitive-data-dynamic-data-masking/</loc>
+    <loc>https://sfrechette.github.io/posts/anonymize-sensitive-data-dynamic-data-masking/</loc>
     <lastmod>2016-03-06T15:17:24-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/contosoretaildw-azure-sql-data-warehouse/</loc>
+    <loc>https://sfrechette.github.io/posts/contosoretaildw-azure-sql-data-warehouse/</loc>
     <lastmod>2016-01-03T14:58:27-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/a-short-tale-of-data-vizes/</loc>
+    <loc>https://sfrechette.github.io/posts/a-short-tale-of-data-vizes/</loc>
     <lastmod>2015-09-29T09:12:54-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/azure-cloud-services-neo4j/</loc>
+    <loc>https://sfrechette.github.io/posts/azure-cloud-services-neo4j/</loc>
     <lastmod>2015-08-06T09:22:50-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/</loc>
+    <loc>https://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/</loc>
     <lastmod>2015-06-14T19:50:49-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/importing-adventureworks-data-into-neo4j/</loc>
+    <loc>https://sfrechette.github.io/posts/importing-adventureworks-data-into-neo4j/</loc>
     <lastmod>2015-04-01T11:45:53-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</loc>
+    <loc>https://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</loc>
     <lastmod>2015-03-23T08:19:37-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/data-analytics-r-sql-server/</loc>
+    <loc>https://sfrechette.github.io/posts/data-analytics-r-sql-server/</loc>
     <lastmod>2015-01-07T20:04:51-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/graph-data-modeling-and-importing-the-spreadsheet-way/</loc>
+    <loc>https://sfrechette.github.io/posts/graph-data-modeling-and-importing-the-spreadsheet-way/</loc>
     <lastmod>2014-09-19T14:26:35-04:00</lastmod>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/about/</loc>
+    <loc>https://sfrechette.github.io/about/</loc>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/talks/</loc>
+    <loc>https://sfrechette.github.io/talks/</loc>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/posts/</loc>
+    <loc>https://sfrechette.github.io/posts/</loc>
     <lastmod>2019-03-27T10:12:22-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/series/</loc>
+    <loc>https://sfrechette.github.io/series/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://sfrechette.github.io/</loc>
+    <loc>https://sfrechette.github.io/</loc>
     <lastmod>2019-03-27T10:12:22-04:00</lastmod>
     <priority>0</priority>
   </url>

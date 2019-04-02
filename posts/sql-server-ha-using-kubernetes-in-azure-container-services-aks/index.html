@@ -18,20 +18,20 @@ Enters Azure Container Service (AKS) which manages your hosted Kubernetes enviro
 <meta property="og:description" content="In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
 Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sfrechette.github.io/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/" />
+<meta property="og:url" content="https://sfrechette.github.io/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/" />
 <meta property="article:published_time" content="2018-04-25T13:40:28-04:00"/>
 <meta property="article:modified_time" content="2018-04-25T13:40:28-04:00"/>
 
 
     
-      <base href="http://sfrechette.github.io/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/">
+      <base href="https://sfrechette.github.io/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/">
     
     <title>
   SQL Server HA using Kubernetes in Azure Container Services (AKS) · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://sfrechette.github.io/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/">
+      <link rel="canonical" href="https://sfrechette.github.io/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +41,7 @@ Enters Azure Container Service (AKS) which manages your hosted Kubernetes enviro
     
       
       
-      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -50,8 +50,8 @@ Enters Azure Container Service (AKS) which manages your hosted Kubernetes enviro
 
     
 
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -60,7 +60,7 @@ Enters Azure Container Service (AKS) which manages your hosted Kubernetes enviro
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://sfrechette.github.io/">
+    <a class="navigation-title" href="https://sfrechette.github.io">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -69,15 +69,15 @@ Enters Azure Container Service (AKS) which manages your hosted Kubernetes enviro
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -110,29 +110,29 @@ Enters Azure Container Service (AKS) which manages your hosted Kubernetes enviro
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://sfrechette.github.io/categories/databases/">Databases</a></div>
+    <a href="https://sfrechette.github.io/categories/databases/">Databases</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://sfrechette.github.io/tags/aks/">aks</a>
+    <a href="https://sfrechette.github.io/tags/aks/">aks</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/azure/">azure</a>
+    <a href="https://sfrechette.github.io/tags/azure/">azure</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/azure-container-services/">azure container services</a>
+    <a href="https://sfrechette.github.io/tags/azure-container-services/">azure container services</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/containers/">containers</a>
+    <a href="https://sfrechette.github.io/tags/containers/">containers</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/docker/">docker</a>
+    <a href="https://sfrechette.github.io/tags/docker/">docker</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/high-availability/">high availability</a>
+    <a href="https://sfrechette.github.io/tags/high-availability/">high availability</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/k8s/">k8s</a>
+    <a href="https://sfrechette.github.io/tags/k8s/">k8s</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/kubernetes/">kubernetes</a>
+    <a href="https://sfrechette.github.io/tags/kubernetes/">kubernetes</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/sql-server/">sql server</a>
+    <a href="https://sfrechette.github.io/tags/sql-server/">sql server</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/sql-server-on-linux/">sql server on linux</a></div>
+    <a href="https://sfrechette.github.io/tags/sql-server-on-linux/">sql server on linux</a></div>
 
         </div>
       </header>
@@ -141,7 +141,7 @@ Enters Azure Container Service (AKS) which manages your hosted Kubernetes enviro
         
 
 <p><figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/Azure-Container-Service_COLOR-300x300.png#floatleft"
+    <img src="https://sfrechette.github.io/images/legacy-post/Azure-Container-Service_COLOR-300x300.png#floatleft"
          alt="Azure Container Services (AKS)" width="200" height="200"/> 
 </figure>
 <br />
@@ -183,7 +183,7 @@ After installing the Azure CLI run the following command to install kubectl (nee
 <em>While AKS is in preview, only some location options are available. These are eastus, westeurope, centralus, canadacentral, canadaeast</em></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_1.png" width="1010" height="307"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_1.png" width="1010" height="307"/> 
 </figure>
 
 
@@ -192,7 +192,7 @@ After installing the Azure CLI run the following command to install kubectl (nee
 <em>While AKS is in preview, creating new clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. Use the az provider register command to register the AKS provider. After registering, you are now ready to create a Kubernetes cluster with AKS.</em></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_2.png" width="1010" height="307"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_2.png" width="1010" height="307"/> 
 </figure>
 
 
@@ -202,7 +202,7 @@ After installing the Azure CLI run the following command to install kubectl (nee
 
 <p>Something similar to the following:<br />
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_3.png" width="1010" height="307"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_3.png" width="1010" height="307"/> 
 </figure>
 </p>
 
@@ -213,7 +213,7 @@ and validate connectivity to the cluster<br />
 
 <p>You should see that our newly created cluster with 3 nodes and a status of Ready.<br />
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_4.png" width="1010" height="307"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_4.png" width="1010" height="307"/> 
 </figure>
 </p>
 
@@ -222,7 +222,7 @@ and validate connectivity to the cluster<br />
 A new browser tab or window should open or simply navigate to <a href="http://127.0.0.1:8001" target="_blank" rel="noopener"><a href="http://127.0.0.1:8001">http://127.0.0.1:8001</a></a></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_5.png" width="1008" height="256"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_5.png" width="1008" height="256"/> 
 </figure>
 
 
@@ -234,7 +234,7 @@ We will now create a password in the Kubernetes cluster. Kubernetes can manage s
 <p><code>kubectl create secret generic mssql --from-literal=SA_PASSWORD=&quot;&lt;em&gt;YourComplexPassword&lt;/em&gt;&quot;</code></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_6.png" width="1010" height="307"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_6.png" width="1010" height="307"/> 
 </figure>
 
 
@@ -271,7 +271,7 @@ Create a manifest to define the storage class and the persistent volume claim. T
 <code>kubectl apply -f &lt;em&gt;&lt;Path to you recently saved pvc.yml file&gt;&lt;/em&gt;</code></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_7.png" width="1010" height="307"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_7.png" width="1010" height="307"/> 
 </figure>
 
 
@@ -280,7 +280,7 @@ Create a manifest to define the storage class and the persistent volume claim. T
 <em>In our pvc.yml created earlier the persistent volume claim is named <strong>mssql-data</strong></em></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_8.png" width="1010" height="409"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_8.png" width="1010" height="409"/> 
 </figure>
 
 
@@ -288,7 +288,7 @@ Create a manifest to define the storage class and the persistent volume claim. T
 <code>kubectl describe pv</code></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_9.png" width="1010" height="460"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_9.png" width="1010" height="460"/> 
 </figure>
 
 
@@ -348,7 +348,7 @@ Create a manifest to define the storage class and the persistent volume claim. T
 <code>kubectl apply -f &lt;em&gt;&lt;Path to your recently saved sqldeployment.yml file&gt;&lt;/em&gt;</code></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_10.png" width="1010" height="324"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_10.png" width="1010" height="324"/> 
 </figure>
 
 
@@ -358,7 +358,7 @@ Create a manifest to define the storage class and the persistent volume claim. T
 <p>Because I just issued the command right after creating the deployment, it is showing that the container is being created&#8230; leave it some time to pull the docker image and try again. It should then show a status of Running.</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_11.png" width="1010" height="324"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_11.png" width="1010" height="324"/> 
 </figure>
 
 
@@ -368,7 +368,7 @@ Create a manifest to define the storage class and the persistent volume claim. T
 <p>Take note of the EXTERNAL-IP, that&#8217;s the one will be using to connect to the SQL Server instance.</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_12.png" width="1010" height="324"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_12.png" width="1010" height="324"/> 
 </figure>
 
 
@@ -379,7 +379,7 @@ Create a manifest to define the storage class and the persistent volume claim. T
 <p><code>sqlcmd -S &lt;em&gt;&lt;External IP Address&gt;&lt;/em&gt; -U sa -P &quot;&lt;em&gt;YourComplexPassword&lt;/em&gt;&quot;</code></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_13.png" width="1010" height="341"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_13.png" width="1010" height="341"/> 
 </figure>
 
 
@@ -401,12 +401,12 @@ Create a manifest to define the storage class and the persistent volume claim. T
 <p>It worked! Notice the pod name before and after the delete, it is different and running on a different node.</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_14.png" width="1024" height="253"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_14.png" width="1024" height="253"/> 
 </figure>
 
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_15.png" width="1026" height="307"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_15.png" width="1026" height="307"/> 
 </figure>
 
 
@@ -415,7 +415,7 @@ Create a manifest to define the storage class and the persistent volume claim. T
 <p>Here is a screenshot of the k8s dashboard</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/k8s_16.png" width="1144" height="850"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/k8s_16.png" width="1144" height="850"/> 
 </figure>
 
 

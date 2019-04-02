@@ -20,20 +20,20 @@ Open a Terminal session and see what type of help and information we get&#8230;"
 The tool is installed in the following directory path /opt/mssql/bin let&#8217;s explore what mssql-conf is all about.
 Open a Terminal session and see what type of help and information we get&#8230;" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sfrechette.github.io/posts/configure-manage-sql-server-linux/" />
+<meta property="og:url" content="https://sfrechette.github.io/posts/configure-manage-sql-server-linux/" />
 <meta property="article:published_time" content="2017-04-10T14:42:14-04:00"/>
 <meta property="article:modified_time" content="2017-04-10T14:42:14-04:00"/>
 
 
     
-      <base href="http://sfrechette.github.io/posts/configure-manage-sql-server-linux/">
+      <base href="https://sfrechette.github.io/posts/configure-manage-sql-server-linux/">
     
     <title>
   Configure and manage SQL Server on Linux · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://sfrechette.github.io/posts/configure-manage-sql-server-linux/">
+      <link rel="canonical" href="https://sfrechette.github.io/posts/configure-manage-sql-server-linux/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -43,7 +43,7 @@ Open a Terminal session and see what type of help and information we get&#8230;"
     
       
       
-      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -52,8 +52,8 @@ Open a Terminal session and see what type of help and information we get&#8230;"
 
     
 
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -62,7 +62,7 @@ Open a Terminal session and see what type of help and information we get&#8230;"
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://sfrechette.github.io/">
+    <a class="navigation-title" href="https://sfrechette.github.io">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -71,15 +71,15 @@ Open a Terminal session and see what type of help and information we get&#8230;"
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -112,21 +112,21 @@ Open a Terminal session and see what type of help and information we get&#8230;"
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://sfrechette.github.io/categories/databases/">Databases</a>
+    <a href="https://sfrechette.github.io/categories/databases/">Databases</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/categories/sql-server/">SQL Server</a></div>
+    <a href="https://sfrechette.github.io/categories/sql-server/">SQL Server</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://sfrechette.github.io/tags/linux/">linux</a>
+    <a href="https://sfrechette.github.io/tags/linux/">linux</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/mssql-conf/">mssql-conf</a>
+    <a href="https://sfrechette.github.io/tags/mssql-conf/">mssql-conf</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/sql-server/">sql server</a>
+    <a href="https://sfrechette.github.io/tags/sql-server/">sql server</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/sql-server-linux/">sql server linux</a>
+    <a href="https://sfrechette.github.io/tags/sql-server-linux/">sql server linux</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/sql-server-on-linux/">sql server on linux</a></div>
+    <a href="https://sfrechette.github.io/tags/sql-server-on-linux/">sql server on linux</a></div>
 
         </div>
       </header>
@@ -144,7 +144,7 @@ Open a Terminal session and see what type of help and information we get&#8230;<
 <code>./mssql-conf -h</code></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/mssql-conf_01.png" width="977" height="559"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/mssql-conf_01.png" width="977" height="559"/> 
 </figure>
 
 
@@ -154,7 +154,7 @@ Open a Terminal session and see what type of help and information we get&#8230;<
 <code>./mssql-conf list</code></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/mssql-conf_02.png" width="977" height="270"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/mssql-conf_02.png" width="977" height="270"/> 
 </figure>
 
 
@@ -199,7 +199,7 @@ Create a new directory named &#8216;backup&#8217; -&gt; <code>mkdir /var/opt/mss
 Validate that new directory was created -&gt; <code>ls -l</code></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/mssql-conf_03.png" width="896" height="440"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/mssql-conf_03.png" width="896" height="440"/> 
 </figure>
 
 
@@ -212,7 +212,7 @@ Validate that new directory was created -&gt; <code>ls -l</code></p>
 <p><code>systemctl restart mssql-server</code></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/mssql-conf_05.png" width="1121" height="287"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/mssql-conf_05.png" width="1121" height="287"/> 
 </figure>
 
 
@@ -221,7 +221,7 @@ Validate that new directory was created -&gt; <code>ls -l</code></p>
 <p><code>cat /var/opt/mssql/mssql.conf</code></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/mssql-conf_04.png" width="896" height="440"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/mssql-conf_04.png" width="896" height="440"/> 
 </figure>
 
 

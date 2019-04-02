@@ -18,20 +18,20 @@ So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attenda
 <meta property="og:description" content="The more you used it, the more you discover great stuff&#8230; I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing&#8230;you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&gt; https://ram-n.github.io/weatherData/.
 So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/" />
+<meta property="og:url" content="https://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/" />
 <meta property="article:published_time" content="2015-03-23T08:19:37-04:00"/>
 <meta property="article:modified_time" content="2015-03-23T08:19:37-04:00"/>
 
 
     
-      <base href="http://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/">
+      <base href="https://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/">
     
     <title>
   Ottawa weather vs. Ottawa JavaScript Meetup attendance: an R analysis · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/">
+      <link rel="canonical" href="https://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +41,7 @@ So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attenda
     
       
       
-      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -50,8 +50,8 @@ So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attenda
 
     
 
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -60,7 +60,7 @@ So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attenda
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://sfrechette.github.io/">
+    <a class="navigation-title" href="https://sfrechette.github.io">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -69,15 +69,15 @@ So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attenda
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -110,23 +110,23 @@ So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attenda
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://sfrechette.github.io/categories/data-analytics/">Data Analytics</a>
+    <a href="https://sfrechette.github.io/categories/data-analytics/">Data Analytics</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/categories/data-visualization/">Data Visualization</a></div>
+    <a href="https://sfrechette.github.io/categories/data-visualization/">Data Visualization</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://sfrechette.github.io/tags/data-analytics/">data analytics</a>
+    <a href="https://sfrechette.github.io/tags/data-analytics/">data analytics</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/data-science/">data science</a>
+    <a href="https://sfrechette.github.io/tags/data-science/">data science</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/data-visualization/">data visualization</a>
+    <a href="https://sfrechette.github.io/tags/data-visualization/">data visualization</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/rstats/">rstats</a>
+    <a href="https://sfrechette.github.io/tags/rstats/">rstats</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/analytics/">analytics</a>
+    <a href="https://sfrechette.github.io/tags/analytics/">analytics</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/statistical-analysis/">statistical analysis</a></div>
+    <a href="https://sfrechette.github.io/tags/statistical-analysis/">statistical analysis</a></div>
 
         </div>
       </header>
@@ -162,7 +162,7 @@ df_weather <span style="color:#666">=</span> <span style="color:#007020">rbind</
 <p>Your Console window will output similar to the following:</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/R_ottawaweather01.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/R_ottawaweather01.png"
          alt="R_ottawaweather01" width="813" height="681"/> 
 </figure>
 
@@ -175,7 +175,7 @@ weather<span style="color:#666">$</span>Date <span style="color:#666">=</span> <
 
 weather <span style="color:#666">%&amp;gt;%</span> sample_n(<span style="color:#40a070">10</span>) <span style="color:#666">%&amp;gt;%</span> select(Date, Min_TemperatureC, Mean_TemperatureC, Max_TemperatureC)</code></pre></div>
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/R_ottawaweather02.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/R_ottawaweather02.png"
          alt="R_ottawaweather02" width="812" height="400"/> 
 </figure>
 
@@ -186,7 +186,7 @@ events<span style="color:#666">$</span>date <span style="color:#666">=</span>  <
 
 events <span style="color:#666">%&amp;gt;%</span> sample_n(<span style="color:#40a070">10</span>) <span style="color:#666">%&amp;gt;%</span> select(event, rsvps, <span style="color:#007020">date</span>)</code></pre></div>
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/R_ottawaweather03.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/R_ottawaweather03.png"
          alt="R_ottawaweather03" width="813" height="363"/> 
 </figure>
 
@@ -218,7 +218,7 @@ grid.arrange(plot_temperature, plot_attendance, ncol <span style="color:#666">=<
 <p>Examining the plots, we can see a slight inverse correlation between February and June (March &#8211; black sheep!), meaning that as the temperature starts increasing, the total attendance slightly decreases. And from July to November, as temperature decreases, attendance slightly increases!</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/R_ottawaweather04.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/R_ottawaweather04.png"
          alt="R_ottawaweather04" width="670" height="500"/> 
 </figure>
 
@@ -237,7 +237,7 @@ merged <span style="color:#666">=</span> <span style="color:#007020">merge</span
 
 ggplot(aes(x <span style="color:#666">=</span> count, y <span style="color:#666">=</span> Mean_TemperatureC, group <span style="color:#666">=</span> day), data <span style="color:#666">=</span> merged) <span style="color:#666">+</span> geom_point()</code></pre></div>
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/R_ottawaweather05.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/R_ottawaweather05.png"
          alt="R_ottawaweather05" width="671" height="507"/> 
 </figure>
 
@@ -246,7 +246,7 @@ ggplot(aes(x <span style="color:#666">=</span> count, y <span style="color:#666"
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#60a0b0;font-style:italic"># Any correlation between the temperature and attendance?</span>
 cor(merged<span style="color:#666">$</span>count, merged<span style="color:#666">$</span>Mean_TemperatureC)</code></pre></div>
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/R_ottawaweather06.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/R_ottawaweather06.png"
          alt="R_ottawaweather06" width="813" height="195"/> 
 </figure>
 

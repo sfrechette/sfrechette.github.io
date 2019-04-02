@@ -18,20 +18,20 @@
 <meta property="og:description" content="In-memory distributed processing for large datasets&#8230; How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
     First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/" />
+<meta property="og:url" content="https://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/" />
 <meta property="article:published_time" content="2016-09-16T11:59:40-04:00"/>
 <meta property="article:modified_time" content="2016-09-16T11:59:40-04:00"/>
 
 
     
-      <base href="http://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/">
+      <base href="https://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/">
     
     <title>
   Connect to SQL Server using Apache Spark · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/">
+      <link rel="canonical" href="https://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +41,7 @@
     
       
       
-      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -50,8 +50,8 @@
 
     
 
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -60,7 +60,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://sfrechette.github.io/">
+    <a class="navigation-title" href="https://sfrechette.github.io">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -69,15 +69,15 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -110,23 +110,23 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://sfrechette.github.io/categories/databases/">Databases</a>
+    <a href="https://sfrechette.github.io/categories/databases/">Databases</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/categories/sql-server/">SQL Server</a></div>
+    <a href="https://sfrechette.github.io/categories/sql-server/">SQL Server</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://sfrechette.github.io/tags/apache-spark/">apache spark</a>
+    <a href="https://sfrechette.github.io/tags/apache-spark/">apache spark</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/jdbc/">jdbc</a>
+    <a href="https://sfrechette.github.io/tags/jdbc/">jdbc</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/scala/">scala</a>
+    <a href="https://sfrechette.github.io/tags/scala/">scala</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/spark/">spark</a>
+    <a href="https://sfrechette.github.io/tags/spark/">spark</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/spark-sql/">spark sql</a>
+    <a href="https://sfrechette.github.io/tags/spark-sql/">spark sql</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/sql-server/">sql server</a></div>
+    <a href="https://sfrechette.github.io/tags/sql-server/">sql server</a></div>
 
         </div>
       </header>
@@ -135,11 +135,11 @@
         <p>In-memory distributed processing for large datasets&#8230; How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.</p>
 
 <p><figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/spark-logo.png#floatright"
+    <img src="https://sfrechette.github.io/images/legacy-post/spark-logo.png#floatright"
          alt="spark-logo" width="228" height="120"/> 
 </figure>
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/sql-server.png#floatright"
+    <img src="https://sfrechette.github.io/images/legacy-post/sql-server.png#floatright"
          alt="sql-server" width="180" height="180"/> 
 </figure>
 </p>
@@ -163,7 +163,7 @@
 <p><code>bin/spark-shell --driver-class-path /opt/sqljdbc_4.2/enu/sqljdbc42.jar</code></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/2.0.0-%e2%80%94-java-%e2%80%94-140%c3%9728.png"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/2.0.0-%e2%80%94-java-%e2%80%94-140%c3%9728.png"/> 
 </figure>
 
 
@@ -204,7 +204,7 @@ I recommend you copy and paste a block of commands at a time to see and understa
 <p>Sample Terminal output&#8230;</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/2.0.0-%e2%80%94-java-%e2%80%94-173%c3%9743.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/2.0.0-%e2%80%94-java-%e2%80%94-173%c3%9743.png"
          alt="2-0-0-java-173x43" width="1024" height="650"/> 
 </figure>
 

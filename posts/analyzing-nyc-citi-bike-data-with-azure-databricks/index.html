@@ -16,20 +16,20 @@
     <meta property="og:title" content="Analyzing NYC Citi Bike data with Azure Databricks" />
 <meta property="og:description" content="It&#8217;s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/" />
+<meta property="og:url" content="https://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/" />
 <meta property="article:published_time" content="2018-02-08T15:09:48-04:00"/>
 <meta property="article:modified_time" content="2018-02-08T15:09:48-04:00"/>
 
 
     
-      <base href="http://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/">
+      <base href="https://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/">
     
     <title>
   Analyzing NYC Citi Bike data with Azure Databricks · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/">
+      <link rel="canonical" href="https://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -39,7 +39,7 @@
     
       
       
-      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -48,8 +48,8 @@
 
     
 
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -58,7 +58,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://sfrechette.github.io/">
+    <a class="navigation-title" href="https://sfrechette.github.io">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -67,15 +67,15 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -108,57 +108,57 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://sfrechette.github.io/categories/uncategorized/">Uncategorized</a></div>
+    <a href="https://sfrechette.github.io/categories/uncategorized/">Uncategorized</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://sfrechette.github.io/tags/analytics/">analytics</a>
+    <a href="https://sfrechette.github.io/tags/analytics/">analytics</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/apache-spark/">apache spark</a>
+    <a href="https://sfrechette.github.io/tags/apache-spark/">apache spark</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/azure/">azure</a>
+    <a href="https://sfrechette.github.io/tags/azure/">azure</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/azure-databricks/">azure databricks</a>
+    <a href="https://sfrechette.github.io/tags/azure-databricks/">azure databricks</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/bike/">bike</a>
+    <a href="https://sfrechette.github.io/tags/bike/">bike</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/biking/">biking</a>
+    <a href="https://sfrechette.github.io/tags/biking/">biking</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/databricks/">databricks</a>
+    <a href="https://sfrechette.github.io/tags/databricks/">databricks</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/nyc/">nyc</a>
+    <a href="https://sfrechette.github.io/tags/nyc/">nyc</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/spark/">spark</a>
+    <a href="https://sfrechette.github.io/tags/spark/">spark</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/sparksql/">sparksql</a>
+    <a href="https://sfrechette.github.io/tags/sparksql/">sparksql</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/sql/">sql</a></div>
+    <a href="https://sfrechette.github.io/tags/sql/">sql</a></div>
 
         </div>
       </header>
 
       <div>
         <p><figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/databricks_trans.png#floatleft" width="150" height="150"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/databricks_trans.png#floatleft" width="150" height="150"/> 
 </figure>
  It&#8217;s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of <a href="https://spark.apache.org/" rel="noopener" target="_blank">Apache Spark</a>, Azure Databricks combines the best of <a href="https://databricks.com/" rel="noopener" target="_blank">Databricks</a> and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts. Currently in Preview, I recommend you explore and start with the <a href="https://docs.microsoft.com/en-us/azure/azure-databricks/" rel="noopener" target="_blank">Azure Databricks Preview documentation</a>. The <a href="https://docs.microsoft.com/en-us/azure/azure-databricks/quickstart-create-databricks-workspace-portal" rel="noopener" target="_blank">Quickstarts</a> section shows you how to create a Databricks workspace and create an Apache Spark cluster within that workspace and finally running a Spark job. Your best friend for this journey is also the <a href="https://docs.azuredatabricks.net/user-guide/index.html" rel="noopener" target="_blank">Azure Databricks Guide (Documentation)</a> check out the <a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" rel="noopener" target="_blank">Getting Started</a> section.</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/azure-databricks-overview.png" width="628" height="373"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/azure-databricks-overview.png" width="628" height="373"/> 
 </figure>
 
 
 <p>Let&#8217;s get started. I am using a subset of the <a href="https://www.citibikenyc.com/system-data" rel="noopener" target="_blank">Citi Bike System Data</a> which you can explore and download from here -&gt; <a href="https://s3.amazonaws.com/tripdata/index.html" rel="noopener" target="_blank">tripdata</a>. For this demo I am using data from 2017 only. Once I downloaded the required dataset I then uploaded it to my Azure Blob Storage account.</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/blob_citibike.png" width="889" height="674"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/blob_citibike.png" width="889" height="674"/> 
 </figure>
 
 
 <p>Next I created a cluster and named it &#8220;citibike&#8221;, disabled autoscaling and configure 4 workers and then set the auto termination to 60 minutes.</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/cluster_citibike.png" width="914" height="597"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/cluster_citibike.png" width="914" height="597"/> 
 </figure>
 
 

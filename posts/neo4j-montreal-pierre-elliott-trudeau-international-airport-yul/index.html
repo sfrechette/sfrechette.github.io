@@ -16,20 +16,20 @@
     <meta property="og:title" content="Neo4j: Montreal-Pierre Elliott Trudeau International Airport (YUL)" />
 <meta property="og:description" content="A quick exercise on graph modeling. I recently got inspired from one of Nicole White&#8217;s post who did something similar with the Dallas Fort Worth Airport (DFW) data. So I decided to create a Neo4j graph database of the shopping places (boutiques, restaurants and services) at the Montreal-Pierre Elliott Trudeau International Airport (YUL). There isn&#8217;t any raw data to download on the site. So I will spare you the details of my scrapping efforts and instead share with you my findings and results." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/" />
+<meta property="og:url" content="https://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/" />
 <meta property="article:published_time" content="2015-06-14T19:50:49-04:00"/>
 <meta property="article:modified_time" content="2015-06-14T19:50:49-04:00"/>
 
 
     
-      <base href="http://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/">
+      <base href="https://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/">
     
     <title>
   Neo4j: Montreal-Pierre Elliott Trudeau International Airport (YUL) · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/">
+      <link rel="canonical" href="https://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -39,7 +39,7 @@
     
       
       
-      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -48,8 +48,8 @@
 
     
 
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -58,7 +58,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://sfrechette.github.io/">
+    <a class="navigation-title" href="https://sfrechette.github.io">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -67,15 +67,15 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -108,30 +108,30 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://sfrechette.github.io/categories/nosql/">NoSQL</a></div>
+    <a href="https://sfrechette.github.io/categories/nosql/">NoSQL</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://sfrechette.github.io/tags/data-modeling/">data modeling</a>
+    <a href="https://sfrechette.github.io/tags/data-modeling/">data modeling</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/graph-database/">graph database</a>
+    <a href="https://sfrechette.github.io/tags/graph-database/">graph database</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/graph-databases/">graph databases</a>
+    <a href="https://sfrechette.github.io/tags/graph-databases/">graph databases</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/graphdb/">graphdb</a>
+    <a href="https://sfrechette.github.io/tags/graphdb/">graphdb</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/neo4j/">neo4j</a>
+    <a href="https://sfrechette.github.io/tags/neo4j/">neo4j</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/nosql/">nosql</a>
+    <a href="https://sfrechette.github.io/tags/nosql/">nosql</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/yul/">yul</a></div>
+    <a href="https://sfrechette.github.io/tags/yul/">yul</a></div>
 
         </div>
       </header>
 
       <div>
         <p><figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/Airplane_silhouette-150x150.png#floatleft"
+    <img src="https://sfrechette.github.io/images/legacy-post/Airplane_silhouette-150x150.png#floatleft"
          alt="Airplane_silhouette" width="150" height="150"/> 
 </figure>
  A quick exercise on graph modeling. I recently got inspired from one of <a href="https://nicolewhite.github.io/" target="_blank">Nicole White&#8217;s</a> post who did something similar with the Dallas Fort Worth Airport (DFW) data. So I decided to create a Neo4j graph database of the <a href="http://www.admtl.com/en/shopping" target="_blank">shopping places (boutiques, restaurants and services)</a> at the <a href="http://www.admtl.com/en" target="_blank">Montreal-Pierre Elliott Trudeau International Airport (YUL)</a>. There isn&#8217;t any raw data to download on the site. So I will spare you the details of my scrapping efforts and instead share with you my findings and results.</p>
@@ -141,7 +141,7 @@
 <p>Here is a sample from the Data sheet:</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/yul_data_sheet-1024x607.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/yul_data_sheet-1024x607.png"
          alt="yul_data_sheet" width="1024" height="607"/> 
 </figure>
 
@@ -164,7 +164,7 @@
 
 <p><strong>YUL Graph Model:</strong><br />
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/yul_propertygraph.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/yul_propertygraph.png"
          alt="yul_propertygraph" width="897" height="170"/> 
 </figure>
 </p>
@@ -248,7 +248,7 @@ MERGE (area)<span style="color:#666">-</span>[:AT_LEVEL]<span style="color:#666"
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">WHERE</span> <span style="color:#007020;font-weight:bold">g</span>.gateZoneName <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Gate 57&#39;</span>
 <span style="color:#007020;font-weight:bold">RETURN</span> <span style="color:#007020;font-weight:bold">c</span>, p, <span style="color:#007020;font-weight:bold">g</span>, a, l;</code></pre></div>
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/gate57.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/gate57.png"
          alt="gate57" width="771" height="353"/> 
 </figure>
 
@@ -261,7 +261,7 @@ MERGE (area)<span style="color:#666">-</span>[:AT_LEVEL]<span style="color:#666"
 <span style="color:#007020;font-weight:bold">WHERE</span> <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Boutiques&#39;</span> <span style="color:#007020;font-weight:bold">AND</span> a.areaName <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Restricted area - International&#39;</span> <span style="color:#007020;font-weight:bold">AND</span> l.levelName <span style="color:#666">=</span> <span style="color:#4070a0">&#39;First Floor/Departures&#39;</span>
 <span style="color:#007020;font-weight:bold">RETURN</span> p.placeName <span style="color:#007020;font-weight:bold">AS</span> Name, <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#007020;font-weight:bold">AS</span> Category, <span style="color:#007020;font-weight:bold">g</span>.gateZoneName <span style="color:#007020;font-weight:bold">AS</span> Gate, a.areaName <span style="color:#007020;font-weight:bold">AS</span> Area, l.levelName <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">Level</span></code></pre></div>
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/yul_resultquery02.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/yul_resultquery02.png"
          alt="yul_resultquery02" width="1072" height="254"/> 
 </figure>
 
@@ -271,7 +271,7 @@ MERGE (area)<span style="color:#666">-</span>[:AT_LEVEL]<span style="color:#666"
 <span style="color:#007020;font-weight:bold">RETURN</span> <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#007020;font-weight:bold">AS</span> Category, collect(<span style="color:#007020;font-weight:bold">distinct</span> p.placeName) <span style="color:#007020;font-weight:bold">as</span> Place, <span style="color:#007020;font-weight:bold">count</span>(p) <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">Count</span>
 <span style="color:#007020;font-weight:bold">ORDER</span> <span style="color:#007020;font-weight:bold">BY</span> <span style="color:#007020;font-weight:bold">Count</span> <span style="color:#007020;font-weight:bold">DESC</span></code></pre></div>
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/yul_result03.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/yul_result03.png"
          alt="yul_result03" width="980" height="437"/> 
 </figure>
 

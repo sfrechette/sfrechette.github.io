@@ -16,20 +16,20 @@
     <meta property="og:title" content="Azure Cloud Services - Neo4j" />
 <meta property="og:description" content="Yes another exploration and exercise on graph modeling. This time about something I often use&#8230; the Cloud: Microsoft Azure. Thought it would be interesting to model the available Azure Cloud Service offerings by category, region, and location. The inspiration and data comes from the following source of information on the following web page http://azure.microsoft.com/en-us/regions/#services. A trivial one, but useful for demonstrating and understanding concepts. This is also a great example of how to store master data and discover new insights in existing data." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sfrechette.github.io/posts/azure-cloud-services-neo4j/" />
+<meta property="og:url" content="https://sfrechette.github.io/posts/azure-cloud-services-neo4j/" />
 <meta property="article:published_time" content="2015-08-06T09:22:50-04:00"/>
 <meta property="article:modified_time" content="2015-08-06T09:22:50-04:00"/>
 
 
     
-      <base href="http://sfrechette.github.io/posts/azure-cloud-services-neo4j/">
+      <base href="https://sfrechette.github.io/posts/azure-cloud-services-neo4j/">
     
     <title>
   Azure Cloud Services - Neo4j · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://sfrechette.github.io/posts/azure-cloud-services-neo4j/">
+      <link rel="canonical" href="https://sfrechette.github.io/posts/azure-cloud-services-neo4j/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -39,7 +39,7 @@
     
       
       
-      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -48,8 +48,8 @@
 
     
 
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -58,7 +58,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://sfrechette.github.io/">
+    <a class="navigation-title" href="https://sfrechette.github.io">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -67,15 +67,15 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -108,34 +108,34 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://sfrechette.github.io/categories/nosql/">NoSQL</a></div>
+    <a href="https://sfrechette.github.io/categories/nosql/">NoSQL</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://sfrechette.github.io/tags/azure/">azure</a>
+    <a href="https://sfrechette.github.io/tags/azure/">azure</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/cloud/">cloud</a>
+    <a href="https://sfrechette.github.io/tags/cloud/">cloud</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/data-modeling/">data modeling</a>
+    <a href="https://sfrechette.github.io/tags/data-modeling/">data modeling</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/graph-database/">graph database</a>
+    <a href="https://sfrechette.github.io/tags/graph-database/">graph database</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/graph-databases/">graph databases</a>
+    <a href="https://sfrechette.github.io/tags/graph-databases/">graph databases</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/graphdb/">graphdb</a>
+    <a href="https://sfrechette.github.io/tags/graphdb/">graphdb</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/microsoft-azure/">microsoft azure</a>
+    <a href="https://sfrechette.github.io/tags/microsoft-azure/">microsoft azure</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/neo4j/">neo4j</a>
+    <a href="https://sfrechette.github.io/tags/neo4j/">neo4j</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/nosql/">nosql</a></div>
+    <a href="https://sfrechette.github.io/tags/nosql/">nosql</a></div>
 
         </div>
       </header>
 
       <div>
         <p><figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/azurecloud-150x150.png#floatright"
+    <img src="https://sfrechette.github.io/images/legacy-post/azurecloud-150x150.png#floatright"
          alt="azurecloud" width="150" height="150"/> 
 </figure>
 
@@ -151,7 +151,7 @@ Yes another exploration and exercise on graph modeling. This time about somethin
 
 <p><em><strong>Azure Cloud Services Graph Model:</strong></em><br />
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/graph_azure.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/graph_azure.png"
          alt="graph_azure" width="1008" height="479"/> 
 </figure>
 </p>
@@ -233,7 +233,7 @@ MERGE (region)<span style="color:#666">-</span>[:LOCATED_IN]<span style="color:#
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span> Service <span style="color:#007020;font-weight:bold">and</span> categories offered <span style="color:#007020;font-weight:bold">in</span> Region <span style="color:#666">-</span>  North Europe
 <span style="color:#007020;font-weight:bold">MATCH</span> (r:Region <span style="">{</span>regionName:<span style="color:#4070a0">&#39;North Europe&#39;</span><span style="">}</span>)<span style="color:#666">-</span>[o:OFFERS]<span style="color:#666">-&gt;</span>(s:Service)<span style="color:#60a0b0;font-style:italic">--&gt;() RETURN r,o,c;</span></code></pre></div>
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/azure_europe.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/azure_europe.png"
          alt="azure_europe" width="877" height="769"/> 
 </figure>
 
@@ -242,7 +242,7 @@ MERGE (region)<span style="color:#666">-</span>[:LOCATED_IN]<span style="color:#
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">RETURN</span> s.serviceName <span style="color:#007020;font-weight:bold">as</span> Service, <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#007020;font-weight:bold">as</span> Category,  collect(<span style="color:#007020;font-weight:bold">distinct</span> r.regionName) <span style="color:#007020;font-weight:bold">as</span> Regions
 <span style="color:#007020;font-weight:bold">ORDER</span> <span style="color:#007020;font-weight:bold">BY</span> Category, Service</code></pre></div>
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/azure_services1.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/azure_services1.png"
          alt="azure_services" width="1058" height="538"/> 
 </figure>
 
@@ -250,7 +250,7 @@ MERGE (region)<span style="color:#666">-</span>[:LOCATED_IN]<span style="color:#
 <span style="color:#007020;font-weight:bold">MATCH</span> (region)<span style="color:#666">-</span>[:OFFERS]<span style="color:#666">-&gt;</span>(Service <span style="">{</span>serviceName:<span style="color:#4070a0">&#39;Machine Learning&#39;</span><span style="">}</span>)
 <span style="color:#007020;font-weight:bold">RETURN</span> region.regionName <span style="color:#007020;font-weight:bold">as</span> Region</code></pre></div>
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/azure_ml_cypher.png"
+    <img src="https://sfrechette.github.io/images/legacy-post/azure_ml_cypher.png"
          alt="azure_ml_cypher" width="985" height="189"/> 
 </figure>
 

@@ -18,20 +18,20 @@
 <meta property="og:description" content="Installing TimescaleDB on Azure. First some housekeeping&#8230; A time series database is a software system that is optimized for handling time series data, arrays of numbers indexed by time (a datetime or a datetime range). In some fields these time series are called profiles, curves, or traces.
   Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://sfrechette.github.io/posts/installing-timescaledb-azure/" />
+<meta property="og:url" content="https://sfrechette.github.io/posts/installing-timescaledb-azure/" />
 <meta property="article:published_time" content="2017-07-25T16:30:49-04:00"/>
 <meta property="article:modified_time" content="2017-07-25T16:30:49-04:00"/>
 
 
     
-      <base href="http://sfrechette.github.io/posts/installing-timescaledb-azure/">
+      <base href="https://sfrechette.github.io/posts/installing-timescaledb-azure/">
     
     <title>
   Installing TimescaleDB on Azure · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://sfrechette.github.io/posts/installing-timescaledb-azure/">
+      <link rel="canonical" href="https://sfrechette.github.io/posts/installing-timescaledb-azure/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +41,7 @@
     
       
       
-      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -50,8 +50,8 @@
 
     
 
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -60,7 +60,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://sfrechette.github.io/">
+    <a class="navigation-title" href="https://sfrechette.github.io">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -69,15 +69,15 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
+            <a class="navigation-link" href="https://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -110,21 +110,21 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://sfrechette.github.io/categories/databases/">Databases</a></div>
+    <a href="https://sfrechette.github.io/categories/databases/">Databases</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://sfrechette.github.io/tags/azure/">azure</a>
+    <a href="https://sfrechette.github.io/tags/azure/">azure</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/postgres/">postgres</a>
+    <a href="https://sfrechette.github.io/tags/postgres/">postgres</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/postgresql/">postgresql</a>
+    <a href="https://sfrechette.github.io/tags/postgresql/">postgresql</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/timescale/">timescale</a>
+    <a href="https://sfrechette.github.io/tags/timescale/">timescale</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/timescaledb/">timescaledb</a>
+    <a href="https://sfrechette.github.io/tags/timescaledb/">timescaledb</a>
       <span class="separator">•</span>
-    <a href="http://sfrechette.github.io/tags/timeseries/">timeseries</a></div>
+    <a href="https://sfrechette.github.io/tags/timeseries/">timeseries</a></div>
 
         </div>
       </header>
@@ -135,7 +135,7 @@
 <p>Installing TimescaleDB on Azure. First some housekeeping&#8230; A time series database is a software system that is optimized for handling time series data, arrays of numbers indexed by time (a datetime or a datetime range). In some fields these time series are called profiles, curves, or traces.</p>
 
 <p><figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb.png#floatleft" width="200" height="200"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb.png#floatleft" width="200" height="200"/> 
 </figure>
 
 Lately I discovered <a href="http://www.timescale.com/" target="_blank">TimescaleDB</a>, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries. It&#8217;s scalable, reliable and easy to use! Please read <a href="http://www.timescale.com/how-it-works.html" target="_blank">How it works</a> to understanding how they made it happen and most importantly the following paper: <a href="http://www.timescale.com/papers/timescaledb.pdf" target="_blank">TimescaleDB: SQL made scalable for time-series data</a>. I would also recommend you read the following blog post <a href="https://blog.timescale.com/what-the-heck-is-time-series-data-and-why-do-i-need-a-time-series-database-dcf3b1b18563" target="_blank">What the heck is time-series data (and why do I need a time-series database)?</a></p>
@@ -160,49 +160,49 @@ Lately I discovered <a href="http://www.timescale.com/" target="_blank">Timescal
 <p>Once found and selected click the &ldquo;Create&rdquo; button to continue</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb01-1.png" width="857" height="565"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb01-1.png" width="857" height="565"/> 
 </figure>
 
 
 <p>Next is the Create virtual machine wizard, first step is to provide Basic information; name, disk type, auth type&#8230; and select <em>&#8220;OK&#8221;</em> to continue</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb02-1.png" width="741" height="660"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb02-1.png" width="741" height="660"/> 
 </figure>
 
 
 <p>Next we need to Choose a size, for the purpose of this tutorial I selected DS1_V2 Standard a small VM instance (1 Core, 3.5 GB Memory). It goes without saying that for production workloads you would need to consider bigger VM instances. When I need to crank it up, I usually go for a DS12_V2 (4 Cores, 28 GB Memory) and attach a 1TB disk 😉</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb03-1.png" width="861" height="658"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb03-1.png" width="861" height="658"/> 
 </figure>
 
 
 <p>Next are the Settings, simply leave all the defaults and select <em>&#8220;OK&#8221;</em> to continue</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb04-1.png" width="744" height="659"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb04-1.png" width="744" height="659"/> 
 </figure>
 
 
 <p>And finally the final step the confirmation, select &#8220;Purchase&#8221; to confirm and deploy</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb05-1.png" width="851" height="652"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb05-1.png" width="851" height="652"/> 
 </figure>
 
 
 <p>Once the deployment is successful we connect to the Linux VM using SSH. Select &#8220;Connect&#8221; and the ssh command will appear, simply copy and paste it into your terminal session</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb06-1.png" width="877" height="215"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb06-1.png" width="877" height="215"/> 
 </figure>
 
 
 <p>Pasting the ssh command in this case <strong>ssh mytimescaledb@_[public_ip_address]_</strong> and providing the password for the mytimescaledb user we have configured earlier will connect us to the Linux VM</p>
 
 <p><figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb07.png" width="1130" height="555"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb07.png" width="1130" height="555"/> 
 </figure>
 phanefrechette.com/blog/wp-content/uploads/2017/07/tsdb07.png)</p>
 
@@ -217,14 +217,14 @@ sudo apt install timescaledb-postgresql-9.6</code></pre></div>
 <p>Add the timescaledb Personal Package Archives and resynchronize the package index files&#8230; &#8211; &gt; <strong>sudo add-apt-repository ppa:timescale/timescaledb-ppa &amp;&amp; sudo apt-get update</strong></p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb08.png" width="1132" height="251"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb08.png" width="1132" height="251"/> 
 </figure>
 
 
 <p>Install timescaledb package -&gt; <strong>sudo apt install timescaledb</strong></p>
 
 <p><figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb09.png" width="1298" height="507"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb09.png" width="1298" height="507"/> 
 </figure>
 phanefrechette.com/blog/wp-content/uploads/2017/07/tsdb09.png)</p>
 
@@ -236,14 +236,14 @@ phanefrechette.com/blog/wp-content/uploads/2017/07/tsdb09.png)</p>
 <code>cd /etc/postgresql/9.6/main</code> then issue the following <code>sudo vi postgresql.conf</code> command to edit the file.</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb12.png" width="1154" height="363"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb12.png" width="1154" height="363"/> 
 </figure>
 
 
 <p>First, scroll to the ‘CONNECTIONS AND AUTHENTICATION’ heading and within the ‘Connection Settings’ area (see below), uncomment the ‘listen_addresses’ attribute and add in the value ‘*’ to set all IP addresses to listen on</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb11.png" width="1266" height="683"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb11.png" width="1266" height="683"/> 
 </figure>
 
 
@@ -254,7 +254,7 @@ phanefrechette.com/blog/wp-content/uploads/2017/07/tsdb09.png)</p>
 <p>Basically once you have scrolled and located what to edit press <em>i</em> for insert mode, make your changes then to save and exit issue the following command -&gt; :wq</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb10.png" width="1282" height="779"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb10.png" width="1282" height="779"/> 
 </figure>
 
 
@@ -267,7 +267,7 @@ Scroll to change the following line</p>
 <p>After editing should look like the following screenshot:</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb13.png" width="1130" height="363"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb13.png" width="1130" height="363"/> 
 </figure>
 
 
@@ -281,7 +281,7 @@ Scroll to change the following line</p>
 <p>Should look something like this</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb14.png" width="1130" height="363"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb14.png" width="1130" height="363"/> 
 </figure>
 
 
@@ -294,7 +294,7 @@ Scroll to change the following line</p>
 <p>After you have created the database and extension issue the <code>\q</code> command to terminate our psql session</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb15-1.png" width="1082" height="363"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb15-1.png" width="1082" height="363"/> 
 </figure>
 
 
@@ -313,7 +313,7 @@ tar -xvzf nyc_data.tar.gz</code></pre></div>
 <p>Should look something like the following</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb16.png" width="1082" height="363"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb16.png" width="1082" height="363"/> 
 </figure>
 
 
@@ -326,7 +326,7 @@ psql -U postgres -d nyc_data -c <span style="color:#4070a0">&#34;\COPY rides FRO
 <p>Should look something like the following</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb17.png" width="1082" height="347"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb17.png" width="1082" height="347"/> 
 </figure>
 
 
@@ -342,7 +342,7 @@ psql -U postgres -d nyc_data -c <span style="color:#4070a0">&#34;\COPY rides FRO
 <p>The output should look similar to the following</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb18.png" width="1074" height="379"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb18.png" width="1074" height="379"/> 
 </figure>
 
 
@@ -354,7 +354,7 @@ psql -U postgres -d nyc_data -c <span style="color:#4070a0">&#34;\COPY rides FRO
 <p>The output should look similar to the following</p>
 
 <figure>
-    <img src="http://sfrechette.github.io/images/legacy-post/tsdb19.png" width="1074" height="379"/> 
+    <img src="https://sfrechette.github.io/images/legacy-post/tsdb19.png" width="1074" height="379"/> 
 </figure>
 
 
