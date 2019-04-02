@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Stéphane Fréchette">
+    <meta name="description" content="Stéphane Fréchette&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal,data engineer,cloud solution architect,google cloud">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Real-time streaming dashboard with Power BI"/>
+<meta name="twitter:description" content="I was recently asked to provide a simple demo/proof-of-concept on how to quickly create a real-time streaming dashboard with Power BI. Did you know that you can stream data and update dashboards in real-time? Any visual or dashboard that can be created in Power BI can also be created to display and update real-time data and visuals. The devices and sources of streaming data can be factory sensors, social media sources, service usage metrics, and anything else from which time-sensitive data can be collected or transmitted."/>
+
+    <meta property="og:title" content="Real-time streaming dashboard with Power BI" />
+<meta property="og:description" content="I was recently asked to provide a simple demo/proof-of-concept on how to quickly create a real-time streaming dashboard with Power BI. Did you know that you can stream data and update dashboards in real-time? Any visual or dashboard that can be created in Power BI can also be created to display and update real-time data and visuals. The devices and sources of streaming data can be factory sensors, social media sources, service usage metrics, and anything else from which time-sensitive data can be collected or transmitted." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://sfrechette.github.io/posts/real-time-streaming-dashboard-power-bi/" />
+<meta property="article:published_time" content="2017-07-18T15:32:29-04:00"/>
+<meta property="article:modified_time" content="2017-07-18T15:32:29-04:00"/>
+
+
+    
+      <base href="http://sfrechette.github.io/posts/real-time-streaming-dashboard-power-bi/">
+    
+    <title>
+  Real-time streaming dashboard with Power BI · Stéphane Fréchette
+</title>
+
+    
+      <link rel="canonical" href="http://sfrechette.github.io/posts/real-time-streaming-dashboard-power-bi/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.54.0" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://sfrechette.github.io/">
+      Stéphane Fréchette
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Real-time streaming dashboard with Power BI</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2017-07-18T15:32:29-04:00'>
+                July 18, 2017
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="http://sfrechette.github.io/categories/data-analytics/">Data Analytics</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/categories/data-visualization/">Data Visualization</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="http://sfrechette.github.io/tags/dashboard/">dashboard</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/data-visualization/">data visualization</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/iot/">iot</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/live-streaming/">live streaming</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/power-i/">power I</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/pubnub/">pubnub</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/real-time-streaming/">real-time streaming</a>
+      <span class="separator">•</span>
+    <a href="http://sfrechette.github.io/tags/streaming/">streaming</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<p><figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/powerbi.png#floatleft" width="200" height="200"/> 
+</figure>
+
+I was recently asked to provide a simple demo/proof-of-concept on how to quickly create a real-time streaming dashboard with Power BI. Did you know that you can stream data and update dashboards in real-time? Any visual or dashboard that can be created in Power BI can also be created to display and update real-time data and visuals. The devices and sources of streaming data can be factory sensors, social media sources, service usage metrics, and anything else from which time-sensitive data can be collected or transmitted.</p>
+
+<p>&nbsp;</p>
+
+<p>There are three types of real-time datasets which are designed for displaying visuals on real-time dashboards:</p>
+
+<ul>
+<li>Push dataset</li>
+<li>Streaming dataset</li>
+<li>PubNub streaming dataset</li>
+</ul>
+
+<p>This post is about the <strong>PubNub streaming dataset</strong>, With a PubNub streaming dataset, the Power BI web client uses the PubNub SDK to read an existing PubNub data stream, and <strong>no data</strong> is stored by the Power BI service. For more more information on the other types and their capabilities read the following documentation -&gt; <a href="https://powerbi.microsoft.com/en-us/documentation/powerbi-service-real-time-streaming/" target="_blank" rel="noopener">Real-time streaming in Power BI</a></p>
+
+<p>So what is PubNub? <a href="https://www.pubnub.com/" target="_blank" rel="noopener">PubNub</a> is a global Data Stream Network and realtime infrastructure-as-a-service company. PubNub&#8217;s Data Stream Network is a high-speed publish/subscribe messaging layer, it&#8217;s deployed globally, and makes it easy to connect and scale realtime apps without managing a dedicated infrastructure for your realtime applications.</p>
+
+<p>PubNub provides <a href="https://www.pubnub.com/developers/realtime-data-streams/" target="_blank" rel="noopener">live syndicated data streams</a> that you can use in your project. We are going to use the following stream <a href="https://www.pubnub.com/developers/realtime-data-streams/sensor-network/" target="_blank" rel="noopener">Sensor Network (simulated)</a>, which mimics data from a network of outdoor field sensors.</p>
+
+<h4 id="now-let-8217-s-build-a-real-time-dashboard-8230">Now let&#8217;s build a real-time dashboard&#8230;</h4>
+
+<p>Hopefully you already have a Power BI Pro account, if not you can <a href="https://app.powerbi.com/signupredirect?pbi_source=web" target="_blank" rel="noopener">sign-up here</a> and get started now with a free 60-day trial of Power BI Pro.</p>
+
+<ol>
+<li>We will first create a dataset. Once signed-in, go to your <em>My Workspace</em>, select <em>Datasets</em>, then <em>+ Create</em> and select <em>Streaming dataset</em></li>
+</ol>
+
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/pbi_dataset01.png" width="858" height="228"/> 
+</figure>
+
+
+<ol>
+<li>Select <em>PubNub</em> and click the <em>Next</em> button</li>
+</ol>
+
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/pbi_dataset02.png" width="490" height="575"/> 
+</figure>
+
+
+<ol>
+<li>Give your dataset a name, I chose &#8220;Sensor Network Stream&#8221; and provide the Subscription key and Channel name (copy &amp; paste)</li>
+</ol>
+
+<p><strong>Subscription key:</strong> <span style="color: #339966;"><em>sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe</em></span><br />
+<strong>Channel name:</strong> <span style="color: #339966;"><em>pubnub-sensor-network</em></span></p>
+
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/pbi_dataset03.png" width="693" height="561"/> 
+</figure>
+
+
+<ol>
+<li>You will be presented with the &#8216;schema&#8217; and values for this dataset, select the <em>Create</em> button to save the dataset</li>
+</ol>
+
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/pbi_dataset05.png" width="691" height="789"/> 
+</figure>
+
+
+<ol>
+<li>Next we go to <em>Dashboards</em>, select <em>+ Create</em> and select Dashboard</li>
+</ol>
+
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/pbi_dataset06.png" width="750" height="217"/> 
+</figure>
+
+
+<ol>
+<li>We want to add tile(s), in the <em>Real-Time Data</em> section, select <em>Custom Streaming Data</em>, and select the <em>Next</em> button</li>
+</ol>
+
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/pbi_dataset07.png" width="819" height="730"/> 
+</figure>
+
+
+<ol>
+<li>Under <em>Your Datasets</em>, you should see the streaming dataset you created earlier, select it and select the <em>Next</em> button</li>
+</ol>
+
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/pbi_dataset08.png" width="486" height="679"/> 
+</figure>
+
+
+<ol>
+<li>For your Tile select <em>Line chart</em> from the <em>Visualization Type</em>, timestamp for the <em>Axis</em>, and ambient_temperature for <em>Values</em>, then select <em>Apply</em></li>
+</ol>
+
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/pbi_dataset12.png" width="963" height="802"/> 
+</figure>
+
+
+<ol>
+<li>You can provide further Tile details, like <em>Tile</em>, <em>Subtitle</em> and link functionality&#8230;</li>
+</ol>
+
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/pbi_dataset11.png" width="958" height="817"/> 
+</figure>
+
+
+<ol>
+<li>You can add more tiles with different visualization types to your dashboard like Cards, Clustered bar charts, Clustered column charts and Gauges. I added four Cards to display the current value of each measure provided by the dataset&#8230; My final live streaming dashboard looks like this 😉</li>
+</ol>
+
+<figure>
+    <img src="http://sfrechette.github.io/images/legacy-post/powerbi_gif.gif" width="968" height="599"/> 
+</figure>
+
+
+<p>That&#8217;s a pretty simple way to demonstrate how to quickly build a Real-time streaming dashboard with Power BI</p>
+
+<p>Enjoy!</p>
+
+<!-- AddThis Advanced Settings generic via filter on the_content -->
+
+<!-- AddThis Share Buttons generic via filter on the_content -->
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stephanefrechette" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2019
+    
+       · 
+      Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+       · 
+      [<a href="https://github.com/luizdepra/hugo-coder/tree/"></a>]
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
