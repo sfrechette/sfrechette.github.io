@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spark on Stéphane Fréchette</title>
+    <link>https://sfrechette.github.io/tags/spark/</link>
+    <description>Recent content in Spark on Stéphane Fréchette</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 08 Feb 2018 15:09:48 -0400</lastBuildDate>
+    
+	<atom:link href="https://sfrechette.github.io/tags/spark/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Analyzing NYC Citi Bike data with Azure Databricks</title>
+      <link>https://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</guid>
+      <description>It&amp;#8217;s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
+    </item>
+    
+    <item>
+      <title>Connect to SQL Server using Apache Spark</title>
+      <link>https://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/</link>
+      <pubDate>Fri, 16 Sep 2016 11:59:40 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/</guid>
+      <description>In-memory distributed processing for large datasets&amp;#8230; How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
+    First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics.</description>
+    </item>
+    
+  </channel>
+</rss>

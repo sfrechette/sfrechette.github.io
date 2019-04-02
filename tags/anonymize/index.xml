@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anonymize on Stéphane Fréchette</title>
+    <link>https://sfrechette.github.io/tags/anonymize/</link>
+    <description>Recent content in Anonymize on Stéphane Fréchette</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 06 Mar 2016 15:17:24 -0400</lastBuildDate>
+    
+	<atom:link href="https://sfrechette.github.io/tags/anonymize/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SQL Server 2016 - Dynamic Data Masking</title>
+      <link>https://sfrechette.github.io/posts/anonymize-sensitive-data-dynamic-data-masking/</link>
+      <pubDate>Sun, 06 Mar 2016 15:17:24 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/anonymize-sensitive-data-dynamic-data-masking/</guid>
+      <description>With SQL Server 2016 just around the corner, a series of new features and enhancements will be introduced. More specifically some important Security Upgrades; Always Encrypted, Row Level Security, and Dynamic Data Masking. This post covers SQL Server 2016 &amp;#8211; Dynamic Data Masking (DDM).
+_Note: DDM is also available in Azure SQL Database see the following link for details -&amp;gt; http://bit.ly/1eG7Que_
+  What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries.</description>
+    </item>
+    
+  </channel>
+</rss>

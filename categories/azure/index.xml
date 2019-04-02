@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Azure on Stéphane Fréchette</title>
+    <link>https://sfrechette.github.io/categories/azure/</link>
+    <description>Recent content in Azure on Stéphane Fréchette</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 27 Nov 2018 11:19:56 -0400</lastBuildDate>
+    
+	<atom:link href="https://sfrechette.github.io/categories/azure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pause Azure SQL Data Warehouse(s) with Azure Automation</title>
+      <link>https://sfrechette.github.io/posts/pause-azure-sql-data-warehouses-with-azure-automation/</link>
+      <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/pause-azure-sql-data-warehouses-with-azure-automation/</guid>
+      <description>Folks it as been a while&amp;#8230; You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)&amp;#8230; while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automation and PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</description>
+    </item>
+    
+    <item>
+      <title>SQL Server HA using Kubernetes in Azure Container Services (AKS)</title>
+      <link>https://sfrechette.github.io/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/</link>
+      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/</guid>
+      <description>In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
+Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise.</description>
+    </item>
+    
+    <item>
+      <title>Analyzing NYC Citi Bike data with Azure Databricks</title>
+      <link>https://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</guid>
+      <description>It&amp;#8217;s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
+    </item>
+    
+    <item>
+      <title>Copying data to the Cloud from the Command line</title>
+      <link>https://sfrechette.github.io/posts/copying-data-to-the-cloud-from-the-command-line/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/copying-data-to-the-cloud-from-the-command-line/</guid>
+      <description>Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.</description>
+    </item>
+    
+    <item>
+      <title>Installing TimescaleDB on Azure</title>
+      <link>https://sfrechette.github.io/posts/installing-timescaledb-azure/</link>
+      <pubDate>Tue, 25 Jul 2017 16:30:49 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/installing-timescaledb-azure/</guid>
+      <description>Installing TimescaleDB on Azure. First some housekeeping&amp;#8230; A time series database is a software system that is optimized for handling time series data, arrays of numbers indexed by time (a datetime or a datetime range). In some fields these time series are called profiles, curves, or traces.
+  Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries.</description>
+    </item>
+    
+    <item>
+      <title>Upload multiple files &#34;recursively&#34; to Azure Blob Storage with the Azure CLI 2.0...</title>
+      <link>https://sfrechette.github.io/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</link>
+      <pubDate>Tue, 04 Apr 2017 11:13:18 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</guid>
+      <description>Files and the Azure Cloud. This post is about how to upload multiple files from a local directory &amp;#8220;recursively&amp;#8221; to Azure Blob Storage with the Azure CLI 2.0 from macOS/Linux. For the Windows platform, AzCopy is a awesome command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance.
+You can download the latest version of AzCopy
+The basic syntax for AzCopy commands is:</description>
+    </item>
+    
+    <item>
+      <title>ContosoRetailDW on Azure SQL Data Warehouse</title>
+      <link>https://sfrechette.github.io/posts/contosoretaildw-azure-sql-data-warehouse/</link>
+      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/contosoretaildw-azure-sql-data-warehouse/</guid>
+      <description>Happy New Year! It as been a while my friends&amp;#8230; here goes 😉
+ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentation to get you going.
+Optionally if you would like to have a local on premise copy of the ContosoRetailDW database &amp;#8211; A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products.</description>
+    </item>
+    
+    <item>
+      <title>Azure Cloud Services - Neo4j</title>
+      <link>https://sfrechette.github.io/posts/azure-cloud-services-neo4j/</link>
+      <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/azure-cloud-services-neo4j/</guid>
+      <description>Yes another exploration and exercise on graph modeling. This time about something I often use&amp;#8230; the Cloud: Microsoft Azure. Thought it would be interesting to model the available Azure Cloud Service offerings by category, region, and location. The inspiration and data comes from the following source of information on the following web page http://azure.microsoft.com/en-us/regions/#services. A trivial one, but useful for demonstrating and understanding concepts. This is also a great example of how to store master data and discover new insights in existing data.</description>
+    </item>
+    
+  </channel>
+</rss>

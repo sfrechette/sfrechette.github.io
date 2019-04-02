@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shiny on Stéphane Fréchette</title>
+    <link>https://sfrechette.github.io/tags/shiny/</link>
+    <description>Recent content in Shiny on Stéphane Fréchette</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 29 Sep 2015 09:12:54 -0400</lastBuildDate>
+    
+	<atom:link href="https://sfrechette.github.io/tags/shiny/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A short tale of... data vizes</title>
+      <link>https://sfrechette.github.io/posts/a-short-tale-of-data-vizes/</link>
+      <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/a-short-tale-of-data-vizes/</guid>
+      <description>A short tale of&amp;#8230; data vizes. It&amp;#8217;s about Tableau, R, and Shiny. How to prepare/build an existing and well-known Tableau visualization with R and provide web analysis interactivity. Will be using the raw data from the sample workbook named &amp;#8220;Regional&amp;#8221; that comes with Tableau Desktop. The following image below is a snapshot of the visualization that we will try to reproduce with R. You can also view and interact with this visualization on my Tableau Public profile page -&amp;gt; http://tabsoft.</description>
+    </item>
+    
+  </channel>
+</rss>

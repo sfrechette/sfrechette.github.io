@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud on Stéphane Fréchette</title>
+    <link>https://sfrechette.github.io/tags/cloud/</link>
+    <description>Recent content in Cloud on Stéphane Fréchette</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 03 Jan 2016 14:58:27 -0400</lastBuildDate>
+    
+	<atom:link href="https://sfrechette.github.io/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ContosoRetailDW on Azure SQL Data Warehouse</title>
+      <link>https://sfrechette.github.io/posts/contosoretaildw-azure-sql-data-warehouse/</link>
+      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/contosoretaildw-azure-sql-data-warehouse/</guid>
+      <description>Happy New Year! It as been a while my friends&amp;#8230; here goes 😉
+ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentation to get you going.
+Optionally if you would like to have a local on premise copy of the ContosoRetailDW database &amp;#8211; A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products.</description>
+    </item>
+    
+    <item>
+      <title>Azure Cloud Services - Neo4j</title>
+      <link>https://sfrechette.github.io/posts/azure-cloud-services-neo4j/</link>
+      <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/azure-cloud-services-neo4j/</guid>
+      <description>Yes another exploration and exercise on graph modeling. This time about something I often use&amp;#8230; the Cloud: Microsoft Azure. Thought it would be interesting to model the available Azure Cloud Service offerings by category, region, and location. The inspiration and data comes from the following source of information on the following web page http://azure.microsoft.com/en-us/regions/#services. A trivial one, but useful for demonstrating and understanding concepts. This is also a great example of how to store master data and discover new insights in existing data.</description>
+    </item>
+    
+  </channel>
+</rss>

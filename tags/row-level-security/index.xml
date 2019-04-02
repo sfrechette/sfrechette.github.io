@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Row Level Security on Stéphane Fréchette</title>
+    <link>https://sfrechette.github.io/tags/row-level-security/</link>
+    <description>Recent content in Row Level Security on Stéphane Fréchette</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 19 May 2016 16:47:34 -0400</lastBuildDate>
+    
+	<atom:link href="https://sfrechette.github.io/tags/row-level-security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SQL Server 2016 Row-Level Security</title>
+      <link>https://sfrechette.github.io/posts/sql-server-2016-row-level-security/</link>
+      <pubDate>Thu, 19 May 2016 16:47:34 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/sql-server-2016-row-level-security/</guid>
+      <description>With SQL Server 2016 literately just days away from being officially available to public for download (Get ready, SQL Server 2016 coming on June 1st). I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).</description>
+    </item>
+    
+  </channel>
+</rss>

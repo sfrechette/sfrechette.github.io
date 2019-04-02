@@ -17,7 +17,7 @@
       <pubDate>Wed, 27 Mar 2019 10:12:22 -0400</pubDate>
       
       <guid>https://sfrechette.github.io/posts/my-first-post/</guid>
-      <description>Yes this is my first blog post using Hugo. Finally decided to venture out of my comfort zone and try some new things this year. So done with Wordpress (thank you for all these years), my old blog will temporarily be located here https://old.stephanefrechette.com and I may decide to merge some of its content into this new site (still undecided).
+      <description>Yes this is my first blog post using Hugo. Finally decided to venture out of my comfort zone and try some new things this year. So done with Wordpress (thank you for all these years), I have decided to import selected posts from my old blog&amp;hellip;
 So what to expect? Well basically rants, lessons learned either from the field or from my personnal life, and most importantly about technology, cloud computing and dev stuff.</description>
     </item>
     
@@ -324,8 +324,9 @@ An all around data guy! Former SQL Server | Data Platform MVP, focusing on Cloud
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://sfrechette.github.io/talks/</guid>
-      <description>Talks This is a list of all my upcoming and past public talks | presentations
-Upcoming Past Tuesday March 26, 2019 GDG Cloud Ottawa | Ottawa, ON
+      <description>Talks List of all my upcoming and past public talks | presentations.
+Upcoming Nothing scheduled
+Past Tuesday March 26, 2019 GDG Cloud Ottawa | Ottawa, ON
  Google Cloud Storage and Databases | Slides  Saturday, June 2, 2018 SQLSaturday #758 | Montreal, QC
  Leverage Open Source DB as a Service: Introducing MySQL and Postgres on Azure  Tuesday, May 22, 2018 MSDEVMTL | Montreal, QC
  TimescaleDB: A scalable time-series database built on PostgreSQL | Slides  Friday, April 27, 2018 Data Camp - DevTeach | Quebec, QC</description>

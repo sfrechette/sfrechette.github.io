@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Visualization on Stéphane Fréchette</title>
+    <link>https://sfrechette.github.io/tags/data-visualization/</link>
+    <description>Recent content in Data Visualization on Stéphane Fréchette</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 18 Jul 2017 15:32:29 -0400</lastBuildDate>
+    
+	<atom:link href="https://sfrechette.github.io/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Real-time streaming dashboard with Power BI</title>
+      <link>https://sfrechette.github.io/posts/real-time-streaming-dashboard-power-bi/</link>
+      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/real-time-streaming-dashboard-power-bi/</guid>
+      <description>I was recently asked to provide a simple demo/proof-of-concept on how to quickly create a real-time streaming dashboard with Power BI. Did you know that you can stream data and update dashboards in real-time? Any visual or dashboard that can be created in Power BI can also be created to display and update real-time data and visuals. The devices and sources of streaming data can be factory sensors, social media sources, service usage metrics, and anything else from which time-sensitive data can be collected or transmitted.</description>
+    </item>
+    
+    <item>
+      <title>A short tale of... data vizes</title>
+      <link>https://sfrechette.github.io/posts/a-short-tale-of-data-vizes/</link>
+      <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/a-short-tale-of-data-vizes/</guid>
+      <description>A short tale of&amp;#8230; data vizes. It&amp;#8217;s about Tableau, R, and Shiny. How to prepare/build an existing and well-known Tableau visualization with R and provide web analysis interactivity. Will be using the raw data from the sample workbook named &amp;#8220;Regional&amp;#8221; that comes with Tableau Desktop. The following image below is a snapshot of the visualization that we will try to reproduce with R. You can also view and interact with this visualization on my Tableau Public profile page -&amp;gt; http://tabsoft.</description>
+    </item>
+    
+    <item>
+      <title>Ottawa weather vs. Ottawa JavaScript Meetup attendance: an R analysis</title>
+      <link>https://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</link>
+      <pubDate>Mon, 23 Mar 2015 08:19:37 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</guid>
+      <description>The more you used it, the more you discover great stuff&amp;#8230; I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing&amp;#8230;you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.
+So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance!</description>
+    </item>
+    
+  </channel>
+</rss>

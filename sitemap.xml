@@ -161,19 +161,758 @@
   </url>
   
   <url>
+    <loc>https://sfrechette.github.io/tags/adventureworks/</loc>
+    <lastmod>2015-04-01T11:45:53-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/aks/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/amazon-web-services/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/categories/analytics/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/analytics/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/anonymize/</loc>
+    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/apache-spark/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/artificial-intelligence/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/categories/aws/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/aws/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/aws-s3/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/azcopy/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/categories/azure/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/azure/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/azure-automation/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/azure-blob-storage/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/azure-blog-storage/</loc>
+    <lastmod>2017-04-04T11:13:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/azure-cli/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/azure-container-services/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/azure-databricks/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/azure-paas/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/azure-powershell/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/azure-sql-data-warehouse/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/azure-sql-dw/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/bike/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/biking/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/blob/</loc>
+    <lastmod>2017-04-04T11:13:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/blogs/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/categories/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/cli/</loc>
+    <lastmod>2017-04-04T11:13:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/cloud/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/categories/cloud-computing/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/command-line/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/command-line-interface/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/containers/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/contosoretaildw/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/csv/</loc>
+    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/cypher/</loc>
+    <lastmod>2014-09-19T14:26:35-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/dashboard/</loc>
+    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/data-analytics/</loc>
+    <lastmod>2015-03-23T08:19:37-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/data-engineer/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/data-engineering/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/data-masking/</loc>
+    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/data-modeling/</loc>
+    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/data-science/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/categories/data-visualization/</loc>
+    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/data-visualization/</loc>
+    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/data-warehouse/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/categories/databases/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/databases/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/databricks/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/docker/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/dynamic-data-masking/</loc>
+    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/findstr/</loc>
+    <lastmod>2017-09-22T10:36:08-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/categories/gcp/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/gcp/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/github/</loc>
+    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/google-cloud-platform/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/google-cloud-storage/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/graph-database/</loc>
+    <lastmod>2017-05-16T09:35:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/graph-databases/</loc>
+    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/graphdb/</loc>
+    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/grep/</loc>
+    <lastmod>2017-09-22T10:36:08-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/high-availability/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/hockey/</loc>
+    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/iot/</loc>
+    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/categories/javascript/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/javascript/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/jdbc/</loc>
+    <lastmod>2016-09-16T11:59:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/jq/</loc>
+    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/json/</loc>
+    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/k8s/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/kubernetes/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/linux/</loc>
+    <lastmod>2017-09-22T10:36:08-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/live-streaming/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/machine-learning/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/microsoft-azure/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/mssql-conf/</loc>
+    <lastmod>2017-04-10T14:42:14-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/neo4j/</loc>
+    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/nhl/</loc>
+    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/node.js/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/nosql/</loc>
+    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/npm/</loc>
+    <lastmod>2016-10-25T15:16:20-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/nyc/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/obfuscation/</loc>
+    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/podcasts/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/polybase/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/postgres/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/postgresql/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://sfrechette.github.io/posts/</loc>
     <lastmod>2019-03-27T10:12:22-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sfrechette.github.io/series/</loc>
+    <loc>https://sfrechette.github.io/tags/power-i/</loc>
+    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/powershell/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/pubnub/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/rdbms/</loc>
+    <lastmod>2015-04-01T11:45:53-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/real-time-streaming/</loc>
+    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/realtime-streaming/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/row-level-security/</loc>
+    <lastmod>2016-05-19T16:47:34-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/rstats/</loc>
+    <lastmod>2015-09-29T09:12:54-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/scala/</loc>
+    <lastmod>2016-09-16T11:59:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/security/</loc>
+    <lastmod>2016-05-19T16:47:34-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/sequelize/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/shiny/</loc>
+    <lastmod>2015-09-29T09:12:54-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/spark/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/spark-sql/</loc>
+    <lastmod>2016-09-16T11:59:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/sparksql/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/sql/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/sql-data-warehouse/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/sql-graph/</loc>
+    <lastmod>2017-05-16T09:35:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/sql-server/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/sql-server-2016/</loc>
+    <lastmod>2016-05-19T16:47:34-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/sql-server-2017/</loc>
+    <lastmod>2017-05-16T09:35:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/sql-server-linux/</loc>
+    <lastmod>2017-04-10T14:42:14-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/sql-server-on-linux/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/statistical-analysis/</loc>
+    <lastmod>2015-03-23T08:19:37-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/streaming/</loc>
+    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sfrechette.github.io/</loc>
     <lastmod>2019-03-27T10:12:22-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/tableau/</loc>
+    <lastmod>2015-09-29T09:12:54-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/</loc>
+    <lastmod>2015-04-01T11:45:53-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/timescale/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/timescaledb/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/timeseries/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/ubuntu/</loc>
+    <lastmod>2016-11-22T22:49:55-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/categories/uncategorized/</loc>
+    <lastmod>2019-03-27T10:12:22-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/windows/</loc>
+    <lastmod>2017-09-22T10:36:08-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/windows-10/</loc>
+    <lastmod>2017-03-21T12:23:03-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sfrechette.github.io/tags/yul/</loc>
+    <lastmod>2015-06-14T19:50:49-04:00</lastmod>
     <priority>0</priority>
   </url>
   

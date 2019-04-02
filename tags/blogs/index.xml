@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Stéphane Fréchette</title>
+    <link>https://sfrechette.github.io/tags/blogs/</link>
+    <description>Recent content in Blogs on Stéphane Fréchette</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 26 Jul 2018 09:21:40 -0400</lastBuildDate>
+    
+	<atom:link href="https://sfrechette.github.io/tags/blogs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Podcasts, Blogs about Data Engineering, Data Science, ML, and AI</title>
+      <link>https://sfrechette.github.io/posts/podcasts-blogs-about-data-engineering-data-science-ml-and-ai/</link>
+      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/podcasts-blogs-about-data-engineering-data-science-ml-and-ai/</guid>
+      <description>Hope you are all enjoying summer? Been asked several times, How do I keep current with technology? What blogs do you read or follow? Which podcasts do you follow and listen to? So I have quickly put together a list of resources, more specifically podcasts, blogs that I consume regularly&amp;#8230; This is no way a definitive list 😉 and in no particular order! Of course these are related to Data Engineering, Data Science, Machine Learning and Artificial Intelligence.</description>
+    </item>
+    
+  </channel>
+</rss>

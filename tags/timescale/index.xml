@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Timescale on Stéphane Fréchette</title>
+    <link>https://sfrechette.github.io/tags/timescale/</link>
+    <description>Recent content in Timescale on Stéphane Fréchette</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 17 Apr 2018 11:59:21 -0400</lastBuildDate>
+    
+	<atom:link href="https://sfrechette.github.io/tags/timescale/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ingest real time streaming data for time series analysis</title>
+      <link>https://sfrechette.github.io/posts/ingest-real-time-streaming-data-for-time-series-analysis/</link>
+      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/ingest-real-time-streaming-data-for-time-series-analysis/</guid>
+      <description>This post describes how to ingest sample real time streaming data from PubNub to a Postgres database with the TimescaleDB extension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, Market Orders &amp;#8211; an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&amp;gt; https://github.</description>
+    </item>
+    
+    <item>
+      <title>Installing TimescaleDB on Azure</title>
+      <link>https://sfrechette.github.io/posts/installing-timescaledb-azure/</link>
+      <pubDate>Tue, 25 Jul 2017 16:30:49 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/installing-timescaledb-azure/</guid>
+      <description>Installing TimescaleDB on Azure. First some housekeeping&amp;#8230; A time series database is a software system that is optimized for handling time series data, arrays of numbers indexed by time (a datetime or a datetime range). In some fields these time series are called profiles, curves, or traces.
+  Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries.</description>
+    </item>
+    
+  </channel>
+</rss>

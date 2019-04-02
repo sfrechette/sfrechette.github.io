@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Analytics on Stéphane Fréchette</title>
+    <link>https://sfrechette.github.io/tags/data-analytics/</link>
+    <description>Recent content in Data Analytics on Stéphane Fréchette</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 23 Mar 2015 08:19:37 -0400</lastBuildDate>
+    
+	<atom:link href="https://sfrechette.github.io/tags/data-analytics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ottawa weather vs. Ottawa JavaScript Meetup attendance: an R analysis</title>
+      <link>https://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</link>
+      <pubDate>Mon, 23 Mar 2015 08:19:37 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</guid>
+      <description>The more you used it, the more you discover great stuff&amp;#8230; I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing&amp;#8230;you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.
+So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance!</description>
+    </item>
+    
+    <item>
+      <title>Data Analytics with R and SQL Server</title>
+      <link>https://sfrechette.github.io/posts/data-analytics-r-sql-server/</link>
+      <pubDate>Wed, 07 Jan 2015 20:04:51 -0400</pubDate>
+      
+      <guid>https://sfrechette.github.io/posts/data-analytics-r-sql-server/</guid>
+      <description>First Happy New Year and best wishes for 2015!
+Yes, Data Analytics with R and SQL Server &amp;#8230; As Data and Business Intelligence Architects I personally think we just can&amp;#8217;t dismiss or push aside the Data Science &amp;#8220;landscape&amp;#8221;. Hence that&amp;#8217;s why I registered and currently more than half way through the Data Science Specialization on Coursera from the Johns Hopkins University. Even though I have been working with R for a while I wanted to get some kind of recognition, attestation for my skills and also just because I can 😉</description>
+    </item>
+    
+  </channel>
+</rss>
