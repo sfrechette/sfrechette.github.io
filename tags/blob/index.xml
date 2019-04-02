@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blob on Stéphane Fréchette</title>
-    <link>https://sfrechette.github.io/tags/blob/</link>
+    <link>https://stephanefrechette.dev/tags/blob/</link>
     <description>Recent content in Blob on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 04 Apr 2017 11:13:18 -0400</lastBuildDate>
     
-	<atom:link href="https://sfrechette.github.io/tags/blob/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stephanefrechette.dev/tags/blob/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Upload multiple files &#34;recursively&#34; to Azure Blob Storage with the Azure CLI 2.0...</title>
-      <link>https://sfrechette.github.io/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</link>
+      <link>https://stephanefrechette.dev/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</link>
       <pubDate>Tue, 04 Apr 2017 11:13:18 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</guid>
+      <guid>https://stephanefrechette.dev/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</guid>
       <description>Files and the Azure Cloud. This post is about how to upload multiple files from a local directory &amp;#8220;recursively&amp;#8221; to Azure Blob Storage with the Azure CLI 2.0 from macOS/Linux. For the Windows platform, AzCopy is a awesome command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance.
 You can download the latest version of AzCopy
 The basic syntax for AzCopy commands is:</description>

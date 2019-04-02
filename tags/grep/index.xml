@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Grep on Stéphane Fréchette</title>
-    <link>https://sfrechette.github.io/tags/grep/</link>
+    <link>https://stephanefrechette.dev/tags/grep/</link>
     <description>Recent content in Grep on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 22 Sep 2017 10:36:08 -0400</lastBuildDate>
     
-	<atom:link href="https://sfrechette.github.io/tags/grep/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stephanefrechette.dev/tags/grep/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Search for a String in Multiple Files</title>
-      <link>https://sfrechette.github.io/posts/search-string-multiple-files/</link>
+      <link>https://stephanefrechette.dev/posts/search-string-multiple-files/</link>
       <pubDate>Fri, 22 Sep 2017 10:36:08 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/search-string-multiple-files/</guid>
+      <guid>https://stephanefrechette.dev/posts/search-string-multiple-files/</guid>
       <description>In support of an earlier post Fetching NHL Play by Play game data, I was recently asked how could one quickly search for a specific string in multiple JSON files recursively? Well if you are running macOS or Linux grep is your best friend! In a nutshell grep prints lines that contain a match for a pattern. The following is a sample grep and cut command that will list out (output) the games (files) that contains the following string -&amp;gt; &amp;#8220;Montréal Canadiens&amp;#8221;:</description>
     </item>
     

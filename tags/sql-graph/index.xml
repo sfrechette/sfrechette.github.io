@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sql Graph on Stéphane Fréchette</title>
-    <link>https://sfrechette.github.io/tags/sql-graph/</link>
+    <link>https://stephanefrechette.dev/tags/sql-graph/</link>
     <description>Recent content in Sql Graph on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 16 May 2017 09:35:21 -0400</lastBuildDate>
     
-	<atom:link href="https://sfrechette.github.io/tags/sql-graph/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stephanefrechette.dev/tags/sql-graph/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SQL Graph in SQL Server 2017</title>
-      <link>https://sfrechette.github.io/posts/sql-graph-sql-server-2017/</link>
+      <link>https://stephanefrechette.dev/posts/sql-graph-sql-server-2017/</link>
       <pubDate>Tue, 16 May 2017 09:35:21 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/sql-graph-sql-server-2017/</guid>
+      <guid>https://stephanefrechette.dev/posts/sql-graph-sql-server-2017/</guid>
       <description>As I mentioned several times before&amp;#8230; Graphs are everywhere! Graph features are being introduced in SQL Server 2017. Offering graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.
 What is a graph database? In context, a graph database is a database that uses graph structures for semantic queries with nodes, edges and properties to represent and store data.</description>
     </item>

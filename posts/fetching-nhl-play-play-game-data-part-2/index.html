@@ -18,20 +18,20 @@ So I added a new javascript file convert."/>
 <meta property="og:description" content="Following-up from a previous post Fetching NHL Play by Play game data where I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring&#8230; say like analyzing with R, load into a RDBMS, or visualizing it!
 So I added a new javascript file convert." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sfrechette.github.io/posts/fetching-nhl-play-play-game-data-part-2/" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data-part-2/" />
 <meta property="article:published_time" content="2016-12-09T10:25:54-04:00"/>
 <meta property="article:modified_time" content="2016-12-09T10:25:54-04:00"/>
 
 
     
-      <base href="https://sfrechette.github.io/posts/fetching-nhl-play-play-game-data-part-2/">
+      <base href="https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data-part-2/">
     
     <title>
   Fetching NHL Play by Play game data (part 2) · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="https://sfrechette.github.io/posts/fetching-nhl-play-play-game-data-part-2/">
+      <link rel="canonical" href="https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data-part-2/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +41,7 @@ So I added a new javascript file convert." />
     
       
       
-      <link rel="stylesheet" href="https://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://stephanefrechette.dev/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -49,11 +49,11 @@ So I added a new javascript file convert." />
     
 
     
-      <link rel="stylesheet" href="https://sfrechette.github.io/css/custom.css">
+      <link rel="stylesheet" href="https://stephanefrechette.dev/css/custom.css">
     
 
-    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/me-cartoon-32x32.jpg" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://sfrechette.github.io/images/me-cartoon-16x16.jpg" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -62,7 +62,7 @@ So I added a new javascript file convert." />
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://sfrechette.github.io">
+    <a class="navigation-title" href="https://stephanefrechette.dev">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -71,15 +71,15 @@ So I added a new javascript file convert." />
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://sfrechette.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://stephanefrechette.dev/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://sfrechette.github.io/talks/">Talks</a>
+            <a class="navigation-link" href="https://stephanefrechette.dev/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://sfrechette.github.io/about/">About</a>
+            <a class="navigation-link" href="https://stephanefrechette.dev/about/">About</a>
           </li>
         
       
@@ -112,25 +112,25 @@ So I added a new javascript file convert." />
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="https://sfrechette.github.io/categories/javascript/">JavaScript</a></div>
+    <a href="https://stephanefrechette.dev/categories/javascript/">JavaScript</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="https://sfrechette.github.io/tags/csv/">csv</a>
+    <a href="https://stephanefrechette.dev/tags/csv/">csv</a>
       <span class="separator">•</span>
-    <a href="https://sfrechette.github.io/tags/github/">github</a>
+    <a href="https://stephanefrechette.dev/tags/github/">github</a>
       <span class="separator">•</span>
-    <a href="https://sfrechette.github.io/tags/hockey/">hockey</a>
+    <a href="https://stephanefrechette.dev/tags/hockey/">hockey</a>
       <span class="separator">•</span>
-    <a href="https://sfrechette.github.io/tags/javascript/">javascript</a>
+    <a href="https://stephanefrechette.dev/tags/javascript/">javascript</a>
       <span class="separator">•</span>
-    <a href="https://sfrechette.github.io/tags/jq/">jq</a>
+    <a href="https://stephanefrechette.dev/tags/jq/">jq</a>
       <span class="separator">•</span>
-    <a href="https://sfrechette.github.io/tags/json/">json</a>
+    <a href="https://stephanefrechette.dev/tags/json/">json</a>
       <span class="separator">•</span>
-    <a href="https://sfrechette.github.io/tags/nhl/">nhl</a>
+    <a href="https://stephanefrechette.dev/tags/nhl/">nhl</a>
       <span class="separator">•</span>
-    <a href="https://sfrechette.github.io/tags/node.js/">node.js</a></div>
+    <a href="https://stephanefrechette.dev/tags/node.js/">node.js</a></div>
 
         </div>
       </header>
@@ -139,7 +139,7 @@ So I added a new javascript file convert." />
         
 
 <p><figure>
-    <img src="https://sfrechette.github.io/images/legacy-post/hockey-goal-300px.png#floatleft" width="225" height="250"/> 
+    <img src="https://stephanefrechette.dev/images/legacy-post/hockey-goal-300px.png#floatleft" width="225" height="250"/> 
 </figure>
  Following-up from a previous post <a href="http://stephanefrechette.com/fetching-nhl-play-play-game-data/" target="_blank">Fetching NHL Play by Play game data</a> where I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring&#8230; say like analyzing with R, load into a RDBMS, or visualizing it!</p>
 
@@ -161,14 +161,14 @@ So I added a new javascript file convert." />
 </span><span style="color:#4070a0">   @csv&#39;</span> ./data/<span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">season</span><span style="color:#70a0d0;font-style:italic">}</span>/<span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">game</span><span style="color:#70a0d0;font-style:italic">}</span>.json &amp;gt; ./data/<span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">season</span><span style="color:#70a0d0;font-style:italic">}</span>/<span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">game</span><span style="color:#70a0d0;font-style:italic">}</span>.csv<span style="color:#4070a0">`</span></code></pre></div>
 <p>Snapshot image &#8211; Play by Play JSON for game 2016020001<br />
 <figure>
-    <img src="https://sfrechette.github.io/images/legacy-post/2016020001.json-nhlplaybyplay-node.png" width="1200" height="700"/> 
+    <img src="https://stephanefrechette.dev/images/legacy-post/2016020001.json-nhlplaybyplay-node.png" width="1200" height="700"/> 
 </figure>
 </p>
 
 <p>Snapshot image &#8211; Converted 2016020001.json to 2016020001.csv</p>
 
 <figure>
-    <img src="https://sfrechette.github.io/images/legacy-post/2016020001-csv.png" width="1024" height="600"/> 
+    <img src="https://stephanefrechette.dev/images/legacy-post/2016020001-csv.png" width="1024" height="600"/> 
 </figure>
 
 
@@ -235,7 +235,7 @@ Excerpt: (This assumes you already ran fetch.js and have JSON files in your data
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://sfrechette.github.io/index.xml">Subscribe RSS</a> 
+     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>

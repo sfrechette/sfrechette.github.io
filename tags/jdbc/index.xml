@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jdbc on Stéphane Fréchette</title>
-    <link>https://sfrechette.github.io/tags/jdbc/</link>
+    <link>https://stephanefrechette.dev/tags/jdbc/</link>
     <description>Recent content in Jdbc on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 16 Sep 2016 11:59:40 -0400</lastBuildDate>
     
-	<atom:link href="https://sfrechette.github.io/tags/jdbc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stephanefrechette.dev/tags/jdbc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Connect to SQL Server using Apache Spark</title>
-      <link>https://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/</link>
+      <link>https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/</link>
       <pubDate>Fri, 16 Sep 2016 11:59:40 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/</guid>
+      <guid>https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/</guid>
       <description>In-memory distributed processing for large datasets&amp;#8230; How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
     First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics.</description>
     </item>

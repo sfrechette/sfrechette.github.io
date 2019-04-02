@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Npm on Stéphane Fréchette</title>
-    <link>https://sfrechette.github.io/tags/npm/</link>
+    <link>https://stephanefrechette.dev/tags/npm/</link>
     <description>Recent content in Npm on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 25 Oct 2016 15:16:20 -0400</lastBuildDate>
     
-	<atom:link href="https://sfrechette.github.io/tags/npm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stephanefrechette.dev/tags/npm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Fetching NHL Play by Play game data</title>
-      <link>https://sfrechette.github.io/posts/fetching-nhl-play-play-game-data/</link>
+      <link>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/</link>
       <pubDate>Tue, 25 Oct 2016 15:16:20 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/fetching-nhl-play-play-game-data/</guid>
+      <guid>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/</guid>
       <description>Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-node that provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.
 Hope your familiar with this&amp;#8230;
 The following URL retrieves the complete 2016-2017 NHL season schedule

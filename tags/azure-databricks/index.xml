@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Azure Databricks on Stéphane Fréchette</title>
-    <link>https://sfrechette.github.io/tags/azure-databricks/</link>
+    <link>https://stephanefrechette.dev/tags/azure-databricks/</link>
     <description>Recent content in Azure Databricks on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 08 Feb 2018 15:09:48 -0400</lastBuildDate>
     
-	<atom:link href="https://sfrechette.github.io/tags/azure-databricks/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stephanefrechette.dev/tags/azure-databricks/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Analyzing NYC Citi Bike data with Azure Databricks</title>
-      <link>https://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</link>
+      <link>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</link>
       <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</guid>
+      <guid>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</guid>
       <description>It&amp;#8217;s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Contosoretaildw on Stéphane Fréchette</title>
-    <link>https://sfrechette.github.io/tags/contosoretaildw/</link>
+    <link>https://stephanefrechette.dev/tags/contosoretaildw/</link>
     <description>Recent content in Contosoretaildw on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 03 Jan 2016 14:58:27 -0400</lastBuildDate>
     
-	<atom:link href="https://sfrechette.github.io/tags/contosoretaildw/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stephanefrechette.dev/tags/contosoretaildw/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ContosoRetailDW on Azure SQL Data Warehouse</title>
-      <link>https://sfrechette.github.io/posts/contosoretaildw-azure-sql-data-warehouse/</link>
+      <link>https://stephanefrechette.dev/posts/contosoretaildw-azure-sql-data-warehouse/</link>
       <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/contosoretaildw-azure-sql-data-warehouse/</guid>
+      <guid>https://stephanefrechette.dev/posts/contosoretaildw-azure-sql-data-warehouse/</guid>
       <description>Happy New Year! It as been a while my friends&amp;#8230; here goes 😉
 ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentation to get you going.
 Optionally if you would like to have a local on premise copy of the ContosoRetailDW database &amp;#8211; A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products.</description>

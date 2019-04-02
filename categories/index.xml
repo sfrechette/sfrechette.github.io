@@ -2,93 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Stéphane Fréchette</title>
-    <link>https://sfrechette.github.io/categories/</link>
+    <link>https://stephanefrechette.dev/categories/</link>
     <description>Recent content in Categories on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 08 Feb 2018 15:09:48 -0400</lastBuildDate>
     
-	<atom:link href="https://sfrechette.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stephanefrechette.dev/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Analytics</title>
-      <link>https://sfrechette.github.io/categories/analytics/</link>
+      <link>https://stephanefrechette.dev/categories/analytics/</link>
       <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/categories/analytics/</guid>
+      <guid>https://stephanefrechette.dev/categories/analytics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Aws</title>
-      <link>https://sfrechette.github.io/categories/aws/</link>
+      <link>https://stephanefrechette.dev/categories/aws/</link>
       <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/categories/aws/</guid>
+      <guid>https://stephanefrechette.dev/categories/aws/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Azure</title>
-      <link>https://sfrechette.github.io/categories/azure/</link>
+      <link>https://stephanefrechette.dev/categories/azure/</link>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/categories/azure/</guid>
+      <guid>https://stephanefrechette.dev/categories/azure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cloud Computing</title>
-      <link>https://sfrechette.github.io/categories/cloud-computing/</link>
+      <link>https://stephanefrechette.dev/categories/cloud-computing/</link>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/categories/cloud-computing/</guid>
+      <guid>https://stephanefrechette.dev/categories/cloud-computing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Visualization</title>
-      <link>https://sfrechette.github.io/categories/data-visualization/</link>
+      <link>https://stephanefrechette.dev/categories/data-visualization/</link>
       <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/categories/data-visualization/</guid>
+      <guid>https://stephanefrechette.dev/categories/data-visualization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Databases</title>
-      <link>https://sfrechette.github.io/categories/databases/</link>
+      <link>https://stephanefrechette.dev/categories/databases/</link>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/categories/databases/</guid>
+      <guid>https://stephanefrechette.dev/categories/databases/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gcp</title>
-      <link>https://sfrechette.github.io/categories/gcp/</link>
+      <link>https://stephanefrechette.dev/categories/gcp/</link>
       <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/categories/gcp/</guid>
+      <guid>https://stephanefrechette.dev/categories/gcp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>https://sfrechette.github.io/categories/javascript/</link>
+      <link>https://stephanefrechette.dev/categories/javascript/</link>
       <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/categories/javascript/</guid>
+      <guid>https://stephanefrechette.dev/categories/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Uncategorized</title>
-      <link>https://sfrechette.github.io/categories/uncategorized/</link>
+      <link>https://stephanefrechette.dev/categories/uncategorized/</link>
       <pubDate>Wed, 27 Mar 2019 10:12:22 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/categories/uncategorized/</guid>
+      <guid>https://stephanefrechette.dev/categories/uncategorized/</guid>
       <description></description>
     </item>
     

@@ -2,68 +2,68 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Analytics on Stéphane Fréchette</title>
-    <link>https://sfrechette.github.io/categories/analytics/</link>
+    <link>https://stephanefrechette.dev/categories/analytics/</link>
     <description>Recent content in Analytics on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 08 Feb 2018 15:09:48 -0400</lastBuildDate>
     
-	<atom:link href="https://sfrechette.github.io/categories/analytics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stephanefrechette.dev/categories/analytics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Analyzing NYC Citi Bike data with Azure Databricks</title>
-      <link>https://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</link>
+      <link>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</link>
       <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</guid>
+      <guid>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</guid>
       <description>It&amp;#8217;s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
     </item>
     
     <item>
       <title>Real-time streaming dashboard with Power BI</title>
-      <link>https://sfrechette.github.io/posts/real-time-streaming-dashboard-power-bi/</link>
+      <link>https://stephanefrechette.dev/posts/real-time-streaming-dashboard-power-bi/</link>
       <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/real-time-streaming-dashboard-power-bi/</guid>
+      <guid>https://stephanefrechette.dev/posts/real-time-streaming-dashboard-power-bi/</guid>
       <description>I was recently asked to provide a simple demo/proof-of-concept on how to quickly create a real-time streaming dashboard with Power BI. Did you know that you can stream data and update dashboards in real-time? Any visual or dashboard that can be created in Power BI can also be created to display and update real-time data and visuals. The devices and sources of streaming data can be factory sensors, social media sources, service usage metrics, and anything else from which time-sensitive data can be collected or transmitted.</description>
     </item>
     
     <item>
       <title>Connect to SQL Server using Apache Spark</title>
-      <link>https://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/</link>
+      <link>https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/</link>
       <pubDate>Fri, 16 Sep 2016 11:59:40 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/connect-sql-server-using-apache-spark/</guid>
+      <guid>https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/</guid>
       <description>In-memory distributed processing for large datasets&amp;#8230; How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
     First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics.</description>
     </item>
     
     <item>
       <title>A short tale of... data vizes</title>
-      <link>https://sfrechette.github.io/posts/a-short-tale-of-data-vizes/</link>
+      <link>https://stephanefrechette.dev/posts/a-short-tale-of-data-vizes/</link>
       <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/a-short-tale-of-data-vizes/</guid>
+      <guid>https://stephanefrechette.dev/posts/a-short-tale-of-data-vizes/</guid>
       <description>A short tale of&amp;#8230; data vizes. It&amp;#8217;s about Tableau, R, and Shiny. How to prepare/build an existing and well-known Tableau visualization with R and provide web analysis interactivity. Will be using the raw data from the sample workbook named &amp;#8220;Regional&amp;#8221; that comes with Tableau Desktop. The following image below is a snapshot of the visualization that we will try to reproduce with R. You can also view and interact with this visualization on my Tableau Public profile page -&amp;gt; http://tabsoft.</description>
     </item>
     
     <item>
       <title>Ottawa weather vs. Ottawa JavaScript Meetup attendance: an R analysis</title>
-      <link>https://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</link>
+      <link>https://stephanefrechette.dev/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</link>
       <pubDate>Mon, 23 Mar 2015 08:19:37 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</guid>
+      <guid>https://stephanefrechette.dev/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</guid>
       <description>The more you used it, the more you discover great stuff&amp;#8230; I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing&amp;#8230;you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.
 So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance!</description>
     </item>
     
     <item>
       <title>Data Analytics with R and SQL Server</title>
-      <link>https://sfrechette.github.io/posts/data-analytics-r-sql-server/</link>
+      <link>https://stephanefrechette.dev/posts/data-analytics-r-sql-server/</link>
       <pubDate>Wed, 07 Jan 2015 20:04:51 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/data-analytics-r-sql-server/</guid>
+      <guid>https://stephanefrechette.dev/posts/data-analytics-r-sql-server/</guid>
       <description>First Happy New Year and best wishes for 2015!
 Yes, Data Analytics with R and SQL Server &amp;#8230; As Data and Business Intelligence Architects I personally think we just can&amp;#8217;t dismiss or push aside the Data Science &amp;#8220;landscape&amp;#8221;. Hence that&amp;#8217;s why I registered and currently more than half way through the Data Science Specialization on Coursera from the Johns Hopkins University. Even though I have been working with R for a while I wanted to get some kind of recognition, attestation for my skills and also just because I can 😉</description>
     </item>

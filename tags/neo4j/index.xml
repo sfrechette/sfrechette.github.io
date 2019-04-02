@@ -2,49 +2,49 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Neo4j on Stéphane Fréchette</title>
-    <link>https://sfrechette.github.io/tags/neo4j/</link>
+    <link>https://stephanefrechette.dev/tags/neo4j/</link>
     <description>Recent content in Neo4j on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 06 Aug 2015 09:22:50 -0400</lastBuildDate>
     
-	<atom:link href="https://sfrechette.github.io/tags/neo4j/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stephanefrechette.dev/tags/neo4j/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Azure Cloud Services - Neo4j</title>
-      <link>https://sfrechette.github.io/posts/azure-cloud-services-neo4j/</link>
+      <link>https://stephanefrechette.dev/posts/azure-cloud-services-neo4j/</link>
       <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/azure-cloud-services-neo4j/</guid>
+      <guid>https://stephanefrechette.dev/posts/azure-cloud-services-neo4j/</guid>
       <description>Yes another exploration and exercise on graph modeling. This time about something I often use&amp;#8230; the Cloud: Microsoft Azure. Thought it would be interesting to model the available Azure Cloud Service offerings by category, region, and location. The inspiration and data comes from the following source of information on the following web page http://azure.microsoft.com/en-us/regions/#services. A trivial one, but useful for demonstrating and understanding concepts. This is also a great example of how to store master data and discover new insights in existing data.</description>
     </item>
     
     <item>
       <title>Neo4j: Montreal-Pierre Elliott Trudeau International Airport (YUL)</title>
-      <link>https://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/</link>
+      <link>https://stephanefrechette.dev/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/</link>
       <pubDate>Sun, 14 Jun 2015 19:50:49 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/</guid>
+      <guid>https://stephanefrechette.dev/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/</guid>
       <description>A quick exercise on graph modeling. I recently got inspired from one of Nicole White&amp;#8217;s post who did something similar with the Dallas Fort Worth Airport (DFW) data. So I decided to create a Neo4j graph database of the shopping places (boutiques, restaurants and services) at the Montreal-Pierre Elliott Trudeau International Airport (YUL). There isn&amp;#8217;t any raw data to download on the site. So I will spare you the details of my scrapping efforts and instead share with you my findings and results.</description>
     </item>
     
     <item>
       <title>Importing AdventureWorks data into Neo4j</title>
-      <link>https://sfrechette.github.io/posts/importing-adventureworks-data-into-neo4j/</link>
+      <link>https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/</link>
       <pubDate>Wed, 01 Apr 2015 11:45:53 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/importing-adventureworks-data-into-neo4j/</guid>
+      <guid>https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/</guid>
       <description>Graphs are everywhere! In my efforts to spread the word and inform SQL Server Professionals about Neo4j and learn how to take a relational database schema and model it as a graph&amp;#8230; AdventureWorks was a no-brainer! Let&amp;#8217;s explore how to import a subset of the AdventureWorks database from SQL Server (RDBMS) into Neo4j (GraphDB).
 But first some prerequisites. You should at least have a basic understanding of what is a property graph model and have completed the following modeling guidelines.</description>
     </item>
     
     <item>
       <title>Graph data modeling and importing the spreadsheet way</title>
-      <link>https://sfrechette.github.io/posts/graph-data-modeling-and-importing-the-spreadsheet-way/</link>
+      <link>https://stephanefrechette.dev/posts/graph-data-modeling-and-importing-the-spreadsheet-way/</link>
       <pubDate>Fri, 19 Sep 2014 14:26:35 -0400</pubDate>
       
-      <guid>https://sfrechette.github.io/posts/graph-data-modeling-and-importing-the-spreadsheet-way/</guid>
+      <guid>https://stephanefrechette.dev/posts/graph-data-modeling-and-importing-the-spreadsheet-way/</guid>
       <description>You are new or quite interested in exploring Graph Databases and would like to know how to start modeling and importing data in Neo4j?
 There are several ways that could get you started; the neo4j-shell-tools, Load CSV  and Batch Import and many more. I strongly recommend reading and exploring the following resources, but to quickly get you started modeling and easily import a small subset of data (&amp;lt;1000 nodes/relationships) the spreadsheet approach is well suited for this.</description>
     </item>
