@@ -20,20 +20,20 @@ I am sharing with you my experiences, gotchas in installing SQL Server on Linux 
 For all the downloads, code samples and to stay informed visit the following link SQL Server v.Next Public Preview
 I am sharing with you my experiences, gotchas in installing SQL Server on Linux on an existing Ubuntu VM I already had running for a while&#8230;I have since installed SQL Server for Linux on several other local VM&#8217;s and in Azure without any issues just by following the documentation." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.example.com/posts/installing-sql-server-linux-ubuntu/" />
+<meta property="og:url" content="http://sfrechette.github.io/posts/installing-sql-server-linux-ubuntu/" />
 <meta property="article:published_time" content="2016-11-22T22:49:55-04:00"/>
 <meta property="article:modified_time" content="2016-11-22T22:49:55-04:00"/>
 
 
     
-      <base href="http://www.example.com/posts/installing-sql-server-linux-ubuntu/">
+      <base href="http://sfrechette.github.io/posts/installing-sql-server-linux-ubuntu/">
     
     <title>
   Installing SQL Server on Linux on Ubuntu · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://www.example.com/posts/installing-sql-server-linux-ubuntu/">
+      <link rel="canonical" href="http://sfrechette.github.io/posts/installing-sql-server-linux-ubuntu/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -43,7 +43,7 @@ I am sharing with you my experiences, gotchas in installing SQL Server on Linux 
     
       
       
-      <link rel="stylesheet" href="http://www.example.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -51,11 +51,11 @@ I am sharing with you my experiences, gotchas in installing SQL Server on Linux 
     
 
     
-      <link rel="stylesheet" href="http://www.example.com/css/custom.css">
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/custom.css">
     
 
-    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -64,7 +64,7 @@ I am sharing with you my experiences, gotchas in installing SQL Server on Linux 
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://www.example.com">
+    <a class="navigation-title" href="http://sfrechette.github.io/">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -73,15 +73,15 @@ I am sharing with you my experiences, gotchas in installing SQL Server on Linux 
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/posts/">Blog</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/talks/">Talks</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/about/">About</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -114,21 +114,21 @@ I am sharing with you my experiences, gotchas in installing SQL Server on Linux 
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://www.example.com/categories/databases/">Databases</a>
+    <a href="http://sfrechette.github.io/categories/databases/">Databases</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/categories/sql-server/">SQL Server</a></div>
+    <a href="http://sfrechette.github.io/categories/sql-server/">SQL Server</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://www.example.com/tags/linux/">linux</a>
+    <a href="http://sfrechette.github.io/tags/linux/">linux</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/sql-server/">sql server</a>
+    <a href="http://sfrechette.github.io/tags/sql-server/">sql server</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/sql-server-linux/">sql server linux</a>
+    <a href="http://sfrechette.github.io/tags/sql-server-linux/">sql server linux</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/sql-server-on-linux/">sql server on linux</a>
+    <a href="http://sfrechette.github.io/tags/sql-server-on-linux/">sql server on linux</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/ubuntu/">ubuntu</a></div>
+    <a href="http://sfrechette.github.io/tags/ubuntu/">ubuntu</a></div>
 
         </div>
       </header>
@@ -137,7 +137,7 @@ I am sharing with you my experiences, gotchas in installing SQL Server on Linux 
         
 
 <p><figure>
-    <img src="http://www.example.com/images/legacy-post/SQL-Loves-Linux_2_Twitter-002-640x358-300x168.png#floatleft"
+    <img src="http://sfrechette.github.io/images/legacy-post/SQL-Loves-Linux_2_Twitter-002-640x358-300x168.png#floatleft"
          alt="sql-loves-linux_2_twitter-002-640x358" width="300" height="168"/> 
 </figure>
  SQL Server vNext represents a major step towards making SQL Server a platform that enables choices of development languages, data types, on-premises and in the cloud, and across operating systems by bringing the power of SQL Server to Linux, Linux-based Docker containers, and Windows.</p>
@@ -163,7 +163,7 @@ I did! My Ubuntu environment was recently updated to 16.04 from 14.04, in theory
 E: Unable to lock the administration directory (/var/lib/dpkg/) is another process using it?&#8221;</em></p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/VMware-Fusion.png"
+    <img src="http://sfrechette.github.io/images/legacy-post/VMware-Fusion.png"
          alt="vmware-fusion" width="1027" height="428"/> 
 </figure>
 
@@ -184,7 +184,7 @@ I did! 😉 Turns out that some important dependencies were missing: The Microso
 Here is the error message I received:</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/LittleSnapper.png"
+    <img src="http://sfrechette.github.io/images/legacy-post/LittleSnapper.png"
          alt="odbc_linux" width="816" height="56"/> 
 </figure>
 

@@ -16,20 +16,20 @@
     <meta property="og:title" content="A short tale of... data vizes" />
 <meta property="og:description" content="A short tale of&#8230; data vizes. It&#8217;s about Tableau, R, and Shiny. How to prepare/build an existing and well-known Tableau visualization with R and provide web analysis interactivity. Will be using the raw data from the sample workbook named &#8220;Regional&#8221; that comes with Tableau Desktop. The following image below is a snapshot of the visualization that we will try to reproduce with R. You can also view and interact with this visualization on my Tableau Public profile page -&gt; http://tabsoft." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.example.com/posts/a-short-tale-of-data-vizes/" />
+<meta property="og:url" content="http://sfrechette.github.io/posts/a-short-tale-of-data-vizes/" />
 <meta property="article:published_time" content="2015-09-29T09:12:54-04:00"/>
 <meta property="article:modified_time" content="2015-09-29T09:12:54-04:00"/>
 
 
     
-      <base href="http://www.example.com/posts/a-short-tale-of-data-vizes/">
+      <base href="http://sfrechette.github.io/posts/a-short-tale-of-data-vizes/">
     
     <title>
   A short tale of... data vizes · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://www.example.com/posts/a-short-tale-of-data-vizes/">
+      <link rel="canonical" href="http://sfrechette.github.io/posts/a-short-tale-of-data-vizes/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -39,7 +39,7 @@
     
       
       
-      <link rel="stylesheet" href="http://www.example.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -47,11 +47,11 @@
     
 
     
-      <link rel="stylesheet" href="http://www.example.com/css/custom.css">
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/custom.css">
     
 
-    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -60,7 +60,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://www.example.com">
+    <a class="navigation-title" href="http://sfrechette.github.io/">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -69,15 +69,15 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/posts/">Blog</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/talks/">Talks</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/about/">About</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -110,17 +110,17 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://www.example.com/categories/data-visualization/">Data Visualization</a></div>
+    <a href="http://sfrechette.github.io/categories/data-visualization/">Data Visualization</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://www.example.com/tags/data-visualization/">data visualization</a>
+    <a href="http://sfrechette.github.io/tags/data-visualization/">data visualization</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/rstats/">rstats</a>
+    <a href="http://sfrechette.github.io/tags/rstats/">rstats</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/shiny/">shiny</a>
+    <a href="http://sfrechette.github.io/tags/shiny/">shiny</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/tableau/">tableau</a></div>
+    <a href="http://sfrechette.github.io/tags/tableau/">tableau</a></div>
 
         </div>
       </header>
@@ -129,7 +129,7 @@
         <p>A short tale of&#8230; data vizes. It&#8217;s about Tableau, R, and Shiny. How to prepare/build an existing and well-known Tableau visualization with R and provide web analysis interactivity. Will be using the raw data from the sample workbook named &#8220;Regional&#8221; that comes with Tableau Desktop. The following image below is a snapshot of the visualization that we will <em>try</em> to reproduce with R. You can also view and interact with this visualization on my Tableau Public profile page -&gt; <a href="http://tabsoft.co/22IOMjD" target="_blank"><a href="http://tabsoft.co/22IOMjD">http://tabsoft.co/22IOMjD</a></a></p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/Tableau_SATScore-1024x717.png"
+    <img src="http://sfrechette.github.io/images/legacy-post/Tableau_SATScore-1024x717.png"
          alt="Tableau_SATScore" width="1024" height="717"/> 
 </figure>
 
@@ -163,7 +163,7 @@ ggplot(college_score, aes(Total.Score, NumberOfStudents)) <span style="color:#66
 <p>The output will produce the following, a nice simple static plot&#8230; of course with no interactivity!</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/Rplot01.png"
+    <img src="http://sfrechette.github.io/images/legacy-post/Rplot01.png"
          alt="Rplot01" width="931" height="641"/> 
 </figure>
 
@@ -280,7 +280,7 @@ shinyServer(<span style="color:#007020;font-weight:bold">function</span>(input, 
 </p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/shinyapps.io-college_admissions-1024x691.png"
+    <img src="http://sfrechette.github.io/images/legacy-post/shinyapps.io-college_admissions-1024x691.png"
          alt="shinyapps.io-college_admissions" width="1024" height="691"/> 
 </figure>
 

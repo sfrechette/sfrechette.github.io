@@ -16,20 +16,20 @@
     <meta property="og:title" content="SQL Server 2016 Row-Level Security" />
 <meta property="og:description" content="With SQL Server 2016 literately just days away from being officially available to public for download (Get ready, SQL Server 2016 coming on June 1st). I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context)." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.example.com/posts/sql-server-2016-row-level-security/" />
+<meta property="og:url" content="http://sfrechette.github.io/posts/sql-server-2016-row-level-security/" />
 <meta property="article:published_time" content="2016-05-19T16:47:34-04:00"/>
 <meta property="article:modified_time" content="2016-05-19T16:47:34-04:00"/>
 
 
     
-      <base href="http://www.example.com/posts/sql-server-2016-row-level-security/">
+      <base href="http://sfrechette.github.io/posts/sql-server-2016-row-level-security/">
     
     <title>
   SQL Server 2016 Row-Level Security · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://www.example.com/posts/sql-server-2016-row-level-security/">
+      <link rel="canonical" href="http://sfrechette.github.io/posts/sql-server-2016-row-level-security/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -39,7 +39,7 @@
     
       
       
-      <link rel="stylesheet" href="http://www.example.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -47,11 +47,11 @@
     
 
     
-      <link rel="stylesheet" href="http://www.example.com/css/custom.css">
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/custom.css">
     
 
-    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -60,7 +60,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://www.example.com">
+    <a class="navigation-title" href="http://sfrechette.github.io/">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -69,15 +69,15 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/posts/">Blog</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/talks/">Talks</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/about/">About</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -110,19 +110,19 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://www.example.com/categories/databases/">Databases</a>
+    <a href="http://sfrechette.github.io/categories/databases/">Databases</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/categories/sql-server/">SQL Server</a></div>
+    <a href="http://sfrechette.github.io/categories/sql-server/">SQL Server</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://www.example.com/tags/row-level-security/">row level security</a>
+    <a href="http://sfrechette.github.io/tags/row-level-security/">row level security</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/security/">security</a>
+    <a href="http://sfrechette.github.io/tags/security/">security</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/sql-server/">sql server</a>
+    <a href="http://sfrechette.github.io/tags/sql-server/">sql server</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/sql-server-2016/">sql server 2016</a></div>
+    <a href="http://sfrechette.github.io/tags/sql-server-2016/">sql server 2016</a></div>
 
         </div>
       </header>
@@ -131,7 +131,7 @@
         <p>With SQL Server 2016 literately just days away from being officially available to public for download (<a href="https://blogs.technet.microsoft.com/dataplatforminsider/2016/05/02/get-ready-sql-server-2016-coming-on-june-1st/" target="_blank">Get ready, SQL Server 2016 coming on June 1st</a>). I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/sql-server-2016-row-level-security-04.png"
+    <img src="http://sfrechette.github.io/images/legacy-post/sql-server-2016-row-level-security-04.png"
          alt="sql-server-2016-row-level-security-04" width="625" height="325"/> 
 </figure>
 

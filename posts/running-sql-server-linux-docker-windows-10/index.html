@@ -16,20 +16,20 @@
     <meta property="og:title" content="Running SQL Server on Linux in Docker on Windows 10" />
 <meta property="og:description" content="What is Docker? Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data centers, VMs, or in the cloud. Docker allows applications to be isolated into containers with instructions for exactly what they need to survive that can be easily ported from machine to machine. Though Virtual machines also allow the exact same thing, and numerous other tools already exist to make rebuilding these configurations portable and reproducible, Docker has a more simplified structure compared to both of these, the real area where it causes disruption is resource efficiency." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.example.com/posts/running-sql-server-linux-docker-windows-10/" />
+<meta property="og:url" content="http://sfrechette.github.io/posts/running-sql-server-linux-docker-windows-10/" />
 <meta property="article:published_time" content="2017-03-21T12:23:03-04:00"/>
 <meta property="article:modified_time" content="2017-03-21T12:23:03-04:00"/>
 
 
     
-      <base href="http://www.example.com/posts/running-sql-server-linux-docker-windows-10/">
+      <base href="http://sfrechette.github.io/posts/running-sql-server-linux-docker-windows-10/">
     
     <title>
   Running SQL Server on Linux in Docker on Windows 10 · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://www.example.com/posts/running-sql-server-linux-docker-windows-10/">
+      <link rel="canonical" href="http://sfrechette.github.io/posts/running-sql-server-linux-docker-windows-10/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -39,7 +39,7 @@
     
       
       
-      <link rel="stylesheet" href="http://www.example.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -47,11 +47,11 @@
     
 
     
-      <link rel="stylesheet" href="http://www.example.com/css/custom.css">
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/custom.css">
     
 
-    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -60,7 +60,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://www.example.com">
+    <a class="navigation-title" href="http://sfrechette.github.io/">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -69,15 +69,15 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/posts/">Blog</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/talks/">Talks</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/about/">About</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -110,25 +110,25 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://www.example.com/categories/databases/">Databases</a>
+    <a href="http://sfrechette.github.io/categories/databases/">Databases</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/categories/sql-server/">SQL Server</a></div>
+    <a href="http://sfrechette.github.io/categories/sql-server/">SQL Server</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://www.example.com/tags/containers/">containers</a>
+    <a href="http://sfrechette.github.io/tags/containers/">containers</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/docker/">docker</a>
+    <a href="http://sfrechette.github.io/tags/docker/">docker</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/linux/">linux</a>
+    <a href="http://sfrechette.github.io/tags/linux/">linux</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/sql-server/">sql server</a>
+    <a href="http://sfrechette.github.io/tags/sql-server/">sql server</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/sql-server-on-linux/">sql server on linux</a>
+    <a href="http://sfrechette.github.io/tags/sql-server-on-linux/">sql server on linux</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/sql-server-linux/">sql server linux</a>
+    <a href="http://sfrechette.github.io/tags/sql-server-linux/">sql server linux</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/windows-10/">windows 10</a></div>
+    <a href="http://sfrechette.github.io/tags/windows-10/">windows 10</a></div>
 
         </div>
       </header>
@@ -137,10 +137,10 @@
         
 
 <p><figure>
-    <img src="http://www.example.com/images/legacy-post/sql-server.png#floatright" width="200" height="200"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/sql-server.png#floatright" width="200" height="200"/> 
 </figure>
 <figure>
-    <img src="http://www.example.com/images/legacy-post/docker_trans.png#floatright" width="225" height="200"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/docker_trans.png#floatright" width="225" height="200"/> 
 </figure>
 </p>
 
@@ -182,7 +182,7 @@ To configure:</p>
 <p>Once completed it should state that it successfully downloaded the image&#8230;</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/sqllinux02.png" width="1024" height="345"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/sqllinux02.png" width="1024" height="345"/> 
 </figure>
 
 
@@ -201,7 +201,7 @@ To configure:</p>
 <p>You should see your active sqllinux01 container&#8230;</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/sqllinux04.png" width="1024" height="208"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/sqllinux04.png" width="1024" height="208"/> 
 </figure>
 
 
@@ -216,7 +216,7 @@ To configure:</p>
 <p>Voilà we have connected to SQL Server on Linux running in a Docker image container&#8230;</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/sqllinux05.png" width="1024" height="310"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/sqllinux05.png" width="1024" height="310"/> 
 </figure>
 
 
@@ -227,7 +227,7 @@ To configure:</p>
 <p>Simply replace CONTAINER_ID with your container identifier in this case sqllinux01 is my container name</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/sqllinux07.png" width="1024" height="350"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/sqllinux07.png" width="1024" height="350"/> 
 </figure>
 
 

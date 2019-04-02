@@ -16,20 +16,20 @@
     <meta property="og:title" content="Pause Azure SQL Data Warehouse(s) with Azure Automation" />
 <meta property="og:description" content="Folks it as been a while&#8230; You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)&#8230; while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automation and PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.example.com/posts/pause-azure-sql-data-warehouses-with-azure-automation/" />
+<meta property="og:url" content="http://sfrechette.github.io/posts/pause-azure-sql-data-warehouses-with-azure-automation/" />
 <meta property="article:published_time" content="2018-11-27T11:19:56-04:00"/>
 <meta property="article:modified_time" content="2018-11-27T11:19:56-04:00"/>
 
 
     
-      <base href="http://www.example.com/posts/pause-azure-sql-data-warehouses-with-azure-automation/">
+      <base href="http://sfrechette.github.io/posts/pause-azure-sql-data-warehouses-with-azure-automation/">
     
     <title>
   Pause Azure SQL Data Warehouse(s) with Azure Automation · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://www.example.com/posts/pause-azure-sql-data-warehouses-with-azure-automation/">
+      <link rel="canonical" href="http://sfrechette.github.io/posts/pause-azure-sql-data-warehouses-with-azure-automation/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -39,7 +39,7 @@
     
       
       
-      <link rel="stylesheet" href="http://www.example.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -47,11 +47,11 @@
     
 
     
-      <link rel="stylesheet" href="http://www.example.com/css/custom.css">
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/custom.css">
     
 
-    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -60,7 +60,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://www.example.com">
+    <a class="navigation-title" href="http://sfrechette.github.io/">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -69,15 +69,15 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/posts/">Blog</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/talks/">Talks</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/about/">About</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -110,25 +110,25 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://www.example.com/categories/databases/">Databases</a>
+    <a href="http://sfrechette.github.io/categories/databases/">Databases</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/categories/sql-server/">SQL Server</a></div>
+    <a href="http://sfrechette.github.io/categories/sql-server/">SQL Server</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://www.example.com/tags/azure/">azure</a>
+    <a href="http://sfrechette.github.io/tags/azure/">azure</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/azure-automation/">azure automation</a>
+    <a href="http://sfrechette.github.io/tags/azure-automation/">azure automation</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/azure-paas/">azure paas</a>
+    <a href="http://sfrechette.github.io/tags/azure-paas/">azure paas</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/azure-sql-data-warehouse/">azure sql data warehouse</a>
+    <a href="http://sfrechette.github.io/tags/azure-sql-data-warehouse/">azure sql data warehouse</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/azure-sql-dw/">azure sql dw</a>
+    <a href="http://sfrechette.github.io/tags/azure-sql-dw/">azure sql dw</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/databases/">databases</a>
+    <a href="http://sfrechette.github.io/tags/databases/">databases</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/powershell/">powershell</a></div>
+    <a href="http://sfrechette.github.io/tags/powershell/">powershell</a></div>
 
         </div>
       </header>
@@ -139,7 +139,7 @@
 <p>Context: Azure SQL Data Warehouse a massively parallel processing (MPP) architecture, separates compute from storage which enables you to scale compute independently of the data in your system. I recommend you read and watch the following <a href="https://docs.microsoft.com/en-us/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture" target="_blank" rel="noopener">SQL Data Warehouse Architecture</a> to lear more.</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/PauseAzureDwh01-150x150.png#floatright" width="150" height="150"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/PauseAzureDwh01-150x150.png#floatright" width="150" height="150"/> 
 </figure>
 
 
@@ -159,42 +159,42 @@ First you will need to download and save a local copy of the following PowerShel
 *****It&#8217;s important that &#8220;Yes&#8221; is selected (default) for &#8220;Create Azure Run As account&#8221;. Run As accounts are used to provide authentication for managing resources in Azure with the Azure cmdlets.</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/auto01.jpg" width="812" height="708"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/auto01.jpg" width="812" height="708"/> 
 </figure>
 
 
 <p>Once your new resource is deployed, you will need to add a new Runbook: Runbooks &#8211; Add a runbook.</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/auto02.jpg" width="952" height="701"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/auto02.jpg" width="952" height="701"/> 
 </figure>
 
 
 <p>Select :&#8221;Import an existing runbook&#8221;, in &#8220;Runbook file&#8221; locate the PowerShell script you downloaded earlier to your local environment, give your runbook a name and the select &#8220;Create&#8221;.</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/auto03.jpg" width="574" height="710"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/auto03.jpg" width="574" height="710"/> 
 </figure>
 
 
 <p>Your new runbook should appear in the list with a Authoring Status of New, click on (select) your new runbook (PauseAzureSQLDataWarehouses).</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/auto04.jpg" width="875" height="705"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/auto04.jpg" width="875" height="705"/> 
 </figure>
 
 
 <p>Next select &#8220;Edit&#8221;.</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/auto05.jpg" width="931" height="648"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/auto05.jpg" width="931" height="648"/> 
 </figure>
 
 
 <p>And select &#8220;Publish&#8221; to publish your runbook.</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/auto06.jpg" width="989" height="698"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/auto06.jpg" width="989" height="698"/> 
 </figure>
 
 
@@ -202,21 +202,21 @@ First you will need to download and save a local copy of the following PowerShel
 To test this out, make sure you have at least one SQL Data Warehouse running, if so select &#8220;Start&#8221;.</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/auto07.jpg" width="871" height="588"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/auto07.jpg" width="871" height="588"/> 
 </figure>
 
 
 <p>This will bring you to the Job summary page, once the job completes you will be able to view the output that will outline the SQL Data Warehouse(s) that have been paused. Check to see if your running instance(s) of SQL Data Warehouse(s) have been paused 😉</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/auto08.jpg" width="769" height="419"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/auto08.jpg" width="769" height="419"/> 
 </figure>
 
 
 <p>To schedule a runbook: Schedule &#8211; Link a schedule to you runbook &#8211; Create a new schedule. Fill out the required information and select &#8220;Create&#8221;.</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/auto09.jpg" width="854" height="652"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/auto09.jpg" width="854" height="652"/> 
 </figure>
 
 

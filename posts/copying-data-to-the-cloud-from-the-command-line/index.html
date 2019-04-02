@@ -16,20 +16,20 @@
     <meta property="og:title" content="Copying data to the Cloud from the Command line" />
 <meta property="og:description" content="Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.example.com/posts/copying-data-to-the-cloud-from-the-command-line/" />
+<meta property="og:url" content="http://sfrechette.github.io/posts/copying-data-to-the-cloud-from-the-command-line/" />
 <meta property="article:published_time" content="2017-11-19T16:46:01-04:00"/>
 <meta property="article:modified_time" content="2017-11-19T16:46:01-04:00"/>
 
 
     
-      <base href="http://www.example.com/posts/copying-data-to-the-cloud-from-the-command-line/">
+      <base href="http://sfrechette.github.io/posts/copying-data-to-the-cloud-from-the-command-line/">
     
     <title>
   Copying data to the Cloud from the Command line · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="http://www.example.com/posts/copying-data-to-the-cloud-from-the-command-line/">
+      <link rel="canonical" href="http://sfrechette.github.io/posts/copying-data-to-the-cloud-from-the-command-line/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -39,7 +39,7 @@
     
       
       
-      <link rel="stylesheet" href="http://www.example.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -47,11 +47,11 @@
     
 
     
-      <link rel="stylesheet" href="http://www.example.com/css/custom.css">
+      <link rel="stylesheet" href="http://sfrechette.github.io/css/custom.css">
     
 
-    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://www.example.com/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://sfrechette.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.54.0" />
   </head>
@@ -60,7 +60,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://www.example.com">
+    <a class="navigation-title" href="http://sfrechette.github.io/">
       Stéphane Fréchette
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -69,15 +69,15 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/posts/">Blog</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/talks/">Talks</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/talks/">Talks</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.example.com/about/">About</a>
+            <a class="navigation-link" href="http://sfrechette.github.io/about/">About</a>
           </li>
         
       
@@ -110,35 +110,35 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="http://www.example.com/categories/uncategorized/">Uncategorized</a></div>
+    <a href="http://sfrechette.github.io/categories/uncategorized/">Uncategorized</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://www.example.com/tags/amazon-web-services/">amazon web services</a>
+    <a href="http://sfrechette.github.io/tags/amazon-web-services/">amazon web services</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/aws/">aws</a>
+    <a href="http://sfrechette.github.io/tags/aws/">aws</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/aws-s3/">aws s3</a>
+    <a href="http://sfrechette.github.io/tags/aws-s3/">aws s3</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/azcopy/">azcopy</a>
+    <a href="http://sfrechette.github.io/tags/azcopy/">azcopy</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/azure/">azure</a>
+    <a href="http://sfrechette.github.io/tags/azure/">azure</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/azure-blob-storage/">azure blob storage</a>
+    <a href="http://sfrechette.github.io/tags/azure-blob-storage/">azure blob storage</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/azure-cli/">azure cli</a>
+    <a href="http://sfrechette.github.io/tags/azure-cli/">azure cli</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/azure-powershell/">azure powershell</a>
+    <a href="http://sfrechette.github.io/tags/azure-powershell/">azure powershell</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/command-line/">command line</a>
+    <a href="http://sfrechette.github.io/tags/command-line/">command line</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/command-line-interface/">command-line interface</a>
+    <a href="http://sfrechette.github.io/tags/command-line-interface/">command-line interface</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/gcp/">gcp</a>
+    <a href="http://sfrechette.github.io/tags/gcp/">gcp</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/google-cloud-platform/">google cloud platform</a>
+    <a href="http://sfrechette.github.io/tags/google-cloud-platform/">google cloud platform</a>
       <span class="separator">•</span>
-    <a href="http://www.example.com/tags/google-cloud-storage/">google cloud storage</a></div>
+    <a href="http://sfrechette.github.io/tags/google-cloud-storage/">google cloud storage</a></div>
 
         </div>
       </header>
@@ -147,7 +147,7 @@
         
 
 <p><figure>
-    <img src="http://www.example.com/images/legacy-post/sky-1513292_640.png#floatleft" width="250" height="160"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/sky-1513292_640.png#floatleft" width="250" height="160"/> 
 </figure>
 Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.</p>
 
@@ -172,7 +172,7 @@ Copying data to the Cloud from the Command line, this is what this post is all a
 
 <p>Once downloaded and unzipped the data should look like this&#8230;<br />
 <figure>
-    <img src="http://www.example.com/images/legacy-post/data_01.png" width="584" height="436"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/data_01.png" width="584" height="436"/> 
 </figure>
 </p>
 
@@ -184,7 +184,7 @@ I am on macOS, all works in Windows, just don&#8217;t forget to change the file 
 &nbsp;</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/Cloud-Storage-150x150.png" width="75" height="75"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/Cloud-Storage-150x150.png" width="75" height="75"/> 
 </figure>
 
 
@@ -220,7 +220,7 @@ I am on macOS, all works in Windows, just don&#8217;t forget to change the file 
 &nbsp;
 &nbsp;
 <figure>
-    <img src="http://www.example.com/images/legacy-post/awss3.png" width="75" height="92"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/awss3.png" width="75" height="92"/> 
 </figure>
 </p>
 
@@ -258,7 +258,7 @@ I am on macOS, all works in Windows, just don&#8217;t forget to change the file 
 &nbsp;</p>
 
 <figure>
-    <img src="http://www.example.com/images/legacy-post/Azure-Storage-Blob-150x150.png" width="75" height="75"/> 
+    <img src="http://sfrechette.github.io/images/legacy-post/Azure-Storage-Blob-150x150.png" width="75" height="75"/> 
 </figure>
 
 
