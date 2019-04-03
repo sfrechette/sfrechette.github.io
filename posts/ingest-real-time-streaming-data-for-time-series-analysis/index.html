@@ -1,3 +1,323 @@
-<div class="addthis_inline_share_toolbox"></div>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Stéphane Fréchette">
+    <meta name="description" content="Stéphane Fréchette&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal,data engineer,cloud solution architect,google cloud">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ingest real time streaming data for time series analysis"/>
+<meta name="twitter:description" content="This post describes how to ingest sample real time streaming data from PubNub to a Postgres database with the TimescaleDB extension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, Market Orders &#8211; an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&gt; https://github."/>
+
+    <meta property="og:title" content="Ingest real time streaming data for time series analysis" />
+<meta property="og:description" content="This post describes how to ingest sample real time streaming data from PubNub to a Postgres database with the TimescaleDB extension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, Market Orders &#8211; an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&gt; https://github." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/ingest-real-time-streaming-data-for-time-series-analysis/" />
+<meta property="article:published_time" content="2018-04-17T11:59:21-04:00"/>
+<meta property="article:modified_time" content="2018-04-17T11:59:21-04:00"/>
 
 
+    
+      <base href="https://stephanefrechette.dev/posts/ingest-real-time-streaming-data-for-time-series-analysis/">
+    
+    <title>
+  Ingest real time streaming data for time series analysis · Stéphane Fréchette
+</title>
+
+    
+      <link rel="canonical" href="https://stephanefrechette.dev/posts/ingest-real-time-streaming-data-for-time-series-analysis/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://stephanefrechette.dev/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://stephanefrechette.dev/css/custom.css">
+    
+
+    <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.54.0" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://stephanefrechette.dev">
+      Stéphane Fréchette
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://stephanefrechette.dev/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://stephanefrechette.dev/talks/">Talks</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://stephanefrechette.dev/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+      <div class="addthis_inline_share_toolbox"></div>
+        <div class="post-title">
+          <h1 class="title">Ingest real time streaming data for time series analysis</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-04-17T11:59:21-04:00'>
+                April 17, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://stephanefrechette.dev/categories/databases/">Databases</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/categories/javascript/">JavaScript</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://stephanefrechette.dev/tags/javascript/">javascript</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/live-streaming/">live streaming</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/node.js/">node.js</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/postgres/">postgres</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/postgresql/">postgresql</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/pubnub/">pubnub</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/realtime-streaming/">realtime streaming</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/sequelize/">sequelize</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/timescale/">timescale</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/timescaledb/">timescaledb</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/timeseries/">timeseries</a></div>
+
+        </div>
+      </header>
+      
+      <div>
+        
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/stock-exchange-911612_960_720-300x212.jpg#floatleft" width="300" height="212"/> 
+</figure>
+
+
+<p>This post describes how to ingest sample real time streaming data from <a href="https://www.pubnub.com/" rel="noopener" target="_blank">PubNub</a> to a <a href="https://www.postgresql.org/" rel="noopener" target="_blank">Postgres</a> database with the <a href="https://www.timescale.com/" rel="noopener" target="_blank">TimescaleDB</a> extension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, <a href="https://www.pubnub.com/developers/realtime-data-streams/financial-securities-market-orders/" rel="noopener" target="_blank">Market Orders</a> &#8211; an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&gt; <a href="https://github.com/sfrechette/stream-sequelize-node" rel="noopener" target="_blank"><a href="https://github.com/sfrechette/stream-sequelize-node">https://github.com/sfrechette/stream-sequelize-node</a></a>.</p>
+
+<p>The Market Orders data feed generates on average 4 inserts per second, if you would to ingest more inserts per second I recommend you look at the following data feed <a href="https://www.pubnub.com/developers/realtime-data-streams/sensor-network/" rel="noopener" target="_blank">Sensor Network</a> which generates on average 10 inserts per second.</p>
+
+<h3 id="ingest-real-time-streaming-data-for-time-series-analysis">Ingest real time streaming data for time series analysis</h3>
+
+<h4 id="prerequesites">Prerequesites</h4>
+
+<p>Running this application assumes that you already have an instance of Postgres running and have installed the TimescaleDB extension. If not please refer to the following documentation -&gt; Getting started, installing and setting up <a href="https://docs.timescale.com/v0.9/getting-started" rel="noopener" target="_blank"><a href="https://docs.timescale.com/v0.9/getting-started">https://docs.timescale.com/v0.9/getting-started</a></a></p>
+
+<p>Once Postgres with the TimescaleDB extension is installed you will need to execute the following SQL code snippets in your Postgres environment using your preferred tool to connect (I am using <a href="https://www.pgcli.com/" rel="noopener" target="_blank">pgcli</a>) in order to create the database, create the timescaledb extension, create the schema, and hypertable.</p>
+
+<p>Issue the following SQL statements in your Postgres environment:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">database</span> market_orders;
+
+<span style="">\</span><span style="color:#007020;font-weight:bold">c</span> market_orders
+
+<span style="color:#007020;font-weight:bold">create</span> extension <span style="color:#007020;font-weight:bold">if</span> <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">exists</span> timescaledb <span style="color:#007020;font-weight:bold">cascade</span>;
+
+<span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">table</span> orders (
+	order_time          <span style="color:#007020">bigint</span> <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>, 
+	trade_type          <span style="color:#007020">text</span> <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>,
+	symbol              <span style="color:#007020">text</span> <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>, 
+	order_quantity      double <span style="color:#007020;font-weight:bold">precision</span> <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>, 
+	bid_price           double <span style="color:#007020;font-weight:bold">precision</span> <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>
+);
+
+<span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">index</span> <span style="color:#007020;font-weight:bold">on</span> orders(order_time <span style="color:#007020;font-weight:bold">desc</span>);
+<span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">index</span> <span style="color:#007020;font-weight:bold">on</span> orders(trade_type, order_time <span style="color:#007020;font-weight:bold">desc</span>);
+<span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">index</span> <span style="color:#007020;font-weight:bold">on</span> orders(symbol, order_time <span style="color:#007020;font-weight:bold">desc</span>);
+<span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">index</span> <span style="color:#007020;font-weight:bold">on</span> orders(order_time <span style="color:#007020;font-weight:bold">desc</span>, order_quantity);
+<span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">index</span> <span style="color:#007020;font-weight:bold">on</span> orders(order_time <span style="color:#007020;font-weight:bold">desc</span>, bid_price);
+
+<span style="color:#60a0b0;font-style:italic">-- 86400000000 is in usecs and is equal to 1 day
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> create_hypertable(<span style="color:#4070a0">&#39;orders&#39;</span>, <span style="color:#4070a0">&#39;order_time&#39;</span>, chunk_time_interval <span style="color:#666">=&gt;</span> <span style="color:#40a070">86400000000</span>);</code></pre></div>
+<h4 id="installation">Installation</h4>
+
+<p>Clone the repository:</p>
+
+<p><code>git clone https://github.com/sfrechette/stream-sequelize-node.git&lt;br /&gt;
+cd stream-sequilize-node</code></p>
+
+<p>Next install the dependencies with the following command:<br />
+<code>npm install</code></p>
+
+<p>You will then need to create an .env file in the root folder of the app &#8220;stream-sequilize-node&#8221; and add configuration values. Copy and paste the following snippet in your .env file and provide the appropriate connectivity information to your Postgres environment:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">DB_SERVER_USER_NAME = &#34;&#34;    
+DB_SERVER_USER_PASSWORD = &#34;&#34;    
+DB_SERVER_HOST = &#34;&#34; 
+DB_SERVER_PORT = &#34;&#34;     </pre></div>
+<h4 id="usage">Usage</h4>
+
+<p>You are now ready to start ingesting data, simply issue the following command:</p>
+
+<p><code>node ingest.js</code></p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/2018-04-17_10-52-15.gif" width="978" height="392"/> 
+</figure>
+
+
+<h4 id="sample-queries">Sample queries</h4>
+
+<p>Assuming that you have been ingesting data for a while (you can modify the time interval in the script below), run some queries to test and validate how Timescale performs nicely in fetching results while data is also being ingested in the database. More data the better 😉</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Average bid price by 5 minute intervals for Google and day trade type 
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> 	time_bucket(<span style="color:#4070a0">&#39;5 minutes&#39;</span>, to_timestamp(order_time)) <span style="color:#007020;font-weight:bold">as</span> five_min,
+        <span style="color:#007020;font-weight:bold">avg</span>(bid_price) <span style="color:#007020;font-weight:bold">as</span> avg_bid_price
+<span style="color:#007020;font-weight:bold">from</span> 	orders
+<span style="color:#007020;font-weight:bold">where</span>	symbol <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Google&#39;</span> <span style="color:#007020;font-weight:bold">and</span> trade_type <span style="color:#666">=</span> <span style="color:#4070a0">&#39;day&#39;</span>
+<span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span> five_min 
+<span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span> five_min <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">10</span>;</code></pre></div>
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/stream-query01-1024x619.png" width="1024" height="619"/> 
+</figure>
+
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Min and Max bid price by 2 minute intervals for all symbols 
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> 	time_bucket(<span style="color:#4070a0">&#39;2 minutes&#39;</span>, to_timestamp(order_time)) <span style="color:#007020;font-weight:bold">as</span> two_min,
+        symbol, 
+        <span style="color:#007020;font-weight:bold">min</span>(bid_price) <span style="color:#007020;font-weight:bold">as</span> min_bid_price,
+        <span style="color:#007020;font-weight:bold">max</span>(bid_price) <span style="color:#007020;font-weight:bold">as</span> max_bid_price 
+<span style="color:#007020;font-weight:bold">from</span> 	orders
+<span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span> two_min, symbol
+<span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span> two_min <span style="color:#007020;font-weight:bold">desc</span> <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">10</span>;</code></pre></div>
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/stream-query02-1024x515.png" width="1024" height="515"/> 
+</figure>
+
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Orders with order quantity greater than 975...
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> 	order_time,
+        trade_type, 
+        order_quantity, 
+        bid_price
+<span style="color:#007020;font-weight:bold">from</span> 	orders
+<span style="color:#007020;font-weight:bold">where</span>	order_quantity <span style="color:#666">&gt;</span> <span style="color:#40a070">975</span> <span style="color:#007020;font-weight:bold">and</span> 
+        symbol <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Bespin Gas&#39;</span> <span style="color:#007020;font-weight:bold">and</span> 
+        trade_type <span style="color:#666">=</span> <span style="color:#4070a0">&#39;market&#39;</span> <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">20</span>;</code></pre></div>
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/stream-query03-1024x626.png" width="1024" height="626"/> 
+</figure>
+
+
+<p>Enjoy!</p>
+
+<!-- AddThis Advanced Settings generic via filter on the_content -->
+
+<!-- AddThis Share Buttons generic via filter on the_content -->
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stephanefrechettedev" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=stephanef" async></script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-137528572-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>

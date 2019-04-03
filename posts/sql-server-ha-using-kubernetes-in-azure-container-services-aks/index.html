@@ -1,3 +1,499 @@
-<div class="addthis_inline_share_toolbox"></div>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Stéphane Fréchette">
+    <meta name="description" content="Stéphane Fréchette&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal,data engineer,cloud solution architect,google cloud">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SQL Server HA using Kubernetes in Azure Container Services (AKS)"/>
+<meta name="twitter:description" content="In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
+Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise."/>
+
+    <meta property="og:title" content="SQL Server HA using Kubernetes in Azure Container Services (AKS)" />
+<meta property="og:description" content="In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
+Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/" />
+<meta property="article:published_time" content="2018-04-25T13:40:28-04:00"/>
+<meta property="article:modified_time" content="2018-04-25T13:40:28-04:00"/>
 
 
+    
+      <base href="https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/">
+    
+    <title>
+  SQL Server HA using Kubernetes in Azure Container Services (AKS) · Stéphane Fréchette
+</title>
+
+    
+      <link rel="canonical" href="https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://stephanefrechette.dev/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://stephanefrechette.dev/css/custom.css">
+    
+
+    <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.54.0" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://stephanefrechette.dev">
+      Stéphane Fréchette
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://stephanefrechette.dev/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://stephanefrechette.dev/talks/">Talks</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://stephanefrechette.dev/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+      <div class="addthis_inline_share_toolbox"></div>
+        <div class="post-title">
+          <h1 class="title">SQL Server HA using Kubernetes in Azure Container Services (AKS)</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-04-25T13:40:28-04:00'>
+                April 25, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              7 minutes read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://stephanefrechette.dev/categories/databases/">Databases</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/categories/cloud-computing/">Cloud Computing</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/categories/azure/">Azure</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://stephanefrechette.dev/tags/aks/">aks</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/azure/">azure</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/azure-container-services/">azure container services</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/containers/">containers</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/docker/">docker</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/high-availability/">high availability</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/k8s/">k8s</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/kubernetes/">kubernetes</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/sql-server/">sql server</a>
+      <span class="separator">•</span>
+    <a href="https://stephanefrechette.dev/tags/sql-server-on-linux/">sql server on linux</a></div>
+
+        </div>
+      </header>
+      
+      <div>
+        
+
+<p><figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/Azure-Container-Service_COLOR-300x300.png#floatleft"
+         alt="Azure Container Services (AKS)" width="200" height="200"/> 
+</figure>
+<br />
+In a nutshell, <a href="https://kubernetes.io/" target="_blank" rel="noopener">Kubernetes</a> is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for <a href="https://www.docker.com/what-docker" target="_blank" rel="noopener">Docker</a>. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e <a href="https://docs.docker.com/engine/swarm/" target="_blank" rel="noopener">Docker Swarm</a>). To learn more about Kubernetes, check out this <a href="https://kubernetes.io/docs/home/?path=users&persona=app-developer&level=foundational" target="_blank" rel="noopener">Getting Started Guide</a>.</p>
+
+<p>Enters <a href="https://azure.microsoft.com/en-us/services/container-service/" target="_blank" rel="noopener">Azure Container Service (AKS)</a> which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.</p>
+
+<p><em><strong>[Important]:</strong> Azure Container Service is currently in preview &#8211; Some aspects of this feature may change prior to general availability (GA).</em></p>
+
+<p>This post will demonstrate how to configure a SQL Server instance on Kubernetes in Azure Container Services (AKS) with persistent storage for high availability. The outcome provides resiliency against SQL Server pod failure or cluster node failure. Kubernetes 1.6+ has support for <a href="https://kubernetes.io/docs/concepts/storage/storage-classes/" target="_blank" rel="noopener">Storage Classes</a> , <a href="https://kubernetes.io/docs/concepts/storage/storage-classes/#persistentvolumeclaims" target="_blank" rel="noopener">Persistent Volume Claims</a> , and the <a href="https://github.com/kubernetes/examples/tree/master/staging/volumes/azure_disk" rel="noopener" target="_blank">Azure disk volume type</a>. You can create and manage your SQL Server instances natively in Kubernetes.</p>
+
+<p>The following will walk you through creating a deployment to achieve a high availability configuration similar to shared disk failover cluster instance. In this configuration, Kubernetes plays the role of the cluster orchestrator. When a SQL Server instance in a container fails, the orchestrator bootstraps another instance of the container that attaches to the same persistent storage.</p>
+
+<p>Of course i&#8217;m on macOS, but this could also be done using Windows or Linux&#8230;</p>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>First thing, you will need an <a href="https://azure.microsoft.com/en-ca/free/" target="_blank" rel="noopener">Azure subscription</a> with enough credits to provision the Kubernetes cluster (4 VMs).</p>
+
+<p><strong>Install Azure CLI</strong><br />
+Next you need to have Azure CLI installed &#8211; For detailed instructions on how to install and configure the Azure CLI follow this <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest" target="_blank" rel="noopener">link</a></p>
+
+<p><strong>Install kubectl</strong><br />
+After installing the Azure CLI run the following command to install kubectl (need elevated privileges)<br />
+<code>sudo az aks install-cli</code><br />
+<em>Ensure to add kubectl in your search PATH</em></p>
+
+<h3 id="deploy-a-kubernetes-cluster-in-aks">Deploy a Kubernetes cluster in AKS</h3>
+
+<p>Simply follow these guide steps to deploy an Azure Container Services cluster:<br />
+<em><strong>Note:</strong> Replace values in &lt;&gt; with your own named values</em></p>
+
+<p><strong>Configure security context</strong><br />
+<code>az login</code><br />
+<em>Follow instructions at the prompt</em></p>
+
+<p><strong>Create a resource group</strong><br />
+<code>az group create --name &lt;em&gt;&lt;resourceGroupName&gt;&lt;/em&gt; --location canadaeast</code><br />
+<em>While AKS is in preview, only some location options are available. These are eastus, westeurope, centralus, canadacentral, canadaeast</em></p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_1.png" width="1010" height="307"/> 
+</figure>
+
+
+<p><strong>Create Kubernetes cluster in Azure Container Services (AKS)</strong><br />
+<code>az provider register -n Microsoft.ContainerService</code><br />
+<em>While AKS is in preview, creating new clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. Use the az provider register command to register the AKS provider. After registering, you are now ready to create a Kubernetes cluster with AKS.</em></p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_2.png" width="1010" height="307"/> 
+</figure>
+
+
+<p><strong>Create the cluster</strong><br />
+<code>az aks create --name=&lt;em&gt;&lt;clusterName&gt;&lt;/em&gt; --resource-group=&lt;em&gt;&lt;resourceGroupName&gt;&lt;/em&gt; --generate-ssh-key --location canadaeast</code><br />
+<em>Expect to take a couple of minutes to bootstrap the cluster. The command will return once bootstrapping is complete.</em></p>
+
+<p>Something similar to the following:<br />
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_3.png" width="1010" height="307"/> 
+</figure>
+</p>
+
+<p>Next let&#8217;s Authenticate into the cluster<br />
+<code>az aks get-credentials -n &lt;em&gt;&lt;clusterName&gt;&lt;/em&gt;  -g &lt;em&gt;&lt;resourceGroupName&gt;&lt;/em&gt;</code><br />
+and validate connectivity to the cluster<br />
+<code>kubectl get nodes</code></p>
+
+<p>You should see that our newly created cluster with 3 nodes and a status of Ready.<br />
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_4.png" width="1010" height="307"/> 
+</figure>
+</p>
+
+<p>To explore the web-based Kubernetes dashboard, issue the following command:<br />
+<code>az aks browse -n &lt;em&gt;&lt;clusterName&gt;&lt;/em&gt; -g &lt;em&gt;&lt;resourceGroupName&gt;&lt;/em&gt;</code><br />
+A new browser tab or window should open or simply navigate to <a href="http://127.0.0.1:8001" target="_blank" rel="noopener"><a href="http://127.0.0.1:8001">http://127.0.0.1:8001</a></a></p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_5.png" width="1008" height="256"/> 
+</figure>
+
+
+<h3 id="deploy-sql-server-in-kubernetes">Deploy SQL Server in Kubernetes</h3>
+
+<p><strong>Create secret to store SQL Server SA password</strong><br />
+We will now create a password in the Kubernetes cluster. Kubernetes can manage sensitive configuration information like passwords as <a href="https://kubernetes.io/docs/concepts/configuration/secret/" rel="noopener" target="_blank">secrets</a>. The following command creates a secret that holds the value for the password that will be using for the SQL Server SA account. Replace <em>YourComplexPassword</em> with a complex password.</p>
+
+<p><code>kubectl create secret generic mssql --from-literal=SA_PASSWORD=&quot;&lt;em&gt;YourComplexPassword&lt;/em&gt;&quot;</code></p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_6.png" width="1010" height="307"/> 
+</figure>
+
+
+<p><strong>Configure storage for SQL Server files</strong><br />
+Create a manifest to define the storage class and the persistent volume claim. The manifest specifies the storage provisioner, parameters, and the <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming" rel="noopener" target="_blank">reclaim policy</a>. The Kubernetes cluster uses this manifest to create the persistent storage.</p>
+
+<p>The following yaml example defines a storage class and persistent volume claim. The storage class provisioner is <strong>azure-disk</strong> because this Kubernetes cluster is in Azure. The storage account type is Standard_LRS. The persistent volume claim is named <strong>mssql-data</strong>. The persistent volume claim metadata includes an annotation connecting it back to the storage class.</p>
+
+<p>Open your favorite editor (<a href="https://code.visualstudio.com/" rel="noopener" target="_blank">VS Code</a>) and paste the following:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">kind:<span style="color:#bbb"> </span>StorageClass<span style="color:#bbb">
+</span><span style="color:#bbb"></span>apiVersion:<span style="color:#bbb"> </span>storage.k8s.io/v1beta1<span style="color:#bbb">
+</span><span style="color:#bbb"></span>metadata:<span style="color:#bbb">
+</span><span style="color:#bbb">     </span>name:<span style="color:#bbb"> </span>azure-disk<span style="color:#bbb">
+</span><span style="color:#bbb"></span>provisioner:<span style="color:#bbb"> </span>kubernetes.io/azure-disk<span style="color:#bbb">
+</span><span style="color:#bbb"></span>parameters:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>storageaccounttype:<span style="color:#bbb"> </span>Standard_LRS<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>kind:<span style="color:#bbb"> </span>Managed<span style="color:#bbb">
+</span><span style="color:#bbb"></span>---<span style="color:#bbb">
+</span><span style="color:#bbb"></span>kind:<span style="color:#bbb"> </span>PersistentVolumeClaim<span style="color:#bbb">
+</span><span style="color:#bbb"></span>apiVersion:<span style="color:#bbb"> </span>v1<span style="color:#bbb">
+</span><span style="color:#bbb"></span>metadata:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>name:<span style="color:#bbb"> </span>mssql-data<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>annotations:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>volume.beta.kubernetes.io/storage-class:<span style="color:#bbb"> </span>azure-disk<span style="color:#bbb">
+</span><span style="color:#bbb"></span>spec:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>accessModes:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>ReadWriteOnce<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>resources:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>requests:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>storage:<span style="color:#bbb"> </span>8Gi</code></pre></div>
+<p><strong>Save the file</strong> (for example pvc.yml)</p>
+
+<p><strong>Create the persistent volume claim in Kubernetes</strong><br />
+<code>kubectl apply -f &lt;em&gt;&lt;Path to you recently saved pvc.yml file&gt;&lt;/em&gt;</code></p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_7.png" width="1010" height="307"/> 
+</figure>
+
+
+<p><strong>Verify the persistent volume claim</strong><br />
+<code>kubectl describe pvc mssql-data</code><br />
+<em>In our pvc.yml created earlier the persistent volume claim is named <strong>mssql-data</strong></em></p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_8.png" width="1010" height="409"/> 
+</figure>
+
+
+<p><strong>Verify the persistent volume</strong><br />
+<code>kubectl describe pv</code></p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_9.png" width="1010" height="460"/> 
+</figure>
+
+
+<h3 id="create-the-deployment">Create the deployment</h3>
+
+<p>The container hosting the SQL Server instance is described as a Kubernetes deployment object. The deployment creates a replica set. The replica set creates the <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/" rel="noopener" target="_blank">pod</a>. In this step, create a manifest to describe the container based on the SQL Server <a href="https://hub.docker.com/r/microsoft/mssql-server-linux/" rel="noopener" target="_blank">mssql-server-linux</a> Docker image. The manifest references the <strong>mssql-server</strong> persistent volume claim, and the <strong>mssql</strong> secret that you already applied to the Kubernetes cluster. The manifest also describes a service. This service is a load balancer. The load balancer guarantees that the IP address persists after SQL Server instance is recovered.</p>
+
+<p>The following describes a deployment, including a container based on the SQL Server container image. Copy and paste the following in a new file:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion:<span style="color:#bbb"> </span>apps/v1beta1<span style="color:#bbb">
+</span><span style="color:#bbb"></span>kind:<span style="color:#bbb"> </span>Deployment<span style="color:#bbb">
+</span><span style="color:#bbb"></span>metadata:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>name:<span style="color:#bbb"> </span>mssql-deployment<span style="color:#bbb">
+</span><span style="color:#bbb"></span>spec:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>replicas:<span style="color:#bbb"> </span><span style="color:#40a070">1</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>template:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>metadata:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>labels:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>app:<span style="color:#bbb"> </span>mssql<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>spec:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>terminationGracePeriodSeconds:<span style="color:#bbb"> </span><span style="color:#40a070">10</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span>containers:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>mssql<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>image:<span style="color:#bbb"> </span>microsoft/mssql-server-linux:<span style="color:#40a070">2017</span>-latest<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>ports:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>-<span style="color:#bbb"> </span>containerPort:<span style="color:#bbb"> </span><span style="color:#40a070">1433</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span>env:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>ACCEPT_EULA<span style="color:#bbb">
+</span><span style="color:#bbb">          </span>value:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Y&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>SA_PASSWORD<span style="color:#bbb">
+</span><span style="color:#bbb">          </span>valueFrom:<span style="color:#bbb">
+</span><span style="color:#bbb">            </span>secretKeyRef:<span style="color:#bbb">
+</span><span style="color:#bbb">              </span>name:<span style="color:#bbb"> </span>mssql<span style="color:#bbb">
+</span><span style="color:#bbb">              </span>key:<span style="color:#bbb"> </span>SA_PASSWORD<span style="color:#bbb"> 
+</span><span style="color:#bbb">        </span>volumeMounts:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>mssqldb<span style="color:#bbb">
+</span><span style="color:#bbb">          </span>mountPath:<span style="color:#bbb"> </span>/var/opt/mssql<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>volumes:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>mssqldb<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>persistentVolumeClaim:<span style="color:#bbb">
+</span><span style="color:#bbb">          </span>claimName:<span style="color:#bbb"> </span>mssql-data<span style="color:#bbb">
+</span><span style="color:#bbb"></span>---<span style="color:#bbb">
+</span><span style="color:#bbb"></span>apiVersion:<span style="color:#bbb"> </span>v1<span style="color:#bbb">
+</span><span style="color:#bbb"></span>kind:<span style="color:#bbb"> </span>Service<span style="color:#bbb">
+</span><span style="color:#bbb"></span>metadata:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>name:<span style="color:#bbb"> </span>mssql-deployment<span style="color:#bbb">
+</span><span style="color:#bbb"></span>spec:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>selector:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>app:<span style="color:#bbb"> </span>mssql<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>ports:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>protocol:<span style="color:#bbb"> </span>TCP<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>port:<span style="color:#bbb"> </span><span style="color:#40a070">1433</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span>targetPort:<span style="color:#bbb"> </span><span style="color:#40a070">1433</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>type:<span style="color:#bbb"> </span>LoadBalancer</code></pre></div>
+<p><strong>Save the file</strong> (for example sqldeployment.yml)</p>
+
+<p><strong>Create deployment</strong><br />
+<code>kubectl apply -f &lt;em&gt;&lt;Path to your recently saved sqldeployment.yml file&gt;&lt;/em&gt;</code></p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_10.png" width="1010" height="324"/> 
+</figure>
+
+
+<p>View the status of the pod<br />
+<code>kubectl get pods -0 wide</code></p>
+
+<p>Because I just issued the command right after creating the deployment, it is showing that the container is being created&#8230; leave it some time to pull the docker image and try again. It should then show a status of Running.</p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_11.png" width="1010" height="324"/> 
+</figure>
+
+
+<p><strong>Verify the services are running</strong><br />
+<code>kubectl get services</code></p>
+
+<p>Take note of the EXTERNAL-IP, that&#8217;s the one will be using to connect to the SQL Server instance.</p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_12.png" width="1010" height="324"/> 
+</figure>
+
+
+<h3 id="connect-to-sql-server-instance">Connect to SQL Server instance</h3>
+
+<p>You could use <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-develop-use-ssms?view=sql-server-linux-2017" rel="noopener" target="_blank">SSMS</a>, <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-develop-use-ssdt?view=sql-server-linux-2017" rel="noopener" target="_blank">SSDT</a>, <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-develop-use-vscode?view=sql-server-linux-2017" rel="noopener" target="_blank">Visual Studio Code</a> and <a href="https://docs.microsoft.com/en-us/sql/sql-operations-studio/quickstart-sql-server?view=sql-server-2017" rel="noopener" target="_blank">SQL Operations Studio</a> to connect to the SQL Server instance, here will use <code>sqlcmd</code></p>
+
+<p><code>sqlcmd -S &lt;em&gt;&lt;External IP Address&gt;&lt;/em&gt; -U sa -P &quot;&lt;em&gt;YourComplexPassword&lt;/em&gt;&quot;</code></p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_13.png" width="1010" height="341"/> 
+</figure>
+
+
+<p>We have a connection!</p>
+
+<h3 id="verify-failure-and-recovery">Verify failure and recovery</h3>
+
+<p>It&#8217;s now time to verify that a failure will be able to recover, in order to validate will be deleting the pod:</p>
+
+<p>First list the pod which is running SQL Server<br />
+<code>kubectl get pods -o wide</code></p>
+
+<p>Then issue the following command to delete the pod:<br />
+<code>kubectl delete pod &lt;em&gt;&lt;mssql-deployment-xxxx&gt;&lt;/em&gt;</code><br />
+<em>Use the value returned from kubectl get pods command</em>. In this case my pod name is mssql-deployment-6f8946b5d-xbpx5 running on node 1 (aks-nodepool1-142282291-1)</p>
+
+<p>After issuing the delete pod command here is what&#8217;s happening; in this case Kubernetes is terminating the pod running the SQL Server instance in node 1 (aks-nodepool1-142282291-1) and then recreating it in node 0 (aks-nodepool1-142282291-0) and then connecting to the persistent storage. In this scenario because it&#8217;s recreating a pod (SQL Server instance) in another node it is not as fast as like recreating a pod in the same node (very fast&#8230;like Instantaneously!)</p>
+
+<p>It worked! Notice the pod name before and after the delete, it is different and running on a different node.</p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_14.png" width="1024" height="253"/> 
+</figure>
+
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_15.png" width="1026" height="307"/> 
+</figure>
+
+
+<p>You could then use <code>kubectl get pods -o wide</code> to verify that a new pod is now deployed and running and use <code>kubectl get services</code> to verify that you have the same EXTERNAL-IP address for the new container. Hence also try to reconnect to the SQL Server instance (with same ip) and voilà!</p>
+
+<p>Here is a screenshot of the k8s dashboard</p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_16.png" width="1144" height="850"/> 
+</figure>
+
+
+<p>That&#8217;s it. We just walkthrough on how to configure SQL Server containers to a Kubernetes cluster for high availability in Azure Container Services (AKS).<br />
+Enjoy!</p>
+
+<!-- AddThis Advanced Settings generic via filter on the_content -->
+
+<!-- AddThis Share Buttons generic via filter on the_content -->
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stephanefrechettedev" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=stephanef" async></script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-137528572-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+  </body>
+
+</html>
