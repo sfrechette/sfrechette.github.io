@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/sfrechette
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://stephanefrechette.dev
+  * I am sfrechette (https://keybase.io/sfrechette) on keybase.
+  * I have a public key ASB-MuIUfjVLwAck6dWFHdyh8pjV2mSHzUesq-0z0vydrgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01207e32e2147e354bc00724e9d5851ddca1f298d5da6487cd47acabed33d2fc9dae0a",
+      "host": "keybase.io",
+      "kid": "01207e32e2147e354bc00724e9d5851ddca1f298d5da6487cd47acabed33d2fc9dae0a",
+      "uid": "424808d3a7e1a65dc72401cac4863d19",
+      "username": "sfrechette"
+    },
+    "merkle_root": {
+      "ctime": 1554323912,
+      "hash": "36cc12d90565d695297087c481ecfac008efc8ad3d26f952697d3d6fb7a21952bbbc31753e242cfa0d6cac76d2d5fdee96421cfda4b99c3292bc3c005bf053d5",
+      "hash_meta": "e3ccc4ba3f7cc21d14016fa7a007e54829998ce16263c93e81561b054ebf84cf",
+      "seqno": 5090125
+    },
+    "service": {
+      "entropy": "9xPlYkKLyRM69Gl4BRvewZk2",
+      "hostname": "stephanefrechette.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "3.1.2"
+  },
+  "ctime": 1554323930,
+  "expire_in": 504576000,
+  "prev": "94c376507abc554271e4377016bd8f8358edb36da2e3f20d1b76a7bd546319ad",
+  "seqno": 62,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgfjLiFH41S8AHJOnVhR3cofKY1dpkh81HrKvtM9L8na4Kp3BheWxvYWTESpcCPsQglMN2UHq8VUJx5DdwFr2Pg1jts22i4/ING3anvVRjGa3EIJ4E8LLOL7AAJ6gTYPGN+dWZXTqbVyqxkCg9STbx0NUaAgHCo3NpZ8RAEqeBEr/JcT9fQTEmEVd15W2CTLOgzY5cC6YL1HXjAT8vz8SA9kjYVS0gUxG2GlvBGiADBIcafavHU7OqWBkMA6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIHBbi2VaaHNOYwWVpqqCdXI/LyF/tTCtxMw7gmsqWYv0o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/sfrechette
+
+==================================================================
