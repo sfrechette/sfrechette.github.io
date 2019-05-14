@@ -6,10 +6,20 @@
     <description>Recent content on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 27 Mar 2019 10:12:22 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 04 Apr 2019 10:48:50 -0400</lastBuildDate>
     
 	<atom:link href="https://stephanefrechette.dev/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Journey to Google Cloud Platform - Part 1</title>
+      <link>https://stephanefrechette.dev/posts/a-journey-to-google-cloud-platform-part-1/</link>
+      <pubDate>Thu, 04 Apr 2019 10:48:50 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/posts/a-journey-to-google-cloud-platform-part-1/</guid>
+      <description>In this anticipated journey (a series of blog posts to follow), I will walk you through exploring and using the Google Cloud Platform. While on this journey will be using data from the Ford GoBike dataset&amp;hellip; and will exploring GCP services like Cloud Storage, Cloud Pub/Sub, Cloud Dataflow and BigQuery. But first signing up for GCP, then loading data,profiling and cleansing, streaming and batch processing, analysing &amp;hellip;.
+https://cloud.google.com/ or go directly to the following link to start your free trial if you don&amp;rsquo;t already have one, you will need to create a Google account.</description>
+    </item>
     
     <item>
       <title>My First Post using Hugo!</title>
@@ -325,11 +335,10 @@ An all around data guy! Former SQL Server | Data Platform MVP, focusing on Cloud
       
       <guid>https://stephanefrechette.dev/talks/</guid>
       <description>Talks List of all my upcoming and past public talks | presentations.
-Upcoming Nothing scheduled
-Past Tuesday March 26, 2019 GDG Cloud Ottawa | Ottawa, ON
- Google Cloud Storage and Databases | Slides  Saturday, June 2, 2018 SQLSaturday #758 | Montreal, QC
- Leverage Open Source DB as a Service: Introducing MySQL and Postgres on Azure  Tuesday, May 22, 2018 MSDEVMTL | Montreal, QC
- TimescaleDB: A scalable time-series database built on PostgreSQL | Slides  Friday, April 27, 2018 Data Camp - DevTeach | Quebec, QC</description>
+Upcoming Wednesday May 15, 2019 GDG Cloud Montreal | Montreal, QC
+ Next &amp;lsquo;19 Extended Montreal  Thursday May 16, 2019 GDG Cloud Ottawa | Ottawa, ON
+ Google Next &amp;lsquo;19 Extended Ottawa and BBQ on Terrace!  Past Tuesday March 26, 2019 GDG Cloud Ottawa | Ottawa, ON
+ Google Cloud Storage and Databases | Slides  Saturday, June 2, 2018 SQLSaturday #758 | Montreal, QC</description>
     </item>
     
   </channel>

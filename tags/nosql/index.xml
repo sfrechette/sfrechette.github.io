@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Nosql on Stéphane Fréchette</title>
+    <title>nosql on Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/tags/nosql/</link>
-    <description>Recent content in Nosql on Stéphane Fréchette</description>
+    <description>Recent content in nosql on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 06 Aug 2015 09:22:50 -0400</lastBuildDate>

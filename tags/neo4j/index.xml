@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Neo4j on Stéphane Fréchette</title>
+    <title>neo4j on Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/tags/neo4j/</link>
-    <description>Recent content in Neo4j on Stéphane Fréchette</description>
+    <description>Recent content in neo4j on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 06 Aug 2015 09:22:50 -0400</lastBuildDate>

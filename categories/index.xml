@@ -6,26 +6,17 @@
     <description>Recent content in Categories on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 08 Feb 2018 15:09:48 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 27 Mar 2019 10:12:22 -0400</lastBuildDate>
     
 	<atom:link href="https://stephanefrechette.dev/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Analytics</title>
-      <link>https://stephanefrechette.dev/categories/analytics/</link>
-      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      <title>Uncategorized</title>
+      <link>https://stephanefrechette.dev/categories/uncategorized/</link>
+      <pubDate>Wed, 27 Mar 2019 10:12:22 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/categories/analytics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Aws</title>
-      <link>https://stephanefrechette.dev/categories/aws/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/categories/aws/</guid>
+      <guid>https://stephanefrechette.dev/categories/uncategorized/</guid>
       <description></description>
     </item>
     
@@ -48,15 +39,6 @@
     </item>
     
     <item>
-      <title>Data Visualization</title>
-      <link>https://stephanefrechette.dev/categories/data-visualization/</link>
-      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/categories/data-visualization/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Databases</title>
       <link>https://stephanefrechette.dev/categories/databases/</link>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
@@ -66,16 +48,7 @@
     </item>
     
     <item>
-      <title>Gcp</title>
-      <link>https://stephanefrechette.dev/categories/gcp/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/categories/gcp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Javascript</title>
+      <title>JavaScript</title>
       <link>https://stephanefrechette.dev/categories/javascript/</link>
       <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
       
@@ -84,11 +57,38 @@
     </item>
     
     <item>
-      <title>Uncategorized</title>
-      <link>https://stephanefrechette.dev/categories/uncategorized/</link>
-      <pubDate>Wed, 27 Mar 2019 10:12:22 -0400</pubDate>
+      <title>Analytics</title>
+      <link>https://stephanefrechette.dev/categories/analytics/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/categories/uncategorized/</guid>
+      <guid>https://stephanefrechette.dev/categories/analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>https://stephanefrechette.dev/categories/aws/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/categories/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GCP</title>
+      <link>https://stephanefrechette.dev/categories/gcp/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/categories/gcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Visualization</title>
+      <link>https://stephanefrechette.dev/categories/data-visualization/</link>
+      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/categories/data-visualization/</guid>
       <description></description>
     </item>
     

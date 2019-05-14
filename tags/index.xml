@@ -6,103 +6,13 @@
     <description>Recent content in Tags on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 01 Apr 2015 11:45:53 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 27 Nov 2018 11:19:56 -0400</lastBuildDate>
     
 	<atom:link href="https://stephanefrechette.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Adventureworks</title>
-      <link>https://stephanefrechette.dev/tags/adventureworks/</link>
-      <pubDate>Wed, 01 Apr 2015 11:45:53 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/adventureworks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Aks</title>
-      <link>https://stephanefrechette.dev/tags/aks/</link>
-      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/aks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Amazon Web Services</title>
-      <link>https://stephanefrechette.dev/tags/amazon-web-services/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/amazon-web-services/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Analytics</title>
-      <link>https://stephanefrechette.dev/tags/analytics/</link>
-      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/analytics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Anonymize</title>
-      <link>https://stephanefrechette.dev/tags/anonymize/</link>
-      <pubDate>Sun, 06 Mar 2016 15:17:24 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/anonymize/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Apache Spark</title>
-      <link>https://stephanefrechette.dev/tags/apache-spark/</link>
-      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/apache-spark/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Artificial Intelligence</title>
-      <link>https://stephanefrechette.dev/tags/artificial-intelligence/</link>
-      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/artificial-intelligence/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Aws</title>
-      <link>https://stephanefrechette.dev/tags/aws/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Aws S3</title>
-      <link>https://stephanefrechette.dev/tags/aws-s3/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/aws-s3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Azcopy</title>
-      <link>https://stephanefrechette.dev/tags/azcopy/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/azcopy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Azure</title>
+      <title>azure</title>
       <link>https://stephanefrechette.dev/tags/azure/</link>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
@@ -111,7 +21,7 @@
     </item>
     
     <item>
-      <title>Azure Automation</title>
+      <title>azure automation</title>
       <link>https://stephanefrechette.dev/tags/azure-automation/</link>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
@@ -120,52 +30,7 @@
     </item>
     
     <item>
-      <title>Azure Blob Storage</title>
-      <link>https://stephanefrechette.dev/tags/azure-blob-storage/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/azure-blob-storage/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Azure Blog Storage</title>
-      <link>https://stephanefrechette.dev/tags/azure-blog-storage/</link>
-      <pubDate>Tue, 04 Apr 2017 11:13:18 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/azure-blog-storage/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Azure Cli</title>
-      <link>https://stephanefrechette.dev/tags/azure-cli/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/azure-cli/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Azure Container Services</title>
-      <link>https://stephanefrechette.dev/tags/azure-container-services/</link>
-      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/azure-container-services/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Azure Databricks</title>
-      <link>https://stephanefrechette.dev/tags/azure-databricks/</link>
-      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/azure-databricks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Azure Paas</title>
+      <title>azure paas</title>
       <link>https://stephanefrechette.dev/tags/azure-paas/</link>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
@@ -174,16 +39,7 @@
     </item>
     
     <item>
-      <title>Azure Powershell</title>
-      <link>https://stephanefrechette.dev/tags/azure-powershell/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/azure-powershell/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Azure Sql Data Warehouse</title>
+      <title>azure sql data warehouse</title>
       <link>https://stephanefrechette.dev/tags/azure-sql-data-warehouse/</link>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
@@ -192,7 +48,7 @@
     </item>
     
     <item>
-      <title>Azure Sql Dw</title>
+      <title>azure sql dw</title>
       <link>https://stephanefrechette.dev/tags/azure-sql-dw/</link>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
@@ -201,196 +57,7 @@
     </item>
     
     <item>
-      <title>Bike</title>
-      <link>https://stephanefrechette.dev/tags/bike/</link>
-      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/bike/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Biking</title>
-      <link>https://stephanefrechette.dev/tags/biking/</link>
-      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/biking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blob</title>
-      <link>https://stephanefrechette.dev/tags/blob/</link>
-      <pubDate>Tue, 04 Apr 2017 11:13:18 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/blob/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blogs</title>
-      <link>https://stephanefrechette.dev/tags/blogs/</link>
-      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/blogs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cli</title>
-      <link>https://stephanefrechette.dev/tags/cli/</link>
-      <pubDate>Tue, 04 Apr 2017 11:13:18 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/cli/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cloud</title>
-      <link>https://stephanefrechette.dev/tags/cloud/</link>
-      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/cloud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Command Line</title>
-      <link>https://stephanefrechette.dev/tags/command-line/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/command-line/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Command Line Interface</title>
-      <link>https://stephanefrechette.dev/tags/command-line-interface/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/command-line-interface/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Containers</title>
-      <link>https://stephanefrechette.dev/tags/containers/</link>
-      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/containers/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Contosoretaildw</title>
-      <link>https://stephanefrechette.dev/tags/contosoretaildw/</link>
-      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/contosoretaildw/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Csv</title>
-      <link>https://stephanefrechette.dev/tags/csv/</link>
-      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/csv/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cypher</title>
-      <link>https://stephanefrechette.dev/tags/cypher/</link>
-      <pubDate>Fri, 19 Sep 2014 14:26:35 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/cypher/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dashboard</title>
-      <link>https://stephanefrechette.dev/tags/dashboard/</link>
-      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/dashboard/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Analytics</title>
-      <link>https://stephanefrechette.dev/tags/data-analytics/</link>
-      <pubDate>Mon, 23 Mar 2015 08:19:37 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/data-analytics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Engineer</title>
-      <link>https://stephanefrechette.dev/tags/data-engineer/</link>
-      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/data-engineer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Engineering</title>
-      <link>https://stephanefrechette.dev/tags/data-engineering/</link>
-      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/data-engineering/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Masking</title>
-      <link>https://stephanefrechette.dev/tags/data-masking/</link>
-      <pubDate>Sun, 06 Mar 2016 15:17:24 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/data-masking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Modeling</title>
-      <link>https://stephanefrechette.dev/tags/data-modeling/</link>
-      <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/data-modeling/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Science</title>
-      <link>https://stephanefrechette.dev/tags/data-science/</link>
-      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/data-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Visualization</title>
-      <link>https://stephanefrechette.dev/tags/data-visualization/</link>
-      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/data-visualization/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Warehouse</title>
-      <link>https://stephanefrechette.dev/tags/data-warehouse/</link>
-      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/data-warehouse/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Databases</title>
+      <title>databases</title>
       <link>https://stephanefrechette.dev/tags/databases/</link>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
@@ -399,349 +66,7 @@
     </item>
     
     <item>
-      <title>Databricks</title>
-      <link>https://stephanefrechette.dev/tags/databricks/</link>
-      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/databricks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>https://stephanefrechette.dev/tags/docker/</link>
-      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dynamic Data Masking</title>
-      <link>https://stephanefrechette.dev/tags/dynamic-data-masking/</link>
-      <pubDate>Sun, 06 Mar 2016 15:17:24 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/dynamic-data-masking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Findstr</title>
-      <link>https://stephanefrechette.dev/tags/findstr/</link>
-      <pubDate>Fri, 22 Sep 2017 10:36:08 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/findstr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gcp</title>
-      <link>https://stephanefrechette.dev/tags/gcp/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/gcp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Github</title>
-      <link>https://stephanefrechette.dev/tags/github/</link>
-      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/github/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Google Cloud Platform</title>
-      <link>https://stephanefrechette.dev/tags/google-cloud-platform/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/google-cloud-platform/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Google Cloud Storage</title>
-      <link>https://stephanefrechette.dev/tags/google-cloud-storage/</link>
-      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/google-cloud-storage/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Graph Database</title>
-      <link>https://stephanefrechette.dev/tags/graph-database/</link>
-      <pubDate>Tue, 16 May 2017 09:35:21 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/graph-database/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Graph Databases</title>
-      <link>https://stephanefrechette.dev/tags/graph-databases/</link>
-      <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/graph-databases/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Graphdb</title>
-      <link>https://stephanefrechette.dev/tags/graphdb/</link>
-      <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/graphdb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Grep</title>
-      <link>https://stephanefrechette.dev/tags/grep/</link>
-      <pubDate>Fri, 22 Sep 2017 10:36:08 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/grep/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>High Availability</title>
-      <link>https://stephanefrechette.dev/tags/high-availability/</link>
-      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/high-availability/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hockey</title>
-      <link>https://stephanefrechette.dev/tags/hockey/</link>
-      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/hockey/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Iot</title>
-      <link>https://stephanefrechette.dev/tags/iot/</link>
-      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/iot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Javascript</title>
-      <link>https://stephanefrechette.dev/tags/javascript/</link>
-      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jdbc</title>
-      <link>https://stephanefrechette.dev/tags/jdbc/</link>
-      <pubDate>Fri, 16 Sep 2016 11:59:40 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/jdbc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jq</title>
-      <link>https://stephanefrechette.dev/tags/jq/</link>
-      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/jq/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Json</title>
-      <link>https://stephanefrechette.dev/tags/json/</link>
-      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/json/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>K8s</title>
-      <link>https://stephanefrechette.dev/tags/k8s/</link>
-      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/k8s/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>https://stephanefrechette.dev/tags/kubernetes/</link>
-      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://stephanefrechette.dev/tags/linux/</link>
-      <pubDate>Fri, 22 Sep 2017 10:36:08 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Live Streaming</title>
-      <link>https://stephanefrechette.dev/tags/live-streaming/</link>
-      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/live-streaming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Machine Learning</title>
-      <link>https://stephanefrechette.dev/tags/machine-learning/</link>
-      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Microsoft Azure</title>
-      <link>https://stephanefrechette.dev/tags/microsoft-azure/</link>
-      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/microsoft-azure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mssql Conf</title>
-      <link>https://stephanefrechette.dev/tags/mssql-conf/</link>
-      <pubDate>Mon, 10 Apr 2017 14:42:14 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/mssql-conf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Neo4j</title>
-      <link>https://stephanefrechette.dev/tags/neo4j/</link>
-      <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/neo4j/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nhl</title>
-      <link>https://stephanefrechette.dev/tags/nhl/</link>
-      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/nhl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Node.js</title>
-      <link>https://stephanefrechette.dev/tags/node.js/</link>
-      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/node.js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nosql</title>
-      <link>https://stephanefrechette.dev/tags/nosql/</link>
-      <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/nosql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Npm</title>
-      <link>https://stephanefrechette.dev/tags/npm/</link>
-      <pubDate>Tue, 25 Oct 2016 15:16:20 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/npm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nyc</title>
-      <link>https://stephanefrechette.dev/tags/nyc/</link>
-      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/nyc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Obfuscation</title>
-      <link>https://stephanefrechette.dev/tags/obfuscation/</link>
-      <pubDate>Sun, 06 Mar 2016 15:17:24 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/obfuscation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Podcasts</title>
-      <link>https://stephanefrechette.dev/tags/podcasts/</link>
-      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/podcasts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Polybase</title>
-      <link>https://stephanefrechette.dev/tags/polybase/</link>
-      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/polybase/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Postgres</title>
-      <link>https://stephanefrechette.dev/tags/postgres/</link>
-      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/postgres/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Postgresql</title>
-      <link>https://stephanefrechette.dev/tags/postgresql/</link>
-      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/postgresql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Power I</title>
-      <link>https://stephanefrechette.dev/tags/power-i/</link>
-      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/power-i/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Powershell</title>
+      <title>powershell</title>
       <link>https://stephanefrechette.dev/tags/powershell/</link>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
@@ -750,151 +75,133 @@
     </item>
     
     <item>
-      <title>Pubnub</title>
-      <link>https://stephanefrechette.dev/tags/pubnub/</link>
-      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
+      <title>artificial intelligence</title>
+      <link>https://stephanefrechette.dev/tags/artificial-intelligence/</link>
+      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/pubnub/</guid>
+      <guid>https://stephanefrechette.dev/tags/artificial-intelligence/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Rdbms</title>
-      <link>https://stephanefrechette.dev/tags/rdbms/</link>
-      <pubDate>Wed, 01 Apr 2015 11:45:53 -0400</pubDate>
+      <title>blogs</title>
+      <link>https://stephanefrechette.dev/tags/blogs/</link>
+      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/rdbms/</guid>
+      <guid>https://stephanefrechette.dev/tags/blogs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Real Time Streaming</title>
-      <link>https://stephanefrechette.dev/tags/real-time-streaming/</link>
-      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
+      <title>data engineer</title>
+      <link>https://stephanefrechette.dev/tags/data-engineer/</link>
+      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/real-time-streaming/</guid>
+      <guid>https://stephanefrechette.dev/tags/data-engineer/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Realtime Streaming</title>
-      <link>https://stephanefrechette.dev/tags/realtime-streaming/</link>
-      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
+      <title>data engineering</title>
+      <link>https://stephanefrechette.dev/tags/data-engineering/</link>
+      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/realtime-streaming/</guid>
+      <guid>https://stephanefrechette.dev/tags/data-engineering/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Row Level Security</title>
-      <link>https://stephanefrechette.dev/tags/row-level-security/</link>
-      <pubDate>Thu, 19 May 2016 16:47:34 -0400</pubDate>
+      <title>data science</title>
+      <link>https://stephanefrechette.dev/tags/data-science/</link>
+      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/row-level-security/</guid>
+      <guid>https://stephanefrechette.dev/tags/data-science/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Rstats</title>
-      <link>https://stephanefrechette.dev/tags/rstats/</link>
-      <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
+      <title>machine learning</title>
+      <link>https://stephanefrechette.dev/tags/machine-learning/</link>
+      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/rstats/</guid>
+      <guid>https://stephanefrechette.dev/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Scala</title>
-      <link>https://stephanefrechette.dev/tags/scala/</link>
-      <pubDate>Fri, 16 Sep 2016 11:59:40 -0400</pubDate>
+      <title>podcasts</title>
+      <link>https://stephanefrechette.dev/tags/podcasts/</link>
+      <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/scala/</guid>
+      <guid>https://stephanefrechette.dev/tags/podcasts/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Security</title>
-      <link>https://stephanefrechette.dev/tags/security/</link>
-      <pubDate>Thu, 19 May 2016 16:47:34 -0400</pubDate>
+      <title>aks</title>
+      <link>https://stephanefrechette.dev/tags/aks/</link>
+      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/security/</guid>
+      <guid>https://stephanefrechette.dev/tags/aks/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Sequelize</title>
-      <link>https://stephanefrechette.dev/tags/sequelize/</link>
-      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
+      <title>azure container services</title>
+      <link>https://stephanefrechette.dev/tags/azure-container-services/</link>
+      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/sequelize/</guid>
+      <guid>https://stephanefrechette.dev/tags/azure-container-services/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Shiny</title>
-      <link>https://stephanefrechette.dev/tags/shiny/</link>
-      <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
+      <title>containers</title>
+      <link>https://stephanefrechette.dev/tags/containers/</link>
+      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/shiny/</guid>
+      <guid>https://stephanefrechette.dev/tags/containers/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Spark</title>
-      <link>https://stephanefrechette.dev/tags/spark/</link>
-      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      <title>docker</title>
+      <link>https://stephanefrechette.dev/tags/docker/</link>
+      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/spark/</guid>
+      <guid>https://stephanefrechette.dev/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Spark Sql</title>
-      <link>https://stephanefrechette.dev/tags/spark-sql/</link>
-      <pubDate>Fri, 16 Sep 2016 11:59:40 -0400</pubDate>
+      <title>high availability</title>
+      <link>https://stephanefrechette.dev/tags/high-availability/</link>
+      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/spark-sql/</guid>
+      <guid>https://stephanefrechette.dev/tags/high-availability/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Sparksql</title>
-      <link>https://stephanefrechette.dev/tags/sparksql/</link>
-      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      <title>k8s</title>
+      <link>https://stephanefrechette.dev/tags/k8s/</link>
+      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/sparksql/</guid>
+      <guid>https://stephanefrechette.dev/tags/k8s/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Sql</title>
-      <link>https://stephanefrechette.dev/tags/sql/</link>
-      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      <title>kubernetes</title>
+      <link>https://stephanefrechette.dev/tags/kubernetes/</link>
+      <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/sql/</guid>
+      <guid>https://stephanefrechette.dev/tags/kubernetes/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Sql Data Warehouse</title>
-      <link>https://stephanefrechette.dev/tags/sql-data-warehouse/</link>
-      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/sql-data-warehouse/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sql Graph</title>
-      <link>https://stephanefrechette.dev/tags/sql-graph/</link>
-      <pubDate>Tue, 16 May 2017 09:35:21 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/sql-graph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sql Server</title>
+      <title>sql server</title>
       <link>https://stephanefrechette.dev/tags/sql-server/</link>
       <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
       
@@ -903,34 +210,7 @@
     </item>
     
     <item>
-      <title>Sql Server 2016</title>
-      <link>https://stephanefrechette.dev/tags/sql-server-2016/</link>
-      <pubDate>Thu, 19 May 2016 16:47:34 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/sql-server-2016/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sql Server 2017</title>
-      <link>https://stephanefrechette.dev/tags/sql-server-2017/</link>
-      <pubDate>Tue, 16 May 2017 09:35:21 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/sql-server-2017/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sql Server Linux</title>
-      <link>https://stephanefrechette.dev/tags/sql-server-linux/</link>
-      <pubDate>Mon, 10 Apr 2017 14:42:14 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/sql-server-linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sql Server on Linux</title>
+      <title>sql server on linux</title>
       <link>https://stephanefrechette.dev/tags/sql-server-on-linux/</link>
       <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
       
@@ -939,34 +219,79 @@
     </item>
     
     <item>
-      <title>Statistical Analysis</title>
-      <link>https://stephanefrechette.dev/tags/statistical-analysis/</link>
-      <pubDate>Mon, 23 Mar 2015 08:19:37 -0400</pubDate>
+      <title>javascript</title>
+      <link>https://stephanefrechette.dev/tags/javascript/</link>
+      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/statistical-analysis/</guid>
+      <guid>https://stephanefrechette.dev/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Streaming</title>
-      <link>https://stephanefrechette.dev/tags/streaming/</link>
-      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
+      <title>live streaming</title>
+      <link>https://stephanefrechette.dev/tags/live-streaming/</link>
+      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/streaming/</guid>
+      <guid>https://stephanefrechette.dev/tags/live-streaming/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Tableau</title>
-      <link>https://stephanefrechette.dev/tags/tableau/</link>
-      <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
+      <title>node.js</title>
+      <link>https://stephanefrechette.dev/tags/node.js/</link>
+      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/tableau/</guid>
+      <guid>https://stephanefrechette.dev/tags/node.js/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Timescale</title>
+      <title>postgres</title>
+      <link>https://stephanefrechette.dev/tags/postgres/</link>
+      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/postgres/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>postgresql</title>
+      <link>https://stephanefrechette.dev/tags/postgresql/</link>
+      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/postgresql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pubnub</title>
+      <link>https://stephanefrechette.dev/tags/pubnub/</link>
+      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/pubnub/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>realtime streaming</title>
+      <link>https://stephanefrechette.dev/tags/realtime-streaming/</link>
+      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/realtime-streaming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sequelize</title>
+      <link>https://stephanefrechette.dev/tags/sequelize/</link>
+      <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/sequelize/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>timescale</title>
       <link>https://stephanefrechette.dev/tags/timescale/</link>
       <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
       
@@ -975,7 +300,7 @@
     </item>
     
     <item>
-      <title>Timescaledb</title>
+      <title>timescaledb</title>
       <link>https://stephanefrechette.dev/tags/timescaledb/</link>
       <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
       
@@ -984,7 +309,7 @@
     </item>
     
     <item>
-      <title>Timeseries</title>
+      <title>timeseries</title>
       <link>https://stephanefrechette.dev/tags/timeseries/</link>
       <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
       
@@ -993,16 +318,286 @@
     </item>
     
     <item>
-      <title>Ubuntu</title>
-      <link>https://stephanefrechette.dev/tags/ubuntu/</link>
-      <pubDate>Tue, 22 Nov 2016 22:49:55 -0400</pubDate>
+      <title>analytics</title>
+      <link>https://stephanefrechette.dev/tags/analytics/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
       
-      <guid>https://stephanefrechette.dev/tags/ubuntu/</guid>
+      <guid>https://stephanefrechette.dev/tags/analytics/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Windows</title>
+      <title>apache spark</title>
+      <link>https://stephanefrechette.dev/tags/apache-spark/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/apache-spark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>azure databricks</title>
+      <link>https://stephanefrechette.dev/tags/azure-databricks/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/azure-databricks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bike</title>
+      <link>https://stephanefrechette.dev/tags/bike/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/bike/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>biking</title>
+      <link>https://stephanefrechette.dev/tags/biking/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/biking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>databricks</title>
+      <link>https://stephanefrechette.dev/tags/databricks/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/databricks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nyc</title>
+      <link>https://stephanefrechette.dev/tags/nyc/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/nyc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spark</title>
+      <link>https://stephanefrechette.dev/tags/spark/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/spark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sparksql</title>
+      <link>https://stephanefrechette.dev/tags/sparksql/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/sparksql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sql</title>
+      <link>https://stephanefrechette.dev/tags/sql/</link>
+      <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>amazon web services</title>
+      <link>https://stephanefrechette.dev/tags/amazon-web-services/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/amazon-web-services/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws</title>
+      <link>https://stephanefrechette.dev/tags/aws/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws s3</title>
+      <link>https://stephanefrechette.dev/tags/aws-s3/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/aws-s3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>azcopy</title>
+      <link>https://stephanefrechette.dev/tags/azcopy/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/azcopy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>azure blob storage</title>
+      <link>https://stephanefrechette.dev/tags/azure-blob-storage/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/azure-blob-storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>azure cli</title>
+      <link>https://stephanefrechette.dev/tags/azure-cli/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/azure-cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>azure powershell</title>
+      <link>https://stephanefrechette.dev/tags/azure-powershell/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/azure-powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>command line</title>
+      <link>https://stephanefrechette.dev/tags/command-line/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/command-line/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>command-line interface</title>
+      <link>https://stephanefrechette.dev/tags/command-line-interface/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/command-line-interface/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gcp</title>
+      <link>https://stephanefrechette.dev/tags/gcp/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/gcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google cloud platform</title>
+      <link>https://stephanefrechette.dev/tags/google-cloud-platform/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/google-cloud-platform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google cloud storage</title>
+      <link>https://stephanefrechette.dev/tags/google-cloud-storage/</link>
+      <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/google-cloud-storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>csv</title>
+      <link>https://stephanefrechette.dev/tags/csv/</link>
+      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/csv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://stephanefrechette.dev/tags/github/</link>
+      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hockey</title>
+      <link>https://stephanefrechette.dev/tags/hockey/</link>
+      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/hockey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jq</title>
+      <link>https://stephanefrechette.dev/tags/jq/</link>
+      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/jq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>json</title>
+      <link>https://stephanefrechette.dev/tags/json/</link>
+      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/json/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nhl</title>
+      <link>https://stephanefrechette.dev/tags/nhl/</link>
+      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/nhl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>findstr</title>
+      <link>https://stephanefrechette.dev/tags/findstr/</link>
+      <pubDate>Fri, 22 Sep 2017 10:36:08 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/findstr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grep</title>
+      <link>https://stephanefrechette.dev/tags/grep/</link>
+      <pubDate>Fri, 22 Sep 2017 10:36:08 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/grep/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://stephanefrechette.dev/tags/linux/</link>
+      <pubDate>Fri, 22 Sep 2017 10:36:08 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
       <link>https://stephanefrechette.dev/tags/windows/</link>
       <pubDate>Fri, 22 Sep 2017 10:36:08 -0400</pubDate>
       
@@ -1011,7 +606,133 @@
     </item>
     
     <item>
-      <title>Windows 10</title>
+      <title>dashboard</title>
+      <link>https://stephanefrechette.dev/tags/dashboard/</link>
+      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/dashboard/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data visualization</title>
+      <link>https://stephanefrechette.dev/tags/data-visualization/</link>
+      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/data-visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iot</title>
+      <link>https://stephanefrechette.dev/tags/iot/</link>
+      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>power I</title>
+      <link>https://stephanefrechette.dev/tags/power-i/</link>
+      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/power-i/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>real-time streaming</title>
+      <link>https://stephanefrechette.dev/tags/real-time-streaming/</link>
+      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/real-time-streaming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>streaming</title>
+      <link>https://stephanefrechette.dev/tags/streaming/</link>
+      <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/streaming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>graph database</title>
+      <link>https://stephanefrechette.dev/tags/graph-database/</link>
+      <pubDate>Tue, 16 May 2017 09:35:21 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/graph-database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sql graph</title>
+      <link>https://stephanefrechette.dev/tags/sql-graph/</link>
+      <pubDate>Tue, 16 May 2017 09:35:21 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/sql-graph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sql server 2017</title>
+      <link>https://stephanefrechette.dev/tags/sql-server-2017/</link>
+      <pubDate>Tue, 16 May 2017 09:35:21 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/sql-server-2017/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mssql-conf</title>
+      <link>https://stephanefrechette.dev/tags/mssql-conf/</link>
+      <pubDate>Mon, 10 Apr 2017 14:42:14 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/mssql-conf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sql server linux</title>
+      <link>https://stephanefrechette.dev/tags/sql-server-linux/</link>
+      <pubDate>Mon, 10 Apr 2017 14:42:14 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/sql-server-linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>azure blog storage</title>
+      <link>https://stephanefrechette.dev/tags/azure-blog-storage/</link>
+      <pubDate>Tue, 04 Apr 2017 11:13:18 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/azure-blog-storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blob</title>
+      <link>https://stephanefrechette.dev/tags/blob/</link>
+      <pubDate>Tue, 04 Apr 2017 11:13:18 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/blob/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cli</title>
+      <link>https://stephanefrechette.dev/tags/cli/</link>
+      <pubDate>Tue, 04 Apr 2017 11:13:18 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows 10</title>
       <link>https://stephanefrechette.dev/tags/windows-10/</link>
       <pubDate>Tue, 21 Mar 2017 12:23:03 -0400</pubDate>
       
@@ -1020,11 +741,290 @@
     </item>
     
     <item>
-      <title>Yul</title>
+      <title>ubuntu</title>
+      <link>https://stephanefrechette.dev/tags/ubuntu/</link>
+      <pubDate>Tue, 22 Nov 2016 22:49:55 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>npm</title>
+      <link>https://stephanefrechette.dev/tags/npm/</link>
+      <pubDate>Tue, 25 Oct 2016 15:16:20 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/npm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jdbc</title>
+      <link>https://stephanefrechette.dev/tags/jdbc/</link>
+      <pubDate>Fri, 16 Sep 2016 11:59:40 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/jdbc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scala</title>
+      <link>https://stephanefrechette.dev/tags/scala/</link>
+      <pubDate>Fri, 16 Sep 2016 11:59:40 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/scala/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spark sql</title>
+      <link>https://stephanefrechette.dev/tags/spark-sql/</link>
+      <pubDate>Fri, 16 Sep 2016 11:59:40 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/spark-sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>row level security</title>
+      <link>https://stephanefrechette.dev/tags/row-level-security/</link>
+      <pubDate>Thu, 19 May 2016 16:47:34 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/row-level-security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://stephanefrechette.dev/tags/security/</link>
+      <pubDate>Thu, 19 May 2016 16:47:34 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sql server 2016</title>
+      <link>https://stephanefrechette.dev/tags/sql-server-2016/</link>
+      <pubDate>Thu, 19 May 2016 16:47:34 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/sql-server-2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>anonymize</title>
+      <link>https://stephanefrechette.dev/tags/anonymize/</link>
+      <pubDate>Sun, 06 Mar 2016 15:17:24 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/anonymize/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data masking</title>
+      <link>https://stephanefrechette.dev/tags/data-masking/</link>
+      <pubDate>Sun, 06 Mar 2016 15:17:24 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/data-masking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dynamic data masking</title>
+      <link>https://stephanefrechette.dev/tags/dynamic-data-masking/</link>
+      <pubDate>Sun, 06 Mar 2016 15:17:24 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/dynamic-data-masking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>obfuscation</title>
+      <link>https://stephanefrechette.dev/tags/obfuscation/</link>
+      <pubDate>Sun, 06 Mar 2016 15:17:24 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/obfuscation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud</title>
+      <link>https://stephanefrechette.dev/tags/cloud/</link>
+      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>contosoretaildw</title>
+      <link>https://stephanefrechette.dev/tags/contosoretaildw/</link>
+      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/contosoretaildw/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data warehouse</title>
+      <link>https://stephanefrechette.dev/tags/data-warehouse/</link>
+      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/data-warehouse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>microsoft azure</title>
+      <link>https://stephanefrechette.dev/tags/microsoft-azure/</link>
+      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/microsoft-azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>polybase</title>
+      <link>https://stephanefrechette.dev/tags/polybase/</link>
+      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/polybase/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sql data warehouse</title>
+      <link>https://stephanefrechette.dev/tags/sql-data-warehouse/</link>
+      <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/sql-data-warehouse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rstats</title>
+      <link>https://stephanefrechette.dev/tags/rstats/</link>
+      <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/rstats/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shiny</title>
+      <link>https://stephanefrechette.dev/tags/shiny/</link>
+      <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/shiny/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tableau</title>
+      <link>https://stephanefrechette.dev/tags/tableau/</link>
+      <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/tableau/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data modeling</title>
+      <link>https://stephanefrechette.dev/tags/data-modeling/</link>
+      <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/data-modeling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>graph databases</title>
+      <link>https://stephanefrechette.dev/tags/graph-databases/</link>
+      <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/graph-databases/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>graphdb</title>
+      <link>https://stephanefrechette.dev/tags/graphdb/</link>
+      <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/graphdb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>neo4j</title>
+      <link>https://stephanefrechette.dev/tags/neo4j/</link>
+      <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/neo4j/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nosql</title>
+      <link>https://stephanefrechette.dev/tags/nosql/</link>
+      <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/nosql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yul</title>
       <link>https://stephanefrechette.dev/tags/yul/</link>
       <pubDate>Sun, 14 Jun 2015 19:50:49 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/yul/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>adventureworks</title>
+      <link>https://stephanefrechette.dev/tags/adventureworks/</link>
+      <pubDate>Wed, 01 Apr 2015 11:45:53 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/adventureworks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rdbms</title>
+      <link>https://stephanefrechette.dev/tags/rdbms/</link>
+      <pubDate>Wed, 01 Apr 2015 11:45:53 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/rdbms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data analytics</title>
+      <link>https://stephanefrechette.dev/tags/data-analytics/</link>
+      <pubDate>Mon, 23 Mar 2015 08:19:37 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/data-analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>statistical analysis</title>
+      <link>https://stephanefrechette.dev/tags/statistical-analysis/</link>
+      <pubDate>Mon, 23 Mar 2015 08:19:37 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/statistical-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cypher</title>
+      <link>https://stephanefrechette.dev/tags/cypher/</link>
+      <pubDate>Fri, 19 Sep 2014 14:26:35 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/cypher/</guid>
       <description></description>
     </item>
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ubuntu on Stéphane Fréchette</title>
+    <title>ubuntu on Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/tags/ubuntu/</link>
-    <description>Recent content in Ubuntu on Stéphane Fréchette</description>
+    <description>Recent content in ubuntu on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 22 Nov 2016 22:49:55 -0400</lastBuildDate>

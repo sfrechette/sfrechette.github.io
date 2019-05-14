@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jq on Stéphane Fréchette</title>
+    <title>jq on Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/tags/jq/</link>
-    <description>Recent content in Jq on Stéphane Fréchette</description>
+    <description>Recent content in jq on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 09 Oct 2017 19:52:18 -0400</lastBuildDate>

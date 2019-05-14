@@ -3,8 +3,55 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://stephanefrechette.dev/posts/a-journey-to-google-cloud-platform-part-1/</loc>
+    <lastmod>2019-04-04T10:48:50-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/</loc>
+    <lastmod>2019-04-04T10:48:50-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/</loc>
+    <lastmod>2019-04-04T10:48:50-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/categories/</loc>
+    <lastmod>2019-03-27T10:12:22-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://stephanefrechette.dev/posts/my-first-post/</loc>
     <lastmod>2019-03-27T10:12:22-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/categories/uncategorized/</loc>
+    <lastmod>2019-03-27T10:12:22-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/categories/azure/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/categories/cloud-computing/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/categories/databases/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -13,157 +60,103 @@
   </url>
   
   <url>
+    <loc>https://stephanefrechette.dev/tags/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/azure/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/azure-automation/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/azure-paas/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/azure-sql-data-warehouse/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/azure-sql-dw/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/databases/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/powershell/</loc>
+    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://stephanefrechette.dev/posts/podcasts-blogs-about-data-engineering-data-science-ml-and-ai/</loc>
     <lastmod>2018-07-26T09:21:40-04:00</lastmod>
   </url>
   
   <url>
+    <loc>https://stephanefrechette.dev/tags/artificial-intelligence/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/blogs/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/data-engineer/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/data-engineering/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/data-science/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/machine-learning/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/podcasts/</loc>
+    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/</loc>
     <lastmod>2018-04-25T13:40:28-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/ingest-real-time-streaming-data-for-time-series-analysis/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</loc>
-    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/</loc>
-    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/fetching-nhl-play-by-play-v2/</loc>
-    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/search-string-multiple-files/</loc>
-    <lastmod>2017-09-22T10:36:08-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/installing-timescaledb-azure/</loc>
-    <lastmod>2017-07-25T16:30:49-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/real-time-streaming-dashboard-power-bi/</loc>
-    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/sql-graph-sql-server-2017/</loc>
-    <lastmod>2017-05-16T09:35:21-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/configure-manage-sql-server-linux/</loc>
-    <lastmod>2017-04-10T14:42:14-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</loc>
-    <lastmod>2017-04-04T11:13:18-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/running-sql-server-linux-docker-windows-10/</loc>
-    <lastmod>2017-03-21T12:23:03-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/sql-server-linux-whats-installed/</loc>
-    <lastmod>2017-01-18T23:23:49-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data-part-2/</loc>
-    <lastmod>2016-12-09T10:25:54-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/installing-sql-server-linux-ubuntu/</loc>
-    <lastmod>2016-11-22T22:49:55-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/</loc>
-    <lastmod>2016-10-25T15:16:20-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/</loc>
-    <lastmod>2016-09-16T11:59:40-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/</loc>
-    <lastmod>2016-05-19T16:47:34-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/anonymize-sensitive-data-dynamic-data-masking/</loc>
-    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/contosoretaildw-azure-sql-data-warehouse/</loc>
-    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/a-short-tale-of-data-vizes/</loc>
-    <lastmod>2015-09-29T09:12:54-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/azure-cloud-services-neo4j/</loc>
-    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/</loc>
-    <lastmod>2015-06-14T19:50:49-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/</loc>
-    <lastmod>2015-04-01T11:45:53-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</loc>
-    <lastmod>2015-03-23T08:19:37-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/data-analytics-r-sql-server/</loc>
-    <lastmod>2015-01-07T20:04:51-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/graph-data-modeling-and-importing-the-spreadsheet-way/</loc>
-    <lastmod>2014-09-19T14:26:35-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/about/</loc>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/talks/</loc>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/adventureworks/</loc>
-    <lastmod>2015-04-01T11:45:53-04:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -173,8 +166,127 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/amazon-web-services/</loc>
-    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/azure-container-services/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/containers/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/docker/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/high-availability/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/k8s/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/kubernetes/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/sql-server/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/sql-server-on-linux/</loc>
+    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/ingest-real-time-streaming-data-for-time-series-analysis/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/categories/javascript/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/javascript/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/live-streaming/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/node.js/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/postgres/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/postgresql/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/pubnub/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/realtime-streaming/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/sequelize/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/timescale/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/timescaledb/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/timeseries/</loc>
+    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -185,14 +297,13 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/analytics/</loc>
+    <loc>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</loc>
     <lastmod>2018-02-08T15:09:48-04:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/anonymize/</loc>
-    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/analytics/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -203,13 +314,72 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/artificial-intelligence/</loc>
-    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/azure-databricks/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/bike/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/biking/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/databricks/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/nyc/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/spark/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/sparksql/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/sql/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://stephanefrechette.dev/categories/aws/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/categories/gcp/</loc>
+    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/amazon-web-services/</loc>
     <lastmod>2017-11-19T16:46:01-04:00</lastmod>
     <priority>0</priority>
   </url>
@@ -233,32 +403,8 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/categories/azure/</loc>
-    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/azure/</loc>
-    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/azure-automation/</loc>
-    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://stephanefrechette.dev/tags/azure-blob-storage/</loc>
     <lastmod>2017-11-19T16:46:01-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/azure-blog-storage/</loc>
-    <lastmod>2017-04-04T11:13:18-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -269,86 +415,8 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/azure-container-services/</loc>
-    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/azure-databricks/</loc>
-    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/azure-paas/</loc>
-    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://stephanefrechette.dev/tags/azure-powershell/</loc>
     <lastmod>2017-11-19T16:46:01-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/azure-sql-data-warehouse/</loc>
-    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/azure-sql-dw/</loc>
-    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/bike/</loc>
-    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/biking/</loc>
-    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/blob/</loc>
-    <lastmod>2017-04-04T11:13:18-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/blogs/</loc>
-    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/categories/</loc>
-    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/cli/</loc>
-    <lastmod>2017-04-04T11:13:18-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/cloud/</loc>
-    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/categories/cloud-computing/</loc>
-    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -365,140 +433,8 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/containers/</loc>
-    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/contosoretaildw/</loc>
-    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/csv/</loc>
-    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/cypher/</loc>
-    <lastmod>2014-09-19T14:26:35-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/dashboard/</loc>
-    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/data-analytics/</loc>
-    <lastmod>2015-03-23T08:19:37-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/data-engineer/</loc>
-    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/data-engineering/</loc>
-    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/data-masking/</loc>
-    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/data-modeling/</loc>
-    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/data-science/</loc>
-    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/categories/data-visualization/</loc>
-    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/data-visualization/</loc>
-    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/data-warehouse/</loc>
-    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/categories/databases/</loc>
-    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/databases/</loc>
-    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/databricks/</loc>
-    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/docker/</loc>
-    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/dynamic-data-masking/</loc>
-    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/findstr/</loc>
-    <lastmod>2017-09-22T10:36:08-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/categories/gcp/</loc>
-    <lastmod>2017-11-19T16:46:01-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://stephanefrechette.dev/tags/gcp/</loc>
     <lastmod>2017-11-19T16:46:01-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/github/</loc>
-    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -515,62 +451,25 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/graph-database/</loc>
-    <lastmod>2017-05-16T09:35:21-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/posts/fetching-nhl-play-by-play-v2/</loc>
+    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/csv/</loc>
+    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/graph-databases/</loc>
-    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/graphdb/</loc>
-    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/grep/</loc>
-    <lastmod>2017-09-22T10:36:08-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/high-availability/</loc>
-    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/github/</loc>
+    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://stephanefrechette.dev/tags/hockey/</loc>
     <lastmod>2017-10-09T19:52:18-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/iot/</loc>
-    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/categories/javascript/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/javascript/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/jdbc/</loc>
-    <lastmod>2016-09-16T11:59:40-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -587,14 +486,25 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/k8s/</loc>
-    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/nhl/</loc>
+    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/kubernetes/</loc>
-    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/posts/search-string-multiple-files/</loc>
+    <lastmod>2017-09-22T10:36:08-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/findstr/</loc>
+    <lastmod>2017-09-22T10:36:08-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/grep/</loc>
+    <lastmod>2017-09-22T10:36:08-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -605,98 +515,42 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/live-streaming/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/windows/</loc>
+    <lastmod>2017-09-22T10:36:08-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/machine-learning/</loc>
-    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/posts/installing-timescaledb-azure/</loc>
+    <lastmod>2017-07-25T16:30:49-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/categories/data-visualization/</loc>
+    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/microsoft-azure/</loc>
-    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/posts/real-time-streaming-dashboard-power-bi/</loc>
+    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/dashboard/</loc>
+    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/mssql-conf/</loc>
-    <lastmod>2017-04-10T14:42:14-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/data-visualization/</loc>
+    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/neo4j/</loc>
-    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/nhl/</loc>
-    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/node.js/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/nosql/</loc>
-    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/npm/</loc>
-    <lastmod>2016-10-25T15:16:20-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/nyc/</loc>
-    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/obfuscation/</loc>
-    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/podcasts/</loc>
-    <lastmod>2018-07-26T09:21:40-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/polybase/</loc>
-    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/postgres/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/postgresql/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/</loc>
-    <lastmod>2019-03-27T10:12:22-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/iot/</loc>
+    <lastmod>2017-07-18T15:32:29-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -707,140 +561,8 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/powershell/</loc>
-    <lastmod>2018-11-27T11:19:56-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/pubnub/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/rdbms/</loc>
-    <lastmod>2015-04-01T11:45:53-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://stephanefrechette.dev/tags/real-time-streaming/</loc>
     <lastmod>2017-07-18T15:32:29-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/realtime-streaming/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/row-level-security/</loc>
-    <lastmod>2016-05-19T16:47:34-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/rstats/</loc>
-    <lastmod>2015-09-29T09:12:54-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/scala/</loc>
-    <lastmod>2016-09-16T11:59:40-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/security/</loc>
-    <lastmod>2016-05-19T16:47:34-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/sequelize/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/shiny/</loc>
-    <lastmod>2015-09-29T09:12:54-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/spark/</loc>
-    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/spark-sql/</loc>
-    <lastmod>2016-09-16T11:59:40-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/sparksql/</loc>
-    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/sql/</loc>
-    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/sql-data-warehouse/</loc>
-    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/sql-graph/</loc>
-    <lastmod>2017-05-16T09:35:21-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/sql-server/</loc>
-    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/sql-server-2016/</loc>
-    <lastmod>2016-05-19T16:47:34-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/sql-server-2017/</loc>
-    <lastmod>2017-05-16T09:35:21-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/sql-server-linux/</loc>
-    <lastmod>2017-04-10T14:42:14-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/sql-server-on-linux/</loc>
-    <lastmod>2018-04-25T13:40:28-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/statistical-analysis/</loc>
-    <lastmod>2015-03-23T08:19:37-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -851,8 +573,241 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/</loc>
-    <lastmod>2019-03-27T10:12:22-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/posts/sql-graph-sql-server-2017/</loc>
+    <lastmod>2017-05-16T09:35:21-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/graph-database/</loc>
+    <lastmod>2017-05-16T09:35:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/sql-graph/</loc>
+    <lastmod>2017-05-16T09:35:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/sql-server-2017/</loc>
+    <lastmod>2017-05-16T09:35:21-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/configure-manage-sql-server-linux/</loc>
+    <lastmod>2017-04-10T14:42:14-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/mssql-conf/</loc>
+    <lastmod>2017-04-10T14:42:14-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/sql-server-linux/</loc>
+    <lastmod>2017-04-10T14:42:14-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</loc>
+    <lastmod>2017-04-04T11:13:18-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/azure-blog-storage/</loc>
+    <lastmod>2017-04-04T11:13:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/blob/</loc>
+    <lastmod>2017-04-04T11:13:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/cli/</loc>
+    <lastmod>2017-04-04T11:13:18-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/running-sql-server-linux-docker-windows-10/</loc>
+    <lastmod>2017-03-21T12:23:03-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/windows-10/</loc>
+    <lastmod>2017-03-21T12:23:03-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/sql-server-linux-whats-installed/</loc>
+    <lastmod>2017-01-18T23:23:49-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data-part-2/</loc>
+    <lastmod>2016-12-09T10:25:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/installing-sql-server-linux-ubuntu/</loc>
+    <lastmod>2016-11-22T22:49:55-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/ubuntu/</loc>
+    <lastmod>2016-11-22T22:49:55-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/</loc>
+    <lastmod>2016-10-25T15:16:20-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/npm/</loc>
+    <lastmod>2016-10-25T15:16:20-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/</loc>
+    <lastmod>2016-09-16T11:59:40-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/jdbc/</loc>
+    <lastmod>2016-09-16T11:59:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/scala/</loc>
+    <lastmod>2016-09-16T11:59:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/spark-sql/</loc>
+    <lastmod>2016-09-16T11:59:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/</loc>
+    <lastmod>2016-05-19T16:47:34-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/row-level-security/</loc>
+    <lastmod>2016-05-19T16:47:34-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/security/</loc>
+    <lastmod>2016-05-19T16:47:34-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/sql-server-2016/</loc>
+    <lastmod>2016-05-19T16:47:34-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/anonymize-sensitive-data-dynamic-data-masking/</loc>
+    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/anonymize/</loc>
+    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/data-masking/</loc>
+    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/dynamic-data-masking/</loc>
+    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/obfuscation/</loc>
+    <lastmod>2016-03-06T15:17:24-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/contosoretaildw-azure-sql-data-warehouse/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/cloud/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/contosoretaildw/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/data-warehouse/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/microsoft-azure/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/polybase/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/sql-data-warehouse/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/a-short-tale-of-data-vizes/</loc>
+    <lastmod>2015-09-29T09:12:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/rstats/</loc>
+    <lastmod>2015-09-29T09:12:54-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/shiny/</loc>
+    <lastmod>2015-09-29T09:12:54-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -863,56 +818,108 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/</loc>
-    <lastmod>2015-04-01T11:45:53-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/posts/azure-cloud-services-neo4j/</loc>
+    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/data-modeling/</loc>
+    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/timescale/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/graph-databases/</loc>
+    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/timescaledb/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/graphdb/</loc>
+    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/timeseries/</loc>
-    <lastmod>2018-04-17T11:59:21-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/neo4j/</loc>
+    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/ubuntu/</loc>
-    <lastmod>2016-11-22T22:49:55-04:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/nosql/</loc>
+    <lastmod>2015-08-06T09:22:50-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/categories/uncategorized/</loc>
-    <lastmod>2019-03-27T10:12:22-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/windows/</loc>
-    <lastmod>2017-09-22T10:36:08-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/windows-10/</loc>
-    <lastmod>2017-03-21T12:23:03-04:00</lastmod>
-    <priority>0</priority>
+    <loc>https://stephanefrechette.dev/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/</loc>
+    <lastmod>2015-06-14T19:50:49-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://stephanefrechette.dev/tags/yul/</loc>
     <lastmod>2015-06-14T19:50:49-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/</loc>
+    <lastmod>2015-04-01T11:45:53-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/adventureworks/</loc>
+    <lastmod>2015-04-01T11:45:53-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/rdbms/</loc>
+    <lastmod>2015-04-01T11:45:53-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</loc>
+    <lastmod>2015-03-23T08:19:37-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/data-analytics/</loc>
+    <lastmod>2015-03-23T08:19:37-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/statistical-analysis/</loc>
+    <lastmod>2015-03-23T08:19:37-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/data-analytics-r-sql-server/</loc>
+    <lastmod>2015-01-07T20:04:51-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/graph-data-modeling-and-importing-the-spreadsheet-way/</loc>
+    <lastmod>2014-09-19T14:26:35-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/cypher/</loc>
+    <lastmod>2014-09-19T14:26:35-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/about/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/talks/</loc>
     <priority>0</priority>
   </url>
   

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Machine Learning on Stéphane Fréchette</title>
+    <title>machine learning on Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/tags/machine-learning/</link>
-    <description>Recent content in Machine Learning on Stéphane Fréchette</description>
+    <description>Recent content in machine learning on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 26 Jul 2018 09:21:40 -0400</lastBuildDate>

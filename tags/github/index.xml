@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Github on Stéphane Fréchette</title>
+    <title>github on Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/tags/github/</link>
-    <description>Recent content in Github on Stéphane Fréchette</description>
+    <description>Recent content in github on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 09 Oct 2017 19:52:18 -0400</lastBuildDate>

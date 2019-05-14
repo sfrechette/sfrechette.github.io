@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Graph Databases on Stéphane Fréchette</title>
+    <title>graph databases on Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/tags/graph-databases/</link>
-    <description>Recent content in Graph Databases on Stéphane Fréchette</description>
+    <description>Recent content in graph databases on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 06 Aug 2015 09:22:50 -0400</lastBuildDate>

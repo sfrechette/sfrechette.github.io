@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Command Line on Stéphane Fréchette</title>
+    <title>command line on Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/tags/command-line/</link>
-    <description>Recent content in Command Line on Stéphane Fréchette</description>
+    <description>Recent content in command line on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 19 Nov 2017 16:46:01 -0400</lastBuildDate>
