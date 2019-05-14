@@ -3,23 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://stephanefrechette.dev/posts/a-journey-to-google-cloud-platform-part-1/</loc>
-    <lastmod>2019-04-04T10:48:50-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/</loc>
-    <lastmod>2019-04-04T10:48:50-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/</loc>
-    <lastmod>2019-04-04T10:48:50-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://stephanefrechette.dev/categories/</loc>
     <lastmod>2019-03-27T10:12:22-04:00</lastmod>
     <priority>0</priority>
@@ -28,6 +11,18 @@
   <url>
     <loc>https://stephanefrechette.dev/posts/my-first-post/</loc>
     <lastmod>2019-03-27T10:12:22-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/</loc>
+    <lastmod>2019-03-27T10:12:22-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/</loc>
+    <lastmod>2019-03-27T10:12:22-04:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
