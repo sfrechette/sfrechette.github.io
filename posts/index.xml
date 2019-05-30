@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 27 Mar 2019 10:12:22 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 30 May 2019 09:30:49 -0400</lastBuildDate>
     
 	<atom:link href="https://stephanefrechette.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Recapping Google Next &#39;19 with Stephane</title>
+      <link>https://stephanefrechette.dev/posts/recapping-google-next-2019-with-stephane/</link>
+      <pubDate>Thu, 30 May 2019 09:30:49 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/posts/recapping-google-next-2019-with-stephane/</guid>
+      <description>I was invited to the Datascape Podcast by my friend and Team lead Chris Presley from Pythian to discuss and recap some of the interesting announcements at Google Next &amp;lsquo;19. Great discussions. I look forward to my next invitation!
+Link to episode: Episode 33 - Recapping Google Next 2019 with Stephane
+Enjoy!</description>
+    </item>
     
     <item>
       <title>My First Post using Hugo!</title>
