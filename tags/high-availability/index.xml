@@ -6,10 +6,20 @@
     <description>Recent content in high availability on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 25 Apr 2018 13:40:28 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jul 2019 09:30:49 -0400</lastBuildDate>
     
 	<atom:link href="https://stephanefrechette.dev/tags/high-availability/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deploying single instance SQL Server 2017 on GKE</title>
+      <link>https://stephanefrechette.dev/posts/deploying-single-instance-sql-server-2017-on-gke/</link>
+      <pubDate>Wed, 03 Jul 2019 09:30:49 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/posts/deploying-single-instance-sql-server-2017-on-gke/</guid>
+      <description>Kubernetes is an open-source container orchestration system for automating deployment, scaling and management of containerized applications. Running a SQL Server database on Kubernetes is a topic of discussion nowadays as Kubernetes provides ways to provision stateful containers using persistent volumes, statefulsets, etc.
+The following post is a tutorial we recently published on Google’s Partner Solutions that demonstrates how to provision a single instance of SQL Server 2017 on Linux on GKE using Regional persistent disks.</description>
+    </item>
     
     <item>
       <title>SQL Server HA using Kubernetes in Azure Container Services (AKS)</title>
