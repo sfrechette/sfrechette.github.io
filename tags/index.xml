@@ -6,15 +6,51 @@
     <description>Recent content in Tags on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 03 Jul 2019 09:30:49 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jul 2019 09:45:38 -0400</lastBuildDate>
     
 	<atom:link href="https://stephanefrechette.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>cdap</title>
+      <link>https://stephanefrechette.dev/tags/cdap/</link>
+      <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/cdap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud data fusion</title>
+      <link>https://stephanefrechette.dev/tags/cloud-data-fusion/</link>
+      <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/cloud-data-fusion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data fusion</title>
+      <link>https://stephanefrechette.dev/tags/data-fusion/</link>
+      <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/data-fusion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>etl</title>
+      <link>https://stephanefrechette.dev/tags/etl/</link>
+      <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/etl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>gcp</title>
       <link>https://stephanefrechette.dev/tags/gcp/</link>
-      <pubDate>Wed, 03 Jul 2019 09:30:49 -0400</pubDate>
+      <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/gcp/</guid>
       <description></description>
@@ -23,7 +59,7 @@
     <item>
       <title>google cloud</title>
       <link>https://stephanefrechette.dev/tags/google-cloud/</link>
-      <pubDate>Wed, 03 Jul 2019 09:30:49 -0400</pubDate>
+      <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/google-cloud/</guid>
       <description></description>
@@ -32,9 +68,45 @@
     <item>
       <title>google cloud platform</title>
       <link>https://stephanefrechette.dev/tags/google-cloud-platform/</link>
-      <pubDate>Wed, 03 Jul 2019 09:30:49 -0400</pubDate>
+      <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/google-cloud-platform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iam</title>
+      <link>https://stephanefrechette.dev/tags/iam/</link>
+      <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/iam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://stephanefrechette.dev/tags/security/</link>
+      <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>service account</title>
+      <link>https://stephanefrechette.dev/tags/service-account/</link>
+      <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/service-account/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>service account key</title>
+      <link>https://stephanefrechette.dev/tags/service-account-key/</link>
+      <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/service-account-key/</guid>
       <description></description>
     </item>
     
@@ -827,15 +899,6 @@
       <pubDate>Thu, 19 May 2016 16:47:34 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/row-level-security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://stephanefrechette.dev/tags/security/</link>
-      <pubDate>Thu, 19 May 2016 16:47:34 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/security/</guid>
       <description></description>
     </item>
     

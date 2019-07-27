@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>service account key on Stéphane Fréchette</title>
+    <link>https://stephanefrechette.dev/tags/service-account-key/</link>
+    <description>Recent content in service account key on Stéphane Fréchette</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 26 Jul 2019 09:45:38 -0400</lastBuildDate>
+    
+	<atom:link href="https://stephanefrechette.dev/tags/service-account-key/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating a Google Cloud Platform service account key</title>
+      <link>https://stephanefrechette.dev/posts/creating-a-google-cloud-platform-service-account-key/</link>
+      <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
+      
+      <guid>https://stephanefrechette.dev/posts/creating-a-google-cloud-platform-service-account-key/</guid>
+      <description>Some context&amp;hellip; A service account is a special type of Google account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs.
+Lately I have been helping customers that are using CDAP, an 100% open source, integrated framework that accelerates application development for data analytics. Specifically around creating and connecting to Google Cloud Storage as a source to ingest and do data preparation (a.</description>
+    </item>
+    
+  </channel>
+</rss>
