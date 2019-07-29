@@ -221,7 +221,7 @@
 
 <p>You now can view a list of your service account keys from the Credentials menu item.</p>
 
-<p>With that, you have successfully created a GCP service account key. You will need to register the service account file you downloaded into the application you to use GCP services.</p>
+<p>With that, you have successfully created a GCP service account key. You will need to register the service account file you downloaded into the application to connect to GCP services.</p>
 
 <figure>
     <img src="https://stephanefrechette.dev/images/sak-07.jpg"
@@ -242,12 +242,12 @@
 <p><em>Reference: <a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts">https://cloud.google.com/iam/docs/creating-managing-service-accounts</a></em></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcloud beta iam service-accounts create cdap-gcs <span style="color:#4070a0;font-weight:bold">\
 </span><span style="color:#4070a0;font-weight:bold"></span>    --display-name <span style="color:#4070a0">&#34;cdap-gcs&#34;</span></code></pre></div>
-<p>Then create you create a service account key, in this demonstration named <code>key.json</code> using the iam service account you just created <code>cdap-gcs@cdap-gcs.iam.gserviceaccount.com</code>.</p>
+<p>Then create a service account key, in this demonstration named <code>key.json</code> using the IAM service account you just created <code>cdap-gcs@cdap-gcs.iam.gserviceaccount.com</code>.</p>
 
 <p><em>Reference: <a href="https://cloud.google.com/sdk/gcloud/reference/iam/service-accounts/keys/create">https://cloud.google.com/sdk/gcloud/reference/iam/service-accounts/keys/create</a></em></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcloud beta iam service-accounts keys create ~/key.json <span style="color:#4070a0;font-weight:bold">\
 </span><span style="color:#4070a0;font-weight:bold"></span>  --iam-account cdap-gcs@cdap-gcs.iam.gserviceaccount.com</code></pre></div>
-<p>And finally you add a IAM policy binding with the <code>roles/storage.admin</code> role to the service account member <code>cdap-gcs@cdap-gcs.iam.gserviceaccount.com</code></p>
+<p>And finally you add an IAM policy binding with the <code>roles/storage.admin</code> role to the service account member.   <code>cdap-gcs@cdap-gcs.iam.gserviceaccount.com</code></p>
 
 <p><em>Reference: <a href="https://cloud.google.com/sdk/gcloud/reference/beta/projects/add-iam-policy-binding">https://cloud.google.com/sdk/gcloud/reference/beta/projects/add-iam-policy-binding</a></em></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcloud beta projects add-iam-policy-binding cdap-gcs <span style="color:#4070a0;font-weight:bold">\
