@@ -11,3 +11,8 @@ img[src$='#floatright']
     margin-left: 1%;
     margin-right: 1%;
 }
+
+img[src$="#thumbnail"] {
+    width:100px;
+    height:100px;
+ }

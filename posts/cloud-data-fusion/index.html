@@ -10,26 +10,26 @@
     <meta name="keywords" content="stephane frechette,blog,data engineer,cloud solution architect,google cloud">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Deploying single instance SQL Server 2017 on GKE"/>
-<meta name="twitter:description" content="How To Deploy Highly Available SQL Server 2017 On Linux On GKE"/>
+<meta name="twitter:title" content="Extract, Transform, and Load using Cloud Data Fusion"/>
+<meta name="twitter:description" content="Cloud Data Fusion"/>
 
-    <meta property="og:title" content="Deploying single instance SQL Server 2017 on GKE" />
-<meta property="og:description" content="How To Deploy Highly Available SQL Server 2017 On Linux On GKE" />
+    <meta property="og:title" content="Extract, Transform, and Load using Cloud Data Fusion" />
+<meta property="og:description" content="Cloud Data Fusion" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/deploying-single-instance-sql-server-2017-on-gke/" />
-<meta property="article:published_time" content="2019-07-03T09:30:49-04:00" />
-<meta property="article:modified_time" content="2019-07-03T09:30:49-04:00" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/cloud-data-fusion/" />
+<meta property="article:published_time" content="2019-08-09T16:35:18-01:00" />
+<meta property="article:modified_time" content="2019-08-09T16:35:18-01:00" />
 
 
     
-      <base href="https://stephanefrechette.dev/posts/deploying-single-instance-sql-server-2017-on-gke/">
+      <base href="https://stephanefrechette.dev/posts/cloud-data-fusion/">
     
     <title>
-  Deploying single instance SQL Server 2017 on GKE · Stéphane Fréchette
+  Extract, Transform, and Load using Cloud Data Fusion · Stéphane Fréchette
 </title>
 
     
-      <link rel="canonical" href="https://stephanefrechette.dev/posts/deploying-single-instance-sql-server-2017-on-gke/">
+      <link rel="canonical" href="https://stephanefrechette.dev/posts/cloud-data-fusion/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -93,25 +93,23 @@
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Deploying single instance SQL Server 2017 on GKE</h1>
+          <h1 class="title">Extract, Transform, and Load using Cloud Data Fusion</h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
               <i class="fas fa-calendar"></i>
-              <time datetime='2019-07-03T09:30:49-04:00'>
-                July 3, 2019
+              <time datetime='2019-08-09T16:35:18-01:00'>
+                August 9, 2019
               </time>
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              One minute read
+              2 minutes read
             </span>
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="https://stephanefrechette.dev/categories/databases/">Databases</a>
-      <span class="separator">•</span>
     <a href="https://stephanefrechette.dev/categories/cloud-computing/">Cloud Computing</a>
       <span class="separator">•</span>
     <a href="https://stephanefrechette.dev/categories/google-cloud-platform/">Google Cloud Platform</a></div>
@@ -124,33 +122,71 @@
       <span class="separator">•</span>
     <a href="https://stephanefrechette.dev/tags/google-cloud-platform/">google cloud platform</a>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/kubernetes/">kubernetes</a>
+    <a href="https://stephanefrechette.dev/tags/cloud-data-fusion/">cloud data fusion</a>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/k8s/">k8s</a>
+    <a href="https://stephanefrechette.dev/tags/data-fusion/">data fusion</a>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/sql-server/">sql server</a>
+    <a href="https://stephanefrechette.dev/tags/etl/">etl</a>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/high-availability/">high availability</a></div>
+    <a href="https://stephanefrechette.dev/tags/cdap/">cdap</a></div>
 
         </div>
       </header>
       
       <div>
-        <p>Kubernetes is an open-source container orchestration system for automating deployment, scaling and management of containerized applications. Running a SQL Server database on Kubernetes is a topic of discussion nowadays as Kubernetes provides ways to provision stateful containers using persistent volumes, statefulsets, etc.</p>
+        
 
-<p>The following <a href="https://cloud.google.com/solutions/partners/deploying-sql-server-gke"><strong>post</strong></a> is a tutorial we recently published on Google’s Partner Solutions that demonstrates how to provision a single instance of SQL Server 2017 on Linux on <a href="https://cloud.google.com/kubernetes-engine/">GKE</a> using <a href="https://cloud.google.com/compute/docs/disks/#repds">Regional persistent disks</a>. The deployment provides synchronous replication between two zones, thus providing resiliency against zone failure. The walkthrough will show you how to create a GKE cluster, create a Kubernetes secret, create the StorageClass and PersistentVolumeClaim, set up and deploy SQL Server, connect to SQL Server, and most importantly, simulate a zone failure.</p>
+<p>This tutorial demonstrates how to use <a href="https://cloud.google.com/data-fusion/">Cloud Data Fusion</a> to extract, transform, and load (ETL) data from an online transaction processing (OLTP) relational database into BigQuery for analysis.</p>
+
+<p>Cloud Data Fusion is a fully managed, cloud native, enterprise data integration service for quickly building and managing data pipelines. Cloud Data Fusion provides a graphical interface to increase time efficiency and reduce complexity. Now business users, developers, and data scientists can easily and reliably build scalable data integration solutions to cleanse, prepare, blend, transfer, and transform data—without having to wrestle with infrastructure.</p>
+
+<p>Cloud Data Fusion is powered by the OSS project <a href="https://cdap.io/">CDAP</a>, and is currently offered as a beta service on Google Cloud Platform.</p>
+
+<h3 id="objectives">Objectives</h3>
+
+<p>blah blah</p>
+
+<h3 id="cost">Cost</h3>
+
+<p>This tutorial uses the following billable components of Google Cloud Platform:</p>
+
+<h3 id="before-you-begin">Before you begin</h3>
+
+<ol>
+<li>Select or create a GCP project -&gt; <a href="https://console.cloud.google.com/projectselector2/home/dashboard">Go to the project selector page</a><br />
+<sub><strong>Note</strong>: If you don&rsquo;t plan to keep the resources you create in this procedure, create a new project instead of selecting an existing project. After you finish following these steps, you can delete the project, removing all resources associated with the project.</sub><br /></li>
+<li>Make sure that billing is enabled for your Google Cloud Platform project -&gt; <a href="https://cloud.google.com/billing/docs/how-to/modify-project">Learn how to enable billing</a><br /></li>
+<li>Enable the Compute Engine and Cloud Data Fusion APIs -&gt; <a href="https://console.cloud.google.com/flows/enableapi?apiid=compute,datafusion">Enable the APIs</a><br /></li>
+<li><a href="https://cloud.google.com/sdk/docs/">Install and initialize the Cloud SDK</a></li>
+</ol>
+
+<h3 id="using-the-northwind-dataset">Using the Northwind dataset</h3>
+
+<p>The Northwind database contains the sales data for a fictitious company called Northwind Traders, which imports and exports specialty foods from around the world. Different files can be downloaded from the <a href="https://code.google.com/archive/p/northwindextended/downloads">Google Code Archive.</a></p>
+
+<p>This tutorial relies on JSON extracts of tables in the Northwind database, the following diagram describes the entities and relationships of the Northwind database schema:</p>
 
 <figure>
-    <img src="https://stephanefrechette.dev/images/deploying-sql-server-gke-deployment-architecture.jpg"
-         alt="deploying-sql-server-gke-deployment-architecture"/> 
+    <img src="https://stephanefrechette.dev/images/northwind_erd.jpg"
+         alt="northwind_erd"/> 
 </figure>
 
 
-<p>This deployment might not be suitable for mission-critical or large workloads. Instead, Pythian recommends this deployment for smaller workloads in production, development, and staging environments.</p>
+<p>The Northwind schema includes three relevant tables that will be using for this tutorial: <strong>products</strong>, <strong>categories</strong>, and <strong>suppliers</strong>. I have already extracted these tables into JSON format and can be found here to download -&gt; northwind-data</p>
 
-<p>Enjoy!</p>
+<h3 id="etl-into-bigquery-with-cloud-data-fusion">ETL into BigQuery with Cloud Data Fusion</h3>
 
-<p><em>[Original post first appeared on <a href="https://blog.pythian.com/deploy-sql-server-2017-linux-gke/">Pythian&rsquo;s Blog</a>]</em></p>
+<p>In this section of the tutorial, instead of using the BigQuery UI, you use a sample program to load data into BigQuery by using a Cloud Dataflow pipeline. Then, you use the Cloud Dataflow programming model to denormalize and cleanse data to load into BigQuery.</p>
+
+<p>The following diagram illustrates the steps you take to extract, transform and load  with Cloud Data Fusion to a BigQuery dataset.</p>
+
+<figure>
+    <img src="https://stephanefrechette.dev/images/etl_cdf_diagram.jpg"
+         alt="etl_cdf_diagram" height="220"/> 
+</figure>
+
+
+<p>sdasdasdas</p>
 
       </div>
 
