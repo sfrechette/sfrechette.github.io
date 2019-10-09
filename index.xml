@@ -356,7 +356,7 @@ There are several ways that could get you started; the neo4j-shell-tools, Load C
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://stephanefrechette.dev/about/</guid>
-      <description>About My name is Stéphane Fréchette. I&amp;rsquo;m a Cloud Solution Architect. CEO | Consultant @ ukübu.
+      <description>About My name is Stéphane Fréchette. I&amp;rsquo;m a Cloud Solution Architect and a Google Cloud Expert (GDE) - Google Cloud Platform.
 I have a passion for architecting, designing and building solutions that matter.
 An all around data guy! Former SQL Server | Data Platform MVP, focusing on Cloud Computing (GCP, Azure, and AWS), Data Engineering, Big Data, Advanced Analytics, and Data Visualization. Worked and fluent with several database platforms (SQL Server, MySQL, PostgreSQL, Neo4j, MongoDB and other NoSQL type databases) as well as programming languages such as (SQL, Bash, R, Python, JavaScript&amp;hellip;)</description>
     </item>
@@ -368,11 +368,13 @@ An all around data guy! Former SQL Server | Data Platform MVP, focusing on Cloud
       
       <guid>https://stephanefrechette.dev/talks/</guid>
       <description>Talks List of all my upcoming and past public talks | presentations.
-Upcoming TBA
-Past Wednesday May 15, 2019 GDG Cloud Montreal | Montreal, QC
- Next &amp;lsquo;19 Extended Montreal | Slides  Thursday May 16, 2019 GDG Cloud Ottawa | Ottawa, ON
- Google Next &amp;lsquo;19 Extended Ottawa and BBQ on Terrace! | Slides  Tuesday March 26, 2019 GDG Cloud Ottawa | Ottawa, ON
- Google Cloud Storage and Databases | Slides  Saturday, June 2, 2018 SQLSaturday #758 | Montreal, QC</description>
+Upcoming GDG Montreal - TBA
+GDG Ottawa - TBA
+Past Friday September 27, 2019 GDG Montreal | Montreal, QC
+ DevFest 2019 Montreal - Data integration with Cloud Data Fusion
+ DevFest - GDG Cloud Montreal 2019 - Video Recap
+  Wednesday May 15, 2019 GDG Cloud Montreal | Montreal, QC
+ Next &amp;lsquo;19 Extended Montreal | Slides  Thursday May 16, 2019 GDG Cloud Ottawa | Ottawa, ON</description>
     </item>
     
   </channel>
