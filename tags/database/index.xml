@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rdbms on Stéphane Fréchette</title>
-    <link>https://stephanefrechette.dev/tags/rdbms/</link>
-    <description>Recent content in rdbms on Stéphane Fréchette</description>
+    <title>database on Stéphane Fréchette</title>
+    <link>https://stephanefrechette.dev/tags/database/</link>
+    <description>Recent content in database on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 21 Oct 2019 08:36:51 -0400</lastBuildDate>
     
-	<atom:link href="https://stephanefrechette.dev/tags/rdbms/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://stephanefrechette.dev/tags/database/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,16 +18,6 @@
       
       <guid>https://stephanefrechette.dev/posts/lets-get-started-with-cloudsql-sql-server/</guid>
       <description>Finally Cloud SQL for SQL Server is now availble in beta. Announced at Google Next &amp;lsquo;19, Cloud SQL Server is a managed database service that makes it easy to set up, maintain, manage, and administer your SQL Server databases on Google Cloud Platform. Cloud SQL pricing requires no up-front commitment and includes per-second billing and sustained-use discounts, similar to Google Compute Engine. For pricing, please see the Cloud SQL pricing guide for details and for information specific to Microsoft SQL Server, see the SQL Server documentation.</description>
-    </item>
-    
-    <item>
-      <title>Importing AdventureWorks data into Neo4j</title>
-      <link>https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/</link>
-      <pubDate>Wed, 01 Apr 2015 11:45:53 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/</guid>
-      <description>Graphs are everywhere! In my efforts to spread the word and inform SQL Server Professionals about Neo4j and learn how to take a relational database schema and model it as a graph&amp;#8230; AdventureWorks was a no-brainer! Let&amp;#8217;s explore how to import a subset of the AdventureWorks database from SQL Server (RDBMS) into Neo4j (GraphDB).
-But first some prerequisites. You should at least have a basic understanding of what is a property graph model and have completed the following modeling guidelines.</description>
     </item>
     
   </channel>
