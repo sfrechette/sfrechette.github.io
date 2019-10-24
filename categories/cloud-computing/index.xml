@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cloud Computing on Stéphane Fréchette</title>
@@ -17,7 +17,7 @@
       <pubDate>Mon, 21 Oct 2019 08:36:51 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/lets-get-started-with-cloudsql-sql-server/</guid>
-      <description>Finally Cloud SQL for SQL Server is now availble in beta. Announced at Google Next &amp;lsquo;19, Cloud SQL Server is a managed database service that makes it easy to set up, maintain, manage, and administer your SQL Server databases on Google Cloud Platform. Cloud SQL pricing requires no up-front commitment and includes per-second billing and sustained-use discounts, similar to Google Compute Engine. For pricing, please see the Cloud SQL pricing guide for details and for information specific to Microsoft SQL Server, see the SQL Server documentation.</description>
+      <description>Finally Cloud SQL for SQL Server is now available in beta. Announced at Google Next &amp;lsquo;19, Cloud SQL Server is a managed database service that makes it easy to set up, maintain, manage, and administer your SQL Server databases on Google Cloud Platform. Cloud SQL pricing requires no up-front commitment and includes per-second billing and sustained-use discounts, similar to Google Compute Engine. For pricing, please see the Cloud SQL pricing guide for details and for information specific to Microsoft SQL Server, see the SQL Server documentation.</description>
     </item>
     
     <item>

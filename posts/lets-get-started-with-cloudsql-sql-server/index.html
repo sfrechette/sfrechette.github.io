@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="generator" content="Hugo 0.59.0" />
   </head>
 
   <body class=" ">
@@ -140,9 +140,9 @@
     <img src="https://stephanefrechette.dev/images/cloudsql.png#floatleft"
          alt="cloudsql" width="150" height="150"/> 
 </figure>
- Finally <a href="https://cloud.google.com/sql/docs/sqlserver/">Cloud SQL for SQL Server</a> is now availble in beta. Announced at Google Next &lsquo;19, Cloud SQL Server is a managed database service that makes it easy to set up, maintain, manage, and administer your SQL Server databases on Google Cloud Platform. Cloud SQL pricing requires no up-front commitment and includes per-second billing and sustained-use discounts, similar to Google Compute Engine. For pricing, please see the <a href="https://cloud.google.com/sql/pricing#sql-server">Cloud SQL pricing guide</a> for details and for information specific to Microsoft SQL Server, see the <a href="https://docs.microsoft.com/en-ca/sql/sql-server/sql-server-technical-documentation?view=sql-server-2017">SQL Server documentation</a>.</p>
+ Finally <a href="https://cloud.google.com/sql/docs/sqlserver/">Cloud SQL for SQL Server</a> is now available in beta. Announced at Google Next &lsquo;19, Cloud SQL Server is a managed database service that makes it easy to set up, maintain, manage, and administer your SQL Server databases on Google Cloud Platform. Cloud SQL pricing requires no up-front commitment and includes per-second billing and sustained-use discounts, similar to Google Compute Engine. For pricing, please see the <a href="https://cloud.google.com/sql/pricing#sql-server">Cloud SQL pricing guide</a> for details and for information specific to Microsoft SQL Server, see the <a href="https://docs.microsoft.com/en-ca/sql/sql-server/sql-server-technical-documentation?view=sql-server-2017">SQL Server documentation</a>.</p>
 
-<p>This post is to quickly get you started and deploy a Cloud SQL for SQL Server managed instance that is not intended for production use! You will mostly use all defaults when configuring your instance, in future post we will go deeper on how to configure for Backups and High Availability, connectivity with Private IP and restoring backups.</p>
+<p>This post is to quickly get you started and deploy a Cloud SQL for SQL Server managed instance that is not intended for production use! You will mostly use all defaults when configuring your instance, in a future post we will go deeper on how to configure for Backups and High Availability, connectivity with Private IP and restoring backups.</p>
 
 <p>For a list of major features and capabilities (supported and unsupported) for the Cloud SQL for SQL Server beta, please refer to the following page -&gt; <a href="https://cloud.google.com/sql/docs/sqlserver/features">Cloud SQL for SQL Server features</a>.</p>
 
@@ -172,7 +172,7 @@
 
 <h4 id="cloud-sql">Cloud SQL</h4>
 
-<p>Go to the Cloud SQL page, you can do this by typing <code>cloud sql</code> in the resources and products search field ans select SQL.</p>
+<p>Go to the Cloud SQL page, you can do this by typing <code>cloud sql</code> in the resources and products search field and select SQL.</p>
 
 <figure>
     <img src="https://stephanefrechette.dev/images/cloudsql03.jpg"
@@ -212,7 +212,7 @@
 </figure>
 
 
-<p>Before you select Create, as mentioned earlier you will for now use all defaults for configurations. Let&rsquo;s at least walkthrough them:</p>
+<p>Before you select Create, as mentioned earlier you will now use all defaults for configurations. Let&rsquo;s at least walkthrough them:</p>
 
 <ul>
 <li><strong>Machine type and storage:</strong><br />
@@ -238,7 +238,7 @@ This is where you would choose how to connect to your database instance. For now
 
 <ul>
 <li><strong>Auto backups and high availability:</strong><br />
-This is where you decided if you want to enable &lsquo;Automate backups&rsquo;, and if you wish to have High Availabilty (regional) coverage for your instance.<br /></li>
+This is where you decide if you want to enable &lsquo;Automate backups&rsquo;, and if you wish to have High Availability (regional) coverage for your instance.<br /></li>
 <li><strong>Flags and parameters:</strong><br />
 Where you would choose and include Cloud SQL flag and parameters for your database server.</li>
 <li><strong>Maintenance schedule:</strong><br />
@@ -283,7 +283,7 @@ Maintenance window and timing selection</li>
 <li>Install and authenticate the gcloud command-line tool<br /></li>
 <li>Install the Cloud SQL Proxy client on your local machine</li>
 <li>Get the instance connection name (information copied earlier)<br /></li>
-<li><em>Optional</em> - Connect to your database using the sqlcmd client Connect to your instane (skip this step and use the following section <strong>Connecting to your SQL Server instance</strong> to connect)</li>
+<li><em>Optional</em> - Connect to your database using the sqlcmd client Connect to your instance (skip this step and use the following section <strong>Connecting to your SQL Server instance</strong> to connect)</li>
 </ul>
 
 <h4 id="connecting-to-your-sql-server-instance">Connecting to your SQL Server instance</h4>
