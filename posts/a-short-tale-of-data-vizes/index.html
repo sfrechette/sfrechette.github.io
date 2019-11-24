@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.0" />
+    <meta name="generator" content="Hugo 0.59.1" />
   </head>
 
   <body class=" ">
@@ -149,7 +149,7 @@ sat_score<span style="color:#666">$</span>Total.Score <span style="color:#666">&
 <span style="color:#60a0b0;font-style:italic"># Group by</span>
 by_college <span style="color:#666">&amp;</span>lt;<span style="color:#666">-</span> <span style="color:#06287e">group_by</span>(sat_score, College, Total.Score)
 
-<span style="color:#60a0b0;font-style:italic"># Summarise</span>
+<span style="color:#60a0b0;font-style:italic"># Summarize</span>
 college_score <span style="color:#666">&amp;</span>lt;<span style="color:#666">-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
 
 <span style="color:#60a0b0;font-style:italic"># Plot</span>
