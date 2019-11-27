@@ -6,10 +6,19 @@
     <description>Recent content in Google Cloud Platform on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 21 Oct 2019 08:36:51 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 24 Nov 2019 10:20:30 -0500</lastBuildDate>
     
 	<atom:link href="https://stephanefrechette.dev/categories/google-cloud-platform/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Join, Group By and Aggregate in Cloud Data Fusion</title>
+      <link>https://stephanefrechette.dev/posts/join-group-by-and-aggregate-in-cloud-data-fusion/</link>
+      <pubDate>Sun, 24 Nov 2019 10:20:30 -0500</pubDate>
+      
+      <guid>https://stephanefrechette.dev/posts/join-group-by-and-aggregate-in-cloud-data-fusion/</guid>
+      <description>Good news! Cloud Data Fusion is now GA. Announced at Google Next &amp;lsquo;19 UK on November 21, 2019 Cloud Data Fusion is a fully managed, cloud-native, enterprise data integration service for quickly building and managing data pipelines. Cloud Data Fusion web UI allows you to build scalable data integration solutions to clean, prepare, blend, transfer, and transform data, without having to manage the infrastructure. Cloud Data Fusion is powered by the open source project CDAP.</description>
+    </item>
     
     <item>
       <title>Getting started with Cloud SQL for SQL Server</title>
