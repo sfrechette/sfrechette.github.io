@@ -17,7 +17,7 @@
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/pause-azure-sql-data-warehouses-with-azure-automation/</guid>
-      <description>Folks it as been a while&amp;#8230; You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)&amp;#8230; while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automation and PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</description>
+      <description>Folks it as been a while… You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)… while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automationand PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</description>
     </item>
     
   </channel>

@@ -11,11 +11,11 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ottawa weather vs. Ottawa JavaScript Meetup attendance: an R analysis"/>
-<meta name="twitter:description" content="The more you used it, the more you discover great stuff&#8230; I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing&#8230;you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&gt; https://ram-n.github.io/weatherData/.
+<meta name="twitter:description" content="The more you used it, the more you discover great stuff… I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing…you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&gt; https://ram-n.github.io/weatherData/.
 So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance!"/>
 
     <meta property="og:title" content="Ottawa weather vs. Ottawa JavaScript Meetup attendance: an R analysis" />
-<meta property="og:description" content="The more you used it, the more you discover great stuff&#8230; I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing&#8230;you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&gt; https://ram-n.github.io/weatherData/.
+<meta property="og:description" content="The more you used it, the more you discover great stuff… I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing…you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&gt; https://ram-n.github.io/weatherData/.
 So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/" />
@@ -55,7 +55,7 @@ So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attenda
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -134,10 +134,8 @@ So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attenda
       </header>
       
       <div>
-        <p>The more you used it, the more you discover great stuff&#8230; I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing&#8230;you know the drill. So I came across this neat R package named <a href="http://cran.r-project.org/web/packages/weatherData/index.html" target="_blank">weatherData</a>. weatherData provides functions that help in fetching weather data from websites, documentation found here -&gt; <a href="https://ram-n.github.io/weatherData/" target="_blank"><a href="https://ram-n.github.io/weatherData/">https://ram-n.github.io/weatherData/</a></a>.</p>
-
+        <p>The more you used it, the more you discover great stuff… I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing…you know the drill. So I came across this neat R package named <!-- raw HTML omitted -->weatherData<!-- raw HTML omitted -->. weatherData provides functions that help in fetching weather data from websites, documentation found here -&gt; <!-- raw HTML omitted --><a href="https://ram-n.github.io/weatherData/">https://ram-n.github.io/weatherData/</a><!-- raw HTML omitted -->.</p>
 <p>So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance! Even with only 33 meetups (observations) in the past 3+ years, I thought it would be interesting to see if there any correlation between them? Ottawa weather vs. Ottawa JavaScript Meetup attendance: an R analysis</p>
-
 <p>First we need to load some required libraries (packages) and write a function to get the weather data we need:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">library</span>(weatherData)
 <span style="color:#06287e">library</span>(dplyr)
@@ -146,9 +144,9 @@ So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attenda
 
 <span style="color:#60a0b0;font-style:italic"># Ottawa International Airport (YOW) weather data</span>
 getWeatherForYear <span style="color:#666">=</span> <span style="color:#06287e">function</span>(year) {
-    <span style="color:#06287e">getWeatherForDate</span>(<span style="color:#4070a0">&#39;YOW&#39;</span>, 
-                      start_date<span style="color:#666">=</span> <span style="color:#06287e">paste</span>(sep<span style="color:#666">=</span><span style="color:#4070a0">&#39;&#39;</span>, year, <span style="color:#4070a0">&#39;-01-01&#39;</span>),
-                      end_date <span style="color:#666">=</span> <span style="color:#06287e">paste</span>(sep<span style="color:#666">=</span><span style="color:#4070a0">&#39;&#39;</span>, year, <span style="color:#4070a0">&#39;-12-31&#39;</span>),
+    <span style="color:#06287e">getWeatherForDate</span>(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">YOW&#39;</span>, 
+                      start_date<span style="color:#666">=</span> <span style="color:#06287e">paste</span>(sep<span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">&#39;</span>, year, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">-01-01&#39;</span>),
+                      end_date <span style="color:#666">=</span> <span style="color:#06287e">paste</span>(sep<span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">&#39;</span>, year, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">-12-31&#39;</span>),
                       opt_detailed <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">FALSE</span>,
                       opt_all_columns <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">TRUE</span>)
 }
@@ -157,46 +155,42 @@ getWeatherForYear <span style="color:#666">=</span> <span style="color:#06287e">
 df_weather <span style="color:#666">=</span> <span style="color:#06287e">rbind</span>(<span style="color:#06287e">getWeatherForYear</span>(<span style="color:#40a070">2012</span>), 
                     <span style="color:#06287e">getWeatherForYear</span>(<span style="color:#40a070">2013</span>),
                     <span style="color:#06287e">getWeatherForYear</span>(<span style="color:#40a070">2014</span>),
-                    <span style="color:#06287e">getWeatherForDate</span>(<span style="color:#4070a0">&#39;YOW&#39;</span>, start_date<span style="color:#666">=</span><span style="color:#4070a0">&#39;2015-01-01&#39;</span>,
-                             end_date <span style="color:#666">=</span> <span style="color:#4070a0">&#39;2015-02-11&#39;</span>,
+                    <span style="color:#06287e">getWeatherForDate</span>(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">YOW&#39;</span>, start_date<span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2015-01-01&#39;</span>,
+                             end_date <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2015-02-11&#39;</span>,
                              opt_detailed <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">FALSE</span>,
-                             opt_all_columns <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">TRUE</span>))</code></pre></div>
-<p>Your Console window will output similar to the following:</p>
-
+                             opt_all_columns <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">TRUE</span>))
+</code></pre></div><p>Your Console window will output similar to the following:</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/R_ottawaweather01.png"
          alt="R_ottawaweather01" width="813" height="681"/> 
 </figure>
 
-
 <p>Once data as been fetched we need to write and save it to a CSV file. Then we can read from CSV and sample the first 10 records with specific columns</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">write.csv</span>(df_weather, <span style="color:#4070a0">&#39;ottawa_weatherdata.csv&#39;</span>, row.names <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">TRUE</span>)
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">write.csv</span>(df_weather, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">ottawa_weatherdata.csv&#39;</span>, row.names <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">TRUE</span>)
 
-weather <span style="color:#666">=</span> <span style="color:#06287e">read.csv</span>(<span style="color:#4070a0">&#39;ottawa_weatherdata.csv&#39;</span>)
+weather <span style="color:#666">=</span> <span style="color:#06287e">read.csv</span>(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">ottawa_weatherdata.csv&#39;</span>)
 weather<span style="color:#666">$</span>Date <span style="color:#666">=</span> <span style="color:#06287e">as.POSIXct</span>(weather<span style="color:#666">$</span>Date)
 
-weather <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">sample_n</span>(<span style="color:#40a070">10</span>) <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">select</span>(Date, Min_TemperatureC, Mean_TemperatureC, Max_TemperatureC)</code></pre></div>
-<figure>
+weather <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">sample_n</span>(<span style="color:#40a070">10</span>) <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">select</span>(Date, Min_TemperatureC, Mean_TemperatureC, Max_TemperatureC)
+</code></pre></div><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/R_ottawaweather02.png"
          alt="R_ottawaweather02" width="812" height="400"/> 
 </figure>
 
-
-<p>Next we need to load the Ottawa JavaScript Meetup data which I already fetched and stored <a href="https://gist.github.com/sfrechette/226c3ad597447628f1b7" target="_blank">here</a> in a CSV file (note: only 33 events, and unfortunately the name of of events do not have the topics and sessions that were presented on these dates&#8230; meh!)</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">events <span style="color:#666">=</span> <span style="color:#06287e">read.csv</span>(<span style="color:#4070a0">&#39;ottawajs_events.csv&#39;</span>)
+<p>Next we need to load the Ottawa JavaScript Meetup data which I already fetched and stored <!-- raw HTML omitted -->here<!-- raw HTML omitted --> in a CSV file (note: only 33 events, and unfortunately the name of of events do not have the topics and sessions that were presented on these dates… meh!)</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">events <span style="color:#666">=</span> <span style="color:#06287e">read.csv</span>(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">ottawajs_events.csv&#39;</span>)
 events<span style="color:#666">$</span>date <span style="color:#666">=</span>  <span style="color:#06287e">as.POSIXct</span>(events<span style="color:#666">$</span>date) 
 
-events <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">sample_n</span>(<span style="color:#40a070">10</span>) <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">select</span>(event, rsvps, date)</code></pre></div>
-<figure>
+events <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">sample_n</span>(<span style="color:#40a070">10</span>) <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">select</span>(event, rsvps, date)
+</code></pre></div><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/R_ottawaweather03.png"
          alt="R_ottawaweather03" width="813" height="363"/> 
 </figure>
 
-
-<p>With our two datasets (data frames) loaded we can now manipulate, group and plot. Let&#8217;s get the average attendance and temperature by month:</p>
+<p>With our two datasets (data frames) loaded we can now manipulate, group and plot. Let’s get the average attendance and temperature by month:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#60a0b0;font-style:italic"># Group average attendance event by month</span>
 by_month <span style="color:#666">=</span> events <span style="color:#666">%&amp;gt;%</span> 
-    <span style="color:#06287e">mutate</span>(month <span style="color:#666">=</span> <span style="color:#06287e">factor</span>(<span style="color:#06287e">format</span>(date, <span style="color:#4070a0">&#34;%B&#34;</span>), levels<span style="color:#666">=</span>month.name)) <span style="color:#666">%&amp;gt;%</span>
+    <span style="color:#06287e">mutate</span>(month <span style="color:#666">=</span> <span style="color:#06287e">factor</span>(<span style="color:#06287e">format</span>(date, <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">%B&#34;</span>), levels<span style="color:#666">=</span>month.name)) <span style="color:#666">%&amp;gt;%</span>
     <span style="color:#06287e">group_by</span>(month) <span style="color:#666">%&amp;gt;%</span>
     <span style="color:#06287e">summarise</span>(events <span style="color:#666">=</span> <span style="color:#06287e">n</span>(), 
               count <span style="color:#666">=</span> <span style="color:#06287e">sum</span>(rsvps)) <span style="color:#666">%&amp;gt;%</span>
@@ -205,27 +199,25 @@ by_month <span style="color:#666">=</span> events <span style="color:#666">%&amp
 
 <span style="color:#60a0b0;font-style:italic"># Group average temperature by month</span>
 averagetemperature_bymonth <span style="color:#666">=</span> weather <span style="color:#666">%&amp;gt;%</span> 
-    <span style="color:#06287e">mutate</span>(month <span style="color:#666">=</span> <span style="color:#06287e">factor</span>(<span style="color:#06287e">format</span>(Date, <span style="color:#4070a0">&#34;%B&#34;</span>), levels<span style="color:#666">=</span>month.name)) <span style="color:#666">%&amp;gt;%</span>
+    <span style="color:#06287e">mutate</span>(month <span style="color:#666">=</span> <span style="color:#06287e">factor</span>(<span style="color:#06287e">format</span>(Date, <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">%B&#34;</span>), levels<span style="color:#666">=</span>month.name)) <span style="color:#666">%&amp;gt;%</span>
     <span style="color:#06287e">group_by</span>(month) <span style="color:#666">%&amp;gt;%</span> 
     <span style="color:#06287e">summarise</span>(avg_temperature <span style="color:#666">=</span> <span style="color:#06287e">mean</span>(Mean_TemperatureC))
 
 plot_temperature <span style="color:#666">=</span> <span style="color:#06287e">ggplot</span>(<span style="color:#06287e">aes</span>(x <span style="color:#666">=</span> month, y <span style="color:#666">=</span> avg_temperature, group<span style="color:#666">=</span><span style="color:#40a070">1</span>), data <span style="color:#666">=</span> averagetemperature_bymonth) <span style="color:#666">+</span> 
-    <span style="color:#06287e">geom_line</span>( ) <span style="color:#666">+</span> <span style="color:#06287e">ggtitle</span>(<span style="color:#4070a0">&#34;Average Temperature by Month&#34;</span>)
+    <span style="color:#06287e">geom_line</span>( ) <span style="color:#666">+</span> <span style="color:#06287e">ggtitle</span>(<span style="color:#4070a0">&#34;</span><span style="color:#4070a0">Average Temperature by Month&#34;</span>)
 
 plot_attendance <span style="color:#666">=</span> <span style="color:#06287e">ggplot</span>(<span style="color:#06287e">aes</span>(x <span style="color:#666">=</span> month, y <span style="color:#666">=</span> count, group<span style="color:#666">=</span><span style="color:#40a070">1</span>), data <span style="color:#666">=</span> by_month) <span style="color:#666">+</span> 
-    <span style="color:#06287e">geom_bar</span>(stat<span style="color:#666">=</span><span style="color:#4070a0">&#34;identity&#34;</span>, fill<span style="color:#666">=</span><span style="color:#4070a0">&#34;grey50&#34;</span>) <span style="color:#666">+</span>
-    <span style="color:#06287e">ggtitle</span>(<span style="color:#4070a0">&#34;Average Attendance by Month&#34;</span>)
+    <span style="color:#06287e">geom_bar</span>(stat<span style="color:#666">=</span><span style="color:#4070a0">&#34;</span><span style="color:#4070a0">identity&#34;</span>, fill<span style="color:#666">=</span><span style="color:#4070a0">&#34;</span><span style="color:#4070a0">grey50&#34;</span>) <span style="color:#666">+</span>
+    <span style="color:#06287e">ggtitle</span>(<span style="color:#4070a0">&#34;</span><span style="color:#4070a0">Average Attendance by Month&#34;</span>)
 
-<span style="color:#06287e">grid.arrange</span>(plot_temperature, plot_attendance, ncol <span style="color:#666">=</span> <span style="color:#40a070">1</span>)</code></pre></div>
-<p>Examining the plots, we can see a slight inverse correlation between February and June (March &#8211; black sheep!), meaning that as the temperature starts increasing, the total attendance slightly decreases. And from July to November, as temperature decreases, attendance slightly increases!</p>
-
+<span style="color:#06287e">grid.arrange</span>(plot_temperature, plot_attendance, ncol <span style="color:#666">=</span> <span style="color:#40a070">1</span>)
+</code></pre></div><p>Examining the plots, we can see a slight inverse correlation between February and June (March – black sheep!), meaning that as the temperature starts increasing, the total attendance slightly decreases. And from July to November, as temperature decreases, attendance slightly increases!</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/R_ottawaweather04.png"
          alt="R_ottawaweather04" width="670" height="500"/> 
 </figure>
 
-
-<p>Let&#8217;s go more granular by comparing specific dates. We need to add (mutate) a new column to our existing <strong>events</strong> data frame, merging it to our <strong>weather</strong> data frame and let&#8217;s plot the attendance against the average temperature for individual specific days:</p>
+<p>Let’s go more granular by comparing specific dates. We need to add (mutate) a new column to our existing <strong>events</strong> data frame, merging it to our <strong>weather</strong> data frame and let’s plot the attendance against the average temperature for individual specific days:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#60a0b0;font-style:italic"># Group by day </span>
 by_day <span style="color:#666">=</span> events <span style="color:#666">%&amp;gt;%</span> 
     <span style="color:#06287e">mutate</span>(day <span style="color:#666">=</span> (<span style="color:#06287e">as.POSIXct</span>(events<span style="color:#666">$</span>date))) <span style="color:#666">%&amp;gt;%</span>
@@ -235,38 +227,30 @@ by_day <span style="color:#666">=</span> events <span style="color:#666">%&amp;g
     <span style="color:#06287e">mutate</span>(avg <span style="color:#666">=</span> count <span style="color:#666">/</span> events) <span style="color:#666">%&amp;gt;%</span>
     <span style="color:#06287e">arrange</span>(<span style="color:#06287e">desc</span>(avg))
 weather <span style="color:#666">=</span> weather <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">mutate</span>(day <span style="color:#666">=</span> Date)
-merged <span style="color:#666">=</span> <span style="color:#06287e">merge</span>(weather, by_day, by <span style="color:#666">=</span> <span style="color:#4070a0">&#39;day&#39;</span>)
+merged <span style="color:#666">=</span> <span style="color:#06287e">merge</span>(weather, by_day, by <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">day&#39;</span>)
 
-<span style="color:#06287e">ggplot</span>(<span style="color:#06287e">aes</span>(x <span style="color:#666">=</span> count, y <span style="color:#666">=</span> Mean_TemperatureC, group <span style="color:#666">=</span> day), data <span style="color:#666">=</span> merged) <span style="color:#666">+</span> <span style="color:#06287e">geom_point</span>()</code></pre></div>
-<figure>
+<span style="color:#06287e">ggplot</span>(<span style="color:#06287e">aes</span>(x <span style="color:#666">=</span> count, y <span style="color:#666">=</span> Mean_TemperatureC, group <span style="color:#666">=</span> day), data <span style="color:#666">=</span> merged) <span style="color:#666">+</span> <span style="color:#06287e">geom_point</span>()
+</code></pre></div><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/R_ottawaweather05.png"
          alt="R_ottawaweather05" width="671" height="507"/> 
 </figure>
 
-
 <p>Interesting, there doesn’t seem to be any strong correlation between the temperature and the attendance. We can confirm our doubts by running a correlation:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#60a0b0;font-style:italic"># Any correlation between the temperature and attendance?</span>
-<span style="color:#06287e">cor</span>(merged<span style="color:#666">$</span>count, merged<span style="color:#666">$</span>Mean_TemperatureC)</code></pre></div>
-<figure>
+<span style="color:#06287e">cor</span>(merged<span style="color:#666">$</span>count, merged<span style="color:#666">$</span>Mean_TemperatureC)
+</code></pre></div><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/R_ottawaweather06.png"
          alt="R_ottawaweather06" width="813" height="195"/> 
 </figure>
 
-
 <p>We get a weak downhill (negative) linear relationship: -0.2958863</p>
-
 <p>There must be other variables than temperature that is influencing event attendance per month. My hypothesis would be that we would see lower attendance during March break, and the start of summer school vacation (June, July, August), but in this case July and August are up!</p>
-
-<p>That for now pretty much puts an halt to my Meetup attendance prediction model.<br />
-Thus insightful and worthwhile using R in trying to better understand data and finding relationships (That&#8217;s What It&#8217;s All About)</p>
-
+<p>That for now pretty much puts an halt to my Meetup attendance prediction model.<br>
+Thus insightful and worthwhile using R in trying to better understand data and finding relationships (That’s What It’s All About)</p>
 <p>What I would like to analyze are data sets related to daily museum, parcs, library attendance. If you have any other interesting suggestions please let me know, we could work at it together.</p>
-
-<p>GitHub Gist available here -&gt; <a href="https://gist.github.com/sfrechette/585e4ca9cdab7eacc92b" target="_blank"><a href="https://gist.github.com/sfrechette/585e4ca9cdab7eacc92b">https://gist.github.com/sfrechette/585e4ca9cdab7eacc92b</a></a></p>
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+<p>GitHub Gist available here -&gt; <!-- raw HTML omitted --><a href="https://gist.github.com/sfrechette/585e4ca9cdab7eacc92b">https://gist.github.com/sfrechette/585e4ca9cdab7eacc92b</a><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 

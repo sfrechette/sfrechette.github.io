@@ -17,7 +17,7 @@
       <pubDate>Mon, 23 Mar 2015 08:19:37 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</guid>
-      <description>The more you used it, the more you discover great stuff&amp;#8230; I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing&amp;#8230;you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.
+      <description>The more you used it, the more you discover great stuff… I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing…you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.
 So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance!</description>
     </item>
     
@@ -28,7 +28,7 @@ So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attenda
       
       <guid>https://stephanefrechette.dev/posts/data-analytics-r-sql-server/</guid>
       <description>First Happy New Year and best wishes for 2015!
-Yes, Data Analytics with R and SQL Server &amp;#8230; As Data and Business Intelligence Architects I personally think we just can&amp;#8217;t dismiss or push aside the Data Science &amp;#8220;landscape&amp;#8221;. Hence that&amp;#8217;s why I registered and currently more than half way through the Data Science Specialization on Coursera from the Johns Hopkins University. Even though I have been working with R for a while I wanted to get some kind of recognition, attestation for my skills and also just because I can 😉</description>
+Yes, Data Analytics with R and SQL Server … As Data and Business Intelligence Architects I personally think we just can’t dismiss or push aside the Data Science “landscape”. Hence that’s why I registered and currently more than half way through the Data Science Specialization on Courserafrom the Johns Hopkins University. Even though I have been working with R for a while I wanted to get some kind of recognition, attestation for my skills and also just because I can 😉</description>
     </item>
     
   </channel>

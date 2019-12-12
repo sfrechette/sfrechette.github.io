@@ -11,18 +11,16 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fetching NHL Play by Play game data"/>
-<meta name="twitter:description" content="Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-node that provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.
-Hope your familiar with this&#8230;
+<meta name="twitter:description" content="Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-nodethat provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.
+Hope your familiar with this…
 The following URL retrieves the complete 2016-2017 NHL season schedule
-http://live.nhl.com/GameData/SeasonSchedule-20162017.json
-While this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs."/>
+http://live.nhl.com/GameData/SeasonSchedule-20162017.jsonWhile this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs. EDM on October 16 @ 19:00 EDT)"/>
 
     <meta property="og:title" content="Fetching NHL Play by Play game data" />
-<meta property="og:description" content="Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-node that provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.
-Hope your familiar with this&#8230;
+<meta property="og:description" content="Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-nodethat provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.
+Hope your familiar with this…
 The following URL retrieves the complete 2016-2017 NHL season schedule
-http://live.nhl.com/GameData/SeasonSchedule-20162017.json
-While this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs." />
+http://live.nhl.com/GameData/SeasonSchedule-20162017.jsonWhile this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs. EDM on October 16 @ 19:00 EDT)" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/" />
 <meta property="article:published_time" content="2016-10-25T15:16:20-04:00" />
@@ -61,7 +59,7 @@ While this one retrieves the entire Play by Play game data for game 2016020031 (
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -140,60 +138,41 @@ While this one retrieves the entire Play by Play game data for game 2016020031 (
       </header>
       
       <div>
-        
-
-<figure>
+        <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/hockey-rink.png" width="640" height="349"/> 
 </figure>
 
-
 <h4 id="fetching-nhl-play-by-play-game-data">Fetching NHL Play by Play game data</h4>
-
-<p>I created a Node.js application called <a href="https://github.com/sfrechette/nhlplaybyplay-node" target="_blank">nhlplaybyplay-node</a> that provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.</p>
-
-<p>Hope your familiar with this&#8230;<br />
-The following URL retrieves the complete 2016-2017 NHL season schedule<br />
-<a href="http://live.nhl.com/GameData/SeasonSchedule-20162017.json" target="_blank"><a href="http://live.nhl.com/GameData/SeasonSchedule-20162017.json">http://live.nhl.com/GameData/SeasonSchedule-20162017.json</a></a></p>
-
-<p>While this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs. EDM on October 16 @ 19:00 EDT)<br />
-<a href="http://live.nhl.com/GameData/20162017/2016020031/PlayByPlay.json" target="_blank"><a href="http://live.nhl.com/GameData/20162017/2016020031/PlayByPlay.json">http://live.nhl.com/GameData/20162017/2016020031/PlayByPlay.json</a></a></p>
-
-<p><em><strong>Note:</strong> Schedule and Play by Play data only available from the 2011-2012 NHL Season and onward&#8230;</em></p>
-
+<p>I created a Node.js application called <!-- raw HTML omitted -->nhlplaybyplay-node<!-- raw HTML omitted --> that provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.</p>
+<p>Hope your familiar with this…<br>
+The following URL retrieves the complete 2016-2017 NHL season schedule<br>
+<!-- raw HTML omitted --><a href="http://live.nhl.com/GameData/SeasonSchedule-20162017.json">http://live.nhl.com/GameData/SeasonSchedule-20162017.json</a><!-- raw HTML omitted --></p>
+<p>While this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs. EDM on October 16 @ 19:00 EDT)<br>
+<!-- raw HTML omitted --><a href="http://live.nhl.com/GameData/20162017/2016020031/PlayByPlay.json">http://live.nhl.com/GameData/20162017/2016020031/PlayByPlay.json</a><!-- raw HTML omitted --></p>
+<p><em><strong>Note:</strong> Schedule and Play by Play data only available from the 2011-2012 NHL Season and onward…</em></p>
 <h3 id="installation">Installation</h3>
-
-<p>Once you have cloned the repo from GitHub:<br />
+<p>Once you have cloned the repo from GitHub:<br>
 <code>git clone https://github.com/sfrechette/nhlplaybyplay-node</code></p>
-
-<p>You can install the dependencies with the following <a href="https://www.npmjs.com/" target="_blank">npm</a> command:<br />
+<p>You can install the dependencies with the following <!-- raw HTML omitted -->npm<!-- raw HTML omitted --> command:<br>
 <code>npm install</code></p>
-
-<p>Create a <strong>data</strong> directory:<br />
+<p>Create a <strong>data</strong> directory:<br>
 <code>mkdir data</code></p>
-
-<p>Before using you will need to create a specific directory for each of the seasons you will be fetching data for.<br />
-i.e. To fetch data from the 2012-2013 NHL season you need to create the following folder <strong>20122013</strong> under the data directory.<br />
+<p>Before using you will need to create a specific directory for each of the seasons you will be fetching data for.<br>
+i.e. To fetch data from the 2012-2013 NHL season you need to create the following folder <strong>20122013</strong> under the data directory.<br>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/nhlplaybyplay-node.png"
          alt="nhlplaybyplay-node" width="731" height="469"/> 
 </figure>
 </p>
-
 <h3 id="usage">Usage</h3>
-
 <p><code>node fetch.js season [game]</code></p>
-
-<p>To fetch all games for a specific season:<br />
+<p>To fetch all games for a specific season:<br>
 <code>node fetch.js 20152016</code></p>
-
-<p>To fetch specific game from a specific season<br />
+<p>To fetch specific game from a specific season<br>
 <code>node fetch.js 20162017 2016020001</code></p>
-
-<p>Will be adding parsing functionallity in the near future&#8230; Enjoy!</p>
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+<p>Will be adding parsing functionallity in the near future… Enjoy!</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 

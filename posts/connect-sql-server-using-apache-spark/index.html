@@ -11,12 +11,12 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Connect to SQL Server using Apache Spark"/>
-<meta name="twitter:description" content="In-memory distributed processing for large datasets&#8230; How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
-    First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics."/>
+<meta name="twitter:description" content="In-memory distributed processing for large datasets… How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
+    First, what is Apache Spark? Apache Sparkis an open source big data processing framework built around speed, ease of use, and sophisticated analytics. A fast and general processing engine compatible with Hadoop data."/>
 
     <meta property="og:title" content="Connect to SQL Server using Apache Spark" />
-<meta property="og:description" content="In-memory distributed processing for large datasets&#8230; How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
-    First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics." />
+<meta property="og:description" content="In-memory distributed processing for large datasets… How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
+    First, what is Apache Spark? Apache Sparkis an open source big data processing framework built around speed, ease of use, and sophisticated analytics. A fast and general processing engine compatible with Hadoop data." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/" />
 <meta property="article:published_time" content="2016-09-16T11:59:40-04:00" />
@@ -55,7 +55,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -134,8 +134,7 @@
       </header>
       
       <div>
-        <p>In-memory distributed processing for large datasets&#8230; How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.</p>
-
+        <p>In-memory distributed processing for large datasets… How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.</p>
 <p><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/spark-logo.png#floatright"
          alt="spark-logo" width="228" height="120"/> 
@@ -145,33 +144,23 @@
          alt="sql-server" width="180" height="180"/> 
 </figure>
 </p>
-
-<p>First, what is Apache Spark? <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> is an open source big data processing framework built around speed, ease of use, and sophisticated analytics. A fast and general processing engine compatible with Hadoop data. It can run in Hadoop clusters through YARN or Spark&#8217;s standalone mode, and it can process data in HDFS, HBase, Cassandra, Hive, and any Hadoop InputFormat. It is designed to perform both batch processing (similar to MapReduce) and new workloads like streaming, interactive queries, and machine learning.</p>
-
+<p>First, what is Apache Spark? <!-- raw HTML omitted -->Apache Spark<!-- raw HTML omitted --> is an open source big data processing framework built around speed, ease of use, and sophisticated analytics. A fast and general processing engine compatible with Hadoop data. It can run in Hadoop clusters through YARN or Spark’s standalone mode, and it can process data in HDFS, HBase, Cassandra, Hive, and any Hadoop InputFormat. It is designed to perform both batch processing (similar to MapReduce) and new workloads like streaming, interactive queries, and machine learning.</p>
 <blockquote>
 <p>Spark enables applications in Hadoop clusters to run up to 100 times faster in memory and 10 times faster even when running on disk.</p>
 </blockquote>
-
-<p>Besides the Spark Core API there are libraries that provide additional capabilities: <a href="https://spark.apache.org/streaming/" target="_blank">Spark Streaming</a>, <a href="https://spark.apache.org/sql/" target="_blank">Spark SQL</a> (SQL and Dataframes), <a href="https://spark.apache.org/mllib/" target="_blank">Spark MLlib</a> (Machine Learning), <a href="https://spark.apache.org/graphx/" target="_blank">Spark GraphX</a> (Graph)</p>
-
+<p>Besides the Spark Core API there are libraries that provide additional capabilities: <!-- raw HTML omitted -->Spark Streaming<!-- raw HTML omitted -->, <!-- raw HTML omitted -->Spark SQL<!-- raw HTML omitted --> (SQL and Dataframes), <!-- raw HTML omitted -->Spark MLlib<!-- raw HTML omitted --> (Machine Learning), <!-- raw HTML omitted -->Spark GraphX<!-- raw HTML omitted --> (Graph)</p>
 <p>This example will be using Spark SQL which provides the capability to expose the Spark datasets over JDBC API and allow running the SQL like queries on Spark data using BI and visualization tools. Spark SQL allows the users to access their data from different formats it’s currently in (i.e. JSON, Parquet, Database tables), transform it, and expose it for ad-hoc querying.</p>
-
-<p>For the purpose of this demonstration I am connecting remotely to an instance of SQL Server 2016 and have installed the Wide World Importers sample database which you can find and download here -&gt; <a href="https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0" target="_blank"><a href="https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0">https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0</a></a></p>
-
-<p>Most importantly you will need to download and install the latest version of the Microsoft JDBC Drivers for SQL Server located here -&gt; <a href="https://www.microsoft.com/en-ca/download/details.aspx?id=11774" target="_blank"><a href="https://www.microsoft.com/en-ca/download/details.aspx?id=11774">https://www.microsoft.com/en-ca/download/details.aspx?id=11774</a></a>. Since I am connecting from my Mac I have installed the drivers (4.2) to the following location: /opt/sqljdbc_4.2/enu/sqljdbc42.jar</p>
-
+<p>For the purpose of this demonstration I am connecting remotely to an instance of SQL Server 2016 and have installed the Wide World Importers sample database which you can find and download here -&gt; <!-- raw HTML omitted --><a href="https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0">https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0</a><!-- raw HTML omitted --></p>
+<p>Most importantly you will need to download and install the latest version of the Microsoft JDBC Drivers for SQL Server located here -&gt; <!-- raw HTML omitted --><a href="https://www.microsoft.com/en-ca/download/details.aspx?id=11774">https://www.microsoft.com/en-ca/download/details.aspx?id=11774</a><!-- raw HTML omitted -->. Since I am connecting from my Mac I have installed the drivers (4.2) to the following location: /opt/sqljdbc_4.2/enu/sqljdbc42.jar</p>
 <p>Open up a Terminal session and issue the following command to start the Spark shell with the Microsoft JDBC Driver</p>
-
 <p><code>bin/spark-shell --driver-class-path /opt/sqljdbc_4.2/enu/sqljdbc42.jar</code></p>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/2.0.0-%e2%80%94-java-%e2%80%94-140%c3%9728.png"/> 
 </figure>
 
-
-<p>The following Scala code snippet demonstrates the Spark SQL commands you can run on the Spark Shell console.<br />
-Replace the xxx.xxx.xxx.xxx with your SQL Server Name or IP Address.<br />
-I recommend you copy and paste a block of commands at a time to see and understand what is happening&#8230;</p>
+<p>The following Scala code snippet demonstrates the Spark SQL commands you can run on the Spark Shell console.<br>
+Replace the xxx.xxx.xxx.xxx with your SQL Server Name or IP Address.<br>
+I recommend you copy and paste a block of commands at a time to see and understand what is happening…</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#60a0b0;font-style:italic">// Create the SQLContext first from the existing Spark Context
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">val</span> sqlContext <span style="color:#007020;font-weight:bold">=</span> <span style="color:#007020;font-weight:bold">new</span> org<span style="color:#666">.</span>apache<span style="color:#666">.</span>spark<span style="color:#666">.</span>sql<span style="color:#666">.</span><span style="color:#0e84b5;font-weight:bold">SQLContext</span><span style="color:#666">(</span>sc<span style="color:#666">)</span>
 
@@ -182,9 +171,9 @@ I recommend you copy and paste a block of commands at a time to see and understa
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">val</span> jdbcDbTable <span style="color:#007020;font-weight:bold">=</span> <span style="color:#4070a0">&#34;Sales.InvoiceLines&#34;</span>
 
 <span style="color:#60a0b0;font-style:italic">// Load DataFrame with JDBC data-source properties
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">val</span> jdbcDF <span style="color:#007020;font-weight:bold">=</span> sqlContext<span style="color:#666">.</span>read<span style="color:#666">.</span>format<span style="color:#666">(</span><span style="color:#4070a0">&#34;jdbc&#34;</span><span style="color:#666">).</span>options<span style="color:#666">(</span>
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">val</span> jdbcDF <span style="color:#007020;font-weight:bold">=</span> sqlContext<span style="color:#666">.</span>read<span style="color:#666">.</span>format<span style="color:#666">(</span><span style="color:#4070a0">&#34;jdbc&#34;</span><span style="color:#666">)</span><span style="color:#666">.</span>options<span style="color:#666">(</span>
 <span style="color:#0e84b5;font-weight:bold">Map</span><span style="color:#666">(</span><span style="color:#4070a0">&#34;url&#34;</span> <span style="color:#666">-&amp;</span>gt<span style="color:#666">;</span> jdbcSqlConnStr<span style="color:#666">,</span>
-<span style="color:#4070a0">&#34;dbtable&#34;</span> <span style="color:#666">-&amp;</span>gt<span style="color:#666">;</span> jdbcDbTable<span style="color:#666">)).</span>load<span style="color:#666">()</span>
+<span style="color:#4070a0">&#34;dbtable&#34;</span> <span style="color:#666">-&amp;</span>gt<span style="color:#666">;</span> jdbcDbTable<span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">.</span>load<span style="color:#666">(</span><span style="color:#666">)</span>
 
 <span style="color:#60a0b0;font-style:italic">// Displays the content of the DataFrame to stdout ...first 10 rows
 </span><span style="color:#60a0b0;font-style:italic"></span>jdbcDF<span style="color:#666">.</span>show<span style="color:#666">(</span><span style="color:#40a070">10</span><span style="color:#666">)</span>
@@ -196,26 +185,22 @@ I recommend you copy and paste a block of commands at a time to see and understa
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">val</span> saleInvoices <span style="color:#007020;font-weight:bold">=</span> sqlContext<span style="color:#666">.</span>sql<span style="color:#666">(</span><span style="color:#4070a0">&#34;SELECT InvoiceID, Quantity, UnitPrice, TaxAmount, ExtendedPrice FROM Sales WHERE Description = &#39;White chocolate moon rocks 250g&#39;&#34;</span><span style="color:#666">)</span>
 
 <span style="color:#60a0b0;font-style:italic">// Displays the content of the DataFrame
-</span><span style="color:#60a0b0;font-style:italic"></span>saleInvoices<span style="color:#666">.</span>show<span style="color:#666">()</span>
+</span><span style="color:#60a0b0;font-style:italic"></span>saleInvoices<span style="color:#666">.</span>show<span style="color:#666">(</span><span style="color:#666">)</span>
 
 <span style="color:#60a0b0;font-style:italic">//SQL statement - Sum of ExtendedPrice for &#39;White chocolate moon rocks 250g&#39; product 
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">val</span> sumInvoices <span style="color:#007020;font-weight:bold">=</span> sqlContext<span style="color:#666">.</span>sql<span style="color:#666">(</span><span style="color:#4070a0">&#34;SELECT SUM(ExtendedPrice) AS TotalSales FROM Sales WHERE Description = &#39;White chocolate moon rocks 250g&#39;&#34;</span><span style="color:#666">)</span>
 
 <span style="color:#60a0b0;font-style:italic">// Displays the content of the DataFrame
-</span><span style="color:#60a0b0;font-style:italic"></span>sumInvoices<span style="color:#666">.</span>show<span style="color:#666">()</span></code></pre></div>
-<p>Sample Terminal output&#8230;</p>
-
+</span><span style="color:#60a0b0;font-style:italic"></span>sumInvoices<span style="color:#666">.</span>show<span style="color:#666">(</span><span style="color:#666">)</span>
+</code></pre></div><p>Sample Terminal output…</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/2.0.0-%e2%80%94-java-%e2%80%94-173%c3%9743.png"
          alt="2-0-0-java-173x43" width="1024" height="650"/> 
 </figure>
 
-
 <p>In this post, we quickly looked at how Apache Spark SQL works to provide an SQL interface to SQL Server and interact with Spark data using the familiar SQL query syntax.</p>
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 

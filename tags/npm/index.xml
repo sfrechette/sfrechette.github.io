@@ -17,11 +17,10 @@
       <pubDate>Tue, 25 Oct 2016 15:16:20 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/</guid>
-      <description>Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-node that provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.
-Hope your familiar with this&amp;#8230;
+      <description>Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-nodethat provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.
+Hope your familiar with this…
 The following URL retrieves the complete 2016-2017 NHL season schedule
-http://live.nhl.com/GameData/SeasonSchedule-20162017.json
-While this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs.</description>
+http://live.nhl.com/GameData/SeasonSchedule-20162017.jsonWhile this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs. EDM on October 16 @ 19:00 EDT)</description>
     </item>
     
   </channel>

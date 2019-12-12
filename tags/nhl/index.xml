@@ -17,8 +17,7 @@
       <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/fetching-nhl-play-by-play-v2/</guid>
-      <description>Finally the 2017-2018 NHL hockey season has begun! But wait&amp;#8230; **PANIC** my little thingy nhlplaybyplay-node for fetching games and play-by-play does not work anymore&amp;#8230; Hmmm, after some research it looked like I needed to do some updates and fixes in order to make it work again&amp;#8230; Instead I decided to create another Node.js app nhlplaybyplay2-node
-The following is a mirrored post from the README.md on the Github repo -&amp;gt; https://github.</description>
+      <description>Finally the 2017-2018 NHL hockey season has begun! But wait… **PANIC** my little thingy nhlplaybyplay-nodefor fetching games and play-by-play does not work anymore… Hmmm, after some research it looked like I needed to do some updates and fixes in order to make it work again… Instead I decided to create another Node.js app nhlplaybyplay2-nodeThe following is a mirrored post from the README.md on the Github repo -&amp;gt; https://github.com/sfrechette/nhlplaybyplay2-node Fetch and Convert NHL Play by Play game data v2 Purpose: Application built using Node.</description>
     </item>
     
     <item>
@@ -27,7 +26,7 @@ The following is a mirrored post from the README.md on the Github repo -&amp;gt;
       <pubDate>Fri, 09 Dec 2016 10:25:54 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data-part-2/</guid>
-      <description>Following-up from a previous post Fetching NHL Play by Play game data where I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring&amp;#8230; say like analyzing with R, load into a RDBMS, or visualizing it!
+      <description>Following-up from a previous post Fetching NHL Play by Play game datawhere I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring… say like analyzing with R, load into a RDBMS, or visualizing it!
 So I added a new javascript file convert.</description>
     </item>
     
@@ -37,11 +36,10 @@ So I added a new javascript file convert.</description>
       <pubDate>Tue, 25 Oct 2016 15:16:20 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/</guid>
-      <description>Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-node that provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.
-Hope your familiar with this&amp;#8230;
+      <description>Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-nodethat provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.
+Hope your familiar with this…
 The following URL retrieves the complete 2016-2017 NHL season schedule
-http://live.nhl.com/GameData/SeasonSchedule-20162017.json
-While this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs.</description>
+http://live.nhl.com/GameData/SeasonSchedule-20162017.jsonWhile this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs. EDM on October 16 @ 19:00 EDT)</description>
     </item>
     
   </channel>

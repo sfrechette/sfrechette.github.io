@@ -11,14 +11,14 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ContosoRetailDW on Azure SQL Data Warehouse"/>
-<meta name="twitter:description" content="Happy New Year! It as been a while my friends&#8230; here goes 😉
-ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentation to get you going.
-Optionally if you would like to have a local on premise copy of the ContosoRetailDW database &#8211; A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products."/>
+<meta name="twitter:description" content="Happy New Year! It as been a while my friends… here goes 😉
+ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentationto get you going.
+Optionally if you would like to have a local on premise copy of the ContosoRetailDW database – A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products."/>
 
     <meta property="og:title" content="ContosoRetailDW on Azure SQL Data Warehouse" />
-<meta property="og:description" content="Happy New Year! It as been a while my friends&#8230; here goes 😉
-ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentation to get you going.
-Optionally if you would like to have a local on premise copy of the ContosoRetailDW database &#8211; A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products." />
+<meta property="og:description" content="Happy New Year! It as been a while my friends… here goes 😉
+ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentationto get you going.
+Optionally if you would like to have a local on premise copy of the ContosoRetailDW database – A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/contosoretaildw-azure-sql-data-warehouse/" />
 <meta property="article:published_time" content="2016-01-03T14:58:27-04:00" />
@@ -57,7 +57,7 @@ Optionally if you would like to have a local on premise copy of the ContosoRetai
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -142,35 +142,22 @@ Optionally if you would like to have a local on premise copy of the ContosoRetai
       </header>
       
       <div>
-        
-
-<p>Happy New Year! It as been a while my friends&#8230; here goes 😉</p>
-
+        <p>Happy New Year! It as been a while my friends… here goes 😉</p>
 <h4 id="contosoretaildw-on-azure-sql-data-warehouse">ContosoRetailDW on Azure SQL Data Warehouse</h4>
-
-<p>This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the <a href="https://azure.microsoft.com/en-us/documentation/services/sql-data-warehouse/" target="_blank">SQL Data Warehouse Documentation</a> to get you going.</p>
-
-<p>Optionally if you would like to have a local on premise copy of the ContosoRetailDW database &#8211; A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products. You can download here  <a href="https://www.microsoft.com/en-ca/download/details.aspx?id=18279" target="_blank">-&gt; <a href="https://www.microsoft.com/en-ca/download/details.aspx?id=18279">https://www.microsoft.com/en-ca/download/details.aspx?id=18279</a></a></p>
-
-<p>As much as we love AdventureWorks, it is also worthwhile to explore and work with bigger data volumes, to develop and test new concepts! Hence the entire ContosoRetailDW database contains more than 34M rows of records. So I decided to make it happen&#8230;ContosoRetailDW on Azure SQL Data Warehouse.</p>
-
-<p>Before we start the scripts (code) for this post are available here on GitHub -&gt; <a href="https://github.com/sfrechette/contosoretaildw-azuresqldw" target="_blank"><a href="https://github.com/sfrechette/contosoretaildw-azuresqldw">https://github.com/sfrechette/contosoretaildw-azuresqldw</a></a></p>
-
-<p>First thing let&#8217;s start by creating a blank SQL Data Warehouse database named ContosoRetailDW (<a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-provision/" target="_blank">Create a SQL Data Warehouse</a>)</p>
-
+<p>This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the <!-- raw HTML omitted -->SQL Data Warehouse Documentation<!-- raw HTML omitted --> to get you going.</p>
+<p>Optionally if you would like to have a local on premise copy of the ContosoRetailDW database – A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products. You can download here  <!-- raw HTML omitted -->-&gt; <a href="https://www.microsoft.com/en-ca/download/details.aspx?id=18279">https://www.microsoft.com/en-ca/download/details.aspx?id=18279</a><!-- raw HTML omitted --></p>
+<p>As much as we love AdventureWorks, it is also worthwhile to explore and work with bigger data volumes, to develop and test new concepts! Hence the entire ContosoRetailDW database contains more than 34M rows of records. So I decided to make it happen…ContosoRetailDW on Azure SQL Data Warehouse.</p>
+<p>Before we start the scripts (code) for this post are available here on GitHub -&gt; <!-- raw HTML omitted --><a href="https://github.com/sfrechette/contosoretaildw-azuresqldw">https://github.com/sfrechette/contosoretaildw-azuresqldw</a><!-- raw HTML omitted --></p>
+<p>First thing let’s start by creating a blank SQL Data Warehouse database named ContosoRetailDW (<!-- raw HTML omitted -->Create a SQL Data Warehouse<!-- raw HTML omitted -->)</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/azure_sqldw.png"
          alt="azure_sqldw" width="1052" height="700"/> 
 </figure>
 
-
 <p>Next we need to create a slightly redesigned and modified ContosoRetailDW schema for the data to be imported and used in Azure SQL Data Warehouse. I have removed the following 3 columns from each tables; <strong>ETLLoadID</strong>, <strong>LoadDate</strong> and <strong>UpdateDate</strong> and in addition columns of data type <strong>geography</strong> and <strong>geometry</strong> which are not supported in SQL Data Warehouse.</p>
-
-<p>After successfully creating the SQL Data Warehouse database connect with Visual Studio (<a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect/" target="_blank">Connect to SQL Data Warehouse with Visual Studio</a>) to your newly created blank database and run the following dsql script to create the schema for the ContosoRetailDW database.</p>
-
-<p>For detailed information on table design -&gt; <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-develop-table-design/" target="_blank">Table design in SQL Data Warehouse</a></p>
-
-<p><strong>ContosoRetailDW DDL schema script &#8211; ContosoRetailDW_ddl.dsql</strong></p>
+<p>After successfully creating the SQL Data Warehouse database connect with Visual Studio (<!-- raw HTML omitted -->Connect to SQL Data Warehouse with Visual Studio<!-- raw HTML omitted -->) to your newly created blank database and run the following dsql script to create the schema for the ContosoRetailDW database.</p>
+<p>For detailed information on table design -&gt; <!-- raw HTML omitted -->Table design in SQL Data Warehouse<!-- raw HTML omitted --></p>
+<p><strong>ContosoRetailDW DDL schema script – ContosoRetailDW_ddl.dsql</strong></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">USE ContosoRetailDW;
 
 <span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">TABLE</span> [dbo].[DimAccount](
@@ -529,9 +516,9 @@ Optionally if you would like to have a local on premise copy of the ContosoRetai
 	[UnitPrice] [money] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (CLUSTERED COLUMNSTORE <span style="color:#007020;font-weight:bold">INDEX</span>, DISTRIBUTION <span style="color:#666">=</span> HASH(OnlineSalesKey),
-PARTITION(DateKey RANGE <span style="color:#007020;font-weight:bold">RIGHT</span> <span style="color:#007020;font-weight:bold">FOR</span> <span style="color:#007020;font-weight:bold">VALUES</span> (	<span style="color:#4070a0">&#39;2005-01-01&#39;</span>,<span style="color:#4070a0">&#39;2006-01-01&#39;</span>,<span style="color:#4070a0">&#39;2007-01-01&#39;</span>,<span style="color:#4070a0">&#39;2008-01-01&#39;</span>,<span style="color:#4070a0">&#39;2009-01-01&#39;</span>,
-											<span style="color:#4070a0">&#39;2010-01-01&#39;</span>,<span style="color:#4070a0">&#39;2011-01-01&#39;</span>,<span style="color:#4070a0">&#39;2012-01-01&#39;</span>,<span style="color:#4070a0">&#39;2013-01-01&#39;</span>,<span style="color:#4070a0">&#39;2014-01-01&#39;</span>,
-											<span style="color:#4070a0">&#39;2015-01-01&#39;</span>,<span style="color:#4070a0">&#39;2016-01-01&#39;</span>,<span style="color:#4070a0">&#39;2017-01-01&#39;</span>,<span style="color:#4070a0">&#39;2018-01-01&#39;</span>,<span style="color:#4070a0">&#39;2019-01-01&#39;</span>,<span style="color:#4070a0">&#39;2020-01-01&#39;</span>)));
+PARTITION(DateKey RANGE <span style="color:#007020;font-weight:bold">RIGHT</span> <span style="color:#007020;font-weight:bold">FOR</span> <span style="color:#007020;font-weight:bold">VALUES</span> (	<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2005-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2006-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2007-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2008-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2009-01-01</span><span style="color:#4070a0">&#39;</span>,
+											<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2010-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2011-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2012-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2013-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2014-01-01</span><span style="color:#4070a0">&#39;</span>,
+											<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2015-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2016-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2017-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2018-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2019-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2020-01-01</span><span style="color:#4070a0">&#39;</span>)));
 
 <span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">TABLE</span> [dbo].[FactSales](
 	[SalesKey] [<span style="color:#007020">int</span>] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>,
@@ -577,19 +564,16 @@ PARTITION(DateKey RANGE <span style="color:#007020;font-weight:bold">RIGHT</span
 	[ProductCategoryKey] [<span style="color:#007020">int</span>] <span style="color:#007020;font-weight:bold">NULL</span>,
 	[Amount] [money] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
-<span style="color:#007020;font-weight:bold">WITH</span> (CLUSTERED COLUMNSTORE <span style="color:#007020;font-weight:bold">INDEX</span>, DISTRIBUTION <span style="color:#666">=</span> HASH(StrategyPlanKey));</code></pre></div>
-<p><strong>Got Data!</strong><br />
-We need to load some data! The GZip data files, 25 of them totalling approx. 413MB are located here on OneDrive -&gt; <a href="https://1drv.ms/f/s!Al_yetnJltJSmUP0M0MBPTUSNOqa" target="_blank"><a href="https://1drv.ms/f/s!Al_yetnJltJSmUP0M0MBPTUSNOqa">https://1drv.ms/f/s!Al_yetnJltJSmUP0M0MBPTUSNOqa</a></a>. You will need to load these files to an Azure blob storage. James Serra has a great post to help you get started: <a href="http://www.jamesserra.com/archive/2015/09/getting-data-into-azure-blob-storage/" target="_blank">Getting data into Azure Blob Storage</a>. For the purpose of this exercise I created a blob storage container name &#8216;contosoretaildw&#8217; with a &#8216;data&#8217; folder and imported the GZip files using the AzCopy Command-Line Utility (<a href="https://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/" target="_blank">Transfer data with the AzCopy Command-Line Utility</a>)</p>
-
+<span style="color:#007020;font-weight:bold">WITH</span> (CLUSTERED COLUMNSTORE <span style="color:#007020;font-weight:bold">INDEX</span>, DISTRIBUTION <span style="color:#666">=</span> HASH(StrategyPlanKey));
+</code></pre></div><p><strong>Got Data!</strong><br>
+We need to load some data! The GZip data files, 25 of them totalling approx. 413MB are located here on OneDrive -&gt; <!-- raw HTML omitted --><a href="https://1drv.ms/f/s">https://1drv.ms/f/s</a>!Al_yetnJltJSmUP0M0MBPTUSNOqa<!-- raw HTML omitted -->. You will need to load these files to an Azure blob storage. James Serra has a great post to help you get started: <!-- raw HTML omitted -->Getting data into Azure Blob Storage<!-- raw HTML omitted -->. For the purpose of this exercise I created a blob storage container name ‘contosoretaildw’ with a ‘data’ folder and imported the GZip files using the AzCopy Command-Line Utility (<!-- raw HTML omitted -->Transfer data with the AzCopy Command-Line Utility<!-- raw HTML omitted -->)</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/blob_contoso-1024x941.png"
          alt="blob_contoso" width="1024" height="750"/> 
 </figure>
 
-
-<p>Will be loading data from blob storage to SQL Data Warehouse using Polybase (<a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-load-with-polybase/" target="_blank">Load data with PolyBase in SQL Data Warehouse</a>) The following script assumes we already have defined and created a schema for the ContosoRetailDW database. You could also load data using the CTAS (Create Table As Select) feature only if you have not yet defined and created the ContosoRetailDW schema. The script for this scenario PolybaseLoadCTAS.dsql is available on <a href="https://github.com/sfrechette/contosoretaildw-azuresqldw" target="_blank">GitHub</a>.</p>
-
-<p><strong>Loading data from Azure Blog Storage &#8211; PolybaseLoadInsert.dsql</strong></p>
+<p>Will be loading data from blob storage to SQL Data Warehouse using Polybase (<!-- raw HTML omitted -->Load data with PolyBase in SQL Data Warehouse<!-- raw HTML omitted -->) The following script assumes we already have defined and created a schema for the ContosoRetailDW database. You could also load data using the CTAS (Create Table As Select) feature only if you have not yet defined and created the ContosoRetailDW schema. The script for this scenario PolybaseLoadCTAS.dsql is available on <!-- raw HTML omitted -->GitHub<!-- raw HTML omitted -->.</p>
+<p><strong>Loading data from Azure Blog Storage – PolybaseLoadInsert.dsql</strong></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">--Create Schema for External Tables 
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">SCHEMA</span> ext;
 
@@ -597,16 +581,16 @@ We need to load some data! The GZip data files, 25 of them totalling approx. 413
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">CREATE</span> MASTER <span style="color:#007020;font-weight:bold">KEY</span>;
 
 <span style="color:#60a0b0;font-style:italic">--Create Database Scoped Credential. Provide the Azure storage account key. 
-</span><span style="color:#60a0b0;font-style:italic">--The identity name does not affect authentication to Azure storage.
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#60a0b0;font-style:italic">--The identity name does not affect authentication to Azure storage.
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">DATABASE</span> SCOPED CREDENTIAL AzureStorageCredential 
-<span style="color:#007020;font-weight:bold">WITH</span> <span style="color:#007020;font-weight:bold">IDENTITY</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;user&#39;</span>, 
-SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_storage_account_key_goes_here&#39;</span>;
+<span style="color:#007020;font-weight:bold">WITH</span> <span style="color:#007020;font-weight:bold">IDENTITY</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">user</span><span style="color:#4070a0">&#39;</span>, 
+SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">azure_storage_account_key_goes_here</span><span style="color:#4070a0">&#39;</span>;
 
 <span style="color:#60a0b0;font-style:italic">--Create External Data Source. Specify location and credential to access your Azure blob storage.
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">EXTERNAL</span> <span style="color:#007020;font-weight:bold">DATA</span> <span style="color:#007020;font-weight:bold">SOURCE</span> AzureStorage 
 <span style="color:#007020;font-weight:bold">WITH</span> (  
         <span style="color:#007020;font-weight:bold">TYPE</span> <span style="color:#666">=</span> Hadoop, 
-        <span style="color:#007020;font-weight:bold">LOCATION</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;wasbs://contosoretaildw@stephdefaultstorage.blob.core.windows.net/&#39;</span>,
+        <span style="color:#007020;font-weight:bold">LOCATION</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">wasbs://contosoretaildw@stephdefaultstorage.blob.core.windows.net/</span><span style="color:#4070a0">&#39;</span>,
         CREDENTIAL <span style="color:#666">=</span> AzureStorageCredential
 ); 
 
@@ -617,10 +601,10 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
     FORMAT_TYPE <span style="color:#666">=</span> DELIMITEDTEXT, 
     FORMAT_OPTIONS  
     (
-        FIELD_TERMINATOR <span style="color:#666">=</span><span style="color:#4070a0">&#39;|&#39;</span>,
+        FIELD_TERMINATOR <span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">|</span><span style="color:#4070a0">&#39;</span>,
         USE_TYPE_DEFAULT <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">FALSE</span>
     ),
-	DATA_COMPRESSION <span style="color:#666">=</span> <span style="color:#4070a0">&#39;org.apache.hadoop.io.compress.GzipCodec&#39;</span>
+	DATA_COMPRESSION <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">org.apache.hadoop.io.compress.GzipCodec</span><span style="color:#4070a0">&#39;</span>
 );
 
 <span style="color:#60a0b0;font-style:italic">--DimAccount
@@ -637,7 +621,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[CustomMemberOptions] [nvarchar](<span style="color:#40a070">200</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimAccount.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimAccount.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -653,7 +637,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[ChannelDescription] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimChannel.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimChannel.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -669,7 +653,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[CurrencyDescription] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimCurrency.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimCurrency.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -707,7 +691,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[CompanyName] [nvarchar](<span style="color:#40a070">100</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimCustomer.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimCustomer.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -748,7 +732,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[AsiaSeason] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimDate.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimDate.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -784,7 +768,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[Status] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimEmployee.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimEmployee.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -806,7 +790,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[Status] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimEntity.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimEntity.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -824,7 +808,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[RegionCountryName] [nvarchar](<span style="color:#40a070">100</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimGeography.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimGeography.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -851,7 +835,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[LastModifiedDate] [datetime] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimMachine.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimMachine.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -871,7 +855,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[OutageSubTypeDescription] [nvarchar](<span style="color:#40a070">200</span>) <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimOutage.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimOutage.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -912,7 +896,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[ProductURL] [nvarchar](<span style="color:#40a070">150</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimProduct.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimProduct.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -928,7 +912,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[ProductCategoryDescription] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimProductCategory.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimProductCategory.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -945,7 +929,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[ProductCategoryKey] [<span style="color:#007020">int</span>] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimProductSubcategory.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimProductSubcategory.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -968,7 +952,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[MaxQuantity] [<span style="color:#007020">int</span>] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimPromotion.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimPromotion.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -992,7 +976,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[Status] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimSalesTerritory.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimSalesTerritory.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1008,7 +992,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[ScenarioDescription] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimScenario.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimScenario.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1040,7 +1024,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[LastRemodelDate] [datetime] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimStore.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimStore.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1057,7 +1041,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[EndOfDayRate] [<span style="color:#007020">float</span>] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactExchangeRate.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactExchangeRate.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1082,7 +1066,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[Aging] [<span style="color:#007020">int</span>] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactInventory.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactInventory.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1099,7 +1083,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[CostType] [nvarchar](<span style="color:#40a070">200</span>) <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactITMachine.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactITMachine.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1119,7 +1103,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[DownTime] [<span style="color:#007020">int</span>] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactITSLA.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactITSLA.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1149,7 +1133,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[UnitPrice] [money] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactOnlineSales.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactOnlineSales.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1177,7 +1161,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[SalesAmount] [money] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactSales.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactSales.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1199,7 +1183,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[GrossMarginQuota] [money] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactSalesQuota.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactSalesQuota.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1219,18 +1203,16 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 	[Amount] [money] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactStrategyPlan.txt.gz&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactStrategyPlan.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
 
 <span style="color:#007020;font-weight:bold">INSERT</span> <span style="color:#007020;font-weight:bold">INTO</span> dbo.FactStrategyPlan
-	<span style="color:#007020;font-weight:bold">SELECT</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">FROM</span> ext.FactStrategyPlan;</code></pre></div>
-<p>To conclude we now need to update statistics on our ContosoRetailDW SQL Data Warehouse. Without proper statistics, you will not get the performance that SQL Data Warehouse is designed to provide. Tables and columns do not have statistics automatically generated by SQL Data Warehouse and so you need to create them yourself. Will be using a stored procedure named <strong>dbo.prc_sqldw_create_stats</strong> to create statistics on all columns in a database.(<a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-develop-statistics/" target="_blank">Manage statistics in SQL Data Warehouse</a>)</p>
-
-<p>To create statistics on all columns in the table with this procedure, simply call the procedure:<br />
+	<span style="color:#007020;font-weight:bold">SELECT</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">FROM</span> ext.FactStrategyPlan;
+</code></pre></div><p>To conclude we now need to update statistics on our ContosoRetailDW SQL Data Warehouse. Without proper statistics, you will not get the performance that SQL Data Warehouse is designed to provide. Tables and columns do not have statistics automatically generated by SQL Data Warehouse and so you need to create them yourself. Will be using a stored procedure named <strong>dbo.prc_sqldw_create_stats</strong> to create statistics on all columns in a database.(<!-- raw HTML omitted -->Manage statistics in SQL Data Warehouse<!-- raw HTML omitted -->)</p>
+<p>To create statistics on all columns in the table with this procedure, simply call the procedure:<br>
 exec prc_sqldw_create_stats;</p>
-
 <p><strong>dbo.prc_sqldw_create_stats</strong></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">PROCEDURE</span>    [dbo].[prc_sqldw_create_stats]
 (   <span style="color:#666">@</span>create_type    tinyint <span style="color:#60a0b0;font-style:italic">-- 1 default 2 Fullscan 3 Sample
@@ -1240,7 +1222,7 @@ exec prc_sqldw_create_stats;</p>
 
 <span style="color:#007020;font-weight:bold">IF</span> <span style="color:#666">@</span>create_type <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">IN</span> (<span style="color:#40a070">1</span>,<span style="color:#40a070">2</span>,<span style="color:#40a070">3</span>)
 <span style="color:#007020;font-weight:bold">BEGIN</span>
-    THROW <span style="color:#40a070">151000</span>,<span style="color:#4070a0">&#39;Invalid value for @stats_type parameter. Valid range 1 (default), 2 (fullscan) or 3 (sample).&#39;</span>,<span style="color:#40a070">1</span>;
+    THROW <span style="color:#40a070">151000</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Invalid value for @stats_type parameter. Valid range 1 (default), 2 (fullscan) or 3 (sample).</span><span style="color:#4070a0">&#39;</span>,<span style="color:#40a070">1</span>;
 <span style="color:#007020;font-weight:bold">END</span>;
 
 <span style="color:#007020;font-weight:bold">IF</span> <span style="color:#666">@</span>sample_pct <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">NULL</span>
@@ -1248,7 +1230,7 @@ exec prc_sqldw_create_stats;</p>
     <span style="color:#007020;font-weight:bold">SET</span> <span style="color:#666">@</span>sample_pct <span style="color:#666">=</span> <span style="color:#40a070">20</span>;
 <span style="color:#007020;font-weight:bold">END</span>;
 
-<span style="color:#007020;font-weight:bold">IF</span> OBJECT_ID(<span style="color:#4070a0">&#39;tempdb..#stats_ddl&#39;</span>) <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
+<span style="color:#007020;font-weight:bold">IF</span> OBJECT_ID(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">tempdb..#stats_ddl</span><span style="color:#4070a0">&#39;</span>) <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 <span style="color:#007020;font-weight:bold">BEGIN</span>;
     <span style="color:#007020;font-weight:bold">DROP</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#666">#</span>stats_ddl;
 <span style="color:#007020;font-weight:bold">END</span>;
@@ -1286,18 +1268,18 @@ exec prc_sqldw_create_stats;</p>
 ,       [seq_nmbr]
 ,       <span style="color:#007020;font-weight:bold">CASE</span> <span style="color:#666">@</span>create_type
         <span style="color:#007020;font-weight:bold">WHEN</span> <span style="color:#40a070">1</span>
-        <span style="color:#007020;font-weight:bold">THEN</span>    <span style="color:#007020;font-weight:bold">CAST</span>(<span style="color:#4070a0">&#39;CREATE STATISTICS &#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#4070a0">&#39;stat_&#39;</span><span style="color:#666">+</span>table_schema_name<span style="color:#666">+</span> <span style="color:#4070a0">&#39;_&#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">table_name</span> <span style="color:#666">+</span> <span style="color:#4070a0">&#39;_&#39;</span><span style="color:#666">+</span><span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39; ON &#39;</span><span style="color:#666">+</span>QUOTENAME(table_schema_name)<span style="color:#666">+</span><span style="color:#4070a0">&#39;.&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">table_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;(&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;)&#39;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020">VARCHAR</span>(<span style="color:#40a070">8000</span>))
+        <span style="color:#007020;font-weight:bold">THEN</span>    <span style="color:#007020;font-weight:bold">CAST</span>(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">CREATE STATISTICS </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">stat_</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>table_schema_name<span style="color:#666">+</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">_</span><span style="color:#4070a0">&#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">table_name</span> <span style="color:#666">+</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">_</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span><span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0"> ON </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(table_schema_name)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">.</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">table_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">(</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">)</span><span style="color:#4070a0">&#39;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020">VARCHAR</span>(<span style="color:#40a070">8000</span>))
         <span style="color:#007020;font-weight:bold">WHEN</span> <span style="color:#40a070">2</span>
-        <span style="color:#007020;font-weight:bold">THEN</span>    <span style="color:#007020;font-weight:bold">CAST</span>(<span style="color:#4070a0">&#39;CREATE STATISTICS &#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#4070a0">&#39;stat_&#39;</span><span style="color:#666">+</span>table_schema_name<span style="color:#666">+</span> <span style="color:#4070a0">&#39;_&#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">table_name</span> <span style="color:#666">+</span> <span style="color:#4070a0">&#39;_&#39;</span><span style="color:#666">+</span><span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39; ON &#39;</span><span style="color:#666">+</span>QUOTENAME(table_schema_name)<span style="color:#666">+</span><span style="color:#4070a0">&#39;.&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">table_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;(&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;) WITH FULLSCAN&#39;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020">VARCHAR</span>(<span style="color:#40a070">8000</span>))
+        <span style="color:#007020;font-weight:bold">THEN</span>    <span style="color:#007020;font-weight:bold">CAST</span>(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">CREATE STATISTICS </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">stat_</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>table_schema_name<span style="color:#666">+</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">_</span><span style="color:#4070a0">&#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">table_name</span> <span style="color:#666">+</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">_</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span><span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0"> ON </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(table_schema_name)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">.</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">table_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">(</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">) WITH FULLSCAN</span><span style="color:#4070a0">&#39;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020">VARCHAR</span>(<span style="color:#40a070">8000</span>))
         <span style="color:#007020;font-weight:bold">WHEN</span> <span style="color:#40a070">3</span>
-        <span style="color:#007020;font-weight:bold">THEN</span>    <span style="color:#007020;font-weight:bold">CAST</span>(<span style="color:#4070a0">&#39;CREATE STATISTICS &#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#4070a0">&#39;stat_&#39;</span><span style="color:#666">+</span>table_schema_name<span style="color:#666">+</span> <span style="color:#4070a0">&#39;_&#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">table_name</span> <span style="color:#666">+</span> <span style="color:#4070a0">&#39;_&#39;</span><span style="color:#666">+</span><span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39; ON &#39;</span><span style="color:#666">+</span>QUOTENAME(table_schema_name)<span style="color:#666">+</span><span style="color:#4070a0">&#39;.&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">table_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;(&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;) WITH SAMPLE &#39;</span><span style="color:#666">+@</span>sample_pct<span style="color:#666">+</span><span style="color:#4070a0">&#39;PERCENT&#39;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020">VARCHAR</span>(<span style="color:#40a070">8000</span>))
+        <span style="color:#007020;font-weight:bold">THEN</span>    <span style="color:#007020;font-weight:bold">CAST</span>(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">CREATE STATISTICS </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">stat_</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>table_schema_name<span style="color:#666">+</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">_</span><span style="color:#4070a0">&#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">table_name</span> <span style="color:#666">+</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">_</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span><span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0"> ON </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(table_schema_name)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">.</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">table_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">(</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">) WITH SAMPLE </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span><span style="color:#666">@</span>sample_pct<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">PERCENT</span><span style="color:#4070a0">&#39;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020">VARCHAR</span>(<span style="color:#40a070">8000</span>))
         <span style="color:#007020;font-weight:bold">END</span> <span style="color:#007020;font-weight:bold">AS</span> create_stat_ddl
 <span style="color:#007020;font-weight:bold">FROM</span> T
 ;
 
 <span style="color:#007020;font-weight:bold">DECLARE</span> <span style="color:#666">@</span>i <span style="color:#007020">INT</span>              <span style="color:#666">=</span> <span style="color:#40a070">1</span>
 ,       <span style="color:#666">@</span>t <span style="color:#007020">INT</span>              <span style="color:#666">=</span> (<span style="color:#007020;font-weight:bold">SELECT</span> <span style="color:#007020;font-weight:bold">COUNT</span>(<span style="color:#666">*</span>) <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#666">#</span>stats_ddl)
-,       <span style="color:#666">@</span>s NVARCHAR(<span style="color:#40a070">4000</span>)   <span style="color:#666">=</span> N<span style="color:#4070a0">&#39;&#39;</span>
+,       <span style="color:#666">@</span>s NVARCHAR(<span style="color:#40a070">4000</span>)   <span style="color:#666">=</span> N<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">&#39;</span>
 ;
 
 WHILE <span style="color:#666">@</span>i <span style="color:#666">&amp;</span>lt; <span style="color:#666">=</span> <span style="color:#666">@</span>t
@@ -1306,16 +1288,14 @@ WHILE <span style="color:#666">@</span>i <span style="color:#666">&amp;</span>lt
 
     PRINT <span style="color:#666">@</span>s
     <span style="color:#007020;font-weight:bold">EXEC</span> sp_executesql <span style="color:#666">@</span>s
-    <span style="color:#007020;font-weight:bold">SET</span> <span style="color:#666">@</span>i<span style="color:#666">+=</span><span style="color:#40a070">1</span>;
+    <span style="color:#007020;font-weight:bold">SET</span> <span style="color:#666">@</span>i<span style="color:#666">+</span><span style="color:#666">=</span><span style="color:#40a070">1</span>;
 <span style="color:#007020;font-weight:bold">END</span>
 
-<span style="color:#007020;font-weight:bold">DROP</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#666">#</span>stats_ddl;</code></pre></div>
-<p>We are done! Explore, write some queries, scale compute resources up and down, connect with PowerBI and create awesome data visualizations. Just remember to <strong>pause</strong> your SQL Data Warehouse when not using it.<br />
+<span style="color:#007020;font-weight:bold">DROP</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#666">#</span>stats_ddl;
+</code></pre></div><p>We are done! Explore, write some queries, scale compute resources up and down, connect with PowerBI and create awesome data visualizations. Just remember to <strong>pause</strong> your SQL Data Warehouse when not using it.<br>
 Enjoy!</p>
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 

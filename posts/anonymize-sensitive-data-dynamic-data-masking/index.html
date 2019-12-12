@@ -11,13 +11,13 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SQL Server 2016 - Dynamic Data Masking"/>
-<meta name="twitter:description" content="With SQL Server 2016 just around the corner, a series of new features and enhancements will be introduced. More specifically some important Security Upgrades; Always Encrypted, Row Level Security, and Dynamic Data Masking. This post covers SQL Server 2016 &#8211; Dynamic Data Masking (DDM).
-_Note: DDM is also available in Azure SQL Database see the following link for details -&gt; http://bit.ly/1eG7Que_
+<meta name="twitter:description" content="With SQL Server 2016 just around the corner, a series of new features and enhancements will be introduced. More specifically some important Security Upgrades; Always Encrypted, Row Level Security, and Dynamic Data Masking. This post covers SQL Server 2016 – Dynamic Data Masking (DDM).
+Note: DDM is also available in Azure SQL Database see the following link for details -&gt; http://bit.ly/1eG7Que
   What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries."/>
 
     <meta property="og:title" content="SQL Server 2016 - Dynamic Data Masking" />
-<meta property="og:description" content="With SQL Server 2016 just around the corner, a series of new features and enhancements will be introduced. More specifically some important Security Upgrades; Always Encrypted, Row Level Security, and Dynamic Data Masking. This post covers SQL Server 2016 &#8211; Dynamic Data Masking (DDM).
-_Note: DDM is also available in Azure SQL Database see the following link for details -&gt; http://bit.ly/1eG7Que_
+<meta property="og:description" content="With SQL Server 2016 just around the corner, a series of new features and enhancements will be introduced. More specifically some important Security Upgrades; Always Encrypted, Row Level Security, and Dynamic Data Masking. This post covers SQL Server 2016 – Dynamic Data Masking (DDM).
+Note: DDM is also available in Azure SQL Database see the following link for details -&gt; http://bit.ly/1eG7Que
   What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/anonymize-sensitive-data-dynamic-data-masking/" />
@@ -57,7 +57,7 @@ _Note: DDM is also available in Azure SQL Database see the following link for de
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -136,91 +136,81 @@ _Note: DDM is also available in Azure SQL Database see the following link for de
       </header>
       
       <div>
-        <p>With SQL Server 2016 just around the corner, a series of new features and enhancements will be introduced. More specifically some important Security Upgrades; <strong>Always Encrypted</strong>, <strong>Row Level Security</strong>, and <strong>Dynamic Data Masking</strong>. This post covers SQL Server 2016 &#8211; Dynamic Data Masking (DDM).</p>
-
-<p>_Note: DDM is also available in Azure SQL Database see the following link for details -&gt; <a href="http://bit.ly/1eG7Que" target="_blank"><a href="http://bit.ly/1eG7Que">http://bit.ly/1eG7Que</a></a>_</p>
-
+        <p>With SQL Server 2016 just around the corner, a series of new features and enhancements will be introduced. More specifically some important Security Upgrades; <strong>Always Encrypted</strong>, <strong>Row Level Security</strong>, and <strong>Dynamic Data Masking</strong>. This post covers SQL Server 2016 – Dynamic Data Masking (DDM).</p>
+<p><em>Note: DDM is also available in Azure SQL Database see the following link for details -&gt; <!-- raw HTML omitted --><a href="http://bit.ly/1eG7Que">http://bit.ly/1eG7Que</a><!-- raw HTML omitted --></em></p>
 <p><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/DDM.png"
          alt="Dynamic Data Masking" width="350" height="240"/> 
 </figure>
- What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries. It is implemented within the database itself, the logic is centralized and always applies when the sensitive data is queried. Traditionally, obfuscation of sensitive data as been coded in the application layer, using views to limits the exposure of sensitive pieces of data, and third-party tools&#8230; Bottom line, it is now quite simple to configure DDM rules on sensitive columns, which can be done on an existing database without affecting database operations or requiring changes in application code.</p>
-
-<p>In SQL Server 2016 there are four types of masks rules: <a href="https://msdn.microsoft.com/library/mt130841.aspx" target="_blank">(details)</a></p>
-
+ What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries. It is implemented within the database itself, the logic is centralized and always applies when the sensitive data is queried. Traditionally, obfuscation of sensitive data as been coded in the application layer, using views to limits the exposure of sensitive pieces of data, and third-party tools… Bottom line, it is now quite simple to configure DDM rules on sensitive columns, which can be done on an existing database without affecting database operations or requiring changes in application code.</p>
+<p>In SQL Server 2016 there are four types of masks rules: <!-- raw HTML omitted -->(details)<!-- raw HTML omitted --></p>
 <ul>
-<li><strong>Default</strong>: Full masking &#8211; replaces characters with XXXX, numbers with 0 and date/time data types with 01.01.1900 00:00:00.0000000</li>
-<li><strong>Email</strong>: Masking method which exposes the first letter of an email address and the constant suffix &#8220;.com&#8221;, in the form of an email address. aXXX@XXXX.com.</li>
-<li><strong>Custom String</strong>: Partial Masking &#8211; method which exposes the first and last letters and adds a custom padding string in the middle. <em>prefix,[padding],suffix</em></li>
+<li><strong>Default</strong>: Full masking – replaces characters with XXXX, numbers with 0 and date/time data types with 01.01.1900 00:00:00.0000000</li>
+<li><strong>Email</strong>: Masking method which exposes the first letter of an email address and the constant suffix “.com”, in the form of an email address. <a href="mailto:aXXX@XXXX.com">aXXX@XXXX.com</a>.</li>
+<li><strong>Custom String</strong>: Partial Masking – method which exposes the first and last letters and adds a custom padding string in the middle. <em>prefix,[padding],suffix</em></li>
 <li><strong>Random</strong>: A random masking function for use on any numeric type to mask the original value with a random value within a specified range.</li>
 </ul>
-
-<p><strong>Creating a Dynamic Data Mask</strong><br />
+<p><strong>Creating a Dynamic Data Mask</strong><br>
 This example creates a table with three different types of dynamic data masks, inserts data and queries the table.</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">use Sandbox;
 
 <span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">table</span> dbo.Customer
 (
 	CustomerID	<span style="color:#007020">int</span> <span style="color:#007020;font-weight:bold">identity</span> <span style="color:#007020;font-weight:bold">primary</span> <span style="color:#007020;font-weight:bold">key</span>, 
-	FirstName	nvarchar(<span style="color:#40a070">100</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;partial(1, &#34;XXXXXXX&#34;, 0)&#39;</span>) <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>,
+	FirstName	nvarchar(<span style="color:#40a070">100</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">partial(1, &#34;XXXXXXX&#34;, 0)</span><span style="color:#4070a0">&#39;</span>) <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>,
 	LastName	nvarchar(<span style="color:#40a070">100</span>) <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>, 
-	CreditCard	nvarchar(<span style="color:#40a070">19</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;partial(0, &#34;XXXX-XXXX-XXXX-&#34;, 4)&#39;</span>) <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>,
-	Mobile		nvarchar(<span style="color:#40a070">12</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;default()&#39;</span>) <span style="color:#007020;font-weight:bold">null</span>,
-	Email		nvarchar(<span style="color:#40a070">100</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;email()&#39;</span>) <span style="color:#007020;font-weight:bold">null</span>,
-	DateOfBirth	<span style="color:#007020">date</span> masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;default()&#39;</span>) <span style="color:#007020;font-weight:bold">null</span>
+	CreditCard	nvarchar(<span style="color:#40a070">19</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">partial(0, &#34;XXXX-XXXX-XXXX-&#34;, 4)</span><span style="color:#4070a0">&#39;</span>) <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>,
+	Mobile		nvarchar(<span style="color:#40a070">12</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">default()</span><span style="color:#4070a0">&#39;</span>) <span style="color:#007020;font-weight:bold">null</span>,
+	Email		nvarchar(<span style="color:#40a070">100</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">email()</span><span style="color:#4070a0">&#39;</span>) <span style="color:#007020;font-weight:bold">null</span>,
+	DateOfBirth	<span style="color:#007020">date</span> masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">default()</span><span style="color:#4070a0">&#39;</span>) <span style="color:#007020;font-weight:bold">null</span>
 );
 
 <span style="color:#007020;font-weight:bold">insert</span> <span style="color:#007020;font-weight:bold">into</span> dbo.Customer (FirstName, LastName, CreditCard, Mobile, Email, DateOfBirth)
 	<span style="color:#007020;font-weight:bold">values</span> 
-	(<span style="color:#4070a0">&#39;John&#39;</span>, <span style="color:#4070a0">&#39;Maskeroo&#39;</span>, <span style="color:#4070a0">&#39;0123-4567-8901-2345&#39;</span>, <span style="color:#4070a0">&#39;222.343.4343&#39;</span>, <span style="color:#4070a0">&#39;jmaskeroo@zcustomer.com&#39;</span>, <span style="color:#4070a0">&#39;03/07/1965&#39;</span>),
-	(<span style="color:#4070a0">&#39;Tomas&#39;</span>, <span style="color:#4070a0">&#39;Lambdafoo&#39;</span>, <span style="color:#4070a0">&#39;4444-4444-4444-4444&#39;</span>, <span style="color:#4070a0">&#39;666.222.1111&#39;</span>, <span style="color:#4070a0">&#39;tlambdafoo@zcustomer.com&#39;</span>, <span style="color:#4070a0">&#39;10/02/1971&#39;</span>),
-	(<span style="color:#4070a0">&#39;Martha&#39;</span>, <span style="color:#4070a0">&#39;Backatyoo&#39;</span>, <span style="color:#4070a0">&#39;9999-0000-9999-0000&#39;</span>, <span style="color:#4070a0">&#39;888.555.9999&#39;</span>, <span style="color:#4070a0">&#39;mbackatyoo@zcustomer.com&#39;</span>, <span style="color:#4070a0">&#39;05/05/1968&#39;</span>);
+	(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">John</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Maskeroo</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">0123-4567-8901-2345</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">222.343.4343</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">jmaskeroo@zcustomer.com</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">03/07/1965</span><span style="color:#4070a0">&#39;</span>),
+	(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Tomas</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Lambdafoo</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">4444-4444-4444-4444</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">666.222.1111</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">tlambdafoo@zcustomer.com</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">10/02/1971</span><span style="color:#4070a0">&#39;</span>),
+	(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Martha</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Backatyoo</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">9999-0000-9999-0000</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">888.555.9999</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">mbackatyoo@zcustomer.com</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">05/05/1968</span><span style="color:#4070a0">&#39;</span>);
 
-<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> dbo.Customer;</code></pre></div>
-<p>query output:<br />
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> dbo.Customer;
+</code></pre></div><p>query output:<br>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/q1.png"
          alt="q1" width="1014" height="155"/> 
 </figure>
 </p>
-
-<p>Let&#8217;s create a new user and grant <strong>SELECT</strong> permission on the table. Queries executed as the testuser view masked data.</p>
+<p>Let’s create a new user and grant <strong>SELECT</strong> permission on the table. Queries executed as the testuser view masked data.</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">user</span> testuser <span style="color:#007020;font-weight:bold">without</span> login;
 <span style="color:#007020;font-weight:bold">grant</span> <span style="color:#007020;font-weight:bold">select</span> <span style="color:#007020;font-weight:bold">on</span> dbo.Customer <span style="color:#007020;font-weight:bold">to</span> testuser;
 
-<span style="color:#007020;font-weight:bold">execute</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">user</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;testuser&#39;</span>;
+<span style="color:#007020;font-weight:bold">execute</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">user</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">testuser</span><span style="color:#4070a0">&#39;</span>;
 <span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> dbo.Customer;
-revert;</code></pre></div>
-<p>As you can see the testuser database user is unable to see the real data values for each of the columns that have been masked<br />
-query output:<br />
+revert;
+</code></pre></div><p>As you can see the testuser database user is unable to see the real data values for each of the columns that have been masked<br>
+query output:<br>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/q2.png"
          alt="q2" width="918" height="154"/> 
 </figure>
 </p>
-
-<p>Now let&#8217;s grant <strong>UNMASK</strong> permission to a specific user to see unmasked data on the table.</p>
+<p>Now let’s grant <strong>UNMASK</strong> permission to a specific user to see unmasked data on the table.</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">user</span> testadmin <span style="color:#007020;font-weight:bold">without</span> login;
 <span style="color:#007020;font-weight:bold">grant</span> <span style="color:#007020;font-weight:bold">select</span> <span style="color:#007020;font-weight:bold">on</span> dbo.Customer <span style="color:#007020;font-weight:bold">to</span> testadmin;
 <span style="color:#007020;font-weight:bold">grant</span> unmask <span style="color:#007020;font-weight:bold">to</span> testadmin;
 
-<span style="color:#007020;font-weight:bold">execute</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">user</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;testadmin&#39;</span>;
+<span style="color:#007020;font-weight:bold">execute</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">user</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">testadmin</span><span style="color:#4070a0">&#39;</span>;
 <span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> dbo.Customer;
-revert;</code></pre></div>
-<p>The output shows all columns of data in clear text, even the ones that have been masked by rule definition<br />
-query output:<br />
+revert;
+</code></pre></div><p>The output shows all columns of data in clear text, even the ones that have been masked by rule definition<br>
+query output:<br>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/q1.png"
          alt="q1" width="1014" height="155"/> 
 </figure>
 </p>
-
-<p><strong>Summary</strong><br />
+<p><strong>Summary</strong><br>
 DDM is not a replacement for security access control mechanisms, nor is it a method for encrypting physical data. Dynamic Data Masking is about simplifying the obfuscation of sensitive data by streamlining the logic in the database itself (no external dependencies). Dynamic Data Masking is complementary to other SQL Server security features (auditing, encryption, Row-Level Security, etc.) and it is highly recommended to use it in conjunction with them to better protect your sensitive data in your databases.</p>
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 

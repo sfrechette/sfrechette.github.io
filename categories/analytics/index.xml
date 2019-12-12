@@ -17,7 +17,7 @@
       <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</guid>
-      <description>It&amp;#8217;s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
+      <description>It’s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricksand Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
     </item>
     
     <item>
@@ -35,8 +35,8 @@
       <pubDate>Fri, 16 Sep 2016 11:59:40 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/</guid>
-      <description>In-memory distributed processing for large datasets&amp;#8230; How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
-    First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics.</description>
+      <description>In-memory distributed processing for large datasets… How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
+    First, what is Apache Spark? Apache Sparkis an open source big data processing framework built around speed, ease of use, and sophisticated analytics. A fast and general processing engine compatible with Hadoop data.</description>
     </item>
     
     <item>
@@ -45,7 +45,7 @@
       <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/a-short-tale-of-data-vizes/</guid>
-      <description>A short tale of&amp;#8230; data vizes. It&amp;#8217;s about Tableau, R, and Shiny. How to prepare/build an existing and well-known Tableau visualization with R and provide web analysis interactivity. Will be using the raw data from the sample workbook named &amp;#8220;Regional&amp;#8221; that comes with Tableau Desktop. The following image below is a snapshot of the visualization that we will try to reproduce with R. You can also view and interact with this visualization on my Tableau Public profile page -&amp;gt; http://tabsoft.</description>
+      <description>A short tale of… data vizes. It’s about Tableau, R, and Shiny. How to prepare/build an existing and well-known Tableau visualization with R and provide web analysis interactivity. Will be using the raw data from the sample workbook named “Regional” that comes with Tableau Desktop. The following image below is a snapshot of the visualization that we will try to reproduce with R. You can also view and interact with this visualization on my Tableau Public profile page -&amp;gt; http://tabsoft.</description>
     </item>
     
     <item>
@@ -54,7 +54,7 @@
       <pubDate>Mon, 23 Mar 2015 08:19:37 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</guid>
-      <description>The more you used it, the more you discover great stuff&amp;#8230; I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing&amp;#8230;you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.
+      <description>The more you used it, the more you discover great stuff… I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing…you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.
 So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance!</description>
     </item>
     
@@ -65,7 +65,7 @@ So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attenda
       
       <guid>https://stephanefrechette.dev/posts/data-analytics-r-sql-server/</guid>
       <description>First Happy New Year and best wishes for 2015!
-Yes, Data Analytics with R and SQL Server &amp;#8230; As Data and Business Intelligence Architects I personally think we just can&amp;#8217;t dismiss or push aside the Data Science &amp;#8220;landscape&amp;#8221;. Hence that&amp;#8217;s why I registered and currently more than half way through the Data Science Specialization on Coursera from the Johns Hopkins University. Even though I have been working with R for a while I wanted to get some kind of recognition, attestation for my skills and also just because I can 😉</description>
+Yes, Data Analytics with R and SQL Server … As Data and Business Intelligence Architects I personally think we just can’t dismiss or push aside the Data Science “landscape”. Hence that’s why I registered and currently more than half way through the Data Science Specialization on Courserafrom the Johns Hopkins University. Even though I have been working with R for a while I wanted to get some kind of recognition, attestation for my skills and also just because I can 😉</description>
     </item>
     
   </channel>

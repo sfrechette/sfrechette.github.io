@@ -11,10 +11,10 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Analyzing NYC Citi Bike data with Azure Databricks"/>
-<meta name="twitter:description" content="It&#8217;s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts."/>
+<meta name="twitter:description" content="It’s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricksand Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts."/>
 
     <meta property="og:title" content="Analyzing NYC Citi Bike data with Azure Databricks" />
-<meta property="og:description" content="It&#8217;s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts." />
+<meta property="og:description" content="It’s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricksand Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/" />
 <meta property="article:published_time" content="2018-02-08T15:09:48-04:00" />
@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -147,36 +147,26 @@
         <p><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/databricks_trans.png#floatleft" width="150" height="150"/> 
 </figure>
- It&#8217;s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of <a href="https://spark.apache.org/" rel="noopener" target="_blank">Apache Spark</a>, Azure Databricks combines the best of <a href="https://databricks.com/" rel="noopener" target="_blank">Databricks</a> and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts. Currently in Preview, I recommend you explore and start with the <a href="https://docs.microsoft.com/en-us/azure/azure-databricks/" rel="noopener" target="_blank">Azure Databricks Preview documentation</a>. The <a href="https://docs.microsoft.com/en-us/azure/azure-databricks/quickstart-create-databricks-workspace-portal" rel="noopener" target="_blank">Quickstarts</a> section shows you how to create a Databricks workspace and create an Apache Spark cluster within that workspace and finally running a Spark job. Your best friend for this journey is also the <a href="https://docs.azuredatabricks.net/user-guide/index.html" rel="noopener" target="_blank">Azure Databricks Guide (Documentation)</a> check out the <a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" rel="noopener" target="_blank">Getting Started</a> section.</p>
-
+ It’s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of <!-- raw HTML omitted -->Apache Spark<!-- raw HTML omitted -->, Azure Databricks combines the best of <!-- raw HTML omitted -->Databricks<!-- raw HTML omitted --> and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts. Currently in Preview, I recommend you explore and start with the <!-- raw HTML omitted -->Azure Databricks Preview documentation<!-- raw HTML omitted -->. The <!-- raw HTML omitted -->Quickstarts<!-- raw HTML omitted --> section shows you how to create a Databricks workspace and create an Apache Spark cluster within that workspace and finally running a Spark job. Your best friend for this journey is also the <!-- raw HTML omitted -->Azure Databricks Guide (Documentation)<!-- raw HTML omitted --> check out the <!-- raw HTML omitted -->Getting Started<!-- raw HTML omitted --> section.</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/azure-databricks-overview.png" width="628" height="373"/> 
 </figure>
 
-
-<p>Let&#8217;s get started. I am using a subset of the <a href="https://www.citibikenyc.com/system-data" rel="noopener" target="_blank">Citi Bike System Data</a> which you can explore and download from here -&gt; <a href="https://s3.amazonaws.com/tripdata/index.html" rel="noopener" target="_blank">tripdata</a>. For this demo I am using data from 2017 only. Once I downloaded the required dataset I then uploaded it to my Azure Blob Storage account.</p>
-
+<p>Let’s get started. I am using a subset of the <!-- raw HTML omitted -->Citi Bike System Data<!-- raw HTML omitted --> which you can explore and download from here -&gt; <!-- raw HTML omitted -->tripdata<!-- raw HTML omitted -->. For this demo I am using data from 2017 only. Once I downloaded the required dataset I then uploaded it to my Azure Blob Storage account.</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/blob_citibike.png" width="889" height="674"/> 
 </figure>
 
-
-<p>Next I created a cluster and named it &#8220;citibike&#8221;, disabled autoscaling and configure 4 workers and then set the auto termination to 60 minutes.</p>
-
+<p>Next I created a cluster and named it “citibike”, disabled autoscaling and configure 4 workers and then set the auto termination to 60 minutes.</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/cluster_citibike.png" width="914" height="597"/> 
 </figure>
 
-
-<p>Then I create a Python notebook named <a href="https://github.com/sfrechette/azure-databricks-citibike-nyc-analysis" rel="noopener" target="_blank">&#8220;citibike_nyc_analysis&#8221;</a> which you can download from GitHub <a href="https://github.com/sfrechette/azure-databricks-citibike-nyc-analysis" rel="noopener" target="_blank">here</a> and import into your Azure Databricks Workspace and execute. The following is the ipynb file (IPython Notebook) rendered in html in an iframe for you to explore.</p>
-
-<p>BTW for those of you near Ottawa, ON (Canada) I will be presenting &#8220;<a href="https://www.meetup.com/OttawaDataUserGroup/events/244347109/" rel="noopener" target="_blank">Introducing Microsoft Azure Databricks</a>&#8221; next Thursday February 15 2018 at the Ottawa Data User Group Meetup</p>
-
+<p>Then I create a Python notebook named <!-- raw HTML omitted -->“citibike_nyc_analysis”<!-- raw HTML omitted --> which you can download from GitHub <!-- raw HTML omitted -->here<!-- raw HTML omitted --> and import into your Azure Databricks Workspace and execute. The following is the ipynb file (IPython Notebook) rendered in html in an iframe for you to explore.</p>
+<p>BTW for those of you near Ottawa, ON (Canada) I will be presenting “<!-- raw HTML omitted -->Introducing Microsoft Azure Databricks<!-- raw HTML omitted -->” next Thursday February 15 2018 at the Ottawa Data User Group Meetup</p>
 <p>Enjoy!</p>
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 

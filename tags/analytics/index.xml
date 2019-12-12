@@ -17,7 +17,7 @@
       <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</guid>
-      <description>It&amp;#8217;s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
+      <description>It’s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricksand Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Mon, 23 Mar 2015 08:19:37 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</guid>
-      <description>The more you used it, the more you discover great stuff&amp;#8230; I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing&amp;#8230;you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.
+      <description>The more you used it, the more you discover great stuff… I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing…you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.
 So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance!</description>
     </item>
     

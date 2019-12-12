@@ -11,14 +11,12 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Configure and manage SQL Server on Linux"/>
-<meta name="twitter:description" content="SQL Server Configuration Manager is a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use mssql-conf. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&gt; https://docs.microsoft.com/en-us/sql/linux/
-The tool is installed in the following directory path /opt/mssql/bin let&#8217;s explore what mssql-conf is all about.
-Open a Terminal session and see what type of help and information we get&#8230;"/>
+<meta name="twitter:description" content="SQL Server Configuration Manageris a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use mssql-conf. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&gt; https://docs.microsoft.com/en-us/sql/linux/The tool is installed in the following directory path /opt/mssql/bin let’s explore what mssql-conf is all about.
+Open a Terminal session and see what type of help and information we get…"/>
 
     <meta property="og:title" content="Configure and manage SQL Server on Linux" />
-<meta property="og:description" content="SQL Server Configuration Manager is a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use mssql-conf. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&gt; https://docs.microsoft.com/en-us/sql/linux/
-The tool is installed in the following directory path /opt/mssql/bin let&#8217;s explore what mssql-conf is all about.
-Open a Terminal session and see what type of help and information we get&#8230;" />
+<meta property="og:description" content="SQL Server Configuration Manageris a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use mssql-conf. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&gt; https://docs.microsoft.com/en-us/sql/linux/The tool is installed in the following directory path /opt/mssql/bin let’s explore what mssql-conf is all about.
+Open a Terminal session and see what type of help and information we get…" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/configure-manage-sql-server-linux/" />
 <meta property="article:published_time" content="2017-04-10T14:42:14-04:00" />
@@ -57,7 +55,7 @@ Open a Terminal session and see what type of help and information we get&#8230;"
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -132,106 +130,74 @@ Open a Terminal session and see what type of help and information we get&#8230;"
       </header>
       
       <div>
-        
-
-<p><a href="https://docs.microsoft.com/en-us/sql/relational-databases/sql-server-configuration-manager" target="_blank">SQL Server Configuration Manager</a> is a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf" target="_blank">mssql-conf</a>. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&gt; <a href="https://docs.microsoft.com/en-us/sql/linux/" target="_blank"><a href="https://docs.microsoft.com/en-us/sql/linux/">https://docs.microsoft.com/en-us/sql/linux/</a></a></p>
-
-<p>The tool is installed in the following directory path <code>/opt/mssql/bin</code> let&#8217;s explore what mssql-conf is all about.<br />
-Open a Terminal session and see what type of help and information we get&#8230;</p>
-
-<p>Proving the -h or &#8211;help argument will return more information about how to use mssql-conf<br />
-<code>cd /opt/mssql/bin</code><br />
+        <p><!-- raw HTML omitted -->SQL Server Configuration Manager<!-- raw HTML omitted --> is a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use <!-- raw HTML omitted -->mssql-conf<!-- raw HTML omitted -->. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&gt; <!-- raw HTML omitted --><a href="https://docs.microsoft.com/en-us/sql/linux/">https://docs.microsoft.com/en-us/sql/linux/</a><!-- raw HTML omitted --></p>
+<p>The tool is installed in the following directory path <code>/opt/mssql/bin</code> let’s explore what mssql-conf is all about.<br>
+Open a Terminal session and see what type of help and information we get…</p>
+<p>Proving the -h or –help argument will return more information about how to use mssql-conf<br>
+<code>cd /opt/mssql/bin</code><br>
 <code>./mssql-conf -h</code></p>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_01.png" width="977" height="559"/> 
 </figure>
 
-
 <p>This command gives us various the options/arguments that we can use with the mssql-conf tool.</p>
-
-<p>Now Let&#8217;s explore the supported configurable settings by issuing the following command<br />
+<p>Now Let’s explore the supported configurable settings by issuing the following command<br>
 <code>./mssql-conf list</code></p>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_02.png" width="977" height="270"/> 
 </figure>
 
-
-<p>The following are the supported settings that can be changed/modified using the &#8216;set&#8217; option:</p>
-
+<p>The following are the supported settings that can be changed/modified using the ‘set’ option:</p>
 <ul>
-<li>network.tcpport &#8211; Change the TCP port</li>
-<li>filelocation.defaultbackupdir &#8211; Change the default backup directory location</li>
-<li>filelocation.defaultdumpdir &#8211; Change the default dump directory location</li>
-<li>filelocation.defaultlogdir &#8211; Change the default log directory location</li>
-<li>filelocation.defaultdatadir &#8211; Change the default data directory location</li>
-<li>hadr.hadrenabled &#8211; Enable Always On Availability Groups</li>
-<li>coredump.coredumptype &#8211; Choose the type of dump memory dump file to collect</li>
-<li>coredump.captureminiandfull &#8211; Specify whether to generate both mini dumps and full dumps</li>
+<li>network.tcpport – Change the TCP port</li>
+<li>filelocation.defaultbackupdir – Change the default backup directory location</li>
+<li>filelocation.defaultdumpdir – Change the default dump directory location</li>
+<li>filelocation.defaultlogdir – Change the default log directory location</li>
+<li>filelocation.defaultdatadir – Change the default data directory location</li>
+<li>hadr.hadrenabled – Enable Always On Availability Groups</li>
+<li>coredump.coredumptype – Choose the type of dump memory dump file to collect</li>
+<li>coredump.captureminiandfull – Specify whether to generate both mini dumps and full dumps</li>
 </ul>
-
 <h4 id="choosing-two-settings-to-demonstrate">Choosing two settings to demonstrate</h4>
-
-<p><strong>How to change the default TCP port</strong><br />
+<p><strong>How to change the default TCP port</strong><br>
 This option will let you change the TCP port where SQL Server will listen for connections. By default, this port is set to 1433.</p>
-
-<p>To change the port, run the following commands:<br />
+<p>To change the port, run the following commands:<br>
 <code>sudo /opt/mssql/bin/mssql-conf set tcpport &lt;&lt;em&gt;new_tcp_port&lt;/em&gt;&gt;</code></p>
-
-<p>Restart the service<br />
+<p>Restart the service<br>
 <code>sudo systemctl restart mssql-server</code></p>
-
-<p>And test&#8230;example<br />
+<p>And test…example<br>
 <code>sqlcmd -S localhost,&lt;&lt;em&gt;new_tcp_port&lt;/em&gt;&gt; -U test -P test</code></p>
-
-<p><strong>Change the default backup directory location</strong><br />
-By default, the backup files are generated in <code>/var/opt/mssql/data</code>. I personally like to store my backups in a directory named &#8216;backup&#8217; 😉 So we will need to create a new directory (folder) and then change the default backup directory.</p>
-
-<p>Let&#8217;s do this&#8230;</p>
-
-<p>We are going to create a new directory, we need to have root privileges so issue the following command and supply your password:<br />
+<p><strong>Change the default backup directory location</strong><br>
+By default, the backup files are generated in <code>/var/opt/mssql/data</code>. I personally like to store my backups in a directory named ‘backup’ 😉 So we will need to create a new directory (folder) and then change the default backup directory.</p>
+<p>Let’s do this…</p>
+<p>We are going to create a new directory, we need to have root privileges so issue the following command and supply your password:<br>
 <code>sudo su</code></p>
-
-<p>Next we change directory -&gt; <code>cd /var/opt/mssql</code><br />
-List files and directories -&gt; <code>ls -l</code> backup directory does not exist!<br />
-Create a new directory named &#8216;backup&#8217; -&gt; <code>mkdir /var/opt/mssql/backup</code><br />
+<p>Next we change directory -&gt; <code>cd /var/opt/mssql</code><br>
+List files and directories -&gt; <code>ls -l</code> backup directory does not exist!<br>
+Create a new directory named ‘backup’ -&gt; <code>mkdir /var/opt/mssql/backup</code><br>
 Validate that new directory was created -&gt; <code>ls -l</code></p>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_03.png" width="896" height="440"/> 
 </figure>
 
-
 <p>Now that we have our new backup directory we can change the directory where SQL Server will send the backup files by default:</p>
-
 <p><code>/opt/mssql/bin/mssql-conf set defaultbackupdir /var/opt/mssql/backup</code></p>
-
 <p>You also need to restart the mssql-server service:</p>
-
 <p><code>systemctl restart mssql-server</code></p>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_05.png" width="1121" height="287"/> 
 </figure>
 
-
-<p>To see the content of the <strong>mssql.conf</strong> file, you use the <strong>cat</strong> command which stands for &#8220;catenate&#8221;. It reads data from files, and outputs their contents. It is the simplest way to display the contents of a file at the command line.</p>
-
+<p>To see the content of the <strong>mssql.conf</strong> file, you use the <strong>cat</strong> command which stands for “catenate”. It reads data from files, and outputs their contents. It is the simplest way to display the contents of a file at the command line.</p>
 <p><code>cat /var/opt/mssql/mssql.conf</code></p>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_04.png" width="896" height="440"/> 
 </figure>
 
-
-<p>Again for further details on how to configure SQL Server on Linux with the mssql-conf tool see the following link -&gt; <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf" target="_blank"><a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf">https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf</a></a></p>
-
+<p>Again for further details on how to configure SQL Server on Linux with the mssql-conf tool see the following link -&gt; <!-- raw HTML omitted --><a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf">https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf</a><!-- raw HTML omitted --></p>
 <p>Enjoy!</p>
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 

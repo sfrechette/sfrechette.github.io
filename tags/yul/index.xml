@@ -17,7 +17,7 @@
       <pubDate>Sun, 14 Jun 2015 19:50:49 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/</guid>
-      <description>A quick exercise on graph modeling. I recently got inspired from one of Nicole White&amp;#8217;s post who did something similar with the Dallas Fort Worth Airport (DFW) data. So I decided to create a Neo4j graph database of the shopping places (boutiques, restaurants and services) at the Montreal-Pierre Elliott Trudeau International Airport (YUL). There isn&amp;#8217;t any raw data to download on the site. So I will spare you the details of my scrapping efforts and instead share with you my findings and results.</description>
+      <description>A quick exercise on graph modeling. I recently got inspired from one of Nicole White’spost who did something similar with the Dallas Fort Worth Airport (DFW) data. So I decided to create a Neo4j graph database of the shopping places (boutiques, restaurants and services)at the Montreal-Pierre Elliott Trudeau International Airport (YUL). There isn’t any raw data to download on the site. So I will spare you the details of my scrapping efforts and instead share with you my findings and results.</description>
     </item>
     
   </channel>

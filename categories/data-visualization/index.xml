@@ -26,7 +26,7 @@
       <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/a-short-tale-of-data-vizes/</guid>
-      <description>A short tale of&amp;#8230; data vizes. It&amp;#8217;s about Tableau, R, and Shiny. How to prepare/build an existing and well-known Tableau visualization with R and provide web analysis interactivity. Will be using the raw data from the sample workbook named &amp;#8220;Regional&amp;#8221; that comes with Tableau Desktop. The following image below is a snapshot of the visualization that we will try to reproduce with R. You can also view and interact with this visualization on my Tableau Public profile page -&amp;gt; http://tabsoft.</description>
+      <description>A short tale of… data vizes. It’s about Tableau, R, and Shiny. How to prepare/build an existing and well-known Tableau visualization with R and provide web analysis interactivity. Will be using the raw data from the sample workbook named “Regional” that comes with Tableau Desktop. The following image below is a snapshot of the visualization that we will try to reproduce with R. You can also view and interact with this visualization on my Tableau Public profile page -&amp;gt; http://tabsoft.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@
       <pubDate>Mon, 23 Mar 2015 08:19:37 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</guid>
-      <description>The more you used it, the more you discover great stuff&amp;#8230; I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing&amp;#8230;you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.
+      <description>The more you used it, the more you discover great stuff… I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing…you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.
 So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance!</description>
     </item>
     

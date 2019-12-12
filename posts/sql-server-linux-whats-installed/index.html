@@ -11,12 +11,12 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SQL Server on Linux - What&#39;s installed?"/>
-<meta name="twitter:description" content="Software&#8230; Are you the curious type like me who needs to know what&#8217;s been installed and where it is located on your system!
-Exploring the public preview of SQL Server vNext CTP1.1, and installing the following necessary packages mssql-server, mssql-tools, and msodbcsql for running and using SQL Server on Linux. This post is about these packages, finding out what files are installed and where, but before we jump in some minor housekeeping stuff&#8230;"/>
+<meta name="twitter:description" content="Software… Are you the curious type like me who needs to know what’s been installed and where it is located on your system!
+Exploring the public preview of SQL Server vNext CTP1.1, and installing the following necessary packages mssql-server, mssql-tools, and msodbcsql for running and using SQL Server on Linux. This post is about these packages, finding out what files are installed and where, but before we jump in some minor housekeeping stuff…"/>
 
     <meta property="og:title" content="SQL Server on Linux - What&#39;s installed?" />
-<meta property="og:description" content="Software&#8230; Are you the curious type like me who needs to know what&#8217;s been installed and where it is located on your system!
-Exploring the public preview of SQL Server vNext CTP1.1, and installing the following necessary packages mssql-server, mssql-tools, and msodbcsql for running and using SQL Server on Linux. This post is about these packages, finding out what files are installed and where, but before we jump in some minor housekeeping stuff&#8230;" />
+<meta property="og:description" content="Software… Are you the curious type like me who needs to know what’s been installed and where it is located on your system!
+Exploring the public preview of SQL Server vNext CTP1.1, and installing the following necessary packages mssql-server, mssql-tools, and msodbcsql for running and using SQL Server on Linux. This post is about these packages, finding out what files are installed and where, but before we jump in some minor housekeeping stuff…" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/sql-server-linux-whats-installed/" />
 <meta property="article:published_time" content="2017-01-18T23:23:49-04:00" />
@@ -55,7 +55,7 @@ Exploring the public preview of SQL Server vNext CTP1.1, and installing the foll
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -128,59 +128,40 @@ Exploring the public preview of SQL Server vNext CTP1.1, and installing the foll
       </header>
       
       <div>
-        
-
-<p><figure>
+        <p><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/200px-RPM_Logo.svg_.png#floatleft" width="200" height="117"/> 
 </figure>
  <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/deb-icon-9286.png#floatleft" width="200" height="200"/> 
 </figure>
 </p>
-
-<p>Software&#8230; Are you the curious type like me who needs to know what&#8217;s been installed and where it is located on your system!</p>
-
-<p>Exploring the public preview of <a href="https://www.microsoft.com/en-us/sql-server/sql-server-vnext-including-Linux" target="_blank">SQL Server vNext CTP1.1</a>, and installing the following necessary packages <strong>mssql-server</strong>, <strong>mssql-tools</strong>, and <strong>msodbcsql</strong> for running and using SQL Server on Linux. This post is about these packages, finding out what files are installed and where, but before we jump in some minor housekeeping stuff&#8230;</p>
-
+<p>Software… Are you the curious type like me who needs to know what’s been installed and where it is located on your system!</p>
+<p>Exploring the public preview of <!-- raw HTML omitted -->SQL Server vNext CTP1.1<!-- raw HTML omitted -->, and installing the following necessary packages <strong>mssql-server</strong>, <strong>mssql-tools</strong>, and <strong>msodbcsql</strong> for running and using SQL Server on Linux. This post is about these packages, finding out what files are installed and where, but before we jump in some minor housekeeping stuff…</p>
 <p><strong>What is a Linux package?</strong></p>
-
 <p>In Linux distributions, a <em>package</em> refers to a compressed file archive containing all of the files that come with a particular application. The files are usually stored in the package according to their relative installation paths on your system. Most packages also contain installation instructions for the OS, as well as a list of any other packages that are dependencies, prerequisites required for installation.</p>
-
-<p>Common types of Linux packages include .deb, .rpm, and .tgz. Since Linux packages do not usually contain the dependencies necessary to install them, many Linux distributions use package managers that automatically read dependencies files and download the packages needed before proceeding with the installation. Some examples of package managers are <a href="https://wiki.debian.org/Apt" target="_blank">APT</a>, <a href="http://yum.baseurl.org/" target="_blank">YUM</a>, and <a href="https://www.archlinux.org/pacman/" target="_blank">Pacman</a>.</p>
-
+<p>Common types of Linux packages include .deb, .rpm, and .tgz. Since Linux packages do not usually contain the dependencies necessary to install them, many Linux distributions use package managers that automatically read dependencies files and download the packages needed before proceeding with the installation. Some examples of package managers are <!-- raw HTML omitted -->APT<!-- raw HTML omitted -->, <!-- raw HTML omitted -->YUM<!-- raw HTML omitted -->, and <!-- raw HTML omitted -->Pacman<!-- raw HTML omitted -->.</p>
 <p><strong>What is Dpkg?</strong></p>
-
-<p><a href="https://wiki.debian.org/Teams/Dpkg" target="_blank">Dpkg</a> or the Debian Package Manager is a package manager for Debian-based systems like <a href="https://www.ubuntu.com/" target="_blank">Ubuntu</a>, <a href="https://www.linuxmint.com/" target="_blank">Linux Mint</a>, and <a href="https://www.opensuse.org/" target="_blank">openSUSE</a>. It can install, remove, build, and provide information about .deb packages, but unlike other package management systems, it cannot automatically download and install packages or their dependencies.</p>
-
-<p><strong>What is RPM?</strong><br />
-<a href="http://rpm.org/" target="_blank">RPM</a> or the Red Hat Package Manager is a package management utility for Red Hat based systems like <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux" target="_blank">RHEL</a>, <a href="https://www.centos.org/" target="_blank">CentOS</a> and <a href="https://getfedora.org/" target="_blank">Fedora</a>. The tool allows system administrators and users to install, update, uninstall, query, verify and manage system software packages in Unix/Linux operating systems.</p>
-
+<p><!-- raw HTML omitted -->Dpkg<!-- raw HTML omitted --> or the Debian Package Manager is a package manager for Debian-based systems like <!-- raw HTML omitted -->Ubuntu<!-- raw HTML omitted -->, <!-- raw HTML omitted -->Linux Mint<!-- raw HTML omitted -->, and <!-- raw HTML omitted -->openSUSE<!-- raw HTML omitted -->. It can install, remove, build, and provide information about .deb packages, but unlike other package management systems, it cannot automatically download and install packages or their dependencies.</p>
+<p><strong>What is RPM?</strong><br>
+<!-- raw HTML omitted -->RPM<!-- raw HTML omitted --> or the Red Hat Package Manager is a package management utility for Red Hat based systems like <!-- raw HTML omitted -->RHEL<!-- raw HTML omitted -->, <!-- raw HTML omitted -->CentOS<!-- raw HTML omitted --> and <!-- raw HTML omitted -->Fedora<!-- raw HTML omitted -->. The tool allows system administrators and users to install, update, uninstall, query, verify and manage system software packages in Unix/Linux operating systems.</p>
 <p>Now we already know which packages we have installed for SQL Server on Linux, but if you need to confirm and list any installed package on your system you can issue the following command:</p>
-
-<p>List the installed package that contains the &#8220;sql&#8221; keyword &#8211; Debian package (i.e. Ubuntu)<br />
+<p>List the installed package that contains the “sql” keyword – Debian package (i.e. Ubuntu)<br>
 <code>dpkg -l | grep sql</code></p>
-
-<p>List the installed package that contains the &#8220;sql&#8221; keyword &#8211; RPM package (i.e. CentOS)<br />
+<p>List the installed package that contains the “sql” keyword – RPM package (i.e. CentOS)<br>
 <code>yum list installed | grep sql</code></p>
-
-<p>Output on Debian distribution:<br />
+<p>Output on Debian distribution:<br>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/stephanef@stephanef-virtual-machine-_008.png" width="777" height="189"/> 
 </figure>
 </p>
-
 <p>The following are the commands to execute for both Debian and RPM Linux distributions in order to list its content and identify where it was installed on your system.</p>
-
-<h4 id="span-style-color-000000-mssql-server-package-span"><span style="color: #000000;">mssql-server package</span></h4>
-
-<p>Debian<br />
+<h4 id="span-stylecolor-000000mssqlserver-packagespan"><!-- raw HTML omitted -->mssql-server package<!-- raw HTML omitted --></h4>
+<p>Debian<br>
 <code>dpkg -L mssql-server</code></p>
-
-<p>RPM<br />
+<p>RPM<br>
 <code>rpm -ql mssql-server</code></p>
-
 <p>Output from Debian package:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">/.
+<pre><code>/.
 /lib
 /lib/systemd
 /lib/systemd/system
@@ -225,17 +206,14 @@ Exploring the public preview of SQL Server vNext CTP1.1, and installing the foll
 /usr/share/man/man1
 /usr/share/man/man1/sqlpackage.1.gz
 /usr/share/man/man1/mssql-conf.1.gz
-/usr/share/man/man1/sqlservr.1.gz</pre></div>
-<h4 id="span-style-color-000000-mssql-tools-package-span"><span style="color: #000000;">mssql-tools package</span></h4>
-
-<p>Debian<br />
+/usr/share/man/man1/sqlservr.1.gz
+</code></pre><h4 id="span-stylecolor-000000mssqltools-packagespan"><!-- raw HTML omitted -->mssql-tools package<!-- raw HTML omitted --></h4>
+<p>Debian<br>
 <code>dpkg -L mssql-tools</code></p>
-
-<p>RPM<br />
+<p>RPM<br>
 <code>rpm -ql mssql-tools</code></p>
-
 <p>Output from Debian package:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">/.
+<pre><code>/.
 /opt
 /opt/mssql-tools
 /opt/mssql-tools/share
@@ -253,17 +231,14 @@ Exploring the public preview of SQL Server vNext CTP1.1, and installing the foll
 /usr/share/doc
 /usr/share/doc/mssql-tools
 /usr/share/doc/mssql-tools/THIRDPARTYNOTICES.txt
-/usr/share/doc/mssql-tools/LICENSE.txt</pre></div>
-<h4 id="span-style-color-000000-msodbcsql-package-span"><span style="color: #000000;">msodbcsql package</span></h4>
-
-<p>Debian<br />
+/usr/share/doc/mssql-tools/LICENSE.txt
+</code></pre><h4 id="span-stylecolor-000000msodbcsql-packagespan"><!-- raw HTML omitted -->msodbcsql package<!-- raw HTML omitted --></h4>
+<p>Debian<br>
 <code>dpkg -L msodbcsql</code></p>
-
-<p>RPM<br />
+<p>RPM<br>
 <code>rpm -ql msodbcsql</code></p>
-
 <p>Output from Debian package:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">/.
+<pre><code>/.
 /opt
 /opt/microsoft
 /opt/microsoft/msodbcsql
@@ -281,12 +256,10 @@ Exploring the public preview of SQL Server vNext CTP1.1, and installing the foll
 /usr/share
 /usr/share/doc
 /usr/share/doc/msodbcsql
-/usr/share/doc/msodbcsql/LICENSE.txt</pre></div>
-<p>Enjoy!</p>
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+/usr/share/doc/msodbcsql/LICENSE.txt
+</code></pre><p>Enjoy!</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 

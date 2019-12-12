@@ -17,7 +17,7 @@
       <pubDate>Tue, 16 May 2017 09:35:21 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/sql-graph-sql-server-2017/</guid>
-      <description>As I mentioned several times before&amp;#8230; Graphs are everywhere! Graph features are being introduced in SQL Server 2017. Offering graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.
+      <description>As I mentioned several times before… Graphs are everywhere! Graph features are being introduced in SQL Server 2017. Offering graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.
 What is a graph database? In context, a graph database is a database that uses graph structures for semantic queries with nodes, edges and properties to represent and store data.</description>
     </item>
     

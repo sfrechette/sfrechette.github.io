@@ -17,7 +17,7 @@
       <pubDate>Fri, 22 Sep 2017 10:36:08 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/search-string-multiple-files/</guid>
-      <description>In support of an earlier post Fetching NHL Play by Play game data, I was recently asked how could one quickly search for a specific string in multiple JSON files recursively? Well if you are running macOS or Linux grep is your best friend! In a nutshell grep prints lines that contain a match for a pattern. The following is a sample grep and cut command that will list out (output) the games (files) that contains the following string -&amp;gt; &amp;#8220;Montréal Canadiens&amp;#8221;:</description>
+      <description>In support of an earlier post Fetching NHL Play by Play game data, I was recently asked how could one quickly search for a specific string in multiple JSON files recursively? Well if you are running macOS or Linux grepis your best friend! In a nutshell grep prints lines that contain a match for a pattern. The following is a sample grep and cut command that will list out (output) the games (files) that contains the following string -&amp;gt; “Montréal Canadiens”:</description>
     </item>
     
     <item>
@@ -26,9 +26,8 @@
       <pubDate>Mon, 10 Apr 2017 14:42:14 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/configure-manage-sql-server-linux/</guid>
-      <description>SQL Server Configuration Manager is a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use mssql-conf. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&amp;gt; https://docs.microsoft.com/en-us/sql/linux/
-The tool is installed in the following directory path /opt/mssql/bin let&amp;#8217;s explore what mssql-conf is all about.
-Open a Terminal session and see what type of help and information we get&amp;#8230;</description>
+      <description>SQL Server Configuration Manageris a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use mssql-conf. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&amp;gt; https://docs.microsoft.com/en-us/sql/linux/The tool is installed in the following directory path /opt/mssql/bin let’s explore what mssql-conf is all about.
+Open a Terminal session and see what type of help and information we get…</description>
     </item>
     
     <item>
@@ -37,9 +36,8 @@ Open a Terminal session and see what type of help and information we get&amp;#82
       <pubDate>Tue, 04 Apr 2017 11:13:18 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</guid>
-      <description>Files and the Azure Cloud. This post is about how to upload multiple files from a local directory &amp;#8220;recursively&amp;#8221; to Azure Blob Storage with the Azure CLI 2.0 from macOS/Linux. For the Windows platform, AzCopy is a awesome command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance.
-You can download the latest version of AzCopy
-The basic syntax for AzCopy commands is:</description>
+      <description>Files and the Azure Cloud. This post is about how to upload multiple files from a local directory “recursively” to Azure Blob Storage with the Azure CLI 2.0 from macOS/Linux. For the Windows platform, AzCopy is a awesome command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance.
+You can download the latest version of AzCopyThe basic syntax for AzCopy commands is:</description>
     </item>
     
     <item>
@@ -48,7 +46,7 @@ The basic syntax for AzCopy commands is:</description>
       <pubDate>Tue, 21 Mar 2017 12:23:03 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/running-sql-server-linux-docker-windows-10/</guid>
-      <description>What is Docker? Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data centers, VMs, or in the cloud. Docker allows applications to be isolated into containers with instructions for exactly what they need to survive that can be easily ported from machine to machine. Though Virtual machines also allow the exact same thing, and numerous other tools already exist to make rebuilding these configurations portable and reproducible, Docker has a more simplified structure compared to both of these, the real area where it causes disruption is resource efficiency.</description>
+      <description>What is Docker? Dockeris an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data centers, VMs, or in the cloud. Docker allows applications to be isolated into containers with instructions for exactly what they need to survive that can be easily ported from machine to machine. Though Virtual machines also allow the exact same thing, and numerous other tools already exist to make rebuilding these configurations portable and reproducible, Docker has a more simplified structure compared to both of these, the real area where it causes disruption is resource efficiency.</description>
     </item>
     
     <item>
@@ -57,8 +55,8 @@ The basic syntax for AzCopy commands is:</description>
       <pubDate>Wed, 18 Jan 2017 23:23:49 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/sql-server-linux-whats-installed/</guid>
-      <description>Software&amp;#8230; Are you the curious type like me who needs to know what&amp;#8217;s been installed and where it is located on your system!
-Exploring the public preview of SQL Server vNext CTP1.1, and installing the following necessary packages mssql-server, mssql-tools, and msodbcsql for running and using SQL Server on Linux. This post is about these packages, finding out what files are installed and where, but before we jump in some minor housekeeping stuff&amp;#8230;</description>
+      <description>Software… Are you the curious type like me who needs to know what’s been installed and where it is located on your system!
+Exploring the public preview of SQL Server vNext CTP1.1, and installing the following necessary packages mssql-server, mssql-tools, and msodbcsql for running and using SQL Server on Linux. This post is about these packages, finding out what files are installed and where, but before we jump in some minor housekeeping stuff…</description>
     </item>
     
     <item>
@@ -68,8 +66,7 @@ Exploring the public preview of SQL Server vNext CTP1.1, and installing the foll
       
       <guid>https://stephanefrechette.dev/posts/installing-sql-server-linux-ubuntu/</guid>
       <description>SQL Server vNext represents a major step towards making SQL Server a platform that enables choices of development languages, data types, on-premises and in the cloud, and across operating systems by bringing the power of SQL Server to Linux, Linux-based Docker containers, and Windows.
-For all the downloads, code samples and to stay informed visit the following link SQL Server v.Next Public Preview
-I am sharing with you my experiences, gotchas in installing SQL Server on Linux on an existing Ubuntu VM I already had running for a while&amp;#8230;I have since installed SQL Server for Linux on several other local VM&amp;#8217;s and in Azure without any issues just by following the documentation.</description>
+For all the downloads, code samples and to stay informed visit the following link SQL Server v.Next Public PreviewI am sharing with you my experiences, gotchas in installing SQL Server on Linux on an existing Ubuntu VM I already had running for a while…I have since installed SQL Server for Linux on several other local VM’s and in Azure without any issues just by following the documentation.</description>
     </item>
     
   </channel>

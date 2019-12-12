@@ -11,11 +11,11 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SQL Graph in SQL Server 2017"/>
-<meta name="twitter:description" content="As I mentioned several times before&#8230; Graphs are everywhere! Graph features are being introduced in SQL Server 2017. Offering graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.
+<meta name="twitter:description" content="As I mentioned several times before… Graphs are everywhere! Graph features are being introduced in SQL Server 2017. Offering graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.
 What is a graph database? In context, a graph database is a database that uses graph structures for semantic queries with nodes, edges and properties to represent and store data."/>
 
     <meta property="og:title" content="SQL Graph in SQL Server 2017" />
-<meta property="og:description" content="As I mentioned several times before&#8230; Graphs are everywhere! Graph features are being introduced in SQL Server 2017. Offering graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.
+<meta property="og:description" content="As I mentioned several times before… Graphs are everywhere! Graph features are being introduced in SQL Server 2017. Offering graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.
 What is a graph database? In context, a graph database is a database that uses graph structures for semantic queries with nodes, edges and properties to represent and store data." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/sql-graph-sql-server-2017/" />
@@ -55,7 +55,7 @@ What is a graph database? In context, a graph database is a database that uses g
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -128,53 +128,36 @@ What is a graph database? In context, a graph database is a database that uses g
       </header>
       
       <div>
-        
-
-<p><figure>
+        <p><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/6n-graf.svg_-300x198.png" width="300" height="198"/> 
 </figure>
- As I mentioned several times before&#8230; Graphs are everywhere! Graph features are being introduced in SQL Server 2017. Offering graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.</p>
-
+ As I mentioned several times before… Graphs are everywhere! Graph features are being introduced in SQL Server 2017. Offering graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.</p>
 <h4 id="what-is-a-graph-database">What is a graph database?</h4>
-
-<p>In context, a graph database is a database that uses graph structures for semantic queries with <strong>nodes</strong>, <strong>edges</strong> and <strong>properties</strong> to represent and store data. A key concept of the system is the graph (or edge or relationship), which directly relates data items in the store. The relationships allow data in the store to be linked together directly&#8230;</p>
-
+<p>In context, a graph database is a database that uses graph structures for semantic queries with <strong>nodes</strong>, <strong>edges</strong> and <strong>properties</strong> to represent and store data. A key concept of the system is the graph (or edge or relationship), which directly relates data items in the store. The relationships allow data in the store to be linked together directly…</p>
 <h4 id="whats-is-a-sql-graph-in-sql-server-2017">Whats is a SQL Graph in SQL Server 2017?</h4>
-
 <p>A collection of node and edge tables. Node or edge tables can be created under any schema in the database, but they all belong to one logical graph. Only one graph can be created per database.</p>
-
 <p>Key concepts:</p>
-
 <ul>
 <li>A node table represents an entity in a graph schema.</li>
 <li>An edge table represents a relationship in a graph. Edges are always directed and connect two nodes. An edge table enables users to model many-to-many relationships in the graph. An edge table may or may not have any user defined attributes in it.</li>
 </ul>
-
-<p>I strongly recommend you read the following -&gt; <a href="https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-architecture" target="_blank">SQL Graph Architecture</a> to learn how SQL Graph is architected.</p>
-
+<p>I strongly recommend you read the following -&gt; <!-- raw HTML omitted -->SQL Graph Architecture<!-- raw HTML omitted --> to learn how SQL Graph is architected.</p>
 <p>You can also refer to previous <a href="https://stephanefrechette.com/?s=neo4j">blog posts</a> I did about <a href="https://neo4j.com/">Neo4j</a> (which I am big fan) to understand other key concepts about Graph databases.</p>
-
-<h4 id="let-8217-s-demo-this">Let&#8217;s demo this</h4>
-
-<p>We will use a dataset inspired from <a href="http://www.craftcans.com/" target="_blank">CraftCans.com</a>  <del datetime="2017-05-15T23:56:08+00:00">a site dedicated </del> was a site dedicated to news and reviews for the &#8220;Canned Beer Revolution&#8221;. It also contains a database of all canned craft beers available in the US which I scraped and slightly modified for our needs. I love beer, but for those who don&#8217;t know me well I prefer wine 😉</p>
-
-<p>First assumption is that you have already downloaded and installed <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2017" target="_blank">SQL Server 2017 CTP 2.0</a>.<br />
-Then you will need to execute the following SQL script <a href="https://gist.github.com/sfrechette/6b0897c977076fe26c8cabfcecd19add" target="_blank">CraftCans.sql</a> that will create the CraftCans relational database with all the required objects and load data into tables.</p>
-
-<p>The CraftCans Relational Model:<br />
+<h4 id="let8217s-demo-this">Let’s demo this</h4>
+<p>We will use a dataset inspired from <!-- raw HTML omitted -->CraftCans.com<!-- raw HTML omitted -->  <!-- raw HTML omitted -->a site dedicated <!-- raw HTML omitted --> was a site dedicated to news and reviews for the “Canned Beer Revolution”. It also contains a database of all canned craft beers available in the US which I scraped and slightly modified for our needs. I love beer, but for those who don’t know me well I prefer wine 😉</p>
+<p>First assumption is that you have already downloaded and installed <!-- raw HTML omitted -->SQL Server 2017 CTP 2.0<!-- raw HTML omitted -->.<br>
+Then you will need to execute the following SQL script <!-- raw HTML omitted -->CraftCans.sql<!-- raw HTML omitted --> that will create the CraftCans relational database with all the required objects and load data into tables.</p>
+<p>The CraftCans Relational Model:<br>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/erd_01-1.png" width="472" height="510"/> 
 </figure>
 </p>
-
-<p>Now on to modeling our graph&#8230; I created the following property graph model to represent information about our CraftCans Graph. The property graph model is an extension of the graphs from mathematics. Property graphs provide finer-granularity on the meaning of nodes and edges (it&#8217;s the equivalent of an ERD &#8211; Entity Relationship Diagram but for Graphs)</p>
-
-<p>CraftCans Property Graph Model:<br />
+<p>Now on to modeling our graph… I created the following property graph model to represent information about our CraftCans Graph. The property graph model is an extension of the graphs from mathematics. Property graphs provide finer-granularity on the meaning of nodes and edges (it’s the equivalent of an ERD – Entity Relationship Diagram but for Graphs)</p>
+<p>CraftCans Property Graph Model:<br>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/craftcans_propertygraph.png" width="876" height="337"/> 
 </figure>
 </p>
-
 <p>First we need to create the nodes and appropriate indexes</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">use CraftCans;
 <span style="color:#007020;font-weight:bold">go</span>
@@ -182,9 +165,9 @@ Then you will need to execute the following SQL script <a href="https://gist.git
 <span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">schema</span> graph;
 <span style="color:#007020;font-weight:bold">go</span>
 
-<span style="color:#60a0b0;font-style:italic">/*----------------------------------------------------
+<span style="color:#60a0b0;font-style:italic">/*</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------
 </span><span style="color:#60a0b0;font-style:italic">Create NODE tables
-</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------*/</span>
+</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------</span><span style="color:#60a0b0;font-style:italic">*/</span>
 
 <span style="color:#60a0b0;font-style:italic">--Beer
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">table</span> graph.Beer
@@ -235,11 +218,11 @@ Then you will need to execute the following SQL script <a href="https://gist.git
 	[name]		nvarchar(<span style="color:#40a070">40</span>)
 ) <span style="color:#007020;font-weight:bold">as</span> node;
 
-<span style="color:#007020;font-weight:bold">create</span> nonclustered <span style="color:#007020;font-weight:bold">index</span> idx_Style_name <span style="color:#007020;font-weight:bold">on</span> graph.Style([name]);</code></pre></div>
-<p>Then we create the edges with appropriate indexes</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">/*----------------------------------------------------
+<span style="color:#007020;font-weight:bold">create</span> nonclustered <span style="color:#007020;font-weight:bold">index</span> idx_Style_name <span style="color:#007020;font-weight:bold">on</span> graph.Style([name]);
+</code></pre></div><p>Then we create the edges with appropriate indexes</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">/*</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------
 </span><span style="color:#60a0b0;font-style:italic">Create EDGE tables
-</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------*/</span>
+</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------</span><span style="color:#60a0b0;font-style:italic">*/</span>
 
 <span style="color:#60a0b0;font-style:italic">--BREWED_BY
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">table</span> graph.BREWED_BY <span style="color:#007020;font-weight:bold">as</span> edge;
@@ -255,11 +238,11 @@ Then you will need to execute the following SQL script <a href="https://gist.git
 
 <span style="color:#60a0b0;font-style:italic">--IN_STATE
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">table</span> graph.IN_STATE <span style="color:#007020;font-weight:bold">as</span> edge;
-<span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">unique</span> nonclustered <span style="color:#007020;font-weight:bold">index</span> idx_IN_STATE_from_id_to_id <span style="color:#007020;font-weight:bold">on</span> graph.IN_STATE (<span style="">$</span>from_id, <span style="">$</span>to_id);</code></pre></div>
-<p>We then load data into the nodes and edges tables from the relational CraftCans database model</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">/*----------------------------------------------------
+<span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">unique</span> nonclustered <span style="color:#007020;font-weight:bold">index</span> idx_IN_STATE_from_id_to_id <span style="color:#007020;font-weight:bold">on</span> graph.IN_STATE (<span style="">$</span>from_id, <span style="">$</span>to_id);
+</code></pre></div><p>We then load data into the nodes and edges tables from the relational CraftCans database model</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">/*</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------
 </span><span style="color:#60a0b0;font-style:italic">Insert data into NODE tables
-</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------*/</span>
+</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------</span><span style="color:#60a0b0;font-style:italic">*/</span>
 
 <span style="color:#60a0b0;font-style:italic">--Beer
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">insert</span> <span style="color:#007020;font-weight:bold">into</span> graph.Beer
@@ -294,14 +277,14 @@ Then you will need to execute the following SQL script <a href="https://gist.git
 			StyleName
 	<span style="color:#007020;font-weight:bold">from</span>	dbo.Style;
 
-<span style="color:#60a0b0;font-style:italic">/*----------------------------------------------------
+<span style="color:#60a0b0;font-style:italic">/*</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------
 </span><span style="color:#60a0b0;font-style:italic">Insert data into EDGE tables
-</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------*/</span>
+</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------</span><span style="color:#60a0b0;font-style:italic">*/</span>
 
 <span style="color:#60a0b0;font-style:italic">--BEER_STYLE
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">insert</span> <span style="color:#007020;font-weight:bold">into</span> graph.BEER_STYLE
-	<span style="color:#007020;font-weight:bold">select</span>	g_b.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;from_id&#39;</span>, 
-			g_s.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;to_id&#39;</span>
+	<span style="color:#007020;font-weight:bold">select</span>	g_b.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">from_id</span><span style="color:#4070a0">&#39;</span>, 
+			g_s.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">to_id</span><span style="color:#4070a0">&#39;</span>
 	<span style="color:#007020;font-weight:bold">from</span>	dbo.Beer b <span style="color:#007020;font-weight:bold">join</span>
 			dbo.Style s <span style="color:#007020;font-weight:bold">on</span> b.StyleID <span style="color:#666">=</span> s.StyleID <span style="color:#007020;font-weight:bold">join</span>
 			graph.Beer g_b <span style="color:#007020;font-weight:bold">on</span> b.BeerID <span style="color:#666">=</span> g_b.id <span style="color:#007020;font-weight:bold">join</span>
@@ -309,8 +292,8 @@ Then you will need to execute the following SQL script <a href="https://gist.git
 
 <span style="color:#60a0b0;font-style:italic">--BREWED_BY
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">insert</span> <span style="color:#007020;font-weight:bold">into</span> graph.BREWED_BY
-	<span style="color:#007020;font-weight:bold">select</span>	g_b.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;from_id&#39;</span>,
-			g_br.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;to_id&#39;</span>
+	<span style="color:#007020;font-weight:bold">select</span>	g_b.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">from_id</span><span style="color:#4070a0">&#39;</span>,
+			g_br.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">to_id</span><span style="color:#4070a0">&#39;</span>
 	<span style="color:#007020;font-weight:bold">from</span>	dbo.Beer b <span style="color:#007020;font-weight:bold">join</span>
 			dbo.Brewery br <span style="color:#007020;font-weight:bold">on</span> b.BreweryID <span style="color:#666">=</span> br.BreweryID <span style="color:#007020;font-weight:bold">join</span>
 			graph.Beer g_b <span style="color:#007020;font-weight:bold">on</span> b.BeerID <span style="color:#666">=</span> g_b.id <span style="color:#007020;font-weight:bold">join</span>
@@ -318,8 +301,8 @@ Then you will need to execute the following SQL script <a href="https://gist.git
 
 <span style="color:#60a0b0;font-style:italic">--LOCATED_IN
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">insert</span> <span style="color:#007020;font-weight:bold">into</span> graph.LOCATED_IN
-	<span style="color:#007020;font-weight:bold">select</span>	g_br.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;from_id&#39;</span>,
-			g_c.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;to_id&#39;</span>
+	<span style="color:#007020;font-weight:bold">select</span>	g_br.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">from_id</span><span style="color:#4070a0">&#39;</span>,
+			g_c.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">to_id</span><span style="color:#4070a0">&#39;</span>
 	<span style="color:#007020;font-weight:bold">from</span>	dbo.City <span style="color:#007020;font-weight:bold">c</span> <span style="color:#007020;font-weight:bold">join</span>
 			dbo.Brewery br <span style="color:#007020;font-weight:bold">on</span> <span style="color:#007020;font-weight:bold">c</span>.CityID <span style="color:#666">=</span> br.CityID <span style="color:#007020;font-weight:bold">join</span>
 			graph.Brewery g_br <span style="color:#007020;font-weight:bold">on</span> br.BreweryID <span style="color:#666">=</span> g_br.id <span style="color:#007020;font-weight:bold">join</span>
@@ -327,93 +310,88 @@ Then you will need to execute the following SQL script <a href="https://gist.git
 
 <span style="color:#60a0b0;font-style:italic">--IN_STATE
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">insert</span> <span style="color:#007020;font-weight:bold">into</span> graph.IN_STATE
-	<span style="color:#007020;font-weight:bold">select</span>	g_c.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;from_id&#39;</span>,
-			g_s.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;to_id&#39;</span>
+	<span style="color:#007020;font-weight:bold">select</span>	g_c.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">from_id</span><span style="color:#4070a0">&#39;</span>,
+			g_s.<span style="">$</span>node_id <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">to_id</span><span style="color:#4070a0">&#39;</span>
 	<span style="color:#007020;font-weight:bold">from</span>	dbo.[<span style="color:#007020;font-weight:bold">State</span>] s <span style="color:#007020;font-weight:bold">join</span>
 			dbo.City <span style="color:#007020;font-weight:bold">c</span> <span style="color:#007020;font-weight:bold">on</span> s.StateCode <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">c</span>.StateCode <span style="color:#007020;font-weight:bold">join</span>
 			graph.[<span style="color:#007020;font-weight:bold">State</span>] g_s <span style="color:#007020;font-weight:bold">on</span> s.StateCode <span style="color:#666">=</span> g_s.id <span style="color:#007020;font-weight:bold">join</span>
-			graph.City g_c <span style="color:#007020;font-weight:bold">on</span> <span style="color:#007020;font-weight:bold">c</span>.CityID <span style="color:#666">=</span> g_c.id;</code></pre></div>
-<p>Here is a screenshot of the CraftCans database once we have created our graph model:</p>
-
+			graph.City g_c <span style="color:#007020;font-weight:bold">on</span> <span style="color:#007020;font-weight:bold">c</span>.CityID <span style="color:#666">=</span> g_c.id;
+</code></pre></div><p>Here is a screenshot of the CraftCans database once we have created our graph model:</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/db_01-1.png" width="243" height="400"/> 
 </figure>
 
-
-<p>That&#8217;s it! We are now ready to query our graph model. The following are sample queries to explore our model, I also recommend you read the following page <a href="https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-sample" target="_blank">Create a graph database and run some pattern matching queries using T-SQL</a> to further understand the <strong>MATCH</strong> command that enables to match a pattern or traverse through the graph.</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">/*----------------------------------------------------
+<p>That’s it! We are now ready to query our graph model. The following are sample queries to explore our model, I also recommend you read the following page <!-- raw HTML omitted -->Create a graph database and run some pattern matching queries using T-SQL<!-- raw HTML omitted --> to further understand the <strong>MATCH</strong> command that enables to match a pattern or traverse through the graph.</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">/*</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------
 </span><span style="color:#60a0b0;font-style:italic">Queries
-</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------*/</span>
+</span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------</span><span style="color:#60a0b0;font-style:italic">*/</span>
 
 <span style="color:#60a0b0;font-style:italic">--Return beers brewed by &#39;Petoskey Brewing&#39; brewing company
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	Beer.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Beer&#39;</span>
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	Beer.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Beer</span><span style="color:#4070a0">&#39;</span>
 <span style="color:#007020;font-weight:bold">from</span>	graph.Beer, graph.BREWED_BY, graph.Brewery
-<span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Beer<span style="color:#666">-</span>(BREWED_BY)<span style="color:#666">-&gt;</span>Brewery) <span style="color:#007020;font-weight:bold">and</span>
-		Brewery.[name] <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Petoskey Brewing&#39;</span>
+<span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Beer<span style="color:#666">-</span>(BREWED_BY)<span style="color:#666">-</span><span style="color:#666">&gt;</span>Brewery) <span style="color:#007020;font-weight:bold">and</span>
+		Brewery.[name] <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Petoskey Brewing</span><span style="color:#4070a0">&#39;</span>
 
 <span style="color:#60a0b0;font-style:italic">--Return beers and breweries located in Seattle
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	Beer.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Beer&#39;</span>, 
-		Brewery.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Brewery&#39;</span>
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	Beer.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Beer</span><span style="color:#4070a0">&#39;</span>, 
+		Brewery.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Brewery</span><span style="color:#4070a0">&#39;</span>
 <span style="color:#007020;font-weight:bold">from</span>	graph.Beer, graph.BREWED_BY, graph.Brewery, graph.LOCATED_IN, graph.City
-<span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Beer<span style="color:#666">-</span>(BREWED_BY)<span style="color:#666">-&gt;</span>Brewery<span style="color:#666">-</span>(LOCATED_IN)<span style="color:#666">-&gt;</span>City) <span style="color:#007020;font-weight:bold">and</span>
-		City.[name] <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Seattle&#39;</span>
+<span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Beer<span style="color:#666">-</span>(BREWED_BY)<span style="color:#666">-</span><span style="color:#666">&gt;</span>Brewery<span style="color:#666">-</span>(LOCATED_IN)<span style="color:#666">-</span><span style="color:#666">&gt;</span>City) <span style="color:#007020;font-weight:bold">and</span>
+		City.[name] <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Seattle</span><span style="color:#4070a0">&#39;</span>
 
 <span style="color:#60a0b0;font-style:italic">--Return style of beers and breweries located in Anchorage
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	Beer.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Beer&#39;</span>,
-		Style.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Style&#39;</span>, 
-		Brewery.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Brewery&#39;</span>
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	Beer.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Beer</span><span style="color:#4070a0">&#39;</span>,
+		Style.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Style</span><span style="color:#4070a0">&#39;</span>, 
+		Brewery.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Brewery</span><span style="color:#4070a0">&#39;</span>
 <span style="color:#007020;font-weight:bold">from</span>	graph.Style, graph.BEER_STYLE, graph.Beer, graph.BREWED_BY, graph.Brewery, graph.LOCATED_IN, graph.City
-<span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Style<span style="color:#666">&amp;</span>lt; <span style="color:#666">-</span>(BEER_STYLE)<span style="color:#666">-</span>Beer<span style="color:#666">-</span>(BREWED_BY)<span style="color:#666">-&gt;</span>Brewery<span style="color:#666">-</span>(LOCATED_IN)<span style="color:#666">-&gt;</span>City) <span style="color:#007020;font-weight:bold">and</span>
-		City.[name] <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Anchorage&#39;</span>
+<span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Style<span style="color:#666">&amp;</span>lt; <span style="color:#666">-</span>(BEER_STYLE)<span style="color:#666">-</span>Beer<span style="color:#666">-</span>(BREWED_BY)<span style="color:#666">-</span><span style="color:#666">&gt;</span>Brewery<span style="color:#666">-</span>(LOCATED_IN)<span style="color:#666">-</span><span style="color:#666">&gt;</span>City) <span style="color:#007020;font-weight:bold">and</span>
+		City.[name] <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Anchorage</span><span style="color:#4070a0">&#39;</span>
 
 <span style="color:#60a0b0;font-style:italic">--Return all beer properties where style of beer is &#39;Irish Dry Stout&#39;
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	Beer.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Beer&#39;</span>,
-		Beer.ounces <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Ounces&#39;</span>,
-		Beer.abv <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Alcohol By Volume&#39;</span>,
-		Beer.ibu <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;International Bitter Units&#39;</span>
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	Beer.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Beer</span><span style="color:#4070a0">&#39;</span>,
+		Beer.ounces <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Ounces</span><span style="color:#4070a0">&#39;</span>,
+		Beer.abv <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Alcohol By Volume</span><span style="color:#4070a0">&#39;</span>,
+		Beer.ibu <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">International Bitter Units</span><span style="color:#4070a0">&#39;</span>
 <span style="color:#007020;font-weight:bold">from</span>	graph.Style, graph.BEER_STYLE, graph.Beer
 <span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Style<span style="color:#666">&amp;</span>lt; <span style="color:#666">-</span>(BEER_STYLE)<span style="color:#666">-</span>Beer) <span style="color:#007020;font-weight:bold">and</span>
-		Style.[name] <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Irish Dry Stout&#39;</span>
+		Style.[name] <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Irish Dry Stout</span><span style="color:#4070a0">&#39;</span>
 
 <span style="color:#60a0b0;font-style:italic">--Returns the count of beers by style
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	Style.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Style&#39;</span>,
-		<span style="color:#007020;font-weight:bold">count</span>(Beer.id) <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Number of Beers&#39;</span>
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	Style.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Style</span><span style="color:#4070a0">&#39;</span>,
+		<span style="color:#007020;font-weight:bold">count</span>(Beer.id) <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Number of Beers</span><span style="color:#4070a0">&#39;</span>
 <span style="color:#007020;font-weight:bold">from</span>	graph.Beer, graph.BEER_STYLE, graph.Style
-<span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Beer<span style="color:#666">-</span>(BEER_STYLE)<span style="color:#666">-&gt;</span>Style)
+<span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Beer<span style="color:#666">-</span>(BEER_STYLE)<span style="color:#666">-</span><span style="color:#666">&gt;</span>Style)
 <span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span>
 		Style.[name] 
 <span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span>
 		[<span style="color:#007020">Number</span> <span style="color:#007020;font-weight:bold">of</span> Beers] <span style="color:#007020;font-weight:bold">desc</span>
 
 <span style="color:#60a0b0;font-style:italic">--Returns the count of breweries by state
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	[<span style="color:#007020;font-weight:bold">State</span>].[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;State&#39;</span>,
-		<span style="color:#007020;font-weight:bold">count</span>(Brewery.id) <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Number of Breweries&#39;</span>
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	[<span style="color:#007020;font-weight:bold">State</span>].[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">State</span><span style="color:#4070a0">&#39;</span>,
+		<span style="color:#007020;font-weight:bold">count</span>(Brewery.id) <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Number of Breweries</span><span style="color:#4070a0">&#39;</span>
 <span style="color:#007020;font-weight:bold">from</span>	graph.Brewery, graph.LOCATED_IN, graph.City, graph.IN_STATE, graph.[<span style="color:#007020;font-weight:bold">State</span>]
-<span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Brewery<span style="color:#666">-</span>(LOCATED_IN)<span style="color:#666">-&gt;</span>City<span style="color:#666">-</span>(IN_STATE)<span style="color:#666">-&gt;</span>[<span style="color:#007020;font-weight:bold">State</span>])
+<span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Brewery<span style="color:#666">-</span>(LOCATED_IN)<span style="color:#666">-</span><span style="color:#666">&gt;</span>City<span style="color:#666">-</span>(IN_STATE)<span style="color:#666">-</span><span style="color:#666">&gt;</span>[<span style="color:#007020;font-weight:bold">State</span>])
 <span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span>
 		[<span style="color:#007020;font-weight:bold">State</span>].[name]
 <span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span>
 		[<span style="color:#007020">Number</span> <span style="color:#007020;font-weight:bold">of</span> Breweries] <span style="color:#007020;font-weight:bold">desc</span>
 
 <span style="color:#60a0b0;font-style:italic">--Returns the count of breweries by city, state
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	[<span style="color:#007020;font-weight:bold">State</span>].[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;State&#39;</span>,
-		City.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;City&#39;</span>,
-		<span style="color:#007020;font-weight:bold">count</span>(Brewery.id) <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;Number of Breweries&#39;</span>
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span>	[<span style="color:#007020;font-weight:bold">State</span>].[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">State</span><span style="color:#4070a0">&#39;</span>,
+		City.[name] <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">City</span><span style="color:#4070a0">&#39;</span>,
+		<span style="color:#007020;font-weight:bold">count</span>(Brewery.id) <span style="color:#007020;font-weight:bold">as</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Number of Breweries</span><span style="color:#4070a0">&#39;</span>
 <span style="color:#007020;font-weight:bold">from</span>	graph.Brewery, graph.LOCATED_IN, graph.City, graph.IN_STATE, graph.[<span style="color:#007020;font-weight:bold">State</span>]
-<span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Brewery<span style="color:#666">-</span>(LOCATED_IN)<span style="color:#666">-&gt;</span>City<span style="color:#666">-</span>(IN_STATE)<span style="color:#666">-&gt;</span>[<span style="color:#007020;font-weight:bold">State</span>])
+<span style="color:#007020;font-weight:bold">where</span>	<span style="color:#007020;font-weight:bold">match</span> (Brewery<span style="color:#666">-</span>(LOCATED_IN)<span style="color:#666">-</span><span style="color:#666">&gt;</span>City<span style="color:#666">-</span>(IN_STATE)<span style="color:#666">-</span><span style="color:#666">&gt;</span>[<span style="color:#007020;font-weight:bold">State</span>])
 <span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span>
 		[<span style="color:#007020;font-weight:bold">State</span>].[name],
 		City.[name]
 <span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span>
-		[<span style="color:#007020">Number</span> <span style="color:#007020;font-weight:bold">of</span> Breweries] <span style="color:#007020;font-weight:bold">desc</span></code></pre></div>
-<p>It&#8217;s important to note that Microsoft is starting to add graph extension to SQL Server, to make storing and querying graph data easier. These are the <a href="https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview" target="_blank">features</a> that were introduced in this first release. Looking forward to the upcoming releases and explore what&#8217;s new in SQL Graph in SQL Server 2017.</p>
-
-<p>Keep you posted<br />
+		[<span style="color:#007020">Number</span> <span style="color:#007020;font-weight:bold">of</span> Breweries] <span style="color:#007020;font-weight:bold">desc</span>
+</code></pre></div><p>It’s important to note that Microsoft is starting to add graph extension to SQL Server, to make storing and querying graph data easier. These are the <!-- raw HTML omitted -->features<!-- raw HTML omitted --> that were introduced in this first release. Looking forward to the upcoming releases and explore what’s new in SQL Graph in SQL Server 2017.</p>
+<p>Keep you posted<br>
 Enjoy!</p>
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 

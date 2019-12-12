@@ -18,7 +18,7 @@
       
       <guid>https://stephanefrechette.dev/posts/graph-data-modeling-and-importing-the-spreadsheet-way/</guid>
       <description>You are new or quite interested in exploring Graph Databases and would like to know how to start modeling and importing data in Neo4j?
-There are several ways that could get you started; the neo4j-shell-tools, Load CSV  and Batch Import and many more. I strongly recommend reading and exploring the following resources, but to quickly get you started modeling and easily import a small subset of data (&amp;lt;1000 nodes/relationships) the spreadsheet approach is well suited for this.</description>
+There are several ways that could get you started; the neo4j-shell-tools, Load CSV and Batch Importand many more. I strongly recommend reading and exploring the following resources, but to quickly get you started modeling and easily import a small subset of data (&amp;lt;1000 nodes/relationships) the spreadsheet approach is well suited for this.</description>
     </item>
     
   </channel>

@@ -26,8 +26,8 @@
       <pubDate>Wed, 01 Apr 2015 11:45:53 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/</guid>
-      <description>Graphs are everywhere! In my efforts to spread the word and inform SQL Server Professionals about Neo4j and learn how to take a relational database schema and model it as a graph&amp;#8230; AdventureWorks was a no-brainer! Let&amp;#8217;s explore how to import a subset of the AdventureWorks database from SQL Server (RDBMS) into Neo4j (GraphDB).
-But first some prerequisites. You should at least have a basic understanding of what is a property graph model and have completed the following modeling guidelines.</description>
+      <description>Graphs are everywhere! In my efforts to spread the word and inform SQL Server Professionals about Neo4j and learn how to take a relational database schema and model it as a graph… AdventureWorks was a no-brainer! Let’s explore how to import a subset of the AdventureWorks database from SQL Server (RDBMS) into Neo4j (GraphDB).
+But first some prerequisites. You should at least have a basic understanding of what is a property graph modeland have completed the following modeling guidelines.</description>
     </item>
     
   </channel>

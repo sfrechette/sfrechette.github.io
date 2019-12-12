@@ -17,7 +17,7 @@
       <pubDate>Tue, 21 Mar 2017 12:23:03 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/running-sql-server-linux-docker-windows-10/</guid>
-      <description>What is Docker? Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data centers, VMs, or in the cloud. Docker allows applications to be isolated into containers with instructions for exactly what they need to survive that can be easily ported from machine to machine. Though Virtual machines also allow the exact same thing, and numerous other tools already exist to make rebuilding these configurations portable and reproducible, Docker has a more simplified structure compared to both of these, the real area where it causes disruption is resource efficiency.</description>
+      <description>What is Docker? Dockeris an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data centers, VMs, or in the cloud. Docker allows applications to be isolated into containers with instructions for exactly what they need to survive that can be easily ported from machine to machine. Though Virtual machines also allow the exact same thing, and numerous other tools already exist to make rebuilding these configurations portable and reproducible, Docker has a more simplified structure compared to both of these, the real area where it causes disruption is resource efficiency.</description>
     </item>
     
   </channel>

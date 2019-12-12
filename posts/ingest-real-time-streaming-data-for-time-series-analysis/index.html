@@ -11,10 +11,10 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ingest real time streaming data for time series analysis"/>
-<meta name="twitter:description" content="This post describes how to ingest sample real time streaming data from PubNub to a Postgres database with the TimescaleDB extension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, Market Orders &#8211; an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&gt; https://github."/>
+<meta name="twitter:description" content="This post describes how to ingest sample real time streaming data from PubNubto a Postgresdatabase with the TimescaleDBextension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, Market Orders– an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&gt; https://github."/>
 
     <meta property="og:title" content="Ingest real time streaming data for time series analysis" />
-<meta property="og:description" content="This post describes how to ingest sample real time streaming data from PubNub to a Postgres database with the TimescaleDB extension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, Market Orders &#8211; an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&gt; https://github." />
+<meta property="og:description" content="This post describes how to ingest sample real time streaming data from PubNubto a Postgresdatabase with the TimescaleDBextension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, Market Orders– an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&gt; https://github." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/ingest-real-time-streaming-data-for-time-series-analysis/" />
 <meta property="article:published_time" content="2018-04-17T11:59:21-04:00" />
@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -142,25 +142,16 @@
       </header>
       
       <div>
-        
-
-<figure>
+        <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/stock-exchange-911612_960_720-300x212.jpg#floatleft" width="300" height="212"/> 
 </figure>
 
-
-<p>This post describes how to ingest sample real time streaming data from <a href="https://www.pubnub.com/" rel="noopener" target="_blank">PubNub</a> to a <a href="https://www.postgresql.org/" rel="noopener" target="_blank">Postgres</a> database with the <a href="https://www.timescale.com/" rel="noopener" target="_blank">TimescaleDB</a> extension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, <a href="https://www.pubnub.com/developers/realtime-data-streams/financial-securities-market-orders/" rel="noopener" target="_blank">Market Orders</a> &#8211; an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&gt; <a href="https://github.com/sfrechette/stream-sequelize-node" rel="noopener" target="_blank"><a href="https://github.com/sfrechette/stream-sequelize-node">https://github.com/sfrechette/stream-sequelize-node</a></a>.</p>
-
-<p>The Market Orders data feed generates on average 4 inserts per second, if you would to ingest more inserts per second I recommend you look at the following data feed <a href="https://www.pubnub.com/developers/realtime-data-streams/sensor-network/" rel="noopener" target="_blank">Sensor Network</a> which generates on average 10 inserts per second.</p>
-
+<p>This post describes how to ingest sample real time streaming data from <!-- raw HTML omitted -->PubNub<!-- raw HTML omitted --> to a <!-- raw HTML omitted -->Postgres<!-- raw HTML omitted --> database with the <!-- raw HTML omitted -->TimescaleDB<!-- raw HTML omitted --> extension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, <!-- raw HTML omitted -->Market Orders<!-- raw HTML omitted --> – an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&gt; <!-- raw HTML omitted --><a href="https://github.com/sfrechette/stream-sequelize-node">https://github.com/sfrechette/stream-sequelize-node</a><!-- raw HTML omitted -->.</p>
+<p>The Market Orders data feed generates on average 4 inserts per second, if you would to ingest more inserts per second I recommend you look at the following data feed <!-- raw HTML omitted -->Sensor Network<!-- raw HTML omitted --> which generates on average 10 inserts per second.</p>
 <h3 id="ingest-real-time-streaming-data-for-time-series-analysis">Ingest real time streaming data for time series analysis</h3>
-
 <h4 id="prerequesites">Prerequesites</h4>
-
-<p>Running this application assumes that you already have an instance of Postgres running and have installed the TimescaleDB extension. If not please refer to the following documentation -&gt; Getting started, installing and setting up <a href="https://docs.timescale.com/v0.9/getting-started" rel="noopener" target="_blank"><a href="https://docs.timescale.com/v0.9/getting-started">https://docs.timescale.com/v0.9/getting-started</a></a></p>
-
-<p>Once Postgres with the TimescaleDB extension is installed you will need to execute the following SQL code snippets in your Postgres environment using your preferred tool to connect (I am using <a href="https://www.pgcli.com/" rel="noopener" target="_blank">pgcli</a>) in order to create the database, create the timescaledb extension, create the schema, and hypertable.</p>
-
+<p>Running this application assumes that you already have an instance of Postgres running and have installed the TimescaleDB extension. If not please refer to the following documentation -&gt; Getting started, installing and setting up <!-- raw HTML omitted --><a href="https://docs.timescale.com/v0.9/getting-started">https://docs.timescale.com/v0.9/getting-started</a><!-- raw HTML omitted --></p>
+<p>Once Postgres with the TimescaleDB extension is installed you will need to execute the following SQL code snippets in your Postgres environment using your preferred tool to connect (I am using <!-- raw HTML omitted -->pgcli<!-- raw HTML omitted -->) in order to create the database, create the timescaledb extension, create the schema, and hypertable.</p>
 <p>Issue the following SQL statements in your Postgres environment:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">database</span> market_orders;
 
@@ -183,56 +174,46 @@
 <span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">index</span> <span style="color:#007020;font-weight:bold">on</span> orders(order_time <span style="color:#007020;font-weight:bold">desc</span>, bid_price);
 
 <span style="color:#60a0b0;font-style:italic">-- 86400000000 is in usecs and is equal to 1 day
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> create_hypertable(<span style="color:#4070a0">&#39;orders&#39;</span>, <span style="color:#4070a0">&#39;order_time&#39;</span>, chunk_time_interval <span style="color:#666">=&gt;</span> <span style="color:#40a070">86400000000</span>);</code></pre></div>
-<h4 id="installation">Installation</h4>
-
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> create_hypertable(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">orders</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">order_time</span><span style="color:#4070a0">&#39;</span>, chunk_time_interval <span style="color:#666">=</span><span style="color:#666">&gt;</span> <span style="color:#40a070">86400000000</span>);
+</code></pre></div><h4 id="installation">Installation</h4>
 <p>Clone the repository:</p>
-
-<p><code>git clone https://github.com/sfrechette/stream-sequelize-node.git&lt;br /&gt;
-cd stream-sequilize-node</code></p>
-
-<p>Next install the dependencies with the following command:<br />
+<p><code>git clone https://github.com/sfrechette/stream-sequelize-node.git&lt;br /&gt; cd stream-sequilize-node</code></p>
+<p>Next install the dependencies with the following command:<br>
 <code>npm install</code></p>
-
-<p>You will then need to create an .env file in the root folder of the app &#8220;stream-sequilize-node&#8221; and add configuration values. Copy and paste the following snippet in your .env file and provide the appropriate connectivity information to your Postgres environment:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">DB_SERVER_USER_NAME = &#34;&#34;    
-DB_SERVER_USER_PASSWORD = &#34;&#34;    
-DB_SERVER_HOST = &#34;&#34; 
-DB_SERVER_PORT = &#34;&#34;     </pre></div>
-<h4 id="usage">Usage</h4>
-
+<p>You will then need to create an .env file in the root folder of the app “stream-sequilize-node” and add configuration values. Copy and paste the following snippet in your .env file and provide the appropriate connectivity information to your Postgres environment:</p>
+<pre><code>DB_SERVER_USER_NAME = &quot;&quot;    
+DB_SERVER_USER_PASSWORD = &quot;&quot;    
+DB_SERVER_HOST = &quot;&quot; 
+DB_SERVER_PORT = &quot;&quot;     
+</code></pre><h4 id="usage">Usage</h4>
 <p>You are now ready to start ingesting data, simply issue the following command:</p>
-
 <p><code>node ingest.js</code></p>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/2018-04-17_10-52-15.gif" width="978" height="392"/> 
 </figure>
 
-
 <h4 id="sample-queries">Sample queries</h4>
-
 <p>Assuming that you have been ingesting data for a while (you can modify the time interval in the script below), run some queries to test and validate how Timescale performs nicely in fetching results while data is also being ingested in the database. More data the better 😉</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Average bid price by 5 minute intervals for Google and day trade type 
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> 	time_bucket(<span style="color:#4070a0">&#39;5 minutes&#39;</span>, to_timestamp(order_time)) <span style="color:#007020;font-weight:bold">as</span> five_min,
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> 	time_bucket(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">5 minutes</span><span style="color:#4070a0">&#39;</span>, to_timestamp(order_time)) <span style="color:#007020;font-weight:bold">as</span> five_min,
         <span style="color:#007020;font-weight:bold">avg</span>(bid_price) <span style="color:#007020;font-weight:bold">as</span> avg_bid_price
 <span style="color:#007020;font-weight:bold">from</span> 	orders
-<span style="color:#007020;font-weight:bold">where</span>	symbol <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Google&#39;</span> <span style="color:#007020;font-weight:bold">and</span> trade_type <span style="color:#666">=</span> <span style="color:#4070a0">&#39;day&#39;</span>
+<span style="color:#007020;font-weight:bold">where</span>	symbol <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Google</span><span style="color:#4070a0">&#39;</span> <span style="color:#007020;font-weight:bold">and</span> trade_type <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">day</span><span style="color:#4070a0">&#39;</span>
 <span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span> five_min 
-<span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span> five_min <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">10</span>;</code></pre></div>
-<figure>
+<span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span> five_min <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">10</span>;
+</code></pre></div><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/stream-query01-1024x619.png" width="1024" height="619"/> 
 </figure>
 
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Min and Max bid price by 2 minute intervals for all symbols 
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> 	time_bucket(<span style="color:#4070a0">&#39;2 minutes&#39;</span>, to_timestamp(order_time)) <span style="color:#007020;font-weight:bold">as</span> two_min,
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> 	time_bucket(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2 minutes</span><span style="color:#4070a0">&#39;</span>, to_timestamp(order_time)) <span style="color:#007020;font-weight:bold">as</span> two_min,
         symbol, 
         <span style="color:#007020;font-weight:bold">min</span>(bid_price) <span style="color:#007020;font-weight:bold">as</span> min_bid_price,
         <span style="color:#007020;font-weight:bold">max</span>(bid_price) <span style="color:#007020;font-weight:bold">as</span> max_bid_price 
 <span style="color:#007020;font-weight:bold">from</span> 	orders
 <span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span> two_min, symbol
-<span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span> two_min <span style="color:#007020;font-weight:bold">desc</span> <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">10</span>;</code></pre></div>
-<figure>
+<span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span> two_min <span style="color:#007020;font-weight:bold">desc</span> <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">10</span>;
+</code></pre></div><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/stream-query02-1024x515.png" width="1024" height="515"/> 
 </figure>
 
@@ -243,18 +224,15 @@ DB_SERVER_PORT = &#34;&#34;     </pre></div>
         bid_price
 <span style="color:#007020;font-weight:bold">from</span> 	orders
 <span style="color:#007020;font-weight:bold">where</span>	order_quantity <span style="color:#666">&gt;</span> <span style="color:#40a070">975</span> <span style="color:#007020;font-weight:bold">and</span> 
-        symbol <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Bespin Gas&#39;</span> <span style="color:#007020;font-weight:bold">and</span> 
-        trade_type <span style="color:#666">=</span> <span style="color:#4070a0">&#39;market&#39;</span> <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">20</span>;</code></pre></div>
-<figure>
+        symbol <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Bespin Gas</span><span style="color:#4070a0">&#39;</span> <span style="color:#007020;font-weight:bold">and</span> 
+        trade_type <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">market</span><span style="color:#4070a0">&#39;</span> <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">20</span>;
+</code></pre></div><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/stream-query03-1024x626.png" width="1024" height="626"/> 
 </figure>
 
-
 <p>Enjoy!</p>
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 

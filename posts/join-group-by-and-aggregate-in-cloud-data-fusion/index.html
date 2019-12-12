@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -136,365 +136,368 @@
       </header>
       
       <div>
-        
-
-<p><figure>
+        <p><figure>
     <img src="https://stephanefrechette.dev/images/datafusion.png#floatleft"
          alt="cloudsql" width="150" height="150"/> 
 </figure>
 
 Good news! <a href="https://cloud.google.com/data-fusion/">Cloud Data Fusion</a> is now GA. Announced at Google Next &lsquo;19 UK on November 21, 2019 Cloud Data Fusion is a fully managed, cloud-native, enterprise data integration service for quickly building and managing data pipelines. Cloud Data Fusion web UI allows you to build scalable data integration solutions to clean, prepare, blend, transfer, and transform data, without having to manage the infrastructure. Cloud Data Fusion is powered by the open source project <a href="https://cdap.io/">CDAP</a>.</p>
-
 <p>How to get started with Cloud Data Fusion? This post shows you how to simply build and use the Wrangler and Data Pipelines features in Cloud Data Fusion to clean, transform and process flight data.</p>
-
-<p><strong>ETL Process</strong><br />
+<p><strong>ETL Process</strong><br>
 The diagram shows the transformations which are going to take place. This will be to read the two files, transform the data and loading it into one output; Total Flights per Airline.
 <figure>
     <img src="https://stephanefrechette.dev/images/etl.png"
          alt="etl"/> 
 </figure>
 </p>
-
 <h4 id="objectives">Objectives</h4>
-
 <ul>
 <li>Connect Cloud Data Fusion to data sources</li>
 <li>Apply basic transformations</li>
 <li>Join and Group By data sources</li>
 <li>Write to a sink</li>
 </ul>
-
 <p>You are ready to begin!</p>
-
 <h4 id="log-on-to-the-gcp-console">Log on to the GCP Console</h4>
-
 <p>First go to the <a href="https://console.cloud.google.com">GCP console</a> and log in using your Google account.</p>
-
 <h4 id="select-or-create-a-gcp-project">Select or Create a GCP project</h4>
-
 <p>You need to select a project. If you don’t have any projects then go to the project selector page to create one - For this exercise I have created and using a specific project named <em>flights-analysis</em>. <strong>I highly recommend you create a new project for this walkthrough</strong>. Refer to <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects">Creating your project</a> if you need assistance.</p>
-
 <h4 id="create-gcs-bucket-and-copy-data">Create GCS bucket and copy data</h4>
-
 <p>You need data! The two small datasets are located in a GCS bucket that you will need to copy to your own bucket.</p>
-
 <p>First create your bucket, you can do this by typing <em>bucket</em> in the resources and products search field and select <em>Create bucket</em>.
 <figure>
     <img src="https://stephanefrechette.dev/images/bucket.png"
          alt="bucket"/> 
 </figure>
 </p>
-
 <p>Once on the Create a bucket page, provide the <em>name of your bucket</em> <strong>(1)</strong>, keep in mind that these are globally unique and for the purpose of demonstration I have inputted <em>flights-analysis-data2</em>. Choose <em>Region</em> <strong>(2)</strong> for Location type and select your desired <em>Location</em> <strong>(3)</strong>, I have chosen <em>northamerica-northeast1</em> for demonstration, then click <em>Create</em> <strong>(4)</strong> to create your bucket.
 <figure>
     <img src="https://stephanefrechette.dev/images/bucket_create.png"
          alt="bucket_create"/> 
 </figure>
 </p>
-
-<p><strong>Activate Cloud Shell</strong><br />
+<p><strong>Activate Cloud Shell</strong><br>
 You now need to Active Cloud Shell, In GCP console, on the top right toolbar, click the Open Cloud Shell button. You can click <em>Continue</em> immediately when the dialog box opens.
 <figure>
     <img src="https://stephanefrechette.dev/images/cloud_shell.png"
          alt="cloud_shell"/> 
 </figure>
 </p>
-
 <p>It takes a few moments to provision and connect to the environment. When you are connected, you are already authenticated, and the project is set to your PROJECT_ID.</p>
-
 <p>The output is similar to the following:
 <figure>
     <img src="https://stephanefrechette.dev/images/cloud_shell2.png"
          alt="cloud_shell2"/> 
 </figure>
 </p>
-
 <p>You need to issue the following commands to copy the required sample files and structure to your GCS bucket. Replace <strong>[BUCKET_NAME]</strong> with the name of the bucket you created earlier.</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gsutil cp gs://flights-analysis-sample-data/input/airlines.csv gs://<span style="color:#666">[</span>BUCKET_NAME<span style="color:#666">]]</span>/input/
-gsutil cp gs://flights-analysis-sample-data/input/flights_small.csv gs://<span style="color:#666">[</span>BUCKET_NAME<span style="color:#666">]</span>/input/</code></pre></div>
-<p>The output is similar to the following:
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gsutil cp gs://flights-analysis-sample-data/input/airlines.csv gs://<span style="color:#666">[</span>BUCKET_NAME<span style="color:#666">]</span><span style="color:#666">]</span>/input/
+gsutil cp gs://flights-analysis-sample-data/input/flights_small.csv gs://<span style="color:#666">[</span>BUCKET_NAME<span style="color:#666">]</span>/input/
+</code></pre></div><p>The output is similar to the following:
 <figure>
     <img src="https://stephanefrechette.dev/images/gsutil_copy.png"
          alt="gsutil_copy"/> 
 </figure>
 </p>
-
 <h4 id="create-a-cloud-data-fusion-instance">Create a Cloud Data Fusion instance</h4>
-
 <p>You are now ready to create your Cloud Data Fusion instance.</p>
-
 <ol>
-<li><p>Go to the Cloud Data Fusion page, you can do this by typing <em>data fusion</em> in the resources and products search field and select <em>Data Fusion</em>.
+<li>
+<p>Go to the Cloud Data Fusion page, you can do this by typing <em>data fusion</em> in the resources and products search field and select <em>Data Fusion</em>.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-00.png"
          alt="datafusion-00"/> 
 </figure>
-</p></li>
-
-<li><p>If the Cloud Data Fusion API is not already enabled, you will have to enable it by clicking <em>Enable</em>.<br />
+</p>
+</li>
+<li>
+<p>If the Cloud Data Fusion API is not already enabled, you will have to enable it by clicking <em>Enable</em>.<br>
 This might take a while to complete.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-01.png"
          alt="datafusion-01"/> 
 </figure>
-</p></li>
-
-<li><p>Make your way back to the Data Fusion page, you are now ready to create a Data Fusion instance, click <em>Create An Instance</em>.
+</p>
+</li>
+<li>
+<p>Make your way back to the Data Fusion page, you are now ready to create a Data Fusion instance, click <em>Create An Instance</em>.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-02.png"
          alt="datafusion-02"/> 
 </figure>
-</p></li>
-
-<li><p>Provide an <em>Instance name</em> <strong>(1)</strong>, select your <em>Region</em> <strong>(2)</strong>, select Basic for <em>Edition</em> <strong>(3)</strong>, and click <em>Create</em> <strong>(4)</strong> to deploy your instance. For the purpose of this exercise I have chosen <em>flights_data-etl</em> for the name of my instance and chosen northamerica-northeast1 as my region. You can supply your own values for these properties.<br />
-<strong><em>Note:</em></strong> This will take several minutes to complete (be patient).<br />
+</p>
+</li>
+<li>
+<p>Provide an <em>Instance name</em> <strong>(1)</strong>, select your <em>Region</em> <strong>(2)</strong>, select Basic for <em>Edition</em> <strong>(3)</strong>, and click <em>Create</em> <strong>(4)</strong> to deploy your instance. For the purpose of this exercise I have chosen <em>flights_data-etl</em> for the name of my instance and chosen northamerica-northeast1 as my region. You can supply your own values for these properties.<br>
+<em><strong>Note:</strong></em> This will take several minutes to complete (be patient).<br>
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-03.png"
          alt="datafusion-03"/> 
 </figure>
-</p></li>
-
-<li><p>Once the instance has deployed successfully, you will see a green check mark, click <em>View Instance</em> to continue.
+</p>
+</li>
+<li>
+<p>Once the instance has deployed successfully, you will see a green check mark, click <em>View Instance</em> to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-04.png"
          alt="datafusion-04"/> 
 </figure>
-</p></li>
-
-<li><p>The next page provides an overview of properties for your instance, please click <em>View instance</em> to go to your Cloud Data Fusion instance.
+</p>
+</li>
+<li>
+<p>The next page provides an overview of properties for your instance, please click <em>View instance</em> to go to your Cloud Data Fusion instance.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-05.png"
          alt="datafusion-05"/> 
 </figure>
-</p></li>
-
-<li><p>Great work! You are now in your Cloud Data Fusion instance. Since you will be designing your data pipeline click <em>Studio</em> to continue.
+</p>
+</li>
+<li>
+<p>Great work! You are now in your Cloud Data Fusion instance. Since you will be designing your data pipeline click <em>Studio</em> to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-06.png"
          alt="datafusion-06"/> 
 </figure>
-</p></li>
+</p>
+</li>
 </ol>
-
 <h4 id="building-the-data-pipeline">Building the data pipeline</h4>
-
 <ol>
-<li><p>Once in the <em>Studio</em> canvas, you are now ready to build the data pipeline. Start by selecting or make sure you are in <em>Source</em> <strong>(1)</strong> view , click <em>GCS</em> <strong>(2)</strong> source - this will add a GCS source on the canvas, then click <em>Properties</em> <strong>(3)</strong> from the GCS Source to continue.
+<li>
+<p>Once in the <em>Studio</em> canvas, you are now ready to build the data pipeline. Start by selecting or make sure you are in <em>Source</em> <strong>(1)</strong> view , click <em>GCS</em> <strong>(2)</strong> source - this will add a GCS source on the canvas, then click <em>Properties</em> <strong>(3)</strong> from the GCS Source to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-07.png"
          alt="datafusion-07"/> 
 </figure>
-</p></li>
-
-<li><p>The GCS Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;GCS - Flights Data&rdquo;, then input the following value for <em>Reference Name</em> <strong>(2)</strong>: &ldquo;gcs_flights_data&rdquo;, provide the <em>Path</em> <strong>(3)</strong> to the GCS Bucket you have created earlier, where you have stored the flight_small.csv file. For the purpose of this exercise I have include mine, make sure to supply your appropriate path (if you input what is provided in this image, the validation won&rsquo;t succeed). Click <em>Validate</em> <strong>(4)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(5)</strong> to close/save the GSC properties.
+</p>
+</li>
+<li>
+<p>The GCS Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;GCS - Flights Data&rdquo;, then input the following value for <em>Reference Name</em> <strong>(2)</strong>: &ldquo;gcs_flights_data&rdquo;, provide the <em>Path</em> <strong>(3)</strong> to the GCS Bucket you have created earlier, where you have stored the flight_small.csv file. For the purpose of this exercise I have include mine, make sure to supply your appropriate path (if you input what is provided in this image, the validation won't succeed). Click <em>Validate</em> <strong>(4)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(5)</strong> to close/save the GSC properties.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-08.png"
          alt="datafusion-08"/> 
 </figure>
-</p></li>
-
-<li><p>Next step is to Wrangle the flights_small.csv dataset, select or make sure you are in <em>Transform</em> <strong>(1)</strong> view, click the <em>Wrangler</em> <strong>(2)</strong> transform - this will add a Wrangler transform on the canvas, then <em>Connect</em> <strong>(3)</strong> by choosing and dragging the small arrow from the GCS - Flights Data source to the Wrangler transform and click <em>Properties</em> <strong>(4)</strong> from the Wrangler transform to continue.
+</p>
+</li>
+<li>
+<p>Next step is to Wrangle the flights_small.csv dataset, select or make sure you are in <em>Transform</em> <strong>(1)</strong> view, click the <em>Wrangler</em> <strong>(2)</strong> transform - this will add a Wrangler transform on the canvas, then <em>Connect</em> <strong>(3)</strong> by choosing and dragging the small arrow from the GCS - Flights Data source to the Wrangler transform and click <em>Properties</em> <strong>(4)</strong> from the Wrangler transform to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-09.png"
          alt="datafusion-09"/> 
 </figure>
-</p></li>
-
-<li><p>The Wrangler Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;Wrangler - Flights Data&rdquo;, then click <em>Wrangle</em> <strong>(2)</strong> to continue.
+</p>
+</li>
+<li>
+<p>The Wrangler Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;Wrangler - Flights Data&rdquo;, then click <em>Wrangle</em> <strong>(2)</strong> to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-10.png"
          alt="datafusion-10"/> 
 </figure>
-</p></li>
-
-<li><p>You will need to select/load data, choose the flights_small.csv file that is located in your GCS bucket you created earlier to continue.
+</p>
+</li>
+<li>
+<p>You will need to select/load data, choose the flights_small.csv file that is located in your GCS bucket you created earlier to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-11.png"
          alt="datafusion-11"/> 
 </figure>
-</p></li>
-
-<li><p>Next are a series of steps to parse and remove unwanted columns. Click the dropdown [Column transformations] on the <em>body</em> <strong>(1)</strong> column, select Parse -&gt; CSV <strong>(2)</strong>, select <em>Comma</em> <strong>(3)</strong> as the delimiter, check <em>Set first row as header</em> <strong>(4)</strong>, then click <em>Apply</em> <strong>(5)</strong> to continue.
+</p>
+</li>
+<li>
+<p>Next are a series of steps to parse and remove unwanted columns. Click the dropdown [Column transformations] on the <em>body</em> <strong>(1)</strong> column, select Parse -&gt; CSV <strong>(2)</strong>, select <em>Comma</em> <strong>(3)</strong> as the delimiter, check <em>Set first row as header</em> <strong>(4)</strong>, then click <em>Apply</em> <strong>(5)</strong> to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-12.png"
          alt="datafusion-12"/> 
 </figure>
-</p></li>
-
-<li><p>The result of the parse column transform added new columns that we need to remove. Select the following <em>columns</em> <strong>(1)</strong>, click the dropdown [Column transformations] on the <em>body</em> <strong>(2)</strong> column, then select <em>Delete selected columns</em> <strong>(3)</strong> to continue.
+</p>
+</li>
+<li>
+<p>The result of the parse column transform added new columns that we need to remove. Select the following <em>columns</em> <strong>(1)</strong>, click the dropdown [Column transformations] on the <em>body</em> <strong>(2)</strong> column, then select <em>Delete selected columns</em> <strong>(3)</strong> to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-13.png"
          alt="datafusion-13"/> 
 </figure>
-</p></li>
-
-<li><p>The result now show only the columns that you need to move forward. Click <em>Apply</em> to confirm and continue.
+</p>
+</li>
+<li>
+<p>The result now show only the columns that you need to move forward. Click <em>Apply</em> to confirm and continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-14.png"
          alt="datafusion-14"/> 
 </figure>
-</p></li>
-
-<li><p>You will now notice that the Recipe box as been populated with the directives you just did in the Wrangling activities. Click <em>Validate</em> <strong>(1)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(2)</strong> to close/save the Wrangler properties.
+</p>
+</li>
+<li>
+<p>You will now notice that the Recipe box as been populated with the directives you just did in the Wrangling activities. Click <em>Validate</em> <strong>(1)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(2)</strong> to close/save the Wrangler properties.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-15.png"
          alt="datafusion-15"/> 
 </figure>
-</p></li>
-
-<li><p>Now let&rsquo;s add the arlines.csv dataset. Start by selecting or make sure you are in <em>Source</em> <strong>(1)</strong> view , click <em>GCS</em> <strong>(2)</strong> source - this will add an other GCS source on the canvas, then click <em>Properties</em> <strong>(3)</strong> from the GCS Source to continue.
+</p>
+</li>
+<li>
+<p>Now let's add the arlines.csv dataset. Start by selecting or make sure you are in <em>Source</em> <strong>(1)</strong> view , click <em>GCS</em> <strong>(2)</strong> source - this will add an other GCS source on the canvas, then click <em>Properties</em> <strong>(3)</strong> from the GCS Source to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-16.png"
          alt="datafusion-16"/> 
 </figure>
-</p></li>
-
-<li><p>The GCS Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;GCS - Airlines Data&rdquo;, then input the following value for <em>Reference Name</em> <strong>(2)</strong>: &ldquo;gcs_airlines_data&rdquo;, provide the <em>Path</em> <strong>(3)</strong> to the GCS Bucket you have created earlier, where you have stored the airlines.csv file. For the purpose of this exercise I have include mine, make sure to supply your appropriate path (if you input what is provided in this image, the validation won&rsquo;t succeed). Click <em>Validate</em> <strong>(4)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(5)</strong> to close/save the GSC properties.
+</p>
+</li>
+<li>
+<p>The GCS Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;GCS - Airlines Data&rdquo;, then input the following value for <em>Reference Name</em> <strong>(2)</strong>: &ldquo;gcs_airlines_data&rdquo;, provide the <em>Path</em> <strong>(3)</strong> to the GCS Bucket you have created earlier, where you have stored the airlines.csv file. For the purpose of this exercise I have include mine, make sure to supply your appropriate path (if you input what is provided in this image, the validation won't succeed). Click <em>Validate</em> <strong>(4)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(5)</strong> to close/save the GSC properties.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-17.png"
          alt="datafusion-17"/> 
 </figure>
-</p></li>
-
-<li><p>Like you did earlier on the flights_small.csv dataset, you now need to Wrangle the airlines.csv dataset, select or make sure you are in <em>Transform</em> <strong>(1)</strong> view, click the <em>Wrangler</em> <strong>(2)</strong> transform - this will add another Wrangler transform on the canvas, then <em>Connect</em> <strong>(3)</strong> by choosing and dragging the small arrow from the GCS - Airlines Data source to the newly created Wrangler transform and click <em>Properties</em> <strong>(4)</strong> from the Wrangler transform to continue.
+</p>
+</li>
+<li>
+<p>Like you did earlier on the flights_small.csv dataset, you now need to Wrangle the airlines.csv dataset, select or make sure you are in <em>Transform</em> <strong>(1)</strong> view, click the <em>Wrangler</em> <strong>(2)</strong> transform - this will add another Wrangler transform on the canvas, then <em>Connect</em> <strong>(3)</strong> by choosing and dragging the small arrow from the GCS - Airlines Data source to the newly created Wrangler transform and click <em>Properties</em> <strong>(4)</strong> from the Wrangler transform to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-18.png"
          alt="datafusion-18"/> 
 </figure>
-</p></li>
-
-<li><p>The Wrangler Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;Wrangler - Airlines Data&rdquo;, then click <em>Wrangle</em> <strong>(2)</strong> to continue.
+</p>
+</li>
+<li>
+<p>The Wrangler Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;Wrangler - Airlines Data&rdquo;, then click <em>Wrangle</em> <strong>(2)</strong> to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-19.png"
          alt="datafusion-19"/> 
 </figure>
-</p></li>
-
-<li><p>Like you did earlier you need to select/load data, choose the airlines.csv file that is located in your GCS bucket to continue.
+</p>
+</li>
+<li>
+<p>Like you did earlier you need to select/load data, choose the airlines.csv file that is located in your GCS bucket to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-11.png"
          alt="datafusion-11"/> 
 </figure>
-</p></li>
-
-<li><p>Next are a series of steps to parse and remove unwanted columns. Click the dropdown [Column transformations] on the <em>body</em> <strong>(1)</strong> column, select Parse -&gt; CSV <strong>(2)</strong>, select <em>Comma</em> <strong>(3)</strong> as the delimiter, check <em>Set first row as header</em> <strong>(4)</strong>, then click <em>Apply</em> <strong>(5)</strong> to continue.
+</p>
+</li>
+<li>
+<p>Next are a series of steps to parse and remove unwanted columns. Click the dropdown [Column transformations] on the <em>body</em> <strong>(1)</strong> column, select Parse -&gt; CSV <strong>(2)</strong>, select <em>Comma</em> <strong>(3)</strong> as the delimiter, check <em>Set first row as header</em> <strong>(4)</strong>, then click <em>Apply</em> <strong>(5)</strong> to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-20.png"
          alt="datafusion-20"/> 
 </figure>
-</p></li>
-
-<li><p>The result of the parse column transform added new columns and we want to remove the body column. Click the dropdown [Column transformations] on the <em>body</em> <strong>(1)</strong> column, then select <em>Delete column</em> <strong>(2)</strong>, once completed click <em>Apply</em> <strong>(3)</strong> to continue.
+</p>
+</li>
+<li>
+<p>The result of the parse column transform added new columns and we want to remove the body column. Click the dropdown [Column transformations] on the <em>body</em> <strong>(1)</strong> column, then select <em>Delete column</em> <strong>(2)</strong>, once completed click <em>Apply</em> <strong>(3)</strong> to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-21.png"
          alt="datafusion-21"/> 
 </figure>
-</p></li>
-
-<li><p>Again you will now notice that the Recipe box as been populated with the directives you just did in the Wrangling activities. Click <em>Validate</em> <strong>(1)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(2)</strong> to close/save the Wrangler properties.
+</p>
+</li>
+<li>
+<p>Again you will now notice that the Recipe box as been populated with the directives you just did in the Wrangling activities. Click <em>Validate</em> <strong>(1)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(2)</strong> to close/save the Wrangler properties.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-22.png"
          alt="datafusion-22"/> 
 </figure>
-</p></li>
-
-<li><p>You are now ready to Join the two datasets. Start by selecting or make sure you are in <em>Analytics</em> <strong>(1)</strong> view , click <em>Joiner</em> <strong>(2)</strong> - this will add a Joiner task on the canvas, then <em>Connect</em> <strong>(3)</strong> by choosing and dragging the small arrow from the Wrangler - Flights Data to the Joiner and do the same for the Wrangler - Airlines Data, click <em>Properties</em> <strong>(4)</strong> from the Joiner task to continue.
+</p>
+</li>
+<li>
+<p>You are now ready to Join the two datasets. Start by selecting or make sure you are in <em>Analytics</em> <strong>(1)</strong> view , click <em>Joiner</em> <strong>(2)</strong> - this will add a Joiner task on the canvas, then <em>Connect</em> <strong>(3)</strong> by choosing and dragging the small arrow from the Wrangler - Flights Data to the Joiner and do the same for the Wrangler - Airlines Data, click <em>Properties</em> <strong>(4)</strong> from the Joiner task to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-23.png"
          alt="datafusion-23"/> 
 </figure>
-</p></li>
-
-<li><p>The Joiner Properties configuration box shows up. In the Join - Fields section, expand the <em>Wrangler - Airlines Data</em> <strong>(1)</strong> and uncheck Code <strong>(2)</strong> and assign the following value &ldquo;Airline_name&rdquo; to the Description <em>Alias</em> <strong>(3)</strong>, select <em>Inner</em> <strong>(4)</strong> for the Join Type, in the <em>Join Condition</em> <strong>(5)</strong> section select the value &ldquo;Airline&rdquo; for Wrangler - Flight Data, and &ldquo;Code&rdquo; for Wrangler - Airlines Data, click <em>Get</em> <strong>(6)</strong> for the schema, then click <em>Validate</em> <strong>(7)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(8)</strong> to close/save the Joiner properties.
+</p>
+</li>
+<li>
+<p>The Joiner Properties configuration box shows up. In the Join - Fields section, expand the <em>Wrangler - Airlines Data</em> <strong>(1)</strong> and uncheck Code <strong>(2)</strong> and assign the following value &ldquo;Airline_name&rdquo; to the Description <em>Alias</em> <strong>(3)</strong>, select <em>Inner</em> <strong>(4)</strong> for the Join Type, in the <em>Join Condition</em> <strong>(5)</strong> section select the value &ldquo;Airline&rdquo; for Wrangler - Flight Data, and &ldquo;Code&rdquo; for Wrangler - Airlines Data, click <em>Get</em> <strong>(6)</strong> for the schema, then click <em>Validate</em> <strong>(7)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(8)</strong> to close/save the Joiner properties.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-24.png"
          alt="datafusion-24"/> 
 </figure>
-</p></li>
-
-<li><p>Next you need to Group By, and aggregate. Start by selecting or make sure you are in <em>Analytics</em> <strong>(1)</strong> view , click <em>Group By</em> <strong>(2)</strong> - this will add a Group By task on the canvas, then <em>Connect</em> <strong>(3)</strong> by choosing and dragging the small arrow from the Joiner to the Group By task, click <em>Properties</em> <strong>(4)</strong> from the Group By task to continue.
+</p>
+</li>
+<li>
+<p>Next you need to Group By, and aggregate. Start by selecting or make sure you are in <em>Analytics</em> <strong>(1)</strong> view , click <em>Group By</em> <strong>(2)</strong> - this will add a Group By task on the canvas, then <em>Connect</em> <strong>(3)</strong> by choosing and dragging the small arrow from the Joiner to the Group By task, click <em>Properties</em> <strong>(4)</strong> from the Group By task to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-25.png"
          alt="datafusion-25"/> 
 </figure>
-</p></li>
-
-<li><p>The Group By Properties configuration box shows up. In the <em>Group by fields</em> section <strong>(1)</strong> add the following fields: Airline, Airline_code, and Airline_name, in the <em>Aggregates</em> <strong>(2)</strong> section input &ldquo;Departure_schedule&rdquo;, select &ldquo;Count&rdquo; as the aggregation and input &ldquo;Flight_count&rdquo; as an alias, click <em>Get Schema</em> <strong>(3)</strong>, then click <em>Validate</em> <strong>(4)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(5)</strong> to close/save the Group By properties.
+</p>
+</li>
+<li>
+<p>The Group By Properties configuration box shows up. In the <em>Group by fields</em> section <strong>(1)</strong> add the following fields: Airline, Airline_code, and Airline_name, in the <em>Aggregates</em> <strong>(2)</strong> section input &ldquo;Departure_schedule&rdquo;, select &ldquo;Count&rdquo; as the aggregation and input &ldquo;Flight_count&rdquo; as an alias, click <em>Get Schema</em> <strong>(3)</strong>, then click <em>Validate</em> <strong>(4)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(5)</strong> to close/save the Group By properties.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-26.png"
          alt="datafusion-26"/> 
 </figure>
-</p></li>
-
-<li><p>Finally to complete your data pipeline you need to set up a Sink to output the results. Start by selecting or make sure you are in <em>Sink</em> <strong>(1)</strong> view , click <em>GCS</em> <strong>(2)</strong> - this will add a GCS Sink on the canvas, then <em>Connect</em> <strong>(3)</strong> by choosing and dragging the small arrow from the Group By task to the GCS Sink, click <em>Properties</em> <strong>(4)</strong> from the GCS Sink to continue.
+</p>
+</li>
+<li>
+<p>Finally to complete your data pipeline you need to set up a Sink to output the results. Start by selecting or make sure you are in <em>Sink</em> <strong>(1)</strong> view , click <em>GCS</em> <strong>(2)</strong> - this will add a GCS Sink on the canvas, then <em>Connect</em> <strong>(3)</strong> by choosing and dragging the small arrow from the Group By task to the GCS Sink, click <em>Properties</em> <strong>(4)</strong> from the GCS Sink to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-27.png"
          alt="datafusion-27"/> 
 </figure>
-</p></li>
-
-<li><p>The GCS Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;GCS - Flight Count&rdquo;, then input the following value for <em>Reference Name</em> <strong>(2)</strong>: &ldquo;gcs_flight_count&rdquo;, provide the <em>Path</em> <strong>(3)</strong> to the GCS Bucket for output you have created earlier. For the purpose of this exercise I have include mine, make sure to supply your appropriate path (if you input what is provided in this image, the validation won&rsquo;t succeed), select &ldquo;csv&rdquo; for the <em>Format</em> <strong>(4)</strong> of the output file, click <em>Validate</em> <strong>(5)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(6)</strong> to close/save the GSC properties.
+</p>
+</li>
+<li>
+<p>The GCS Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;GCS - Flight Count&rdquo;, then input the following value for <em>Reference Name</em> <strong>(2)</strong>: &ldquo;gcs_flight_count&rdquo;, provide the <em>Path</em> <strong>(3)</strong> to the GCS Bucket for output you have created earlier. For the purpose of this exercise I have include mine, make sure to supply your appropriate path (if you input what is provided in this image, the validation won't succeed), select &ldquo;csv&rdquo; for the <em>Format</em> <strong>(4)</strong> of the output file, click <em>Validate</em> <strong>(5)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(6)</strong> to close/save the GSC properties.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-28.png"
          alt="datafusion-28"/> 
 </figure>
-</p></li>
-
-<li><p>Congrats! You have completed building your data pipeline. Now give your pipeline a <em>name</em> <strong>(1)</strong>, <em>save</em> <strong>(2)</strong> it and <em>deploy</em> <strong>(3)</strong> it. This will take a few moments to finalize and complete the deployment process.
+</p>
+</li>
+<li>
+<p>Congrats! You have completed building your data pipeline. Now give your pipeline a <em>name</em> <strong>(1)</strong>, <em>save</em> <strong>(2)</strong> it and <em>deploy</em> <strong>(3)</strong> it. This will take a few moments to finalize and complete the deployment process.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-28_1.png"
          alt="datafusion-28_1"/> 
 </figure>
-</p></li>
-
-<li><p>You are now ready to execute your pipeline. Click <em>Run</em>.
+</p>
+</li>
+<li>
+<p>You are now ready to execute your pipeline. Click <em>Run</em>.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-29.png"
          alt="datafusion-29"/> 
 </figure>
-</p></li>
-
-<li><p>The pipeline will go through different cycles; <strong>Deployed</strong>, <strong>Provisioning</strong>, <strong>Starting</strong>, <strong>Running</strong>, <strong>Deprovisioning</strong> and <strong>Succeeded</strong> indicated in the <em>Status</em> on the pipeline page. Once the pipeline Succeeded the next step is to go explore the output file in your GCS bucket.
+</p>
+</li>
+<li>
+<p>The pipeline will go through different cycles; <strong>Deployed</strong>, <strong>Provisioning</strong>, <strong>Starting</strong>, <strong>Running</strong>, <strong>Deprovisioning</strong> and <strong>Succeeded</strong> indicated in the <em>Status</em> on the pipeline page. Once the pipeline Succeeded the next step is to go explore the output file in your GCS bucket.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-30.png"
          alt="datafusion-30"/> 
 </figure>
-</p></li>
-
-<li><p>To validate the output sink of your pipeline, head over to your GCS bucket to the output folder and issue the following gsutil command to view the results. Make sure to replace <strong>[BUCKET_NAME]</strong> and <strong>[REPLACE_WITH_YOUR_FOLDER_DATE]</strong> with your information:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gsutil cat -h gs://<span style="color:#666">[</span>BUCKET_NAME<span style="color:#666">]]</span>/output/flight_count/<span style="color:#666">[</span>REPLACE_WITH_YOUR_FOLDER_DATE<span style="color:#666">]</span>/part-r-00000</code></pre></div>
-<p>The output is similar to the following:
+</p>
+</li>
+<li>
+<p>To validate the output sink of your pipeline, head over to your GCS bucket to the output folder and issue the following gsutil command to view the results. Make sure to replace <strong>[BUCKET_NAME]</strong> and <strong>[REPLACE_WITH_YOUR_FOLDER_DATE]</strong> with your information:</p>
+</li>
+</ol>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gsutil cat -h gs://<span style="color:#666">[</span>BUCKET_NAME<span style="color:#666">]</span><span style="color:#666">]</span>/output/flight_count/<span style="color:#666">[</span>REPLACE_WITH_YOUR_FOLDER_DATE<span style="color:#666">]</span>/part-r-00000
+</code></pre></div><p>The output is similar to the following:
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-31.png"
          alt="datafusion-31"/> 
 </figure>
-</p></li>
-</ol>
-
+</p>
 <p>That’s it! You’ve just created and ran a complete data pipeline process on Cloud Data Fusion.</p>
-
 <h4 id="cleanup">Cleanup</h4>
-
 <p>To avoid incurring charges to your Google Cloud Platform account for the resources used in this walkthrough:</p>
-
 <p>If you want to delete the entire project, follow these instructions:</p>
-
 <ol>
 <li>In the GCP Console, go to the <a href="https://console.cloud.google.com/iam-admin/projects"><strong>Manage resources</strong></a> page.</li>
 <li>In the project list, select the project you want to delete and click <strong>Delete</strong>.</li>
-<li>In the dialog, type the project ID, and then click <strong>Shut down</strong> to delete the project.<br /></li>
+<li>In the dialog, type the project ID, and then click <strong>Shut down</strong> to delete the project.</li>
 </ol>
-
 <p>Or if you just want to delete your Cloud Data Fusion instance follow these instructions:</p>
-
 <ol>
 <li>To view your existing Cloud Data Fusion instances, open the <a href="https://console.cloud.google.com/data-fusion/locations/-/instances"><strong>Instances</strong></a> page.</li>
 <li>To select an instance, <strong>check</strong> the box next to the instance name.</li>
 <li>To delete the instance, click <strong>Delete</strong>.</li>
 </ol>
-
-<p><strong><em>Note</em></strong>: <em>You can also delete an instance by clicking Delete on the instance details page.</em></p>
-
+<p><em><strong>Note</strong></em>: <em>You can also delete an instance by clicking Delete on the instance details page.</em></p>
 <p>Enjoy!</p>
 
       </div>

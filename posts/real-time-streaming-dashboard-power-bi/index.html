@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -136,134 +136,99 @@
       </header>
       
       <div>
-        
-
-<p><figure>
+        <p><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/powerbi.png#floatleft" width="200" height="200"/> 
 </figure>
 
 I was recently asked to provide a simple demo/proof-of-concept on how to quickly create a real-time streaming dashboard with Power BI. Did you know that you can stream data and update dashboards in real-time? Any visual or dashboard that can be created in Power BI can also be created to display and update real-time data and visuals. The devices and sources of streaming data can be factory sensors, social media sources, service usage metrics, and anything else from which time-sensitive data can be collected or transmitted.</p>
-
-<p>&nbsp;</p>
-
+<p> </p>
 <p>There are three types of real-time datasets which are designed for displaying visuals on real-time dashboards:</p>
-
 <ul>
 <li>Push dataset</li>
 <li>Streaming dataset</li>
 <li>PubNub streaming dataset</li>
 </ul>
-
-<p>This post is about the <strong>PubNub streaming dataset</strong>, With a PubNub streaming dataset, the Power BI web client uses the PubNub SDK to read an existing PubNub data stream, and <strong>no data</strong> is stored by the Power BI service. For more more information on the other types and their capabilities read the following documentation -&gt; <a href="https://powerbi.microsoft.com/en-us/documentation/powerbi-service-real-time-streaming/" target="_blank" rel="noopener">Real-time streaming in Power BI</a></p>
-
-<p>So what is PubNub? <a href="https://www.pubnub.com/" target="_blank" rel="noopener">PubNub</a> is a global Data Stream Network and realtime infrastructure-as-a-service company. PubNub&#8217;s Data Stream Network is a high-speed publish/subscribe messaging layer, it&#8217;s deployed globally, and makes it easy to connect and scale realtime apps without managing a dedicated infrastructure for your realtime applications.</p>
-
-<p>PubNub provides <a href="https://www.pubnub.com/developers/realtime-data-streams/" target="_blank" rel="noopener">live syndicated data streams</a> that you can use in your project. We are going to use the following stream <a href="https://www.pubnub.com/developers/realtime-data-streams/sensor-network/" target="_blank" rel="noopener">Sensor Network (simulated)</a>, which mimics data from a network of outdoor field sensors.</p>
-
-<h4 id="now-let-8217-s-build-a-real-time-dashboard-8230">Now let&#8217;s build a real-time dashboard&#8230;</h4>
-
-<p>Hopefully you already have a Power BI Pro account, if not you can <a href="https://app.powerbi.com/signupredirect?pbi_source=web" target="_blank" rel="noopener">sign-up here</a> and get started now with a free 60-day trial of Power BI Pro.</p>
-
+<p>This post is about the <strong>PubNub streaming dataset</strong>, With a PubNub streaming dataset, the Power BI web client uses the PubNub SDK to read an existing PubNub data stream, and <strong>no data</strong> is stored by the Power BI service. For more more information on the other types and their capabilities read the following documentation -&gt; <!-- raw HTML omitted -->Real-time streaming in Power BI<!-- raw HTML omitted --></p>
+<p>So what is PubNub? <!-- raw HTML omitted -->PubNub<!-- raw HTML omitted --> is a global Data Stream Network and realtime infrastructure-as-a-service company. PubNub’s Data Stream Network is a high-speed publish/subscribe messaging layer, it’s deployed globally, and makes it easy to connect and scale realtime apps without managing a dedicated infrastructure for your realtime applications.</p>
+<p>PubNub provides <!-- raw HTML omitted -->live syndicated data streams<!-- raw HTML omitted --> that you can use in your project. We are going to use the following stream <!-- raw HTML omitted -->Sensor Network (simulated)<!-- raw HTML omitted -->, which mimics data from a network of outdoor field sensors.</p>
+<h4 id="now-let8217s-build-a-realtime-dashboard8230">Now let’s build a real-time dashboard…</h4>
+<p>Hopefully you already have a Power BI Pro account, if not you can <!-- raw HTML omitted -->sign-up here<!-- raw HTML omitted --> and get started now with a free 60-day trial of Power BI Pro.</p>
 <ol>
 <li>We will first create a dataset. Once signed-in, go to your <em>My Workspace</em>, select <em>Datasets</em>, then <em>+ Create</em> and select <em>Streaming dataset</em></li>
 </ol>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset01.png" width="858" height="228"/> 
 </figure>
 
-
-<ol>
+<ol start="2">
 <li>Select <em>PubNub</em> and click the <em>Next</em> button</li>
 </ol>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset02.png" width="490" height="575"/> 
 </figure>
 
-
-<ol>
-<li>Give your dataset a name, I chose &#8220;Sensor Network Stream&#8221; and provide the Subscription key and Channel name (copy &amp; paste)</li>
+<ol start="3">
+<li>Give your dataset a name, I chose “Sensor Network Stream” and provide the Subscription key and Channel name (copy &amp; paste)</li>
 </ol>
-
-<p><strong>Subscription key:</strong> <span style="color: #339966;"><em>sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe</em></span><br />
-<strong>Channel name:</strong> <span style="color: #339966;"><em>pubnub-sensor-network</em></span></p>
-
+<p><strong>Subscription key:</strong> <!-- raw HTML omitted --><!-- raw HTML omitted -->sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe<!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<strong>Channel name:</strong> <!-- raw HTML omitted --><!-- raw HTML omitted -->pubnub-sensor-network<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset03.png" width="693" height="561"/> 
 </figure>
 
-
-<ol>
-<li>You will be presented with the &#8216;schema&#8217; and values for this dataset, select the <em>Create</em> button to save the dataset</li>
+<ol start="4">
+<li>You will be presented with the ‘schema’ and values for this dataset, select the <em>Create</em> button to save the dataset</li>
 </ol>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset05.png" width="691" height="789"/> 
 </figure>
 
-
-<ol>
+<ol start="5">
 <li>Next we go to <em>Dashboards</em>, select <em>+ Create</em> and select Dashboard</li>
 </ol>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset06.png" width="750" height="217"/> 
 </figure>
 
-
-<ol>
+<ol start="6">
 <li>We want to add tile(s), in the <em>Real-Time Data</em> section, select <em>Custom Streaming Data</em>, and select the <em>Next</em> button</li>
 </ol>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset07.png" width="819" height="730"/> 
 </figure>
 
-
-<ol>
+<ol start="7">
 <li>Under <em>Your Datasets</em>, you should see the streaming dataset you created earlier, select it and select the <em>Next</em> button</li>
 </ol>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset08.png" width="486" height="679"/> 
 </figure>
 
-
-<ol>
+<ol start="8">
 <li>For your Tile select <em>Line chart</em> from the <em>Visualization Type</em>, timestamp for the <em>Axis</em>, and ambient_temperature for <em>Values</em>, then select <em>Apply</em></li>
 </ol>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset12.png" width="963" height="802"/> 
 </figure>
 
-
-<ol>
-<li>You can provide further Tile details, like <em>Tile</em>, <em>Subtitle</em> and link functionality&#8230;</li>
+<ol start="9">
+<li>You can provide further Tile details, like <em>Tile</em>, <em>Subtitle</em> and link functionality…</li>
 </ol>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset11.png" width="958" height="817"/> 
 </figure>
 
-
-<ol>
-<li>You can add more tiles with different visualization types to your dashboard like Cards, Clustered bar charts, Clustered column charts and Gauges. I added four Cards to display the current value of each measure provided by the dataset&#8230; My final live streaming dashboard looks like this 😉</li>
+<ol start="10">
+<li>You can add more tiles with different visualization types to your dashboard like Cards, Clustered bar charts, Clustered column charts and Gauges. I added four Cards to display the current value of each measure provided by the dataset… My final live streaming dashboard looks like this 😉</li>
 </ol>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/powerbi_gif.gif" width="968" height="599"/> 
 </figure>
 
-
-<p>That&#8217;s a pretty simple way to demonstrate how to quickly build a Real-time streaming dashboard with Power BI</p>
-
+<p>That’s a pretty simple way to demonstrate how to quickly build a Real-time streaming dashboard with Power BI</p>
 <p>Enjoy!</p>
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 

@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -137,20 +137,15 @@
       
       <div>
         <p>Kubernetes is an open-source container orchestration system for automating deployment, scaling and management of containerized applications. Running a SQL Server database on Kubernetes is a topic of discussion nowadays as Kubernetes provides ways to provision stateful containers using persistent volumes, statefulsets, etc.</p>
-
 <p>The following <a href="https://cloud.google.com/solutions/partners/deploying-sql-server-gke"><strong>post</strong></a> is a tutorial we recently published on Google’s Partner Solutions that demonstrates how to provision a single instance of SQL Server 2017 on Linux on <a href="https://cloud.google.com/kubernetes-engine/">GKE</a> using <a href="https://cloud.google.com/compute/docs/disks/#repds">Regional persistent disks</a>. The deployment provides synchronous replication between two zones, thus providing resiliency against zone failure. The walkthrough will show you how to create a GKE cluster, create a Kubernetes secret, create the StorageClass and PersistentVolumeClaim, set up and deploy SQL Server, connect to SQL Server, and most importantly, simulate a zone failure.</p>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/deploying-sql-server-gke-deployment-architecture.jpg"
          alt="deploying-sql-server-gke-deployment-architecture"/> 
 </figure>
 
-
 <p>This deployment might not be suitable for mission-critical or large workloads. Instead, Pythian recommends this deployment for smaller workloads in production, development, and staging environments.</p>
-
 <p>Enjoy!</p>
-
-<p><em>[Original post first appeared on <a href="https://blog.pythian.com/deploy-sql-server-2017-linux-gke/">Pythian&rsquo;s Blog</a>]</em></p>
+<p><em>[Original post first appeared on <a href="https://blog.pythian.com/deploy-sql-server-2017-linux-gke/">Pythian's Blog</a>]</em></p>
 
       </div>
 

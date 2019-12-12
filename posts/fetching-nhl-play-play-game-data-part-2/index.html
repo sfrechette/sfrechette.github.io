@@ -11,11 +11,11 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fetching NHL Play by Play game data (part 2)"/>
-<meta name="twitter:description" content="Following-up from a previous post Fetching NHL Play by Play game data where I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring&#8230; say like analyzing with R, load into a RDBMS, or visualizing it!
+<meta name="twitter:description" content="Following-up from a previous post Fetching NHL Play by Play game datawhere I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring… say like analyzing with R, load into a RDBMS, or visualizing it!
 So I added a new javascript file convert."/>
 
     <meta property="og:title" content="Fetching NHL Play by Play game data (part 2)" />
-<meta property="og:description" content="Following-up from a previous post Fetching NHL Play by Play game data where I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring&#8230; say like analyzing with R, load into a RDBMS, or visualizing it!
+<meta property="og:description" content="Following-up from a previous post Fetching NHL Play by Play game datawhere I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring… say like analyzing with R, load into a RDBMS, or visualizing it!
 So I added a new javascript file convert." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data-part-2/" />
@@ -55,7 +55,7 @@ So I added a new javascript file convert." />
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -136,67 +136,47 @@ So I added a new javascript file convert." />
       </header>
       
       <div>
-        
-
-<p><figure>
+        <p><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/hockey-goal-300px.png#floatleft" width="225" height="250"/> 
 </figure>
- Following-up from a previous post <a href="http://stephanefrechette.com/fetching-nhl-play-play-game-data/" target="_blank">Fetching NHL Play by Play game data</a> where I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring&#8230; say like analyzing with R, load into a RDBMS, or visualizing it!</p>
-
-<p>So I added a new javascript file <a href="https://github.com/sfrechette/nhlplaybyplay-node/blob/master/convert.js" target="_blank">convert.js</a> to the existing nhlplaybyplay-node app on the GitHub repo: <a href="https://github.com/sfrechette/nhlplaybyplay-node" target="_blank"><a href="https://github.com/sfrechette/nhlplaybyplay-node">https://github.com/sfrechette/nhlplaybyplay-node</a></a></p>
-
-<p>&nbsp;</p>
-
-<p>One important thing! I&#8217;m using <a href="https://stedolan.github.io/jq/" target="_blank">jq</a> a lightweight and flexible command-line JSON processor. You can download it <a href="https://stedolan.github.io/jq/download/" target="_blank">here</a> or install using <a href="http://brew.sh/" target="_blank">Homebrew</a> by issuing the following command: <code>brew install jq</code></p>
-
-<p>Essentially the following code snippet from <a href="https://github.com/sfrechette/nhlplaybyplay-node/blob/master/convert.js" target="_blank">convert.js</a> parses a JSON Play by Play file into a CSV file format. You can give it a try, assuming you have previously ran <a href="https://github.com/sfrechette/nhlplaybyplay-node/blob/master/fetch.js" target="_blank">fetch.js</a> and have JSON files(s) in your data folder. Simply replace <strong>${season}</strong> and <strong>${game}</strong> accordingly and copy to a Terminal session to execute.</p>
-
-<p>_*If you don&#8217;t have files, or have not installed the app, you can still try it out by downloading the following <a href="http://live.nhl.com/GameData/20162017/2016020001/PlayByPlay.json" target="_blank">file</a> and saving it as 2016020001.json the output after executing the below snippet will look like this <a href="http://stephanefrechette.com/blog/wp-content/uploads/2016/12/2016020001.csv">2016020001.csv</a>_</p>
+ Following-up from a previous post <!-- raw HTML omitted -->Fetching NHL Play by Play game data<!-- raw HTML omitted --> where I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring… say like analyzing with R, load into a RDBMS, or visualizing it!</p>
+<p>So I added a new javascript file <!-- raw HTML omitted -->convert.js<!-- raw HTML omitted --> to the existing nhlplaybyplay-node app on the GitHub repo: <!-- raw HTML omitted --><a href="https://github.com/sfrechette/nhlplaybyplay-node">https://github.com/sfrechette/nhlplaybyplay-node</a><!-- raw HTML omitted --></p>
+<p> </p>
+<p>One important thing! I’m using <!-- raw HTML omitted -->jq<!-- raw HTML omitted --> a lightweight and flexible command-line JSON processor. You can download it <!-- raw HTML omitted -->here<!-- raw HTML omitted --> or install using <!-- raw HTML omitted -->Homebrew<!-- raw HTML omitted --> by issuing the following command: <code>brew install jq</code></p>
+<p>Essentially the following code snippet from <!-- raw HTML omitted -->convert.js<!-- raw HTML omitted --> parses a JSON Play by Play file into a CSV file format. You can give it a try, assuming you have previously ran <!-- raw HTML omitted -->fetch.js<!-- raw HTML omitted --> and have JSON files(s) in your data folder. Simply replace <strong>${season}</strong> and <strong>${game}</strong> accordingly and copy to a Terminal session to execute.</p>
+<p><em>*If you don’t have files, or have not installed the app, you can still try it out by downloading the following <!-- raw HTML omitted -->file<!-- raw HTML omitted --> and saving it as 2016020001.json the output after executing the below snippet will look like this <a href="http://stephanefrechette.com/blog/wp-content/uploads/2016/12/2016020001.csv">2016020001.csv</a></em></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jq -r --arg season <span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">season</span><span style="color:#70a0d0;font-style:italic">}</span> --arg gameid <span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">game</span><span style="color:#70a0d0;font-style:italic">}</span> <span style="color:#4070a0">&#39;.data.game as $p | .data.game.plays.play[] | . as $c | 
 </span><span style="color:#4070a0">   [$season | tonumber, $gameid | tonumber] + [([$c.aoi[] | tostring] | join(&#34;,&#34;))] + [$p.awayteamid, 
 </span><span style="color:#4070a0">   $p.awayteamname, $p.awayteamnick, $p.hometeamid, $p.hometeamname, $p.hometeamnick] + [$c.as, 
 </span><span style="color:#4070a0">   $c.asog, $c.desc, $c.eventid, $c.formalEventId] + [([$c.hoi[] | tostring] | join(&#34;,&#34;))] + [$c.hs, 
 </span><span style="color:#4070a0">   $c.hsog, $c.localtime, $c.p1name, $c.p2name, $c.p3name, $c.period, $c.pid, $c.pid1, $c.pid2, 
 </span><span style="color:#4070a0">   $c.pid3, $c.playername, $c.strength, $c.sweater, $c.teamid, $c.time, $c.type, $c.xcoord, $c.ycoord] | 
-</span><span style="color:#4070a0">   @csv&#39;</span> ./data/<span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">season</span><span style="color:#70a0d0;font-style:italic">}</span>/<span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">game</span><span style="color:#70a0d0;font-style:italic">}</span>.json &amp;gt; ./data/<span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">season</span><span style="color:#70a0d0;font-style:italic">}</span>/<span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">game</span><span style="color:#70a0d0;font-style:italic">}</span>.csv<span style="color:#4070a0">`</span></code></pre></div>
-<p>Snapshot image &#8211; Play by Play JSON for game 2016020001<br />
+</span><span style="color:#4070a0">   @csv&#39;</span> ./data/<span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">season</span><span style="color:#70a0d0;font-style:italic">}</span>/<span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">game</span><span style="color:#70a0d0;font-style:italic">}</span>.json &amp;gt; ./data/<span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">season</span><span style="color:#70a0d0;font-style:italic">}</span>/<span style="color:#70a0d0;font-style:italic">${</span><span style="color:#bb60d5">game</span><span style="color:#70a0d0;font-style:italic">}</span>.csv<span style="color:#4070a0">`</span>
+</code></pre></div><p>Snapshot image – Play by Play JSON for game 2016020001<br>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/2016020001.json-nhlplaybyplay-node.png" width="1200" height="700"/> 
 </figure>
 </p>
-
-<p>Snapshot image &#8211; Converted 2016020001.json to 2016020001.csv</p>
-
+<p>Snapshot image – Converted 2016020001.json to 2016020001.csv</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/2016020001-csv.png" width="1024" height="600"/> 
 </figure>
 
-
-<p>For further details on how to install and to use the app see the following <a href="https://github.com/sfrechette/nhlplaybyplay-node/blob/master/README.md" target="_blank">README.md</a><br />
+<p>For further details on how to install and to use the app see the following <!-- raw HTML omitted -->README.md<!-- raw HTML omitted --><br>
 Excerpt: (This assumes you already ran fetch.js and have JSON files in your data/{season} folder)</p>
-
 <h4 id="usage">Usage</h4>
-
-<p><strong>Convert Play by Play JSON to CSV</strong><br />
+<p><strong>Convert Play by Play JSON to CSV</strong><br>
 <code>node convert.js season [game]</code></p>
-
-<p>To convert all games for a specific season<br />
+<p>To convert all games for a specific season<br>
 <code>node fetch.js 20152016</code></p>
-
-<p>To convert a specific game from a specific season<br />
+<p>To convert a specific game from a specific season<br>
 <code>node convert.js 20162017 2016020001</code></p>
-
-<hr />
-
+<hr>
 <p>Once all the JSON files as been converted to CSV, you can issue the following command to merge all of the CSV files into one (make sure to change your directory to where the files are located)</p>
-
 <p><code>cat *.csv &gt; 20152016.csv</code></p>
-
 <p>Enjoy!</p>
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 

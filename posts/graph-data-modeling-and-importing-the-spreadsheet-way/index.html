@@ -12,11 +12,11 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Graph data modeling and importing the spreadsheet way"/>
 <meta name="twitter:description" content="You are new or quite interested in exploring Graph Databases and would like to know how to start modeling and importing data in Neo4j?
-There are several ways that could get you started; the neo4j-shell-tools, Load CSV  and Batch Import and many more. I strongly recommend reading and exploring the following resources, but to quickly get you started modeling and easily import a small subset of data (&lt;1000 nodes/relationships) the spreadsheet approach is well suited for this."/>
+There are several ways that could get you started; the neo4j-shell-tools, Load CSV and Batch Importand many more. I strongly recommend reading and exploring the following resources, but to quickly get you started modeling and easily import a small subset of data (&lt;1000 nodes/relationships) the spreadsheet approach is well suited for this."/>
 
     <meta property="og:title" content="Graph data modeling and importing the spreadsheet way" />
 <meta property="og:description" content="You are new or quite interested in exploring Graph Databases and would like to know how to start modeling and importing data in Neo4j?
-There are several ways that could get you started; the neo4j-shell-tools, Load CSV  and Batch Import and many more. I strongly recommend reading and exploring the following resources, but to quickly get you started modeling and easily import a small subset of data (&lt;1000 nodes/relationships) the spreadsheet approach is well suited for this." />
+There are several ways that could get you started; the neo4j-shell-tools, Load CSV and Batch Importand many more. I strongly recommend reading and exploring the following resources, but to quickly get you started modeling and easily import a small subset of data (&lt;1000 nodes/relationships) the spreadsheet approach is well suited for this." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/graph-data-modeling-and-importing-the-spreadsheet-way/" />
 <meta property="article:published_time" content="2014-09-19T14:26:35-04:00" />
@@ -55,7 +55,7 @@ There are several ways that could get you started; the neo4j-shell-tools, Load C
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.60.1" />
   </head>
 
   <body class=" ">
@@ -133,172 +133,159 @@ There are several ways that could get you started; the neo4j-shell-tools, Load C
       
       <div>
         <p>You are new or quite interested in exploring Graph Databases and would like to know how to start modeling and importing data in Neo4j?</p>
-
-<p>There are several ways that could get you started; the <a href="https://github.com/jexp/neo4j-shell-tools" target="_blank">neo4j-shell-tools</a>, <a href="http://docs.neo4j.org/chunked/stable/query-load-csv.html" target="_blank">Load CSV </a> and <a href="https://github.com/jexp/batch-import" target="_blank">Batch Import</a> and many more. I strongly recommend reading and exploring the following <a href="http://www.neo4j.org/develop/import" target="_blank">resources</a>, but to quickly get you started modeling and easily import a small subset of data (&lt;1000 nodes/relationships) the spreadsheet approach is well suited for this.</p>
-
-<p>Let&#8217;s take a look at Graph modeling and importing the spreadsheet way<br />
-You can find the sample <a href="https://drive.google.com/folderview?id=0B1878pShjKLuTUlLbmVrWllUcWM&#038;usp=sharing" target="_blank">Excel spreadsheet here</a> and also a <a href="https://drive.google.com/folderview?id=0B1878pShjKLuTUlLbmVrWllUcWM&#038;usp=sharing" target="_blank">Google Sheet here</a></p>
-
-<p>The sheet (worksheet) is composed of two parts:<br />
-For Nodes -&gt; Columns <strong>A</strong>, <strong>B</strong> and <strong>C</strong> contain the data for the graph, using a “Node”, a “Name”, and a “Label”<br />
+<p>There are several ways that could get you started; the <!-- raw HTML omitted -->neo4j-shell-tools<!-- raw HTML omitted -->, <!-- raw HTML omitted -->Load CSV <!-- raw HTML omitted --> and <!-- raw HTML omitted -->Batch Import<!-- raw HTML omitted --> and many more. I strongly recommend reading and exploring the following <!-- raw HTML omitted -->resources<!-- raw HTML omitted -->, but to quickly get you started modeling and easily import a small subset of data (&lt;1000 nodes/relationships) the spreadsheet approach is well suited for this.</p>
+<p>Let’s take a look at Graph modeling and importing the spreadsheet way<br>
+You can find the sample <!-- raw HTML omitted -->Excel spreadsheet here<!-- raw HTML omitted --> and also a <!-- raw HTML omitted -->Google Sheet here<!-- raw HTML omitted --></p>
+<p>The sheet (worksheet) is composed of two parts:<br>
+For Nodes -&gt; Columns <strong>A</strong>, <strong>B</strong> and <strong>C</strong> contain the data for the graph, using a “Node”, a “Name”, and a “Label”<br>
 For Relationships -&gt; Columns <strong>F</strong>, <strong>G</strong>, <strong>H</strong>, <strong>I</strong> and <strong>J</strong> contain the data for the graph, having a “From” (where the relationship starts), a “To” (where the relationship ends), and a “Relationship Type”. Columns <strong>G</strong> and <strong>J</strong> reference the nodes names for the “From” and “To” columns.</p>
-
 <p>So how to create the required Cypher statements from these nodes and relationships? With simple formulas using the columns mentioned above, we can generate the proper Cypher syntax.</p>
-
-<p>A closer look a the formula for generating the Cypher statement for generating <strong>nodes</strong>:<br />
-<strong>=&#8221;create (n&#8221;&amp;A2&amp;&#8221;:&#8221;&amp;C2&amp;&#8221; {id:&#8221;&amp;A2&amp;&#8221;, name:&rsquo;&#8221;&amp;SUBSTITUTE(B2, &#8220;&#8216;&#8221;, &#8220;\&rsquo;&#8221;)&amp;&#8221;&#8216;})&#8221;</strong><br />
-outputs<br />
-<strong>create (n1:Character {id:1, name:&#8217;Cleopatra&#8217;})</strong></p>
-
-<p>Formula for generating the Cypher statement for generating <strong>relationships</strong>:<br />
-<strong>=&#8221;create n&#8221;&amp;F2&amp;&#8221;-[:&#8221;&amp;H2&amp;&#8221;]-&gt;n&#8221;&amp;I2</strong><br />
-outputs<br />
+<p>A closer look a the formula for generating the Cypher statement for generating <strong>nodes</strong>:<br>
+<strong>=”create (n”&amp;A2&amp;”:”&amp;C2&amp;” {id:”&amp;A2&amp;”, name:'”&amp;SUBSTITUTE(B2, “‘”, “'”)&amp;”‘})”</strong><br>
+outputs<br>
+<strong>create (n1:Character {id:1, name:’Cleopatra’})</strong></p>
+<p>Formula for generating the Cypher statement for generating <strong>relationships</strong>:<br>
+<strong>=”create n”&amp;F2&amp;”-[:”&amp;H2&amp;”]-&gt;n”&amp;I2</strong><br>
+outputs<br>
 <strong>create n1-[:FELLOW_COMPAGNON]-&gt;n2</strong></p>
-
 <p>Now the easy part is to simply highlight and copy both columns <strong>D</strong> and <strong>K</strong> into your Neo4j browser and execute to generate your graph model.</p>
-
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/neo4j_xl01.png"
          alt="neo4j_xl01"/> 
 </figure>
-
 
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/neo4j_xl02.png"
          alt="neo4j_xl02"/> 
 </figure>
 
-
 <p><em>The complete generated Cypher statement from column <strong>D</strong> and <strong>K</strong>, which you can copy and execute in your Neo4j browser</em></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span> (n1:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">1</span>, name:<span style="color:#4070a0">&#39;Cleopatra&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n2:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">2</span>, name:<span style="color:#4070a0">&#39;Cesarion (Ptolemy XVI)&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n3:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">3</span>, name:<span style="color:#4070a0">&#39;Julius Caesar&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n4:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">4</span>, name:<span style="color:#4070a0">&#39;Edifis&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n5:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">5</span>, name:<span style="color:#4070a0">&#39;Caius Fatuous&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n6:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">6</span>, name:<span style="color:#4070a0">&#39;Odius Asparagus&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n7:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">7</span>, name:<span style="color:#4070a0">&#39;Brutus&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n8:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">8</span>, name:<span style="color:#4070a0">&#39;Cacofonix&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n9:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">9</span>, name:<span style="color:#4070a0">&#39;Insalubrius&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n10:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">10</span>, name:<span style="color:#4070a0">&#39;Ekonomikrisis&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n11:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">11</span>, name:<span style="color:#4070a0">&#39;Porpus&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n12:CharacterType <span style="">{</span>id:<span style="color:#40a070">12</span>, name:<span style="color:#4070a0">&#39;The Gauls&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n13:CharacterType <span style="">{</span>id:<span style="color:#40a070">13</span>, name:<span style="color:#4070a0">&#39;The Romans&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n14:CharacterType <span style="">{</span>id:<span style="color:#40a070">14</span>, name:<span style="color:#4070a0">&#39;The others&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n15:Citizenship <span style="">{</span>id:<span style="color:#40a070">15</span>, name:<span style="color:#4070a0">&#39;Egyptian&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n16:Citizenship <span style="">{</span>id:<span style="color:#40a070">16</span>, name:<span style="color:#4070a0">&#39;Gaul&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n17:Citizenship <span style="">{</span>id:<span style="color:#40a070">17</span>, name:<span style="color:#4070a0">&#39;Phoenician&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n18:Citizenship <span style="">{</span>id:<span style="color:#40a070">18</span>, name:<span style="color:#4070a0">&#39;Roman&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n19:Citizenship <span style="">{</span>id:<span style="color:#40a070">19</span>, name:<span style="color:#4070a0">&#39;Roman/Egyptian&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n20:Album <span style="">{</span>id:<span style="color:#40a070">20</span>, name:<span style="color:#4070a0">&#39;Asterix the Gaul&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n21:Album <span style="">{</span>id:<span style="color:#40a070">21</span>, name:<span style="color:#4070a0">&#39;Asterix the Gladiator&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n22:Album <span style="">{</span>id:<span style="color:#40a070">22</span>, name:<span style="color:#4070a0">&#39;Asterix and Cleopatra&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n23:Album <span style="">{</span>id:<span style="color:#40a070">23</span>, name:<span style="color:#4070a0">&#39;Asterix in Britain&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n24:Album <span style="">{</span>id:<span style="color:#40a070">24</span>, name:<span style="color:#4070a0">&#39;Asterix the Legionary&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n25:Album <span style="">{</span>id:<span style="color:#40a070">25</span>, name:<span style="color:#4070a0">&#39;Asterix and the Chieftain’s Shield&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n26:Album <span style="">{</span>id:<span style="color:#40a070">26</span>, name:<span style="color:#4070a0">&#39;Asterix in Spain&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n27:Album <span style="">{</span>id:<span style="color:#40a070">27</span>, name:<span style="color:#4070a0">&#39;Asterix and the Roman Agent&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n28:Album <span style="">{</span>id:<span style="color:#40a070">28</span>, name:<span style="color:#4070a0">&#39;The Mansions of the Gods&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n29:Album <span style="">{</span>id:<span style="color:#40a070">29</span>, name:<span style="color:#4070a0">&#39;Asterix and the Laurel Wreath&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n30:Album <span style="">{</span>id:<span style="color:#40a070">30</span>, name:<span style="color:#4070a0">&#39;Asterix and the Soothsayer&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n31:Album <span style="">{</span>id:<span style="color:#40a070">31</span>, name:<span style="color:#4070a0">&#39;Asterix and Caesar’s Gift&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n32:Album <span style="">{</span>id:<span style="color:#40a070">32</span>, name:<span style="color:#4070a0">&#39;Obelix and Co.&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n33:Album <span style="">{</span>id:<span style="color:#40a070">33</span>, name:<span style="color:#4070a0">&#39;Asterix in Belgium&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n34:Album <span style="">{</span>id:<span style="color:#40a070">34</span>, name:<span style="color:#4070a0">&#39;Asterix and the Black Gold&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n35:Album <span style="">{</span>id:<span style="color:#40a070">35</span>, name:<span style="color:#4070a0">&#39;Asterix and Son&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n36:Album <span style="">{</span>id:<span style="color:#40a070">36</span>, name:<span style="color:#4070a0">&#39;Asterix and the Magic Carpet&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n37:Album <span style="">{</span>id:<span style="color:#40a070">37</span>, name:<span style="color:#4070a0">&#39;Asterix and the Secret Weapon&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n38:Album <span style="">{</span>id:<span style="color:#40a070">38</span>, name:<span style="color:#4070a0">&#39;Asterix and Obelix all at Sea&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n39:Album <span style="">{</span>id:<span style="color:#40a070">39</span>, name:<span style="color:#4070a0">&#39;Asterix and the Actress&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n40:Album <span style="">{</span>id:<span style="color:#40a070">40</span>, name:<span style="color:#4070a0">&#39;Asterix and the class act&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n41:Album <span style="">{</span>id:<span style="color:#40a070">41</span>, name:<span style="color:#4070a0">&#39;Asterix and Obelix’s Birthday&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> (n42:Album <span style="">{</span>id:<span style="color:#40a070">42</span>, name:<span style="color:#4070a0">&#39;Asterix and the Picts&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n2
-<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n3
-<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n4
-<span style="color:#007020;font-weight:bold">create</span> n2<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n3
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n5
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n6
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n7
-<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n8
-<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n9
-<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n10
-<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n11
-<span style="color:#007020;font-weight:bold">create</span> n6<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n8
-<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n2
-<span style="color:#007020;font-weight:bold">create</span> n9<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-&gt;</span>n11
-<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-&gt;</span>n14
-<span style="color:#007020;font-weight:bold">create</span> n2<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-&gt;</span>n14
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-&gt;</span>n13
-<span style="color:#007020;font-weight:bold">create</span> n4<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-&gt;</span>n14
-<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-&gt;</span>n13
-<span style="color:#007020;font-weight:bold">create</span> n6<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-&gt;</span>n13
-<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-&gt;</span>n13
-<span style="color:#007020;font-weight:bold">create</span> n8<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-&gt;</span>n12
-<span style="color:#007020;font-weight:bold">create</span> n9<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-&gt;</span>n13
-<span style="color:#007020;font-weight:bold">create</span> n10<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-&gt;</span>n14
-<span style="color:#007020;font-weight:bold">create</span> n11<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-&gt;</span>n14
-<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-&gt;</span>n15
-<span style="color:#007020;font-weight:bold">create</span> n2<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-&gt;</span>n19
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-&gt;</span>n18
-<span style="color:#007020;font-weight:bold">create</span> n4<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-&gt;</span>n15
-<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-&gt;</span>n18
-<span style="color:#007020;font-weight:bold">create</span> n6<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-&gt;</span>n18
-<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-&gt;</span>n18
-<span style="color:#007020;font-weight:bold">create</span> n8<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-&gt;</span>n16
-<span style="color:#007020;font-weight:bold">create</span> n9<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-&gt;</span>n18
-<span style="color:#007020;font-weight:bold">create</span> n10<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-&gt;</span>n17
-<span style="color:#007020;font-weight:bold">create</span> n11<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-&gt;</span>n18
-<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n22
-<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n35
-<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n38
-<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n41
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n20
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n21
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n22
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n23
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n24
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n25
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n26
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n27
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n28
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n29
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n30
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n31
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n32
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n33
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n34
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n36
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n37
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n38
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n39
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n40
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n41
-<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n42
-<span style="color:#007020;font-weight:bold">create</span> n2<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n35
-<span style="color:#007020;font-weight:bold">create</span> n4<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n22
-<span style="color:#007020;font-weight:bold">create</span> n4<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n41
-<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n21
-<span style="color:#007020;font-weight:bold">create</span> n6<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n21
-<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n21
-<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n27
-<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n30
-<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n35
-<span style="color:#007020;font-weight:bold">create</span> n9<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n21
-<span style="color:#007020;font-weight:bold">create</span> n10<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n21
-<span style="color:#007020;font-weight:bold">create</span> n10<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n34
-<span style="color:#007020;font-weight:bold">create</span> n10<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n41
-<span style="color:#007020;font-weight:bold">create</span> n11<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-&gt;</span>n21;</code></pre></div>
-<p>The result! A Graph&#8230;</p>
-
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span> (n1:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">1</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Cleopatra</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n2:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">2</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Cesarion (Ptolemy XVI)</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n3:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">3</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Julius Caesar</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n4:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">4</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Edifis</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n5:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">5</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Caius Fatuous</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n6:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">6</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Odius Asparagus</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n7:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">7</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Brutus</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n8:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">8</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Cacofonix</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n9:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">9</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Insalubrius</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n10:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">10</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Ekonomikrisis</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n11:<span style="color:#007020">Character</span> <span style="">{</span>id:<span style="color:#40a070">11</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Porpus</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n12:CharacterType <span style="">{</span>id:<span style="color:#40a070">12</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">The Gauls</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n13:CharacterType <span style="">{</span>id:<span style="color:#40a070">13</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">The Romans</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n14:CharacterType <span style="">{</span>id:<span style="color:#40a070">14</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">The others</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n15:Citizenship <span style="">{</span>id:<span style="color:#40a070">15</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Egyptian</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n16:Citizenship <span style="">{</span>id:<span style="color:#40a070">16</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Gaul</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n17:Citizenship <span style="">{</span>id:<span style="color:#40a070">17</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Phoenician</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n18:Citizenship <span style="">{</span>id:<span style="color:#40a070">18</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Roman</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n19:Citizenship <span style="">{</span>id:<span style="color:#40a070">19</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Roman/Egyptian</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n20:Album <span style="">{</span>id:<span style="color:#40a070">20</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix the Gaul</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n21:Album <span style="">{</span>id:<span style="color:#40a070">21</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix the Gladiator</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n22:Album <span style="">{</span>id:<span style="color:#40a070">22</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and Cleopatra</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n23:Album <span style="">{</span>id:<span style="color:#40a070">23</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix in Britain</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n24:Album <span style="">{</span>id:<span style="color:#40a070">24</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix the Legionary</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n25:Album <span style="">{</span>id:<span style="color:#40a070">25</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and the Chieftain’s Shield</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n26:Album <span style="">{</span>id:<span style="color:#40a070">26</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix in Spain</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n27:Album <span style="">{</span>id:<span style="color:#40a070">27</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and the Roman Agent</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n28:Album <span style="">{</span>id:<span style="color:#40a070">28</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">The Mansions of the Gods</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n29:Album <span style="">{</span>id:<span style="color:#40a070">29</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and the Laurel Wreath</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n30:Album <span style="">{</span>id:<span style="color:#40a070">30</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and the Soothsayer</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n31:Album <span style="">{</span>id:<span style="color:#40a070">31</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and Caesar’s Gift</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n32:Album <span style="">{</span>id:<span style="color:#40a070">32</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Obelix and Co.</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n33:Album <span style="">{</span>id:<span style="color:#40a070">33</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix in Belgium</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n34:Album <span style="">{</span>id:<span style="color:#40a070">34</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and the Black Gold</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n35:Album <span style="">{</span>id:<span style="color:#40a070">35</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and Son</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n36:Album <span style="">{</span>id:<span style="color:#40a070">36</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and the Magic Carpet</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n37:Album <span style="">{</span>id:<span style="color:#40a070">37</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and the Secret Weapon</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n38:Album <span style="">{</span>id:<span style="color:#40a070">38</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and Obelix all at Sea</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n39:Album <span style="">{</span>id:<span style="color:#40a070">39</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and the Actress</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n40:Album <span style="">{</span>id:<span style="color:#40a070">40</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and the class act</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n41:Album <span style="">{</span>id:<span style="color:#40a070">41</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and Obelix’s Birthday</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> (n42:Album <span style="">{</span>id:<span style="color:#40a070">42</span>, name:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Asterix and the Picts</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n2
+<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n3
+<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n4
+<span style="color:#007020;font-weight:bold">create</span> n2<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n3
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n5
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n6
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n7
+<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n8
+<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n9
+<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n10
+<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n11
+<span style="color:#007020;font-weight:bold">create</span> n6<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n8
+<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n2
+<span style="color:#007020;font-weight:bold">create</span> n9<span style="color:#666">-</span>[:FELLOW_COMPAGNON]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n11
+<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n14
+<span style="color:#007020;font-weight:bold">create</span> n2<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n14
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n13
+<span style="color:#007020;font-weight:bold">create</span> n4<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n14
+<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n13
+<span style="color:#007020;font-weight:bold">create</span> n6<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n13
+<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n13
+<span style="color:#007020;font-weight:bold">create</span> n8<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n12
+<span style="color:#007020;font-weight:bold">create</span> n9<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n13
+<span style="color:#007020;font-weight:bold">create</span> n10<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n14
+<span style="color:#007020;font-weight:bold">create</span> n11<span style="color:#666">-</span>[:CHARACTER_TYPE]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n14
+<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n15
+<span style="color:#007020;font-weight:bold">create</span> n2<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n19
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n18
+<span style="color:#007020;font-weight:bold">create</span> n4<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n15
+<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n18
+<span style="color:#007020;font-weight:bold">create</span> n6<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n18
+<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n18
+<span style="color:#007020;font-weight:bold">create</span> n8<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n16
+<span style="color:#007020;font-weight:bold">create</span> n9<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n18
+<span style="color:#007020;font-weight:bold">create</span> n10<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n17
+<span style="color:#007020;font-weight:bold">create</span> n11<span style="color:#666">-</span>[:CITIZENSHIP]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n18
+<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n22
+<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n35
+<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n38
+<span style="color:#007020;font-weight:bold">create</span> n1<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n41
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n20
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n21
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n22
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n23
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n24
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n25
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n26
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n27
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n28
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n29
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n30
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n31
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n32
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n33
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n34
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n36
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n37
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n38
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n39
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n40
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n41
+<span style="color:#007020;font-weight:bold">create</span> n3<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n42
+<span style="color:#007020;font-weight:bold">create</span> n2<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n35
+<span style="color:#007020;font-weight:bold">create</span> n4<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n22
+<span style="color:#007020;font-weight:bold">create</span> n4<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n41
+<span style="color:#007020;font-weight:bold">create</span> n5<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n21
+<span style="color:#007020;font-weight:bold">create</span> n6<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n21
+<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n21
+<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n27
+<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n30
+<span style="color:#007020;font-weight:bold">create</span> n7<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n35
+<span style="color:#007020;font-weight:bold">create</span> n9<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n21
+<span style="color:#007020;font-weight:bold">create</span> n10<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n21
+<span style="color:#007020;font-weight:bold">create</span> n10<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n34
+<span style="color:#007020;font-weight:bold">create</span> n10<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n41
+<span style="color:#007020;font-weight:bold">create</span> n11<span style="color:#666">-</span>[:APPEARS_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>n21;
+</code></pre></div><p>The result! A Graph…</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/cypher_model.png"
          alt="cypher_model"/> 
 </figure>
 
-
-<!-- AddThis Advanced Settings generic via filter on the_content -->
-
-<!-- AddThis Share Buttons generic via filter on the_content -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
       </div>
 
