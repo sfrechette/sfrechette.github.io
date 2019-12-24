@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 Nov 2019 10:20:30 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 24 Dec 2019 08:31:46 -0500</lastBuildDate>
     
 	<atom:link href="https://stephanefrechette.dev/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,27 +14,27 @@
     <item>
       <title>Cloud Computing</title>
       <link>https://stephanefrechette.dev/categories/cloud-computing/</link>
-      <pubDate>Sun, 24 Nov 2019 10:20:30 -0500</pubDate>
+      <pubDate>Tue, 24 Dec 2019 08:31:46 -0500</pubDate>
       
       <guid>https://stephanefrechette.dev/categories/cloud-computing/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Google Cloud Platform</title>
-      <link>https://stephanefrechette.dev/categories/google-cloud-platform/</link>
-      <pubDate>Sun, 24 Nov 2019 10:20:30 -0500</pubDate>
+      <title>Databases</title>
+      <link>https://stephanefrechette.dev/categories/databases/</link>
+      <pubDate>Tue, 24 Dec 2019 08:31:46 -0500</pubDate>
       
-      <guid>https://stephanefrechette.dev/categories/google-cloud-platform/</guid>
+      <guid>https://stephanefrechette.dev/categories/databases/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Databases</title>
-      <link>https://stephanefrechette.dev/categories/databases/</link>
-      <pubDate>Thu, 15 Aug 2019 14:45:03 -0400</pubDate>
+      <title>Google Cloud Platform</title>
+      <link>https://stephanefrechette.dev/categories/google-cloud-platform/</link>
+      <pubDate>Tue, 24 Dec 2019 08:31:46 -0500</pubDate>
       
-      <guid>https://stephanefrechette.dev/categories/databases/</guid>
+      <guid>https://stephanefrechette.dev/categories/google-cloud-platform/</guid>
       <description></description>
     </item>
     

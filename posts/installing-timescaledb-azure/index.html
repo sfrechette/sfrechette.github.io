@@ -55,7 +55,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.60.1" />
+    <meta name="generator" content="Hugo 0.61.0" />
   </head>
 
   <body class=" ">
@@ -228,10 +228,10 @@ sudo apt install timescaledb-postgresql-9.6
 <p>Next we need to modify and update the host-based authentication file -&gt; <em>pg_hba.conf</em><br>
 Issue the following command <code>sudo vi pg_hba.conf</code><br>
 Scroll to change the following line</p>
-<pre><code>local               all             postgres                                peer
-</code></pre><p>to</p>
-<pre><code>local               all             postgres                                trust
-</code></pre><p>After editing should look like the following screenshot:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">local               all             postgres                                peer
+</code></pre></div><p>to</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">local               all             postgres                                trust
+</code></pre></div><p>After editing should look like the following screenshot:</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/tsdb13.png" width="1130" height="363"/> 
 </figure>

@@ -3,17 +3,82 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://stephanefrechette.dev/categories/</loc>
-    <lastmod>2019-11-24T10:20:30-05:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/aws/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/cdap/</loc>
-    <lastmod>2019-11-24T10:20:30-05:00</lastmod>
+    <loc>https://stephanefrechette.dev/tags/azure/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/categories/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://stephanefrechette.dev/categories/cloud-computing/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/categories/databases/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/datascape/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/datascape-podcast-december-cloud-update/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/gcp/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/google-cloud/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/categories/google-cloud-platform/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/google-cloud-platform/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/podcast/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/posts/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/</loc>
+    <lastmod>2019-12-24T08:31:46-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/cdap/</loc>
     <lastmod>2019-11-24T10:20:30-05:00</lastmod>
   </url>
   
@@ -38,42 +103,7 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/gcp/</loc>
-    <lastmod>2019-11-24T10:20:30-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/google-cloud/</loc>
-    <lastmod>2019-11-24T10:20:30-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/categories/google-cloud-platform/</loc>
-    <lastmod>2019-11-24T10:20:30-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/google-cloud-platform/</loc>
-    <lastmod>2019-11-24T10:20:30-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://stephanefrechette.dev/posts/join-group-by-and-aggregate-in-cloud-data-fusion/</loc>
-    <lastmod>2019-11-24T10:20:30-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/posts/</loc>
-    <lastmod>2019-11-24T10:20:30-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/</loc>
-    <lastmod>2019-11-24T10:20:30-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/</loc>
     <lastmod>2019-11-24T10:20:30-05:00</lastmod>
   </url>
   
@@ -103,32 +133,7 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/aws/</loc>
-    <lastmod>2019-08-15T14:45:03-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/azure/</loc>
-    <lastmod>2019-08-15T14:45:03-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/categories/databases/</loc>
-    <lastmod>2019-08-15T14:45:03-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/datascape/</loc>
-    <lastmod>2019-08-15T14:45:03-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://stephanefrechette.dev/posts/datascape-podcast-august-cloud-update/</loc>
-    <lastmod>2019-08-15T14:45:03-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/podcast/</loc>
     <lastmod>2019-08-15T14:45:03-04:00</lastmod>
   </url>
   
