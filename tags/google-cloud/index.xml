@@ -6,20 +6,10 @@
     <description>Recent content in google cloud on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 27 Feb 2020 08:59:31 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 24 Dec 2019 08:31:46 -0500</lastBuildDate>
     
 	<atom:link href="https://stephanefrechette.dev/tags/google-cloud/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Datascape Podcast - February Cloud Updates</title>
-      <link>https://stephanefrechette.dev/posts/datascape-podcast-february-cloud-updates/</link>
-      <pubDate>Thu, 27 Feb 2020 08:59:31 -0500</pubDate>
-      
-      <guid>https://stephanefrechette.dev/posts/datascape-podcast-february-cloud-updates/</guid>
-      <description>Welcome to this year’s first episode of Datascape Podcast. Since our last episode in 2019, a great deal has happened and 2020 is already packed to the brim with cloud updates.
-Joining us to talk about Amazon Web Service (AWS) is Pierig Le Saux. He shares the latest on AWS Backup, which includes restoring single files and copying backups from one region to another, BYOL developments and their use for Microsoft clients, and some thrilling quantum computing initiatives as well.</description>
-    </item>
     
     <item>
       <title>Datascape Podcast - December Cloud Updates</title>
