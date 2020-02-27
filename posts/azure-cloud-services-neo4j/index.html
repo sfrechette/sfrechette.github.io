@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
   </head>
 
   <body class=" ">
@@ -163,7 +163,7 @@ You can import and run the entire Cypher script using the neo4j-shell by issuing
 <em><strong>bin/neo4j-shell -path azureservices.db -file cypher/import.cql</strong></em><br>
 <em>*make sure the Neo4j service is not running before you execute the script (bin/neo4j stop)</em></p>
 <p>The following is the Cypher script that creates the indexes, constraints, nodes and relationships for our graph.</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">/</span><span style="color:#666">/</span> <span style="color:#007020;font-weight:bold">Create</span> indexes <span style="color:#007020;font-weight:bold">for</span> faster lookup
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> indexes <span style="color:#007020;font-weight:bold">for</span> faster lookup
 <span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :Service(serviceName);
 <span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :Category(categoryName);
 <span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :Region(regionName);
@@ -171,69 +171,69 @@ You can import and run the entire Cypher script using the neo4j-shell by issuing
 <span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :<span style="color:#007020;font-weight:bold">Location</span>(countryName);
 <span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :<span style="color:#007020;font-weight:bold">Location</span>(continentName);
 
-<span style="color:#666">/</span><span style="color:#666">/</span> <span style="color:#007020;font-weight:bold">Create</span> <span style="color:#007020;font-weight:bold">constraints</span>
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> <span style="color:#007020;font-weight:bold">constraints</span>
 <span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (s:Service) ASSERT s.serviceId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
 <span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (sc:Category) ASSERT sc.categoryId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
 <span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (r:Region) ASSERT r.regionId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
 <span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (l:<span style="color:#007020;font-weight:bold">Location</span>) ASSERT l.locationId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
 
-<span style="color:#666">/</span><span style="color:#666">/</span> <span style="color:#007020;font-weight:bold">Create</span> services
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> services
 <span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">file:data/services.csv</span><span style="color:#4070a0">&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/services.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
 <span style="color:#007020;font-weight:bold">CREATE</span> (:Service <span style="">{</span>serviceName: <span style="color:#007020;font-weight:bold">row</span>.Service, serviceId: <span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>);
 
-<span style="color:#666">/</span><span style="color:#666">/</span> <span style="color:#007020;font-weight:bold">Create</span> service categories
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> service categories
 <span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">file:data/categories.csv</span><span style="color:#4070a0">&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/categories.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
 <span style="color:#007020;font-weight:bold">CREATE</span> (:Category <span style="">{</span>categoryName: <span style="color:#007020;font-weight:bold">row</span>.Category, categoryId: <span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>);
 
-<span style="color:#666">/</span><span style="color:#666">/</span> <span style="color:#007020;font-weight:bold">Create</span> regions
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> regions
 <span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">file:data/regions.csv</span><span style="color:#4070a0">&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/regions.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
 <span style="color:#007020;font-weight:bold">CREATE</span> (:Region <span style="">{</span>regionName: <span style="color:#007020;font-weight:bold">row</span>.Region, regionId: <span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>);
 
-<span style="color:#666">/</span><span style="color:#666">/</span> <span style="color:#007020;font-weight:bold">Create</span> locations
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> locations
 <span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">file:data/locations.csv</span><span style="color:#4070a0">&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/locations.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
 <span style="color:#007020;font-weight:bold">CREATE</span> (:<span style="color:#007020;font-weight:bold">Location</span> <span style="">{</span>locationName: <span style="color:#007020;font-weight:bold">row</span>.<span style="color:#007020;font-weight:bold">Location</span>, locationId: <span style="color:#007020;font-weight:bold">row</span>.ID, countryName: <span style="color:#007020;font-weight:bold">row</span>.Country, continentName: <span style="color:#007020;font-weight:bold">row</span>.Continent<span style="">}</span>);
 
-<span style="color:#666">/</span><span style="color:#666">/</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Service <span style="color:#007020;font-weight:bold">to</span> Category
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Service <span style="color:#007020;font-weight:bold">to</span> Category
 <span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">file:data/services.csv</span><span style="color:#4070a0">&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/services.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
 <span style="color:#007020;font-weight:bold">MATCH</span> (service:Service <span style="">{</span>serviceId: <span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>)
 <span style="color:#007020;font-weight:bold">MATCH</span> (category:Category <span style="">{</span>categoryId: <span style="color:#007020;font-weight:bold">row</span>.CategoryID<span style="">}</span>)
-MERGE (service)<span style="color:#666">-</span>[:CATEGORY]<span style="color:#666">-</span><span style="color:#666">&gt;</span>(category);
+MERGE (service)<span style="color:#666">-</span>[:CATEGORY]<span style="color:#666">-&gt;</span>(category);
 
-<span style="color:#666">/</span><span style="color:#666">/</span> <span style="color:#007020;font-weight:bold">Create</span> relationship <span style="color:#007020;font-weight:bold">for</span> service <span style="color:#007020;font-weight:bold">to</span> service (parent<span style="color:#666">-</span>child)
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationship <span style="color:#007020;font-weight:bold">for</span> service <span style="color:#007020;font-weight:bold">to</span> service (parent<span style="color:#666">-</span>child)
 <span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">file:data/services.csv</span><span style="color:#4070a0">&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/services.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
 <span style="color:#007020;font-weight:bold">MATCH</span> (child:Service <span style="">{</span>serviceId: <span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>)
 <span style="color:#007020;font-weight:bold">MATCH</span> (parent:Service <span style="">{</span>serviceId: <span style="color:#007020;font-weight:bold">row</span>.ParentID<span style="">}</span>)
-MERGE (parent)<span style="color:#666">-</span>[:PARENT_OF]<span style="color:#666">-</span><span style="color:#666">&gt;</span>(child);
+MERGE (parent)<span style="color:#666">-</span>[:PARENT_OF]<span style="color:#666">-&gt;</span>(child);
 
-<span style="color:#666">/</span><span style="color:#666">/</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Region <span style="color:#007020;font-weight:bold">to</span> Service
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Region <span style="color:#007020;font-weight:bold">to</span> Service
 <span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">file:data/serviceregions.csv</span><span style="color:#4070a0">&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/serviceregions.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
 <span style="color:#007020;font-weight:bold">MATCH</span> (service:Service <span style="">{</span>serviceId: <span style="color:#007020;font-weight:bold">row</span>.ServiceID<span style="">}</span>)
 <span style="color:#007020;font-weight:bold">MATCH</span> (region:Region <span style="">{</span>regionId: <span style="color:#007020;font-weight:bold">row</span>.RegionID<span style="">}</span>)
-MERGE (region)<span style="color:#666">-</span>[:OFFERS]<span style="color:#666">-</span><span style="color:#666">&gt;</span>(service);
+MERGE (region)<span style="color:#666">-</span>[:OFFERS]<span style="color:#666">-&gt;</span>(service);
 
-<span style="color:#666">/</span><span style="color:#666">/</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Region <span style="color:#007020;font-weight:bold">to</span> <span style="color:#007020;font-weight:bold">Location</span>
+<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Region <span style="color:#007020;font-weight:bold">to</span> <span style="color:#007020;font-weight:bold">Location</span>
 <span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">file:data/regions.csv</span><span style="color:#4070a0">&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
+<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/regions.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
 <span style="color:#007020;font-weight:bold">MATCH</span> (region:Region <span style="">{</span>regionId: <span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>)
 <span style="color:#007020;font-weight:bold">MATCH</span> (<span style="color:#007020;font-weight:bold">location</span>:<span style="color:#007020;font-weight:bold">Location</span> <span style="">{</span>locationId: <span style="color:#007020;font-weight:bold">row</span>.LocationID<span style="">}</span>)
-MERGE (region)<span style="color:#666">-</span>[:LOCATED_IN]<span style="color:#666">-</span><span style="color:#666">&gt;</span>(<span style="color:#007020;font-weight:bold">location</span>);
+MERGE (region)<span style="color:#666">-</span>[:LOCATED_IN]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">location</span>);
 </code></pre></div><p>Once the script successfully executed, start Neo4j and load the web console (http://localhost:7474)</p>
 <p><strong>Some cypher queries</strong></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">/</span><span style="color:#666">/</span> Service <span style="color:#007020;font-weight:bold">and</span> categories offered <span style="color:#007020;font-weight:bold">in</span> Region <span style="color:#666">-</span>  North Europe
-<span style="color:#007020;font-weight:bold">MATCH</span> (r:Region <span style="">{</span>regionName:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">North Europe</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)<span style="color:#666">-</span>[o:OFFERS]<span style="color:#666">-</span><span style="color:#666">&gt;</span>(s:Service)<span style="color:#60a0b0;font-style:italic">--&gt;() RETURN r,o,c;
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span> Service <span style="color:#007020;font-weight:bold">and</span> categories offered <span style="color:#007020;font-weight:bold">in</span> Region <span style="color:#666">-</span>  North Europe
+<span style="color:#007020;font-weight:bold">MATCH</span> (r:Region <span style="">{</span>regionName:<span style="color:#4070a0">&#39;North Europe&#39;</span><span style="">}</span>)<span style="color:#666">-</span>[o:OFFERS]<span style="color:#666">-&gt;</span>(s:Service)<span style="color:#60a0b0;font-style:italic">--&gt;() RETURN r,o,c;
 </span></code></pre></div><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/azure_europe.png"
          alt="azure_europe" width="877" height="769"/> 
 </figure>
 
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">/</span><span style="color:#666">/</span> List Services <span style="color:#007020;font-weight:bold">with</span> Category available <span style="color:#007020;font-weight:bold">by</span> Regions
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span> List Services <span style="color:#007020;font-weight:bold">with</span> Category available <span style="color:#007020;font-weight:bold">by</span> Regions
 <span style="color:#007020;font-weight:bold">MATCH</span> (<span style="color:#007020;font-weight:bold">c</span>:Category)<span style="color:#666">&amp;</span>lt; <span style="color:#60a0b0;font-style:italic">--(s:Service)&amp;lt;--(r:Region)
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">RETURN</span> s.serviceName <span style="color:#007020;font-weight:bold">as</span> Service, <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#007020;font-weight:bold">as</span> Category,  collect(<span style="color:#007020;font-weight:bold">distinct</span> r.regionName) <span style="color:#007020;font-weight:bold">as</span> Regions
 <span style="color:#007020;font-weight:bold">ORDER</span> <span style="color:#007020;font-weight:bold">BY</span> Category, Service
@@ -242,8 +242,8 @@ MERGE (region)<span style="color:#666">-</span>[:LOCATED_IN]<span style="color:#
          alt="azure_services" width="1058" height="538"/> 
 </figure>
 
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">/</span><span style="color:#666">/</span> Regions that offer the service Machine Learning<span style="color:#666">?</span>
-<span style="color:#007020;font-weight:bold">MATCH</span> (region)<span style="color:#666">-</span>[:OFFERS]<span style="color:#666">-</span><span style="color:#666">&gt;</span>(Service <span style="">{</span>serviceName:<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Machine Learning</span><span style="color:#4070a0">&#39;</span><span style="">}</span>)
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span> Regions that offer the service Machine Learning<span style="color:#666">?</span>
+<span style="color:#007020;font-weight:bold">MATCH</span> (region)<span style="color:#666">-</span>[:OFFERS]<span style="color:#666">-&gt;</span>(Service <span style="">{</span>serviceName:<span style="color:#4070a0">&#39;Machine Learning&#39;</span><span style="">}</span>)
 <span style="color:#007020;font-weight:bold">RETURN</span> region.regionName <span style="color:#007020;font-weight:bold">as</span> Region
 </code></pre></div><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/azure_ml_cypher.png"
@@ -291,7 +291,7 @@ MERGE (region)<span style="color:#666">-</span>[:LOCATED_IN]<span style="color:#
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>

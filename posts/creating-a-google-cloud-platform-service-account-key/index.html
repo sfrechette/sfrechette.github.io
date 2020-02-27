@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
   </head>
 
   <body class=" ">
@@ -145,11 +145,11 @@
         <p>Some context&hellip; A service account is a special type of Google account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs.</p>
 <p>Lately I have been helping customers that are using <a href="https://cdap.io">CDAP</a>, an 100% open source, integrated framework that accelerates application development for data analytics. Specifically around creating and connecting to Google Cloud Storage as a source to ingest and do data preparation (a.k.a data wrangling). The following post demonstrates how to create an API key file that can be used for any type of application that requires connectivity to Google APIs.</p>
 <p>An important note. A little over a year ago, <a href="https://techcrunch.com/2018/05/16/google-acquires-cask-data-to-beef-up-its-tools-for-building-and-running-big-data-analytics/">Google acquired Cask Data</a> (creator of CDAP) &raquo; fast forward to which Google recently unveiled a cloud native data integration and ETL service called <a href="https://cloud.google.com/data-fusion/">Cloud Data Fusion</a>. More on that in future posts&hellip; ;-)</p>
-<p>Let's do this!</p>
+<p>Let&rsquo;s do this!</p>
 <h4 id="log-on-to-the-gcp-console">Log on to the GCP console</h4>
 <p>Go to the <a href="https://console.cloud.google.com">GCP console</a> and log in using your Google account</p>
 <h4 id="selecting-a-gcp-project">Selecting a GCP project</h4>
-<p>You need to select a project. If you don't have any projects then <a href="https://console.cloud.google.com/projectselector2/home/dashboard">go to the project selector page</a> to create one - For this demonstration I have created and using a specific project named <code>cdap-gcs</code>.</p>
+<p>You need to select a project. If you don&rsquo;t have any projects then <a href="https://console.cloud.google.com/projectselector2/home/dashboard">go to the project selector page</a> to create one - For this demonstration I have created and using a specific project named <code>cdap-gcs</code>.</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/sak-01.jpg"
          alt="sak-01"/> 
@@ -203,19 +203,19 @@
 </figure>
 
 <h4 id="using-the-gcloud-command">Using the gcloud command</h4>
-<p>Now let's see how you would do the same thing, but from the command line interface using gcloud commands.</p>
-<p>First let's make sure you are setting and using to the right project. In this demonstration I am setting it to the <code>cdap-gcs</code> project I already created.</p>
+<p>Now let&rsquo;s see how you would do the same thing, but from the command line interface using gcloud commands.</p>
+<p>First let&rsquo;s make sure you are setting and using to the right project. In this demonstration I am setting it to the <code>cdap-gcs</code> project I already created.</p>
 <p><em>Reference: <a href="https://cloud.google.com/sdk/gcloud/reference/config/set">https://cloud.google.com/sdk/gcloud/reference/config/set</a></em></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcloud config <span style="color:#007020">set</span> project cdap-gcs
 </code></pre></div><p>Next you create a service account named <code>cdap-gcs</code>.</p>
 <p><em>Reference: <a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts">https://cloud.google.com/iam/docs/creating-managing-service-accounts</a></em></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcloud beta iam service-accounts create cdap-gcs <span style="color:#4070a0;font-weight:bold">\
 </span><span style="color:#4070a0;font-weight:bold"></span>    --display-name <span style="color:#4070a0">&#34;cdap-gcs&#34;</span>
-</code></pre></div><p>Then create a service account key, in this demonstration named <code>key.json</code> using the IAM service account you just created <a href="mailto:%60%60%60cdap-gcs@cdap-gcs.iam.gserviceaccount.com">```cdap-gcs@cdap-gcs.iam.gserviceaccount.com</a>```.</p>
+</code></pre></div><p>Then create a service account key, in this demonstration named <code>key.json</code> using the IAM service account you just created <code>cdap-gcs@cdap-gcs.iam.gserviceaccount.com</code>.</p>
 <p><em>Reference: <a href="https://cloud.google.com/sdk/gcloud/reference/iam/service-accounts/keys/create">https://cloud.google.com/sdk/gcloud/reference/iam/service-accounts/keys/create</a></em></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcloud beta iam service-accounts keys create ~/key.json <span style="color:#4070a0;font-weight:bold">\
 </span><span style="color:#4070a0;font-weight:bold"></span>  --iam-account cdap-gcs@cdap-gcs.iam.gserviceaccount.com
-</code></pre></div><p>And finally you add an IAM policy binding with the <code>roles/storage.admin</code> role to the service account member.   <a href="mailto:%60%60%60cdap-gcs@cdap-gcs.iam.gserviceaccount.com">```cdap-gcs@cdap-gcs.iam.gserviceaccount.com</a>```</p>
+</code></pre></div><p>And finally you add an IAM policy binding with the <code>roles/storage.admin</code> role to the service account member.   <code>cdap-gcs@cdap-gcs.iam.gserviceaccount.com</code></p>
 <p><em>Reference: <a href="https://cloud.google.com/sdk/gcloud/reference/beta/projects/add-iam-policy-binding">https://cloud.google.com/sdk/gcloud/reference/beta/projects/add-iam-policy-binding</a></em></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gcloud beta projects add-iam-policy-binding cdap-gcs <span style="color:#4070a0;font-weight:bold">\
 </span><span style="color:#4070a0;font-weight:bold"></span>  --member serviceAccount:cdap-gcs@cdap-gcs.iam.gserviceaccount.com <span style="color:#4070a0;font-weight:bold">\
@@ -226,7 +226,7 @@
          alt="sak-08"/> 
 </figure>
 
-<p>That's it! You've just created a GCP service account key.<br>
+<p>That&rsquo;s it! You&rsquo;ve just created a GCP service account key.<br>
 Enjoy!</p>
 
       </div>
@@ -266,7 +266,7 @@ Enjoy!</p>
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>

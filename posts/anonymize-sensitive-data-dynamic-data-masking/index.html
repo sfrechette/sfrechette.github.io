@@ -57,7 +57,7 @@ Note: DDM is also available in Azure SQL Database see the following link for det
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
   </head>
 
   <body class=" ">
@@ -157,19 +157,19 @@ This example creates a table with three different types of dynamic data masks, i
 <span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">table</span> dbo.Customer
 (
 	CustomerID	<span style="color:#007020">int</span> <span style="color:#007020;font-weight:bold">identity</span> <span style="color:#007020;font-weight:bold">primary</span> <span style="color:#007020;font-weight:bold">key</span>, 
-	FirstName	nvarchar(<span style="color:#40a070">100</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">partial(1, &#34;XXXXXXX&#34;, 0)</span><span style="color:#4070a0">&#39;</span>) <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>,
+	FirstName	nvarchar(<span style="color:#40a070">100</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;partial(1, &#34;XXXXXXX&#34;, 0)&#39;</span>) <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>,
 	LastName	nvarchar(<span style="color:#40a070">100</span>) <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>, 
-	CreditCard	nvarchar(<span style="color:#40a070">19</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">partial(0, &#34;XXXX-XXXX-XXXX-&#34;, 4)</span><span style="color:#4070a0">&#39;</span>) <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>,
-	Mobile		nvarchar(<span style="color:#40a070">12</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">default()</span><span style="color:#4070a0">&#39;</span>) <span style="color:#007020;font-weight:bold">null</span>,
-	Email		nvarchar(<span style="color:#40a070">100</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">email()</span><span style="color:#4070a0">&#39;</span>) <span style="color:#007020;font-weight:bold">null</span>,
-	DateOfBirth	<span style="color:#007020">date</span> masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">default()</span><span style="color:#4070a0">&#39;</span>) <span style="color:#007020;font-weight:bold">null</span>
+	CreditCard	nvarchar(<span style="color:#40a070">19</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;partial(0, &#34;XXXX-XXXX-XXXX-&#34;, 4)&#39;</span>) <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">null</span>,
+	Mobile		nvarchar(<span style="color:#40a070">12</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;default()&#39;</span>) <span style="color:#007020;font-weight:bold">null</span>,
+	Email		nvarchar(<span style="color:#40a070">100</span>) masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;email()&#39;</span>) <span style="color:#007020;font-weight:bold">null</span>,
+	DateOfBirth	<span style="color:#007020">date</span> masked <span style="color:#007020;font-weight:bold">with</span> (<span style="color:#007020;font-weight:bold">function</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;default()&#39;</span>) <span style="color:#007020;font-weight:bold">null</span>
 );
 
 <span style="color:#007020;font-weight:bold">insert</span> <span style="color:#007020;font-weight:bold">into</span> dbo.Customer (FirstName, LastName, CreditCard, Mobile, Email, DateOfBirth)
 	<span style="color:#007020;font-weight:bold">values</span> 
-	(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">John</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Maskeroo</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">0123-4567-8901-2345</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">222.343.4343</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">jmaskeroo@zcustomer.com</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">03/07/1965</span><span style="color:#4070a0">&#39;</span>),
-	(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Tomas</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Lambdafoo</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">4444-4444-4444-4444</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">666.222.1111</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">tlambdafoo@zcustomer.com</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">10/02/1971</span><span style="color:#4070a0">&#39;</span>),
-	(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Martha</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Backatyoo</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">9999-0000-9999-0000</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">888.555.9999</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">mbackatyoo@zcustomer.com</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">05/05/1968</span><span style="color:#4070a0">&#39;</span>);
+	(<span style="color:#4070a0">&#39;John&#39;</span>, <span style="color:#4070a0">&#39;Maskeroo&#39;</span>, <span style="color:#4070a0">&#39;0123-4567-8901-2345&#39;</span>, <span style="color:#4070a0">&#39;222.343.4343&#39;</span>, <span style="color:#4070a0">&#39;jmaskeroo@zcustomer.com&#39;</span>, <span style="color:#4070a0">&#39;03/07/1965&#39;</span>),
+	(<span style="color:#4070a0">&#39;Tomas&#39;</span>, <span style="color:#4070a0">&#39;Lambdafoo&#39;</span>, <span style="color:#4070a0">&#39;4444-4444-4444-4444&#39;</span>, <span style="color:#4070a0">&#39;666.222.1111&#39;</span>, <span style="color:#4070a0">&#39;tlambdafoo@zcustomer.com&#39;</span>, <span style="color:#4070a0">&#39;10/02/1971&#39;</span>),
+	(<span style="color:#4070a0">&#39;Martha&#39;</span>, <span style="color:#4070a0">&#39;Backatyoo&#39;</span>, <span style="color:#4070a0">&#39;9999-0000-9999-0000&#39;</span>, <span style="color:#4070a0">&#39;888.555.9999&#39;</span>, <span style="color:#4070a0">&#39;mbackatyoo@zcustomer.com&#39;</span>, <span style="color:#4070a0">&#39;05/05/1968&#39;</span>);
 
 <span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> dbo.Customer;
 </code></pre></div><p>query output:<br>
@@ -182,7 +182,7 @@ This example creates a table with three different types of dynamic data masks, i
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">user</span> testuser <span style="color:#007020;font-weight:bold">without</span> login;
 <span style="color:#007020;font-weight:bold">grant</span> <span style="color:#007020;font-weight:bold">select</span> <span style="color:#007020;font-weight:bold">on</span> dbo.Customer <span style="color:#007020;font-weight:bold">to</span> testuser;
 
-<span style="color:#007020;font-weight:bold">execute</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">user</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">testuser</span><span style="color:#4070a0">&#39;</span>;
+<span style="color:#007020;font-weight:bold">execute</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">user</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;testuser&#39;</span>;
 <span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> dbo.Customer;
 revert;
 </code></pre></div><p>As you can see the testuser database user is unable to see the real data values for each of the columns that have been masked<br>
@@ -197,7 +197,7 @@ query output:<br>
 <span style="color:#007020;font-weight:bold">grant</span> <span style="color:#007020;font-weight:bold">select</span> <span style="color:#007020;font-weight:bold">on</span> dbo.Customer <span style="color:#007020;font-weight:bold">to</span> testadmin;
 <span style="color:#007020;font-weight:bold">grant</span> unmask <span style="color:#007020;font-weight:bold">to</span> testadmin;
 
-<span style="color:#007020;font-weight:bold">execute</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">user</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">testadmin</span><span style="color:#4070a0">&#39;</span>;
+<span style="color:#007020;font-weight:bold">execute</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">user</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;testadmin&#39;</span>;
 <span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> dbo.Customer;
 revert;
 </code></pre></div><p>The output shows all columns of data in clear text, even the ones that have been masked by rule definition<br>
@@ -249,7 +249,7 @@ DDM is not a replacement for security access control mechanisms, nor is it a met
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>

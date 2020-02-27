@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
   </head>
 
   <body class=" ">
@@ -232,7 +232,7 @@ I am on macOS, all works in Windows, just don’t forget to change the file path
 <p><strong>Create a container</strong></p>
 <p><!-- raw HTML omitted -->az storage container<!-- raw HTML omitted -->. The following commands creates a resource group <em>citibiketripdata_rg</em>, a storage account <em>citibiketripdata</em>, and a container <em>citibike-tripdata</em>:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#60a0b0;font-style:italic"># Create a resource group</span>
-az group create --name citibiketripdata_rg --location eastus
+az <span style="color:#007020">group </span>create --name citibiketripdata_rg --location eastus
 
 <span style="color:#60a0b0;font-style:italic"># Create a storage account</span>
 az storage account create \
@@ -254,7 +254,7 @@ az storage container create --name citibike-tripdata
 
 <span style="color:#60a0b0;font-style:italic"># Create a storage account</span>
 <span style="color:#bb60d5">$storageAccount</span> = <span style="color:#007020">New-AzureRmStorageAccount</span> -ResourceGroupName citibiketripdata_rg `
-  -Name <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">citibiketripdata</span><span style="color:#4070a0">&#34;</span> `
+  -Name <span style="color:#4070a0">&#34;citibiketripdata&#34;</span> `
   -Location eastus `
   -SkuName Standard_LRS `
   -Kind Storage `
@@ -263,15 +263,15 @@ az storage container create --name citibike-tripdata
 <span style="color:#bb60d5">$ctx</span> = <span style="color:#bb60d5">$storageAccount</span>.Context
 
 <span style="color:#60a0b0;font-style:italic"># Create a container</span>
-<span style="color:#007020">New-AzureStorageContainer</span> -Name <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">citibike-tripdata</span><span style="color:#4070a0">&#34;</span> -Context <span style="color:#bb60d5">$ctx</span> -Permission Off
+<span style="color:#007020">New-AzureStorageContainer</span> -Name <span style="color:#4070a0">&#34;citibike-tripdata&#34;</span> -Context <span style="color:#bb60d5">$ctx</span> -Permission Off
 </code></pre></div><p><strong>Copy object(s)</strong></p>
 <p><!-- raw HTML omitted -->az storage blob upload-batch<!-- raw HTML omitted -->. The following command uploads files from a local directory <em>/data/citibike/</em> to a blob container <em>citibike-tripdata</em> with gzip content-encoding</p>
 <p><code>az storage blob upload-batch --destination citibike-tripdata \ --source /data/citibike/ \ --content-encoding gzip</code></p>
 <p>The <!-- raw HTML omitted -->Set-AzureStorageBlobContent<!-- raw HTML omitted --> does the job, however it does not keep and copy the folder structure from our local source. So here is a PowerShell script that does exactly what we need:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#bb60d5">$StorageAccountName</span> = <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">citibiketripdata</span><span style="color:#4070a0">&#34;</span>
-<span style="color:#bb60d5">$StorageAccountKey</span> = <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">PUT_YOUR_ACCESS_KEY_HERE</span><span style="color:#4070a0">&#34;</span>
-<span style="color:#bb60d5">$ContainerName</span> = <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">citibike-tripdata</span><span style="color:#4070a0">&#34;</span>
-<span style="color:#bb60d5">$sourceFileRootDirectory</span> = <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">C:\data\citibike</span><span style="color:#4070a0">&#34;</span>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#bb60d5">$StorageAccountName</span> = <span style="color:#4070a0">&#34;citibiketripdata&#34;</span>
+<span style="color:#bb60d5">$StorageAccountKey</span> = <span style="color:#4070a0">&#34;PUT_YOUR_ACCESS_KEY_HERE&#34;</span>
+<span style="color:#bb60d5">$ContainerName</span> = <span style="color:#4070a0">&#34;citibike-tripdata&#34;</span>
+<span style="color:#bb60d5">$sourceFileRootDirectory</span> = <span style="color:#4070a0">&#34;C:\data\citibike&#34;</span>
  
 <span style="color:#007020;font-weight:bold">function</span> UploadFilesToAzureStorageContainer {
     [<span style="color:#007020;font-weight:bold">cmdletbinding</span>()]
@@ -291,10 +291,10 @@ az storage container create --name citibike-tripdata
         <span style="color:#bb60d5">$filesToUpload</span> = <span style="color:#007020">Get-ChildItem</span> <span style="color:#bb60d5">$sourceFileRootDirectory</span> -Recurse <span style="color:#666">-File</span>
  
         <span style="color:#007020;font-weight:bold">foreach</span> (<span style="color:#bb60d5">$x</span> <span style="color:#007020;font-weight:bold">in</span> <span style="color:#bb60d5">$filesToUpload</span>) {
-            <span style="color:#bb60d5">$targetPath</span> = (<span style="color:#bb60d5">$x</span>.fullname.Substring(<span style="color:#bb60d5">$sourceFileRootDirectory</span>.Length + 1)).Replace(<span style="color:#4070a0">&#34;</span><span style="color:#4070a0">\</span><span style="color:#4070a0">&#34;</span>, <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">/</span><span style="color:#4070a0">&#34;</span>)
+            <span style="color:#bb60d5">$targetPath</span> = (<span style="color:#bb60d5">$x</span>.fullname.Substring(<span style="color:#bb60d5">$sourceFileRootDirectory</span>.Length + 1)).Replace(<span style="color:#4070a0">&#34;\&#34;</span>, <span style="color:#4070a0">&#34;/&#34;</span>)
  
-            <span style="color:#007020">Write-Verbose</span> <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">Uploading </span>$(<span style="color:#4070a0">&#34;</span><span style="color:#4070a0">\</span><span style="color:#4070a0">&#34;</span> + <span style="color:#bb60d5">$x</span>.fullname.Substring(<span style="color:#bb60d5">$sourceFileRootDirectory</span>.Length + 1))<span style="color:#4070a0"> to </span>$(<span style="color:#bb60d5">$container</span>.CloudBlobContainer.Uri.AbsoluteUri + <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">/</span><span style="color:#4070a0">&#34;</span> + <span style="color:#bb60d5">$targetPath</span>)<span style="color:#4070a0">&#34;</span>
-            <span style="color:#007020">Set-AzureStorageBlobContent</span> <span style="color:#666">-File</span> <span style="color:#bb60d5">$x</span>.fullname -Container <span style="color:#bb60d5">$container</span>.Name -Blob <span style="color:#bb60d5">$targetPath</span> -Context <span style="color:#bb60d5">$ctx</span> -Properties @{<span style="color:#4070a0">&#34;</span><span style="color:#4070a0">ContentEncoding</span><span style="color:#4070a0">&#34;</span> = <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">gzip</span><span style="color:#4070a0">&#34;</span>} -Force<span style="">:</span><span style="color:#bb60d5">$Force</span> | <span style="color:#007020">Out-Null</span>
+            <span style="color:#007020">Write-Verbose</span> <span style="color:#4070a0">&#34;Uploading </span>$(<span style="color:#4070a0">&#34;\&#34;</span> + <span style="color:#bb60d5">$x</span>.fullname.Substring(<span style="color:#bb60d5">$sourceFileRootDirectory</span>.Length + 1))<span style="color:#4070a0"> to </span>$(<span style="color:#bb60d5">$container</span>.CloudBlobContainer.Uri.AbsoluteUri + <span style="color:#4070a0">&#34;/&#34;</span> + <span style="color:#bb60d5">$targetPath</span>)<span style="color:#4070a0">&#34;</span>
+            <span style="color:#007020">Set-AzureStorageBlobContent</span> <span style="color:#666">-File</span> <span style="color:#bb60d5">$x</span>.fullname -Container <span style="color:#bb60d5">$container</span>.Name -Blob <span style="color:#bb60d5">$targetPath</span> -Context <span style="color:#bb60d5">$ctx</span> -Properties @{<span style="color:#4070a0">&#34;ContentEncoding&#34;</span> = <span style="color:#4070a0">&#34;gzip&#34;</span>} -Force<span style="">:</span><span style="color:#bb60d5">$Force</span> | <span style="color:#007020">Out-Null</span>
         }
     }
 }
@@ -357,7 +357,7 @@ Enjoy!</p>
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>

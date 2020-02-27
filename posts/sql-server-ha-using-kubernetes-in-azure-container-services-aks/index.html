@@ -55,7 +55,7 @@ Enters Azure Container Service (AKS)which manages your hosted Kubernetes environ
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
   </head>
 
   <body class=" ">
@@ -246,27 +246,27 @@ Create a manifest to define the storage class and the persistent volume claim. T
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">kind:<span style="color:#bbb"> </span>StorageClass<span style="color:#bbb">
-</span><span style="color:#bbb"></span>apiVersion:<span style="color:#bbb"> </span>storage.k8s.io/v1beta1<span style="color:#bbb">
-</span><span style="color:#bbb"></span>metadata:<span style="color:#bbb">
-</span><span style="color:#bbb">     </span>name:<span style="color:#bbb"> </span>azure-disk<span style="color:#bbb">
-</span><span style="color:#bbb"></span>provisioner:<span style="color:#bbb"> </span>kubernetes.io/azure-disk<span style="color:#bbb">
-</span><span style="color:#bbb"></span>parameters:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>storageaccounttype:<span style="color:#bbb"> </span>Standard_LRS<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>kind:<span style="color:#bbb"> </span>Managed<span style="color:#bbb">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#007020;font-weight:bold">kind</span>:<span style="color:#bbb"> </span>StorageClass<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">apiVersion</span>:<span style="color:#bbb"> </span>storage.k8s.io/v1beta1<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">metadata</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">     </span><span style="color:#007020;font-weight:bold">name</span>:<span style="color:#bbb"> </span>azure-disk<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">provisioner</span>:<span style="color:#bbb"> </span>kubernetes.io/azure-disk<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">parameters</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">storageaccounttype</span>:<span style="color:#bbb"> </span>Standard_LRS<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">kind</span>:<span style="color:#bbb"> </span>Managed<span style="color:#bbb">
 </span><span style="color:#bbb"></span>---<span style="color:#bbb">
-</span><span style="color:#bbb"></span>kind:<span style="color:#bbb"> </span>PersistentVolumeClaim<span style="color:#bbb">
-</span><span style="color:#bbb"></span>apiVersion:<span style="color:#bbb"> </span>v1<span style="color:#bbb">
-</span><span style="color:#bbb"></span>metadata:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>name:<span style="color:#bbb"> </span>mssql-data<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>annotations:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>volume.beta.kubernetes.io/storage-class:<span style="color:#bbb"> </span>azure-disk<span style="color:#bbb">
-</span><span style="color:#bbb"></span>spec:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>accessModes:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>ReadWriteOnce<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>resources:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>requests:<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>storage:<span style="color:#bbb"> </span>8Gi</code></pre></td></tr></table>
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">kind</span>:<span style="color:#bbb"> </span>PersistentVolumeClaim<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">apiVersion</span>:<span style="color:#bbb"> </span>v1<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">metadata</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">name</span>:<span style="color:#bbb"> </span>mssql-data<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">annotations</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#007020;font-weight:bold">volume.beta.kubernetes.io/storage-class</span>:<span style="color:#bbb"> </span>azure-disk<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">spec</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">accessModes</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>- ReadWriteOnce<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">resources</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#007020;font-weight:bold">requests</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#007020;font-weight:bold">storage</span>:<span style="color:#bbb"> </span>8Gi</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -347,52 +347,52 @@ Create a manifest to define the storage class and the persistent volume claim. T
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">//<span style="color:#bbb">
-</span><span style="color:#bbb"></span>apiVersion:<span style="color:#bbb"> </span>apps/v1beta1<span style="color:#bbb">
-</span><span style="color:#bbb"></span>kind:<span style="color:#bbb"> </span>Deployment<span style="color:#bbb">
-</span><span style="color:#bbb"></span>metadata:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>name:<span style="color:#bbb"> </span>mssql-deployment<span style="color:#bbb">
-</span><span style="color:#bbb"></span>spec:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>replicas:<span style="color:#bbb"> </span><span style="color:#40a070">1</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>template:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>metadata:<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>labels:<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>app:<span style="color:#bbb"> </span>mssql<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>spec:<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>terminationGracePeriodSeconds:<span style="color:#bbb"> </span><span style="color:#40a070">10</span><span style="color:#bbb">
-</span><span style="color:#bbb">      </span>containers:<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>mssql<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>image:<span style="color:#bbb"> </span>microsoft/mssql-server-linux:<span style="color:#40a070">2017</span>-latest<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>ports:<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>-<span style="color:#bbb"> </span>containerPort:<span style="color:#bbb"> </span><span style="color:#40a070">1433</span><span style="color:#bbb">
-</span><span style="color:#bbb">        </span>env:<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>ACCEPT_EULA<span style="color:#bbb">
-</span><span style="color:#bbb">          </span>value:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Y&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">        </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>SA_PASSWORD<span style="color:#bbb">
-</span><span style="color:#bbb">          </span>valueFrom:<span style="color:#bbb">
-</span><span style="color:#bbb">            </span>secretKeyRef:<span style="color:#bbb">
-</span><span style="color:#bbb">              </span>name:<span style="color:#bbb"> </span>mssql<span style="color:#bbb">
-</span><span style="color:#bbb">              </span>key:<span style="color:#bbb"> </span>SA_PASSWORD<span style="color:#bbb"> 
-</span><span style="color:#bbb">        </span>volumeMounts:<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>mssqldb<span style="color:#bbb">
-</span><span style="color:#bbb">          </span>mountPath:<span style="color:#bbb"> </span>/var/opt/mssql<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>volumes:<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>mssqldb<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>persistentVolumeClaim:<span style="color:#bbb">
-</span><span style="color:#bbb">          </span>claimName:<span style="color:#bbb"> </span>mssql-data<span style="color:#bbb">
-</span><span style="color:#bbb"></span>--<span style="color:#4070a0;font-style:italic">-
-</span><span style="color:#4070a0;font-style:italic"></span><span style="color:#4070a0;font-style:italic">
-</span><span style="color:#4070a0;font-style:italic"></span><span style="color:#4070a0;font-style:italic">apiVersion: v1</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>kind:<span style="color:#bbb"> </span>Service<span style="color:#bbb">
-</span><span style="color:#bbb"></span>metadata:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>name:<span style="color:#bbb"> </span>mssql-deployment<span style="color:#bbb">
-</span><span style="color:#bbb"></span>spec:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>selector:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>app:<span style="color:#bbb"> </span>mssql<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>ports:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>protocol:<span style="color:#bbb"> </span>TCP<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>port:<span style="color:#bbb"> </span><span style="color:#40a070">1433</span><span style="color:#bbb">
-</span><span style="color:#bbb">      </span>targetPort:<span style="color:#bbb"> </span><span style="color:#40a070">1433</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>type:<span style="color:#bbb"> </span>LoadBalancer</code></pre></td></tr></table>
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">apiVersion</span>:<span style="color:#bbb"> </span>apps/v1beta1<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">kind</span>:<span style="color:#bbb"> </span>Deployment<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">metadata</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">name</span>:<span style="color:#bbb"> </span>mssql-deployment<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">spec</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">replicas</span>:<span style="color:#bbb"> </span><span style="color:#40a070">1</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">template</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#007020;font-weight:bold">metadata</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#007020;font-weight:bold">labels</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#007020;font-weight:bold">app</span>:<span style="color:#bbb"> </span>mssql<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#007020;font-weight:bold">spec</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#007020;font-weight:bold">terminationGracePeriodSeconds</span>:<span style="color:#bbb"> </span><span style="color:#40a070">10</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#007020;font-weight:bold">containers</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>- <span style="color:#007020;font-weight:bold">name</span>:<span style="color:#bbb"> </span>mssql<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#007020;font-weight:bold">image</span>:<span style="color:#bbb"> </span>microsoft/mssql-server-linux:<span style="color:#40a070">2017</span>-latest<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#007020;font-weight:bold">ports</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>- <span style="color:#007020;font-weight:bold">containerPort</span>:<span style="color:#bbb"> </span><span style="color:#40a070">1433</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#007020;font-weight:bold">env</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>- <span style="color:#007020;font-weight:bold">name</span>:<span style="color:#bbb"> </span>ACCEPT_EULA<span style="color:#bbb">
+</span><span style="color:#bbb">          </span><span style="color:#007020;font-weight:bold">value</span>:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Y&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span>- <span style="color:#007020;font-weight:bold">name</span>:<span style="color:#bbb"> </span>SA_PASSWORD<span style="color:#bbb">
+</span><span style="color:#bbb">          </span><span style="color:#007020;font-weight:bold">valueFrom</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">            </span><span style="color:#007020;font-weight:bold">secretKeyRef</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">              </span><span style="color:#007020;font-weight:bold">name</span>:<span style="color:#bbb"> </span>mssql<span style="color:#bbb">
+</span><span style="color:#bbb">              </span><span style="color:#007020;font-weight:bold">key</span>:<span style="color:#bbb"> </span>SA_PASSWORD<span style="color:#bbb"> 
+</span><span style="color:#bbb">        </span><span style="color:#007020;font-weight:bold">volumeMounts</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>- <span style="color:#007020;font-weight:bold">name</span>:<span style="color:#bbb"> </span>mssqldb<span style="color:#bbb">
+</span><span style="color:#bbb">          </span><span style="color:#007020;font-weight:bold">mountPath</span>:<span style="color:#bbb"> </span>/var/opt/mssql<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#007020;font-weight:bold">volumes</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>- <span style="color:#007020;font-weight:bold">name</span>:<span style="color:#bbb"> </span>mssqldb<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#007020;font-weight:bold">persistentVolumeClaim</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">          </span><span style="color:#007020;font-weight:bold">claimName</span>:<span style="color:#bbb"> </span>mssql-data<span style="color:#bbb">
+</span><span style="color:#bbb"></span>---<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">apiVersion</span>:<span style="color:#bbb"> </span>v1<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">kind</span>:<span style="color:#bbb"> </span>Service<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">metadata</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">name</span>:<span style="color:#bbb"> </span>mssql-deployment<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">spec</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">selector</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#007020;font-weight:bold">app</span>:<span style="color:#bbb"> </span>mssql<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">ports</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#007020;font-weight:bold">protocol</span>:<span style="color:#bbb"> </span>TCP<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#007020;font-weight:bold">port</span>:<span style="color:#bbb"> </span><span style="color:#40a070">1433</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#007020;font-weight:bold">targetPort</span>:<span style="color:#bbb"> </span><span style="color:#40a070">1433</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">type</span>:<span style="color:#bbb"> </span>LoadBalancer</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -490,7 +490,7 @@ Enjoy!</p>
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>

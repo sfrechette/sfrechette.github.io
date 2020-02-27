@@ -55,7 +55,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
   </head>
 
   <body class=" ">
@@ -283,22 +283,22 @@ psql -U postgres -d nyc_data -c <span style="color:#4070a0">&#34;\COPY rides FRO
     <img src="https://stephanefrechette.dev/images/legacy-post/tsdb17.png" width="1082" height="347"/> 
 </figure>
 
-<p>We are now ready to issue some queries. Let's connect to our database by issuing the following command:<br>
+<p>We are now ready to issue some queries. Let&rsquo;s connect to our database by issuing the following command:<br>
 <code>psql -U postgres -d nyc_data</code></p>
 <p>Our first query which TimescaleDB handles better than vanilla PostgreSQL is the following</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Average fare amount of rides with 2+ passengers by day
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">SELECT</span> date_trunc(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">day</span><span style="color:#4070a0">&#39;</span>, pickup_datetime) <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">day</span>, <span style="color:#007020;font-weight:bold">avg</span>(fare_amount)
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">SELECT</span> date_trunc(<span style="color:#4070a0">&#39;day&#39;</span>, pickup_datetime) <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">day</span>, <span style="color:#007020;font-weight:bold">avg</span>(fare_amount)
   <span style="color:#007020;font-weight:bold">FROM</span> rides
-  <span style="color:#007020;font-weight:bold">WHERE</span> passenger_count <span style="color:#666">&gt;</span> <span style="color:#40a070">1</span> <span style="color:#007020;font-weight:bold">AND</span> pickup_datetime <span style="color:#666">&amp;</span>lt; <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2016-01-08</span><span style="color:#4070a0">&#39;</span>
+  <span style="color:#007020;font-weight:bold">WHERE</span> passenger_count <span style="color:#666">&gt;</span> <span style="color:#40a070">1</span> <span style="color:#007020;font-weight:bold">AND</span> pickup_datetime <span style="color:#666">&amp;</span>lt; <span style="color:#4070a0">&#39;2016-01-08&#39;</span>
   <span style="color:#007020;font-weight:bold">GROUP</span> <span style="color:#007020;font-weight:bold">BY</span> <span style="color:#007020;font-weight:bold">day</span> <span style="color:#007020;font-weight:bold">ORDER</span> <span style="color:#007020;font-weight:bold">BY</span> <span style="color:#007020;font-weight:bold">day</span>;
 </code></pre></div><p>The output should look similar to the following</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/tsdb18.png" width="1074" height="379"/> 
 </figure>
 
-<p>Some queries will execute over 20x faster on TimescaleDB than on vanilla PostgreSQL. Here's one example</p>
+<p>Some queries will execute over 20x faster on TimescaleDB than on vanilla PostgreSQL. Here&rsquo;s one example</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Total number of rides by day for first 5 days
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">SELECT</span> date_trunc(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">day</span><span style="color:#4070a0">&#39;</span>, pickup_datetime) <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">day</span>, <span style="color:#007020;font-weight:bold">COUNT</span>(<span style="color:#666">*</span>) <span style="color:#007020;font-weight:bold">FROM</span> rides
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">SELECT</span> date_trunc(<span style="color:#4070a0">&#39;day&#39;</span>, pickup_datetime) <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">day</span>, <span style="color:#007020;font-weight:bold">COUNT</span>(<span style="color:#666">*</span>) <span style="color:#007020;font-weight:bold">FROM</span> rides
   <span style="color:#007020;font-weight:bold">GROUP</span> <span style="color:#007020;font-weight:bold">BY</span> <span style="color:#007020;font-weight:bold">day</span> <span style="color:#007020;font-weight:bold">ORDER</span> <span style="color:#007020;font-weight:bold">BY</span> <span style="color:#007020;font-weight:bold">day</span>
   <span style="color:#007020;font-weight:bold">LIMIT</span> <span style="color:#40a070">5</span>;
 </code></pre></div><p>The output should look similar to the following</p>
@@ -351,7 +351,7 @@ Github -&gt; <!-- raw HTML omitted --><a href="https://github.com/timescale/time
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>

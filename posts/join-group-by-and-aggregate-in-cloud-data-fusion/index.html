@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
   </head>
 
   <body class=" ">
@@ -191,7 +191,7 @@ You now need to Active Cloud Shell, In GCP console, on the top right toolbar, cl
 </figure>
 </p>
 <p>You need to issue the following commands to copy the required sample files and structure to your GCS bucket. Replace <strong>[BUCKET_NAME]</strong> with the name of the bucket you created earlier.</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gsutil cp gs://flights-analysis-sample-data/input/airlines.csv gs://<span style="color:#666">[</span>BUCKET_NAME<span style="color:#666">]</span><span style="color:#666">]</span>/input/
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gsutil cp gs://flights-analysis-sample-data/input/airlines.csv gs://<span style="color:#666">[</span>BUCKET_NAME<span style="color:#666">]]</span>/input/
 gsutil cp gs://flights-analysis-sample-data/input/flights_small.csv gs://<span style="color:#666">[</span>BUCKET_NAME<span style="color:#666">]</span>/input/
 </code></pre></div><p>The output is similar to the following:
 <figure>
@@ -272,7 +272,7 @@ This might take a while to complete.
 </p>
 </li>
 <li>
-<p>The GCS Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;GCS - Flights Data&rdquo;, then input the following value for <em>Reference Name</em> <strong>(2)</strong>: &ldquo;gcs_flights_data&rdquo;, provide the <em>Path</em> <strong>(3)</strong> to the GCS Bucket you have created earlier, where you have stored the flight_small.csv file. For the purpose of this exercise I have include mine, make sure to supply your appropriate path (if you input what is provided in this image, the validation won't succeed). Click <em>Validate</em> <strong>(4)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(5)</strong> to close/save the GSC properties.
+<p>The GCS Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;GCS - Flights Data&rdquo;, then input the following value for <em>Reference Name</em> <strong>(2)</strong>: &ldquo;gcs_flights_data&rdquo;, provide the <em>Path</em> <strong>(3)</strong> to the GCS Bucket you have created earlier, where you have stored the flight_small.csv file. For the purpose of this exercise I have include mine, make sure to supply your appropriate path (if you input what is provided in this image, the validation won&rsquo;t succeed). Click <em>Validate</em> <strong>(4)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(5)</strong> to close/save the GSC properties.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-08.png"
          alt="datafusion-08"/> 
@@ -336,7 +336,7 @@ This might take a while to complete.
 </p>
 </li>
 <li>
-<p>Now let's add the arlines.csv dataset. Start by selecting or make sure you are in <em>Source</em> <strong>(1)</strong> view , click <em>GCS</em> <strong>(2)</strong> source - this will add an other GCS source on the canvas, then click <em>Properties</em> <strong>(3)</strong> from the GCS Source to continue.
+<p>Now let&rsquo;s add the arlines.csv dataset. Start by selecting or make sure you are in <em>Source</em> <strong>(1)</strong> view , click <em>GCS</em> <strong>(2)</strong> source - this will add an other GCS source on the canvas, then click <em>Properties</em> <strong>(3)</strong> from the GCS Source to continue.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-16.png"
          alt="datafusion-16"/> 
@@ -344,7 +344,7 @@ This might take a while to complete.
 </p>
 </li>
 <li>
-<p>The GCS Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;GCS - Airlines Data&rdquo;, then input the following value for <em>Reference Name</em> <strong>(2)</strong>: &ldquo;gcs_airlines_data&rdquo;, provide the <em>Path</em> <strong>(3)</strong> to the GCS Bucket you have created earlier, where you have stored the airlines.csv file. For the purpose of this exercise I have include mine, make sure to supply your appropriate path (if you input what is provided in this image, the validation won't succeed). Click <em>Validate</em> <strong>(4)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(5)</strong> to close/save the GSC properties.
+<p>The GCS Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;GCS - Airlines Data&rdquo;, then input the following value for <em>Reference Name</em> <strong>(2)</strong>: &ldquo;gcs_airlines_data&rdquo;, provide the <em>Path</em> <strong>(3)</strong> to the GCS Bucket you have created earlier, where you have stored the airlines.csv file. For the purpose of this exercise I have include mine, make sure to supply your appropriate path (if you input what is provided in this image, the validation won&rsquo;t succeed). Click <em>Validate</em> <strong>(4)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(5)</strong> to close/save the GSC properties.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-17.png"
          alt="datafusion-17"/> 
@@ -440,7 +440,7 @@ This might take a while to complete.
 </p>
 </li>
 <li>
-<p>The GCS Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;GCS - Flight Count&rdquo;, then input the following value for <em>Reference Name</em> <strong>(2)</strong>: &ldquo;gcs_flight_count&rdquo;, provide the <em>Path</em> <strong>(3)</strong> to the GCS Bucket for output you have created earlier. For the purpose of this exercise I have include mine, make sure to supply your appropriate path (if you input what is provided in this image, the validation won't succeed), select &ldquo;csv&rdquo; for the <em>Format</em> <strong>(4)</strong> of the output file, click <em>Validate</em> <strong>(5)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(6)</strong> to close/save the GSC properties.
+<p>The GCS Properties configuration page shows up. Assign the following value for <em>Label</em> <strong>(1)</strong>: &ldquo;GCS - Flight Count&rdquo;, then input the following value for <em>Reference Name</em> <strong>(2)</strong>: &ldquo;gcs_flight_count&rdquo;, provide the <em>Path</em> <strong>(3)</strong> to the GCS Bucket for output you have created earlier. For the purpose of this exercise I have include mine, make sure to supply your appropriate path (if you input what is provided in this image, the validation won&rsquo;t succeed), select &ldquo;csv&rdquo; for the <em>Format</em> <strong>(4)</strong> of the output file, click <em>Validate</em> <strong>(5)</strong> to validate all properties, you should see in green <em>No errors found</em>, finally click <em>X</em> <strong>(6)</strong> to close/save the GSC properties.
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-28.png"
          alt="datafusion-28"/> 
@@ -475,7 +475,7 @@ This might take a while to complete.
 <p>To validate the output sink of your pipeline, head over to your GCS bucket to the output folder and issue the following gsutil command to view the results. Make sure to replace <strong>[BUCKET_NAME]</strong> and <strong>[REPLACE_WITH_YOUR_FOLDER_DATE]</strong> with your information:</p>
 </li>
 </ol>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gsutil cat -h gs://<span style="color:#666">[</span>BUCKET_NAME<span style="color:#666">]</span><span style="color:#666">]</span>/output/flight_count/<span style="color:#666">[</span>REPLACE_WITH_YOUR_FOLDER_DATE<span style="color:#666">]</span>/part-r-00000
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gsutil cat -h gs://<span style="color:#666">[</span>BUCKET_NAME<span style="color:#666">]]</span>/output/flight_count/<span style="color:#666">[</span>REPLACE_WITH_YOUR_FOLDER_DATE<span style="color:#666">]</span>/part-r-00000
 </code></pre></div><p>The output is similar to the following:
 <figure>
     <img src="https://stephanefrechette.dev/images/datafusion-31.png"
@@ -537,7 +537,7 @@ This might take a while to complete.
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>

@@ -55,7 +55,7 @@ You can download the latest version of AzCopyThe basic syntax for AzCopy command
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
   </head>
 
   <body class=" ">
@@ -171,7 +171,7 @@ You can download the latest version of AzCopyThe basic syntax for AzCopy command
 
 <span style="color:#007020;font-weight:bold">for</span> f in <span style="color:#bb60d5">$source_folder</span>
 <span style="color:#007020;font-weight:bold">do</span>
-  <span style="color:#007020">echo</span> <span style="color:#4070a0">&#34;</span><span style="color:#4070a0">Uploading </span><span style="color:#bb60d5">$f</span><span style="color:#4070a0"> file...</span><span style="color:#4070a0">&#34;</span>
+  <span style="color:#007020">echo</span> <span style="color:#4070a0">&#34;Uploading </span><span style="color:#bb60d5">$f</span><span style="color:#4070a0"> file...&#34;</span>
   azure storage blob upload <span style="color:#bb60d5">$f</span> <span style="color:#bb60d5">$container_name</span> <span style="color:#bb60d5">$destination_folder</span><span style="color:#007020;font-weight:bold">$(</span>basename <span style="color:#bb60d5">$f</span><span style="color:#007020;font-weight:bold">)</span>
 <span style="color:#007020;font-weight:bold">done</span>
 
@@ -230,7 +230,7 @@ azure storage blob list <span style="color:#bb60d5">$container_name</span>
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>

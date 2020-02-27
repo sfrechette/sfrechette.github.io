@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
   </head>
 
   <body class=" ">
@@ -174,7 +174,7 @@
 <span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">index</span> <span style="color:#007020;font-weight:bold">on</span> orders(order_time <span style="color:#007020;font-weight:bold">desc</span>, bid_price);
 
 <span style="color:#60a0b0;font-style:italic">-- 86400000000 is in usecs and is equal to 1 day
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> create_hypertable(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">orders</span><span style="color:#4070a0">&#39;</span>, <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">order_time</span><span style="color:#4070a0">&#39;</span>, chunk_time_interval <span style="color:#666">=</span><span style="color:#666">&gt;</span> <span style="color:#40a070">86400000000</span>);
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> create_hypertable(<span style="color:#4070a0">&#39;orders&#39;</span>, <span style="color:#4070a0">&#39;order_time&#39;</span>, chunk_time_interval <span style="color:#666">=&gt;</span> <span style="color:#40a070">86400000000</span>);
 </code></pre></div><h4 id="installation">Installation</h4>
 <p>Clone the repository:</p>
 <p><code>git clone https://github.com/sfrechette/stream-sequelize-node.git&lt;br /&gt; cd stream-sequilize-node</code></p>
@@ -195,10 +195,10 @@ DB_SERVER_PORT = &#34;&#34;
 <h4 id="sample-queries">Sample queries</h4>
 <p>Assuming that you have been ingesting data for a while (you can modify the time interval in the script below), run some queries to test and validate how Timescale performs nicely in fetching results while data is also being ingested in the database. More data the better 😉</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Average bid price by 5 minute intervals for Google and day trade type 
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> 	time_bucket(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">5 minutes</span><span style="color:#4070a0">&#39;</span>, to_timestamp(order_time)) <span style="color:#007020;font-weight:bold">as</span> five_min,
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> 	time_bucket(<span style="color:#4070a0">&#39;5 minutes&#39;</span>, to_timestamp(order_time)) <span style="color:#007020;font-weight:bold">as</span> five_min,
         <span style="color:#007020;font-weight:bold">avg</span>(bid_price) <span style="color:#007020;font-weight:bold">as</span> avg_bid_price
 <span style="color:#007020;font-weight:bold">from</span> 	orders
-<span style="color:#007020;font-weight:bold">where</span>	symbol <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Google</span><span style="color:#4070a0">&#39;</span> <span style="color:#007020;font-weight:bold">and</span> trade_type <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">day</span><span style="color:#4070a0">&#39;</span>
+<span style="color:#007020;font-weight:bold">where</span>	symbol <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Google&#39;</span> <span style="color:#007020;font-weight:bold">and</span> trade_type <span style="color:#666">=</span> <span style="color:#4070a0">&#39;day&#39;</span>
 <span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span> five_min 
 <span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span> five_min <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">10</span>;
 </code></pre></div><figure>
@@ -206,7 +206,7 @@ DB_SERVER_PORT = &#34;&#34;
 </figure>
 
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Min and Max bid price by 2 minute intervals for all symbols 
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> 	time_bucket(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2 minutes</span><span style="color:#4070a0">&#39;</span>, to_timestamp(order_time)) <span style="color:#007020;font-weight:bold">as</span> two_min,
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">select</span> 	time_bucket(<span style="color:#4070a0">&#39;2 minutes&#39;</span>, to_timestamp(order_time)) <span style="color:#007020;font-weight:bold">as</span> two_min,
         symbol, 
         <span style="color:#007020;font-weight:bold">min</span>(bid_price) <span style="color:#007020;font-weight:bold">as</span> min_bid_price,
         <span style="color:#007020;font-weight:bold">max</span>(bid_price) <span style="color:#007020;font-weight:bold">as</span> max_bid_price 
@@ -224,8 +224,8 @@ DB_SERVER_PORT = &#34;&#34;
         bid_price
 <span style="color:#007020;font-weight:bold">from</span> 	orders
 <span style="color:#007020;font-weight:bold">where</span>	order_quantity <span style="color:#666">&gt;</span> <span style="color:#40a070">975</span> <span style="color:#007020;font-weight:bold">and</span> 
-        symbol <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Bespin Gas</span><span style="color:#4070a0">&#39;</span> <span style="color:#007020;font-weight:bold">and</span> 
-        trade_type <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">market</span><span style="color:#4070a0">&#39;</span> <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">20</span>;
+        symbol <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Bespin Gas&#39;</span> <span style="color:#007020;font-weight:bold">and</span> 
+        trade_type <span style="color:#666">=</span> <span style="color:#4070a0">&#39;market&#39;</span> <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">20</span>;
 </code></pre></div><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/stream-query03-1024x626.png" width="1024" height="626"/> 
 </figure>
@@ -271,7 +271,7 @@ DB_SERVER_PORT = &#34;&#34;
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>

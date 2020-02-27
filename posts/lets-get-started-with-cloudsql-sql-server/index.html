@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
   </head>
 
   <body class=" ">
@@ -141,7 +141,7 @@
  Finally <a href="https://cloud.google.com/sql/docs/sqlserver/">Cloud SQL for SQL Server</a> is now available in beta. Announced at Google Next &lsquo;19, Cloud SQL Server is a managed database service that makes it easy to set up, maintain, manage, and administer your SQL Server databases on Google Cloud Platform. Cloud SQL pricing requires no up-front commitment and includes per-second billing and sustained-use discounts, similar to Google Compute Engine. For pricing, please see the <a href="https://cloud.google.com/sql/pricing#sql-server">Cloud SQL pricing guide</a> for details and for information specific to Microsoft SQL Server, see the <a href="https://docs.microsoft.com/en-ca/sql/sql-server/sql-server-technical-documentation?view=sql-server-2017">SQL Server documentation</a>.</p>
 <p>This post is to quickly get you started and deploy a Cloud SQL for SQL Server managed instance that is not intended for production use! You will mostly use all defaults when configuring your instance, in a future post we will go deeper on how to configure for Backups and High Availability, connectivity with Private IP and restoring backups.</p>
 <p>For a list of major features and capabilities (supported and unsupported) for the Cloud SQL for SQL Server beta, please refer to the following page -&gt; <a href="https://cloud.google.com/sql/docs/sqlserver/features">Cloud SQL for SQL Server features</a>.</p>
-<p>Let's get started!</p>
+<p>Let&rsquo;s get started!</p>
 <h4 id="log-on-to-the-gcp-console">Log on to the GCP console</h4>
 <p>First go to the <a href="https://console.cloud.google.com">GCP console</a> and log in using your Google account.</p>
 <h4 id="selecting-a-gcp-project">Selecting a GCP project</h4>
@@ -188,7 +188,7 @@
          alt="cloudsql06"/> 
 </figure>
 
-<p>Before you select Create, as mentioned earlier you will now use all defaults for configurations. Let's at least walkthrough them:</p>
+<p>Before you select Create, as mentioned earlier you will now use all defaults for configurations. Let&rsquo;s at least walkthrough them:</p>
 <ul>
 <li><strong>Machine type and storage:</strong><br>
 This is where you would choose which database version and edition you would need. Machine type, compute needs and storage capacity. Accept default and select Close.</li>
@@ -236,7 +236,7 @@ Maintenance window and timing selection</li>
 
 <h4 id="cloud-sql-proxy">Cloud SQL Proxy</h4>
 <p>Next step is for you to install the Cloud SQL Proxy. The <a href="https://cloud.google.com/sql/docs/sqlserver/sql-proxy">Cloud SQL Proxy</a> provides secure access to your Cloud SQL Second Generation instances without having to whitelist IP addresses or configure SSL.</p>
-<p>It's important to follow the steps outlined in the following page <a href="https://cloud.google.com/sql/docs/sqlserver/quickstart-proxy-test">Quickstart for using the proxy for local testing</a> which shows you how to install and connect to Cloud SQL from a local test environment using the Cloud SQL Proxy. Connecting through the proxy enables you to test an App Engine application in your local environment, or establish a secure connection for database administration.</p>
+<p>It&rsquo;s important to follow the steps outlined in the following page <a href="https://cloud.google.com/sql/docs/sqlserver/quickstart-proxy-test">Quickstart for using the proxy for local testing</a> which shows you how to install and connect to Cloud SQL from a local test environment using the Cloud SQL Proxy. Connecting through the proxy enables you to test an App Engine application in your local environment, or establish a secure connection for database administration.</p>
 <p>Steps you will need to perform:</p>
 <ul>
 <li>Enable the Cloud SQL API</li>
@@ -323,7 +323,7 @@ Expect future post that will outline how to use the <a href="https://cloud.googl
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>

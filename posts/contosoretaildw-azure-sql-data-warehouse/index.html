@@ -57,7 +57,7 @@ Optionally if you would like to have a local on premise copy of the ContosoRetai
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
   </head>
 
   <body class=" ">
@@ -516,9 +516,9 @@ Optionally if you would like to have a local on premise copy of the ContosoRetai
 	[UnitPrice] [money] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (CLUSTERED COLUMNSTORE <span style="color:#007020;font-weight:bold">INDEX</span>, DISTRIBUTION <span style="color:#666">=</span> HASH(OnlineSalesKey),
-PARTITION(DateKey RANGE <span style="color:#007020;font-weight:bold">RIGHT</span> <span style="color:#007020;font-weight:bold">FOR</span> <span style="color:#007020;font-weight:bold">VALUES</span> (	<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2005-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2006-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2007-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2008-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2009-01-01</span><span style="color:#4070a0">&#39;</span>,
-											<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2010-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2011-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2012-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2013-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2014-01-01</span><span style="color:#4070a0">&#39;</span>,
-											<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2015-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2016-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2017-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2018-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2019-01-01</span><span style="color:#4070a0">&#39;</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">2020-01-01</span><span style="color:#4070a0">&#39;</span>)));
+PARTITION(DateKey RANGE <span style="color:#007020;font-weight:bold">RIGHT</span> <span style="color:#007020;font-weight:bold">FOR</span> <span style="color:#007020;font-weight:bold">VALUES</span> (	<span style="color:#4070a0">&#39;2005-01-01&#39;</span>,<span style="color:#4070a0">&#39;2006-01-01&#39;</span>,<span style="color:#4070a0">&#39;2007-01-01&#39;</span>,<span style="color:#4070a0">&#39;2008-01-01&#39;</span>,<span style="color:#4070a0">&#39;2009-01-01&#39;</span>,
+											<span style="color:#4070a0">&#39;2010-01-01&#39;</span>,<span style="color:#4070a0">&#39;2011-01-01&#39;</span>,<span style="color:#4070a0">&#39;2012-01-01&#39;</span>,<span style="color:#4070a0">&#39;2013-01-01&#39;</span>,<span style="color:#4070a0">&#39;2014-01-01&#39;</span>,
+											<span style="color:#4070a0">&#39;2015-01-01&#39;</span>,<span style="color:#4070a0">&#39;2016-01-01&#39;</span>,<span style="color:#4070a0">&#39;2017-01-01&#39;</span>,<span style="color:#4070a0">&#39;2018-01-01&#39;</span>,<span style="color:#4070a0">&#39;2019-01-01&#39;</span>,<span style="color:#4070a0">&#39;2020-01-01&#39;</span>)));
 
 <span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">TABLE</span> [dbo].[FactSales](
 	[SalesKey] [<span style="color:#007020">int</span>] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>,
@@ -566,7 +566,7 @@ PARTITION(DateKey RANGE <span style="color:#007020;font-weight:bold">RIGHT</span
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (CLUSTERED COLUMNSTORE <span style="color:#007020;font-weight:bold">INDEX</span>, DISTRIBUTION <span style="color:#666">=</span> HASH(StrategyPlanKey));
 </code></pre></div><p><strong>Got Data!</strong><br>
-We need to load some data! The GZip data files, 25 of them totalling approx. 413MB are located here on OneDrive -&gt; <!-- raw HTML omitted --><a href="https://1drv.ms/f/s">https://1drv.ms/f/s</a>!Al_yetnJltJSmUP0M0MBPTUSNOqa<!-- raw HTML omitted -->. You will need to load these files to an Azure blob storage. James Serra has a great post to help you get started: <!-- raw HTML omitted -->Getting data into Azure Blob Storage<!-- raw HTML omitted -->. For the purpose of this exercise I created a blob storage container name ‘contosoretaildw’ with a ‘data’ folder and imported the GZip files using the AzCopy Command-Line Utility (<!-- raw HTML omitted -->Transfer data with the AzCopy Command-Line Utility<!-- raw HTML omitted -->)</p>
+We need to load some data! The GZip data files, 25 of them totalling approx. 413MB are located here on OneDrive -&gt; <!-- raw HTML omitted --><a href="https://1drv.ms/f/s!Al_yetnJltJSmUP0M0MBPTUSNOqa">https://1drv.ms/f/s!Al_yetnJltJSmUP0M0MBPTUSNOqa</a><!-- raw HTML omitted -->. You will need to load these files to an Azure blob storage. James Serra has a great post to help you get started: <!-- raw HTML omitted -->Getting data into Azure Blob Storage<!-- raw HTML omitted -->. For the purpose of this exercise I created a blob storage container name ‘contosoretaildw’ with a ‘data’ folder and imported the GZip files using the AzCopy Command-Line Utility (<!-- raw HTML omitted -->Transfer data with the AzCopy Command-Line Utility<!-- raw HTML omitted -->)</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/blob_contoso-1024x941.png"
          alt="blob_contoso" width="1024" height="750"/> 
@@ -581,16 +581,16 @@ We need to load some data! The GZip data files, 25 of them totalling approx. 413
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">CREATE</span> MASTER <span style="color:#007020;font-weight:bold">KEY</span>;
 
 <span style="color:#60a0b0;font-style:italic">--Create Database Scoped Credential. Provide the Azure storage account key. 
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#60a0b0;font-style:italic">--The identity name does not affect authentication to Azure storage.
+</span><span style="color:#60a0b0;font-style:italic">--The identity name does not affect authentication to Azure storage.
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">DATABASE</span> SCOPED CREDENTIAL AzureStorageCredential 
-<span style="color:#007020;font-weight:bold">WITH</span> <span style="color:#007020;font-weight:bold">IDENTITY</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">user</span><span style="color:#4070a0">&#39;</span>, 
-SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">azure_storage_account_key_goes_here</span><span style="color:#4070a0">&#39;</span>;
+<span style="color:#007020;font-weight:bold">WITH</span> <span style="color:#007020;font-weight:bold">IDENTITY</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;user&#39;</span>, 
+SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_storage_account_key_goes_here&#39;</span>;
 
 <span style="color:#60a0b0;font-style:italic">--Create External Data Source. Specify location and credential to access your Azure blob storage.
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">EXTERNAL</span> <span style="color:#007020;font-weight:bold">DATA</span> <span style="color:#007020;font-weight:bold">SOURCE</span> AzureStorage 
 <span style="color:#007020;font-weight:bold">WITH</span> (  
         <span style="color:#007020;font-weight:bold">TYPE</span> <span style="color:#666">=</span> Hadoop, 
-        <span style="color:#007020;font-weight:bold">LOCATION</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">wasbs://contosoretaildw@stephdefaultstorage.blob.core.windows.net/</span><span style="color:#4070a0">&#39;</span>,
+        <span style="color:#007020;font-weight:bold">LOCATION</span> <span style="color:#666">=</span> <span style="color:#4070a0">&#39;wasbs://contosoretaildw@stephdefaultstorage.blob.core.windows.net/&#39;</span>,
         CREDENTIAL <span style="color:#666">=</span> AzureStorageCredential
 ); 
 
@@ -601,10 +601,10 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
     FORMAT_TYPE <span style="color:#666">=</span> DELIMITEDTEXT, 
     FORMAT_OPTIONS  
     (
-        FIELD_TERMINATOR <span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">|</span><span style="color:#4070a0">&#39;</span>,
+        FIELD_TERMINATOR <span style="color:#666">=</span><span style="color:#4070a0">&#39;|&#39;</span>,
         USE_TYPE_DEFAULT <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">FALSE</span>
     ),
-	DATA_COMPRESSION <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">org.apache.hadoop.io.compress.GzipCodec</span><span style="color:#4070a0">&#39;</span>
+	DATA_COMPRESSION <span style="color:#666">=</span> <span style="color:#4070a0">&#39;org.apache.hadoop.io.compress.GzipCodec&#39;</span>
 );
 
 <span style="color:#60a0b0;font-style:italic">--DimAccount
@@ -621,7 +621,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[CustomMemberOptions] [nvarchar](<span style="color:#40a070">200</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimAccount.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimAccount.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -637,7 +637,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[ChannelDescription] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimChannel.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimChannel.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -653,7 +653,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[CurrencyDescription] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimCurrency.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimCurrency.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -691,7 +691,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[CompanyName] [nvarchar](<span style="color:#40a070">100</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimCustomer.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimCustomer.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -732,7 +732,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[AsiaSeason] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimDate.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimDate.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -768,7 +768,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[Status] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimEmployee.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimEmployee.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -790,7 +790,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[Status] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimEntity.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimEntity.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -808,7 +808,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[RegionCountryName] [nvarchar](<span style="color:#40a070">100</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimGeography.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimGeography.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -835,7 +835,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[LastModifiedDate] [datetime] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimMachine.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimMachine.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -855,7 +855,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[OutageSubTypeDescription] [nvarchar](<span style="color:#40a070">200</span>) <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimOutage.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimOutage.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -896,7 +896,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[ProductURL] [nvarchar](<span style="color:#40a070">150</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimProduct.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimProduct.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -912,7 +912,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[ProductCategoryDescription] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimProductCategory.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimProductCategory.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -929,7 +929,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[ProductCategoryKey] [<span style="color:#007020">int</span>] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimProductSubcategory.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimProductSubcategory.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -952,7 +952,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[MaxQuantity] [<span style="color:#007020">int</span>] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimPromotion.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimPromotion.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -976,7 +976,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[Status] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimSalesTerritory.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimSalesTerritory.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -992,7 +992,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[ScenarioDescription] [nvarchar](<span style="color:#40a070">50</span>) <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimScenario.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimScenario.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1024,7 +1024,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[LastRemodelDate] [datetime] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/DimStore.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/DimStore.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1041,7 +1041,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[EndOfDayRate] [<span style="color:#007020">float</span>] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactExchangeRate.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactExchangeRate.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1066,7 +1066,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[Aging] [<span style="color:#007020">int</span>] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactInventory.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactInventory.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1083,7 +1083,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[CostType] [nvarchar](<span style="color:#40a070">200</span>) <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactITMachine.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactITMachine.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1103,7 +1103,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[DownTime] [<span style="color:#007020">int</span>] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactITSLA.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactITSLA.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1133,7 +1133,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[UnitPrice] [money] <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactOnlineSales.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactOnlineSales.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1161,7 +1161,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[SalesAmount] [money] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactSales.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactSales.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1183,7 +1183,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[GrossMarginQuota] [money] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactSalesQuota.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactSalesQuota.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1203,7 +1203,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;</span
 	[Amount] [money] <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (
-        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">data/FactStrategyPlan.txt.gz</span><span style="color:#4070a0">&#39;</span>, 
+        <span style="color:#007020;font-weight:bold">LOCATION</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;data/FactStrategyPlan.txt.gz&#39;</span>, 
         DATA_SOURCE<span style="color:#666">=</span>AzureStorage, 
         FILE_FORMAT<span style="color:#666">=</span>TextFileFormat
 );
@@ -1222,7 +1222,7 @@ exec prc_sqldw_create_stats;</p>
 
 <span style="color:#007020;font-weight:bold">IF</span> <span style="color:#666">@</span>create_type <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">IN</span> (<span style="color:#40a070">1</span>,<span style="color:#40a070">2</span>,<span style="color:#40a070">3</span>)
 <span style="color:#007020;font-weight:bold">BEGIN</span>
-    THROW <span style="color:#40a070">151000</span>,<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">Invalid value for @stats_type parameter. Valid range 1 (default), 2 (fullscan) or 3 (sample).</span><span style="color:#4070a0">&#39;</span>,<span style="color:#40a070">1</span>;
+    THROW <span style="color:#40a070">151000</span>,<span style="color:#4070a0">&#39;Invalid value for @stats_type parameter. Valid range 1 (default), 2 (fullscan) or 3 (sample).&#39;</span>,<span style="color:#40a070">1</span>;
 <span style="color:#007020;font-weight:bold">END</span>;
 
 <span style="color:#007020;font-weight:bold">IF</span> <span style="color:#666">@</span>sample_pct <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">NULL</span>
@@ -1230,7 +1230,7 @@ exec prc_sqldw_create_stats;</p>
     <span style="color:#007020;font-weight:bold">SET</span> <span style="color:#666">@</span>sample_pct <span style="color:#666">=</span> <span style="color:#40a070">20</span>;
 <span style="color:#007020;font-weight:bold">END</span>;
 
-<span style="color:#007020;font-weight:bold">IF</span> OBJECT_ID(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">tempdb..#stats_ddl</span><span style="color:#4070a0">&#39;</span>) <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
+<span style="color:#007020;font-weight:bold">IF</span> OBJECT_ID(<span style="color:#4070a0">&#39;tempdb..#stats_ddl&#39;</span>) <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">NULL</span>
 <span style="color:#007020;font-weight:bold">BEGIN</span>;
     <span style="color:#007020;font-weight:bold">DROP</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#666">#</span>stats_ddl;
 <span style="color:#007020;font-weight:bold">END</span>;
@@ -1268,18 +1268,18 @@ exec prc_sqldw_create_stats;</p>
 ,       [seq_nmbr]
 ,       <span style="color:#007020;font-weight:bold">CASE</span> <span style="color:#666">@</span>create_type
         <span style="color:#007020;font-weight:bold">WHEN</span> <span style="color:#40a070">1</span>
-        <span style="color:#007020;font-weight:bold">THEN</span>    <span style="color:#007020;font-weight:bold">CAST</span>(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">CREATE STATISTICS </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">stat_</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>table_schema_name<span style="color:#666">+</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">_</span><span style="color:#4070a0">&#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">table_name</span> <span style="color:#666">+</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">_</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span><span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0"> ON </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(table_schema_name)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">.</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">table_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">(</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">)</span><span style="color:#4070a0">&#39;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020">VARCHAR</span>(<span style="color:#40a070">8000</span>))
+        <span style="color:#007020;font-weight:bold">THEN</span>    <span style="color:#007020;font-weight:bold">CAST</span>(<span style="color:#4070a0">&#39;CREATE STATISTICS &#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#4070a0">&#39;stat_&#39;</span><span style="color:#666">+</span>table_schema_name<span style="color:#666">+</span> <span style="color:#4070a0">&#39;_&#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">table_name</span> <span style="color:#666">+</span> <span style="color:#4070a0">&#39;_&#39;</span><span style="color:#666">+</span><span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39; ON &#39;</span><span style="color:#666">+</span>QUOTENAME(table_schema_name)<span style="color:#666">+</span><span style="color:#4070a0">&#39;.&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">table_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;(&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;)&#39;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020">VARCHAR</span>(<span style="color:#40a070">8000</span>))
         <span style="color:#007020;font-weight:bold">WHEN</span> <span style="color:#40a070">2</span>
-        <span style="color:#007020;font-weight:bold">THEN</span>    <span style="color:#007020;font-weight:bold">CAST</span>(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">CREATE STATISTICS </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">stat_</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>table_schema_name<span style="color:#666">+</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">_</span><span style="color:#4070a0">&#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">table_name</span> <span style="color:#666">+</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">_</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span><span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0"> ON </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(table_schema_name)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">.</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">table_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">(</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">) WITH FULLSCAN</span><span style="color:#4070a0">&#39;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020">VARCHAR</span>(<span style="color:#40a070">8000</span>))
+        <span style="color:#007020;font-weight:bold">THEN</span>    <span style="color:#007020;font-weight:bold">CAST</span>(<span style="color:#4070a0">&#39;CREATE STATISTICS &#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#4070a0">&#39;stat_&#39;</span><span style="color:#666">+</span>table_schema_name<span style="color:#666">+</span> <span style="color:#4070a0">&#39;_&#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">table_name</span> <span style="color:#666">+</span> <span style="color:#4070a0">&#39;_&#39;</span><span style="color:#666">+</span><span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39; ON &#39;</span><span style="color:#666">+</span>QUOTENAME(table_schema_name)<span style="color:#666">+</span><span style="color:#4070a0">&#39;.&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">table_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;(&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;) WITH FULLSCAN&#39;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020">VARCHAR</span>(<span style="color:#40a070">8000</span>))
         <span style="color:#007020;font-weight:bold">WHEN</span> <span style="color:#40a070">3</span>
-        <span style="color:#007020;font-weight:bold">THEN</span>    <span style="color:#007020;font-weight:bold">CAST</span>(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">CREATE STATISTICS </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">stat_</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>table_schema_name<span style="color:#666">+</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">_</span><span style="color:#4070a0">&#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">table_name</span> <span style="color:#666">+</span> <span style="color:#4070a0">&#39;</span><span style="color:#4070a0">_</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span><span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0"> ON </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(table_schema_name)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">.</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">table_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">(</span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">) WITH SAMPLE </span><span style="color:#4070a0">&#39;</span><span style="color:#666">+</span><span style="color:#666">@</span>sample_pct<span style="color:#666">+</span><span style="color:#4070a0">&#39;</span><span style="color:#4070a0">PERCENT</span><span style="color:#4070a0">&#39;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020">VARCHAR</span>(<span style="color:#40a070">8000</span>))
+        <span style="color:#007020;font-weight:bold">THEN</span>    <span style="color:#007020;font-weight:bold">CAST</span>(<span style="color:#4070a0">&#39;CREATE STATISTICS &#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#4070a0">&#39;stat_&#39;</span><span style="color:#666">+</span>table_schema_name<span style="color:#666">+</span> <span style="color:#4070a0">&#39;_&#39;</span> <span style="color:#666">+</span> <span style="color:#007020;font-weight:bold">table_name</span> <span style="color:#666">+</span> <span style="color:#4070a0">&#39;_&#39;</span><span style="color:#666">+</span><span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39; ON &#39;</span><span style="color:#666">+</span>QUOTENAME(table_schema_name)<span style="color:#666">+</span><span style="color:#4070a0">&#39;.&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">table_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;(&#39;</span><span style="color:#666">+</span>QUOTENAME(<span style="color:#007020;font-weight:bold">column_name</span>)<span style="color:#666">+</span><span style="color:#4070a0">&#39;) WITH SAMPLE &#39;</span><span style="color:#666">+@</span>sample_pct<span style="color:#666">+</span><span style="color:#4070a0">&#39;PERCENT&#39;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020">VARCHAR</span>(<span style="color:#40a070">8000</span>))
         <span style="color:#007020;font-weight:bold">END</span> <span style="color:#007020;font-weight:bold">AS</span> create_stat_ddl
 <span style="color:#007020;font-weight:bold">FROM</span> T
 ;
 
 <span style="color:#007020;font-weight:bold">DECLARE</span> <span style="color:#666">@</span>i <span style="color:#007020">INT</span>              <span style="color:#666">=</span> <span style="color:#40a070">1</span>
 ,       <span style="color:#666">@</span>t <span style="color:#007020">INT</span>              <span style="color:#666">=</span> (<span style="color:#007020;font-weight:bold">SELECT</span> <span style="color:#007020;font-weight:bold">COUNT</span>(<span style="color:#666">*</span>) <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#666">#</span>stats_ddl)
-,       <span style="color:#666">@</span>s NVARCHAR(<span style="color:#40a070">4000</span>)   <span style="color:#666">=</span> N<span style="color:#4070a0">&#39;</span><span style="color:#4070a0">&#39;</span>
+,       <span style="color:#666">@</span>s NVARCHAR(<span style="color:#40a070">4000</span>)   <span style="color:#666">=</span> N<span style="color:#4070a0">&#39;&#39;</span>
 ;
 
 WHILE <span style="color:#666">@</span>i <span style="color:#666">&amp;</span>lt; <span style="color:#666">=</span> <span style="color:#666">@</span>t
@@ -1288,7 +1288,7 @@ WHILE <span style="color:#666">@</span>i <span style="color:#666">&amp;</span>lt
 
     PRINT <span style="color:#666">@</span>s
     <span style="color:#007020;font-weight:bold">EXEC</span> sp_executesql <span style="color:#666">@</span>s
-    <span style="color:#007020;font-weight:bold">SET</span> <span style="color:#666">@</span>i<span style="color:#666">+</span><span style="color:#666">=</span><span style="color:#40a070">1</span>;
+    <span style="color:#007020;font-weight:bold">SET</span> <span style="color:#666">@</span>i<span style="color:#666">+=</span><span style="color:#40a070">1</span>;
 <span style="color:#007020;font-weight:bold">END</span>
 
 <span style="color:#007020;font-weight:bold">DROP</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#666">#</span>stats_ddl;
@@ -1334,7 +1334,7 @@ Enjoy!</p>
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>

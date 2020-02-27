@@ -55,7 +55,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.65.3" />
   </head>
 
   <body class=" ">
@@ -171,9 +171,9 @@ I recommend you copy and paste a block of commands at a time to see and understa
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">val</span> jdbcDbTable <span style="color:#007020;font-weight:bold">=</span> <span style="color:#4070a0">&#34;Sales.InvoiceLines&#34;</span>
 
 <span style="color:#60a0b0;font-style:italic">// Load DataFrame with JDBC data-source properties
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">val</span> jdbcDF <span style="color:#007020;font-weight:bold">=</span> sqlContext<span style="color:#666">.</span>read<span style="color:#666">.</span>format<span style="color:#666">(</span><span style="color:#4070a0">&#34;jdbc&#34;</span><span style="color:#666">)</span><span style="color:#666">.</span>options<span style="color:#666">(</span>
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">val</span> jdbcDF <span style="color:#007020;font-weight:bold">=</span> sqlContext<span style="color:#666">.</span>read<span style="color:#666">.</span>format<span style="color:#666">(</span><span style="color:#4070a0">&#34;jdbc&#34;</span><span style="color:#666">).</span>options<span style="color:#666">(</span>
 <span style="color:#0e84b5;font-weight:bold">Map</span><span style="color:#666">(</span><span style="color:#4070a0">&#34;url&#34;</span> <span style="color:#666">-&amp;</span>gt<span style="color:#666">;</span> jdbcSqlConnStr<span style="color:#666">,</span>
-<span style="color:#4070a0">&#34;dbtable&#34;</span> <span style="color:#666">-&amp;</span>gt<span style="color:#666">;</span> jdbcDbTable<span style="color:#666">)</span><span style="color:#666">)</span><span style="color:#666">.</span>load<span style="color:#666">(</span><span style="color:#666">)</span>
+<span style="color:#4070a0">&#34;dbtable&#34;</span> <span style="color:#666">-&amp;</span>gt<span style="color:#666">;</span> jdbcDbTable<span style="color:#666">)).</span>load<span style="color:#666">()</span>
 
 <span style="color:#60a0b0;font-style:italic">// Displays the content of the DataFrame to stdout ...first 10 rows
 </span><span style="color:#60a0b0;font-style:italic"></span>jdbcDF<span style="color:#666">.</span>show<span style="color:#666">(</span><span style="color:#40a070">10</span><span style="color:#666">)</span>
@@ -185,13 +185,13 @@ I recommend you copy and paste a block of commands at a time to see and understa
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">val</span> saleInvoices <span style="color:#007020;font-weight:bold">=</span> sqlContext<span style="color:#666">.</span>sql<span style="color:#666">(</span><span style="color:#4070a0">&#34;SELECT InvoiceID, Quantity, UnitPrice, TaxAmount, ExtendedPrice FROM Sales WHERE Description = &#39;White chocolate moon rocks 250g&#39;&#34;</span><span style="color:#666">)</span>
 
 <span style="color:#60a0b0;font-style:italic">// Displays the content of the DataFrame
-</span><span style="color:#60a0b0;font-style:italic"></span>saleInvoices<span style="color:#666">.</span>show<span style="color:#666">(</span><span style="color:#666">)</span>
+</span><span style="color:#60a0b0;font-style:italic"></span>saleInvoices<span style="color:#666">.</span>show<span style="color:#666">()</span>
 
 <span style="color:#60a0b0;font-style:italic">//SQL statement - Sum of ExtendedPrice for &#39;White chocolate moon rocks 250g&#39; product 
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">val</span> sumInvoices <span style="color:#007020;font-weight:bold">=</span> sqlContext<span style="color:#666">.</span>sql<span style="color:#666">(</span><span style="color:#4070a0">&#34;SELECT SUM(ExtendedPrice) AS TotalSales FROM Sales WHERE Description = &#39;White chocolate moon rocks 250g&#39;&#34;</span><span style="color:#666">)</span>
 
 <span style="color:#60a0b0;font-style:italic">// Displays the content of the DataFrame
-</span><span style="color:#60a0b0;font-style:italic"></span>sumInvoices<span style="color:#666">.</span>show<span style="color:#666">(</span><span style="color:#666">)</span>
+</span><span style="color:#60a0b0;font-style:italic"></span>sumInvoices<span style="color:#666">.</span>show<span style="color:#666">()</span>
 </code></pre></div><p>Sample Terminal output…</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/2.0.0-%e2%80%94-java-%e2%80%94-173%c3%9743.png"
@@ -239,7 +239,7 @@ I recommend you copy and paste a block of commands at a time to see and understa
       <footer class="footer">
   <section class="container">
     
-     © 2019 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>
