@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.66.0" />
+    <meta name="generator" content="Hugo 0.70.0" />
   </head>
 
   <body class=" ">
@@ -139,17 +139,17 @@
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">library</span>(dplyr)
 <span style="color:#06287e">library</span>(ggplot2)
 
-<span style="color:#60a0b0;font-style:italic"># Read CSV data</span>
+<span style="color:#60a0b0;font-style:italic"># Read CSV data</span>
 sat_score <span style="color:#666">=</span> <span style="color:#06287e">read.csv</span>(<span style="color:#4070a0">&#34;/Data/TableauDataSet_Education.csv&#34;</span>)
 sat_score<span style="color:#666">$</span>Total.Score <span style="color:#666">&amp;</span>lt; <span style="color:#666">-</span> <span style="color:#06287e">as.numeric</span>(<span style="color:#06287e">as.character</span>(<span style="color:#06287e">sub</span>(<span style="color:#4070a0">&#34;,&#34;</span>, <span style="color:#4070a0">&#34;&#34;</span>, sat_score<span style="color:#666">$</span>Total.Score)))
 
-<span style="color:#60a0b0;font-style:italic"># Group by</span>
+<span style="color:#60a0b0;font-style:italic"># Group by</span>
 by_college <span style="color:#666">&amp;</span>lt;<span style="color:#666">-</span> <span style="color:#06287e">group_by</span>(sat_score, College, Total.Score)
 
-<span style="color:#60a0b0;font-style:italic"># Summarize</span>
+<span style="color:#60a0b0;font-style:italic"># Summarize</span>
 college_score <span style="color:#666">&amp;</span>lt;<span style="color:#666">-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
 
-<span style="color:#60a0b0;font-style:italic"># Plot</span>
+<span style="color:#60a0b0;font-style:italic"># Plot</span>
 <span style="color:#06287e">ggplot</span>(college_score, <span style="color:#06287e">aes</span>(Total.Score, NumberOfStudents)) <span style="color:#666">+</span> <span style="color:#06287e">geom_point</span>(alpha<span style="color:#666">=</span><span style="color:#40a070">.8</span>, size<span style="color:#666">=</span><span style="color:#40a070">4.5</span>, <span style="color:#06287e">aes</span>(color<span style="color:#666">=</span>College)) <span style="color:#666">+</span> 
   <span style="color:#06287e">scale_y_continuous</span>(breaks<span style="color:#666">=</span><span style="color:#06287e">seq</span>(<span style="color:#40a070">0</span>, <span style="color:#40a070">300</span>, <span style="color:#40a070">50</span>)) <span style="color:#666">+</span>
   <span style="color:#06287e">scale_x_continuous</span>(breaks<span style="color:#666">=</span><span style="color:#06287e">seq</span>(<span style="color:#40a070">900</span>, <span style="color:#40a070">2300</span>, <span style="color:#40a070">100</span>)) <span style="color:#666">+</span>
@@ -214,41 +214,41 @@ sat_score<span style="color:#666">$</span>Academic.Year <span style="color:#666"
 
 <span style="color:#06287e">shinyServer</span>(<span style="color:#06287e">function</span>(input, output) {
   data <span style="color:#666">&lt;-</span> <span style="color:#06287e">reactive </span>({
-    <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">==</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender == &#34;(All)&#34;  &amp;#038;&amp;#038; input$n_year == &#34;(All)&#34;){</span>
+    <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">==</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender == &#34;(All)&#34;  &amp;#038;&amp;#038; input$n_year == &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
     } 
-    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">==</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender == &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year != &#34;(All)&#34;){</span>
+    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">==</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender == &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year != &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Academic.Year, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, Academic.Year <span style="color:#666">==</span> input<span style="color:#666">$</span>n_year)
     } 
-    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">==</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender != &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year != &#34;(All)&#34;){</span>
+    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">==</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender != &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year != &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Gender, Academic.Year, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, Gender <span style="color:#666">==</span> input<span style="color:#666">$</span>n_gender, Academic.Year <span style="color:#666">==</span> input<span style="color:#666">$</span>n_year)
     } 
-    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">!=</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender != &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year != &#34;(All)&#34;){</span>
+    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">!=</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender != &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year != &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Gender, Academic.Year, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, College <span style="color:#666">==</span> input<span style="color:#666">$</span>n_college, Gender <span style="color:#666">==</span> input<span style="color:#666">$</span>n_gender, Academic.Year <span style="color:#666">==</span> input<span style="color:#666">$</span>n_year)
     } 
-    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">!=</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender != &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year == &#34;(All)&#34;){</span>
+    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">!=</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender != &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year == &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Gender, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, College <span style="color:#666">==</span> input<span style="color:#666">$</span>n_college, Gender <span style="color:#666">==</span> input<span style="color:#666">$</span>n_gender)
     } 
-    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">!=</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender == &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year == &#34;(All)&#34;){</span>
+    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">!=</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender == &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year == &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, College <span style="color:#666">==</span> input<span style="color:#666">$</span>n_college)
     } 
-    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">!=</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender == &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year != &#34;(All)&#34;){</span>
+    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">!=</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender == &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year != &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Academic.Year, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, College <span style="color:#666">==</span> input<span style="color:#666">$</span>n_college, Academic.Year <span style="color:#666">==</span> input<span style="color:#666">$</span>n_year)
     } 
-    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">==</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender != &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year == &#34;(All)&#34;){</span>
+    else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">==</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender != &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year == &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Gender, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, Gender <span style="color:#666">==</span> input<span style="color:#666">$</span>n_gender)
