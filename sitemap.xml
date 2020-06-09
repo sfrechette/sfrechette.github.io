@@ -88,11 +88,6 @@
   </url>
   
   <url>
-    <loc>https://stephanefrechette.dev/tags/cloud/</loc>
-    <lastmod>2019-11-24T10:20:30-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://stephanefrechette.dev/tags/cloud-data-fusion/</loc>
     <lastmod>2019-11-24T10:20:30-05:00</lastmod>
   </url>
@@ -134,11 +129,6 @@
   
   <url>
     <loc>https://stephanefrechette.dev/tags/rdbms/</loc>
-    <lastmod>2019-10-21T08:36:51-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://stephanefrechette.dev/tags/sql/</loc>
     <lastmod>2019-10-21T08:36:51-04:00</lastmod>
   </url>
   
@@ -449,6 +439,11 @@
   
   <url>
     <loc>https://stephanefrechette.dev/tags/sparksql/</loc>
+    <lastmod>2018-02-08T15:09:48-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/sql/</loc>
     <lastmod>2018-02-08T15:09:48-04:00</lastmod>
   </url>
   
@@ -770,6 +765,11 @@
   <url>
     <loc>https://stephanefrechette.dev/posts/anonymize-sensitive-data-dynamic-data-masking/</loc>
     <lastmod>2016-03-06T15:17:24-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://stephanefrechette.dev/tags/cloud/</loc>
+    <lastmod>2016-01-03T14:58:27-04:00</lastmod>
   </url>
   
   <url>
