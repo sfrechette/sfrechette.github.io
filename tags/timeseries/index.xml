@@ -17,7 +17,7 @@
       <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/ingest-real-time-streaming-data-for-time-series-analysis/</guid>
-      <description>This post describes how to ingest sample real time streaming data from PubNubto a Postgresdatabase with the TimescaleDBextension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, Market Orders– an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&amp;gt; https://github.</description>
+      <description>This post describes how to ingest sample real time streaming data from PubNub to a Postgres database with the TimescaleDB extension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, Market Orders – an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&amp;gt; https://github.</description>
     </item>
     
     <item>

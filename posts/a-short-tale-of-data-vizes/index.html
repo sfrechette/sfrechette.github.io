@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.72.0" />
+    <meta name="generator" content="Hugo 0.73.0" />
   </head>
 
   <body class=" ">
@@ -134,20 +134,19 @@
          alt="Tableau_SATScore" width="1024" height="717"/> 
 </figure>
 
-<p>You can download a copy of the dataset in CSV format available here on <!-- raw HTML omitted -->Dropbox<!-- raw HTML omitted --></p>
-<p>Let’s start by recreating the same visualization (static) with R. Open <!-- raw HTML omitted -->RStudio<!-- raw HTML omitted -->, copy and paste the following R code and run it.</p>
+<p>Let’s start by recreating the same visualization (static) with R. Open <a href="http://www.rstudio.com">RStudio</a>, copy and paste the following R code and run it.</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">library</span>(dplyr)
 <span style="color:#06287e">library</span>(ggplot2)
 
 <span style="color:#60a0b0;font-style:italic"># Read CSV data</span>
 sat_score <span style="color:#666">=</span> <span style="color:#06287e">read.csv</span>(<span style="color:#4070a0">&#34;/Data/TableauDataSet_Education.csv&#34;</span>)
-sat_score<span style="color:#666">$</span>Total.Score <span style="color:#666">&amp;</span>lt; <span style="color:#666">-</span> <span style="color:#06287e">as.numeric</span>(<span style="color:#06287e">as.character</span>(<span style="color:#06287e">sub</span>(<span style="color:#4070a0">&#34;,&#34;</span>, <span style="color:#4070a0">&#34;&#34;</span>, sat_score<span style="color:#666">$</span>Total.Score)))
+sat_score<span style="color:#666">$</span>Total.Score <span style="color:#666">&lt;-</span> <span style="color:#06287e">as.numeric</span>(<span style="color:#06287e">as.character</span>(<span style="color:#06287e">sub</span>(<span style="color:#4070a0">&#34;,&#34;</span>, <span style="color:#4070a0">&#34;&#34;</span>, sat_score<span style="color:#666">$</span>Total.Score)))
 
 <span style="color:#60a0b0;font-style:italic"># Group by</span>
-by_college <span style="color:#666">&amp;</span>lt;<span style="color:#666">-</span> <span style="color:#06287e">group_by</span>(sat_score, College, Total.Score)
+by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by</span>(sat_score, College, Total.Score)
 
 <span style="color:#60a0b0;font-style:italic"># Summarize</span>
-college_score <span style="color:#666">&amp;</span>lt;<span style="color:#666">-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
+college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
 
 <span style="color:#60a0b0;font-style:italic"># Plot</span>
 <span style="color:#06287e">ggplot</span>(college_score, <span style="color:#06287e">aes</span>(Total.Score, NumberOfStudents)) <span style="color:#666">+</span> <span style="color:#06287e">geom_point</span>(alpha<span style="color:#666">=</span><span style="color:#40a070">.8</span>, size<span style="color:#666">=</span><span style="color:#40a070">4.5</span>, <span style="color:#06287e">aes</span>(color<span style="color:#666">=</span>College)) <span style="color:#666">+</span> 
@@ -165,7 +164,7 @@ college_score <span style="color:#666">&amp;</span>lt;<span style="color:#666">-
          alt="Rplot01" width="931" height="641"/> 
 </figure>
 
-<p>Then comes <!-- raw HTML omitted -->Shiny<!-- raw HTML omitted --> by RStudio which is a web application framework for R that turns your analyses into interactive web applications. Check out the <!-- raw HTML omitted -->Getting Started Guide<!-- raw HTML omitted --> for all the details.</p>
+<p>Then comes <a href="http://www.shinyapps.io">Shiny</a> by RStudio which is a web application framework for R that turns your analyses into interactive web applications. Check out the <a href="http://shiny.rstudio.com/articles/shinyapps.html">Getting Started Guide</a> for all the details.</p>
 <p>Shiny apps have two important components:</p>
 <ul>
 <li>a user-interface script (ui.R) which controls the layout and appearance of your app</li>
@@ -271,13 +270,14 @@ sat_score<span style="color:#666">$</span>Academic.Year <span style="color:#666"
     <span style="color:#06287e">bind_shiny</span>(<span style="color:#4070a0">&#34;ggvis&#34;</span>, <span style="color:#4070a0">&#34;plot&#34;</span>)
   data
 })
-</code></pre></div><!-- raw HTML omitted -->
+</code></pre></div><p>I have published this app on Shiny for you to explore and interact with <a href="https://sfrechette.shinyapps.io/college_admissions">https://sfrechette.shinyapps.io/college_admissions</a></p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/shinyapps.io-college_admissions-1024x691.png"
          alt="shinyapps.io-college_admissions" width="1024" height="691"/> 
 </figure>
 
-<!-- raw HTML omitted -->
+<p>So from Tableau to R and Shiny we have <em>almost the same data visualization and interactivity</em><br>
+I am using the ggvis package and it seems impossible to add a horizontal line to a plot for the average score… feature apparently not available yet!</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 

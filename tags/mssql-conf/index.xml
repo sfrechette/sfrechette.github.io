@@ -17,7 +17,8 @@
       <pubDate>Mon, 10 Apr 2017 14:42:14 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/configure-manage-sql-server-linux/</guid>
-      <description>SQL Server Configuration Manageris a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use mssql-conf. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&amp;gt; https://docs.microsoft.com/en-us/sql/linux/The tool is installed in the following directory path /opt/mssql/bin let’s explore what mssql-conf is all about.
+      <description>SQL Server Configuration Manageris a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use mssql-conf. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&amp;gt; https://docs.microsoft.com/en-us/sql/linux/.
+The tool is installed in the following directory path /opt/mssql/bin let’s explore what mssql-conf is all about.
 Open a Terminal session and see what type of help and information we get…</description>
     </item>
     

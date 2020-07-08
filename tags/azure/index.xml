@@ -51,7 +51,7 @@ Enjoy!</description>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/pause-azure-sql-data-warehouses-with-azure-automation/</guid>
-      <description>Folks it as been a while… You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)… while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automationand PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</description>
+      <description>Folks it as been a while… You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)… while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automation and PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</description>
     </item>
     
     <item>
@@ -60,8 +60,8 @@ Enjoy!</description>
       <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/</guid>
-      <description>In a nutshell, Kubernetesis a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
-Enters Azure Container Service (AKS)which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise.</description>
+      <description>In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for (https://www.docker.com/what-docker)[Docker]. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
+Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise.</description>
     </item>
     
     <item>
@@ -70,7 +70,7 @@ Enters Azure Container Service (AKS)which manages your hosted Kubernetes environ
       <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</guid>
-      <description>It’s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricksand Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
+      <description>It’s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
     </item>
     
     <item>
@@ -99,7 +99,8 @@ Enters Azure Container Service (AKS)which manages your hosted Kubernetes environ
       
       <guid>https://stephanefrechette.dev/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</guid>
       <description>Files and the Azure Cloud. This post is about how to upload multiple files from a local directory “recursively” to Azure Blob Storage with the Azure CLI 2.0 from macOS/Linux. For the Windows platform, AzCopy is a awesome command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance.
-You can download the latest version of AzCopyThe basic syntax for AzCopy commands is:</description>
+You can download the latest version of AzCopy.
+The basic syntax for AzCopy commands is:</description>
     </item>
     
     <item>
@@ -109,7 +110,7 @@ You can download the latest version of AzCopyThe basic syntax for AzCopy command
       
       <guid>https://stephanefrechette.dev/posts/contosoretaildw-azure-sql-data-warehouse/</guid>
       <description>Happy New Year! It as been a while my friends… here goes 😉
-ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentationto get you going.
+ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentation to get you going.
 Optionally if you would like to have a local on premise copy of the ContosoRetailDW database – A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products.</description>
     </item>
     

@@ -17,7 +17,7 @@
       <pubDate>Fri, 22 Sep 2017 10:36:08 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/search-string-multiple-files/</guid>
-      <description>In support of an earlier post Fetching NHL Play by Play game data, I was recently asked how could one quickly search for a specific string in multiple JSON files recursively? Well if you are running macOS or Linux grepis your best friend! In a nutshell grep prints lines that contain a match for a pattern. The following is a sample grep and cut command that will list out (output) the games (files) that contains the following string -&amp;gt; “Montréal Canadiens”:</description>
+      <description>In support of an earlier post Fetching NHL Play by Play game data, I was recently asked how could one quickly search for a specific string in multiple JSON files recursively? Well if you are running macOS or Linux grep is your best friend! In a nutshell grep prints lines that contain a match for a pattern. The following is a sample grep and cut command that will list out (output) the games (files) that contains the following string -&amp;gt; “Montréal Canadiens”:</description>
     </item>
     
   </channel>

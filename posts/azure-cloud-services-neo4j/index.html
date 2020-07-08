@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.72.0" />
+    <meta name="generator" content="Hugo 0.73.0" />
   </head>
 
   <body class=" ">
@@ -145,9 +145,9 @@
          alt="azurecloud" width="150" height="150"/> 
 </figure>
 
-Yes another exploration and exercise on graph modeling. This time about something I often use… the Cloud: <!-- raw HTML omitted -->Microsoft Azure<!-- raw HTML omitted -->. Thought it would be interesting to model the available Azure Cloud Service offerings by category, region, and location. The inspiration and data comes from the following source of information on the following web page <!-- raw HTML omitted --><a href="http://azure.microsoft.com/en-us/regions/#services">http://azure.microsoft.com/en-us/regions/#services</a><!-- raw HTML omitted -->. A trivial one, but useful for demonstrating and understanding concepts. This is also a great example of how to store master data and discover new insights in existing data.</p>
+Yes another exploration and exercise on graph modeling. This time about something I often use… the Cloud: <a href="https://azure.microsoft.com/">Microsoft Azure</a>. Thought it would be interesting to model the available Azure Cloud Service offerings by category, region, and location. The inspiration and data comes from the following source of information on the following web page <!-- raw HTML omitted --><a href="http://azure.microsoft.com/en-us/regions/#services">http://azure.microsoft.com/en-us/regions/#services</a><!-- raw HTML omitted -->. A trivial one, but useful for demonstrating and understanding concepts. This is also a great example of how to store master data and discover new insights in existing data.</p>
 <p>The Cypher, CSV files, and database backup can be found here -&gt; <!-- raw HTML omitted --><a href="https://github.com/sfrechette/azureservices-neo4j">https://github.com/sfrechette/azureservices-neo4j</a><!-- raw HTML omitted --></p>
-<p>You can also get a copy of the raw data in Excel here on <!-- raw HTML omitted -->OneDrive<!-- raw HTML omitted --></p>
+<p>You can also get a copy of the raw data in Excel here on <a href="https://onedrive.live.com/redir?resid=D752E0624B9A6E05%21986">OneDrive</a></p>
 <p><strong>How to approach and model our graph</strong></p>
 <p>Let’s visualize it! A <strong>Region</strong> ‘East US’ is in a <strong>Location</strong> ‘Virginia’, that <strong>Region</strong> offers a <strong>Service</strong> ‘Stream Analytics’ and that <strong>Service</strong> belongs in a <strong>Category</strong> named ‘Analytics’. Also a <strong>Service</strong> could be a parent or child of another <strong>Service</strong>. From that analysis we can create the following model.</p>
 <p><em><strong>Azure Cloud Services Graph Model:</strong></em><br>
@@ -234,7 +234,7 @@ MERGE (region)<span style="color:#666">-</span>[:LOCATED_IN]<span style="color:#
 </figure>
 
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span> List Services <span style="color:#007020;font-weight:bold">with</span> Category available <span style="color:#007020;font-weight:bold">by</span> Regions
-<span style="color:#007020;font-weight:bold">MATCH</span> (<span style="color:#007020;font-weight:bold">c</span>:Category)<span style="color:#666">&amp;</span>lt; <span style="color:#60a0b0;font-style:italic">--(s:Service)&amp;lt;--(r:Region)
+<span style="color:#007020;font-weight:bold">MATCH</span> (<span style="color:#007020;font-weight:bold">c</span>:Category)<span style="color:#666">&lt;</span><span style="color:#60a0b0;font-style:italic">--(s:Service)&lt;--(r:Region)
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">RETURN</span> s.serviceName <span style="color:#007020;font-weight:bold">as</span> Service, <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#007020;font-weight:bold">as</span> Category,  collect(<span style="color:#007020;font-weight:bold">distinct</span> r.regionName) <span style="color:#007020;font-weight:bold">as</span> Regions
 <span style="color:#007020;font-weight:bold">ORDER</span> <span style="color:#007020;font-weight:bold">BY</span> Category, Service
 </code></pre></div><figure>

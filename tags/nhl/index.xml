@@ -17,7 +17,8 @@
       <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/fetching-nhl-play-by-play-v2/</guid>
-      <description>Finally the 2017-2018 NHL hockey season has begun! But wait… **PANIC** my little thingy nhlplaybyplay-nodefor fetching games and play-by-play does not work anymore… Hmmm, after some research it looked like I needed to do some updates and fixes in order to make it work again… Instead I decided to create another Node.js app nhlplaybyplay2-nodeThe following is a mirrored post from the README.md on the Github repo -&amp;gt; https://github.com/sfrechette/nhlplaybyplay2-node Fetch and Convert NHL Play by Play game data v2 Purpose: Application built using Node.</description>
+      <description>Finally the 2017-2018 NHL hockey season has begun! But wait… **PANIC** my little thingy nhlplaybyplay-node for fetching games and play-by-play does not work anymore… Hmmm, after some research it looked like I needed to do some updates and fixes in order to make it work again… Instead I decided to create another Node.js app nhlplaybyplay2-node.
+The following is a mirrored post from the README.md on the Github repo -&amp;gt; https://github.</description>
     </item>
     
     <item>
@@ -26,7 +27,7 @@
       <pubDate>Fri, 09 Dec 2016 10:25:54 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data-part-2/</guid>
-      <description>Following-up from a previous post Fetching NHL Play by Play game datawhere I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring… say like analyzing with R, load into a RDBMS, or visualizing it!
+      <description>Following-up from a previous post Fetching NHL Play by Play game data where I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring… say like analyzing with R, load into a RDBMS, or visualizing it!
 So I added a new javascript file convert.</description>
     </item>
     

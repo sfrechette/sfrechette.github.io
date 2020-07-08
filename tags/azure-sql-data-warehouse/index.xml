@@ -17,7 +17,7 @@
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/pause-azure-sql-data-warehouses-with-azure-automation/</guid>
-      <description>Folks it as been a while… You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)… while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automationand PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</description>
+      <description>Folks it as been a while… You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)… while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automation and PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       
       <guid>https://stephanefrechette.dev/posts/contosoretaildw-azure-sql-data-warehouse/</guid>
       <description>Happy New Year! It as been a while my friends… here goes 😉
-ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentationto get you going.
+ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentation to get you going.
 Optionally if you would like to have a local on premise copy of the ContosoRetailDW database – A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products.</description>
     </item>
     

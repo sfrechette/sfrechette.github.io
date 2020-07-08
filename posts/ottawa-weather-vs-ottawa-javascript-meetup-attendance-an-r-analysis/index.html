@@ -55,7 +55,7 @@ So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attenda
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.72.0" />
+    <meta name="generator" content="Hugo 0.73.0" />
   </head>
 
   <body class=" ">
@@ -171,7 +171,7 @@ df_weather <span style="color:#666">=</span> <span style="color:#06287e">rbind</
 weather <span style="color:#666">=</span> <span style="color:#06287e">read.csv</span>(<span style="color:#4070a0">&#39;ottawa_weatherdata.csv&#39;</span>)
 weather<span style="color:#666">$</span>Date <span style="color:#666">=</span> <span style="color:#06287e">as.POSIXct</span>(weather<span style="color:#666">$</span>Date)
 
-weather <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">sample_n</span>(<span style="color:#40a070">10</span>) <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">select</span>(Date, Min_TemperatureC, Mean_TemperatureC, Max_TemperatureC)
+weather <span style="color:#666">%&gt;%</span> <span style="color:#06287e">sample_n</span>(<span style="color:#40a070">10</span>) <span style="color:#666">%&gt;%</span> <span style="color:#06287e">select</span>(Date, Min_TemperatureC, Mean_TemperatureC, Max_TemperatureC)
 </code></pre></div><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/R_ottawaweather02.png"
          alt="R_ottawaweather02" width="812" height="400"/> 
@@ -181,7 +181,7 @@ weather <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">s
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">events <span style="color:#666">=</span> <span style="color:#06287e">read.csv</span>(<span style="color:#4070a0">&#39;ottawajs_events.csv&#39;</span>)
 events<span style="color:#666">$</span>date <span style="color:#666">=</span>  <span style="color:#06287e">as.POSIXct</span>(events<span style="color:#666">$</span>date) 
 
-events <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">sample_n</span>(<span style="color:#40a070">10</span>) <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">select</span>(event, rsvps, date)
+events <span style="color:#666">%&gt;%</span> <span style="color:#06287e">sample_n</span>(<span style="color:#40a070">10</span>) <span style="color:#666">%&gt;%</span> <span style="color:#06287e">select</span>(event, rsvps, date)
 </code></pre></div><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/R_ottawaweather03.png"
          alt="R_ottawaweather03" width="813" height="363"/> 
@@ -189,18 +189,18 @@ events <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">sa
 
 <p>With our two datasets (data frames) loaded we can now manipulate, group and plot. Let’s get the average attendance and temperature by month:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#60a0b0;font-style:italic"># Group average attendance event by month</span>
-by_month <span style="color:#666">=</span> events <span style="color:#666">%&amp;gt;%</span> 
-    <span style="color:#06287e">mutate</span>(month <span style="color:#666">=</span> <span style="color:#06287e">factor</span>(<span style="color:#06287e">format</span>(date, <span style="color:#4070a0">&#34;%B&#34;</span>), levels<span style="color:#666">=</span>month.name)) <span style="color:#666">%&amp;gt;%</span>
-    <span style="color:#06287e">group_by</span>(month) <span style="color:#666">%&amp;gt;%</span>
+by_month <span style="color:#666">=</span> events <span style="color:#666">%&gt;%</span> 
+    <span style="color:#06287e">mutate</span>(month <span style="color:#666">=</span> <span style="color:#06287e">factor</span>(<span style="color:#06287e">format</span>(date, <span style="color:#4070a0">&#34;%B&#34;</span>), levels<span style="color:#666">=</span>month.name)) <span style="color:#666">%&gt;%</span>
+    <span style="color:#06287e">group_by</span>(month) <span style="color:#666">%&gt;%</span>
     <span style="color:#06287e">summarise</span>(events <span style="color:#666">=</span> <span style="color:#06287e">n</span>(), 
-              count <span style="color:#666">=</span> <span style="color:#06287e">sum</span>(rsvps)) <span style="color:#666">%&amp;gt;%</span>
-    <span style="color:#06287e">mutate</span>(avg <span style="color:#666">=</span> count <span style="color:#666">/</span> events) <span style="color:#666">%&amp;gt;%</span>
+              count <span style="color:#666">=</span> <span style="color:#06287e">sum</span>(rsvps)) <span style="color:#666">%&gt;%</span>
+    <span style="color:#06287e">mutate</span>(avg <span style="color:#666">=</span> count <span style="color:#666">/</span> events) <span style="color:#666">%&gt;%</span>
     <span style="color:#06287e">arrange</span>(<span style="color:#06287e">desc</span>(avg))
 
 <span style="color:#60a0b0;font-style:italic"># Group average temperature by month</span>
-averagetemperature_bymonth <span style="color:#666">=</span> weather <span style="color:#666">%&amp;gt;%</span> 
-    <span style="color:#06287e">mutate</span>(month <span style="color:#666">=</span> <span style="color:#06287e">factor</span>(<span style="color:#06287e">format</span>(Date, <span style="color:#4070a0">&#34;%B&#34;</span>), levels<span style="color:#666">=</span>month.name)) <span style="color:#666">%&amp;gt;%</span>
-    <span style="color:#06287e">group_by</span>(month) <span style="color:#666">%&amp;gt;%</span> 
+averagetemperature_bymonth <span style="color:#666">=</span> weather <span style="color:#666">%&gt;%</span> 
+    <span style="color:#06287e">mutate</span>(month <span style="color:#666">=</span> <span style="color:#06287e">factor</span>(<span style="color:#06287e">format</span>(Date, <span style="color:#4070a0">&#34;%B&#34;</span>), levels<span style="color:#666">=</span>month.name)) <span style="color:#666">%&gt;%</span>
+    <span style="color:#06287e">group_by</span>(month) <span style="color:#666">%&gt;%</span> 
     <span style="color:#06287e">summarise</span>(avg_temperature <span style="color:#666">=</span> <span style="color:#06287e">mean</span>(Mean_TemperatureC))
 
 plot_temperature <span style="color:#666">=</span> <span style="color:#06287e">ggplot</span>(<span style="color:#06287e">aes</span>(x <span style="color:#666">=</span> month, y <span style="color:#666">=</span> avg_temperature, group<span style="color:#666">=</span><span style="color:#40a070">1</span>), data <span style="color:#666">=</span> averagetemperature_bymonth) <span style="color:#666">+</span> 
@@ -219,14 +219,14 @@ plot_attendance <span style="color:#666">=</span> <span style="color:#06287e">gg
 
 <p>Let’s go more granular by comparing specific dates. We need to add (mutate) a new column to our existing <strong>events</strong> data frame, merging it to our <strong>weather</strong> data frame and let’s plot the attendance against the average temperature for individual specific days:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#60a0b0;font-style:italic"># Group by day </span>
-by_day <span style="color:#666">=</span> events <span style="color:#666">%&amp;gt;%</span> 
-    <span style="color:#06287e">mutate</span>(day <span style="color:#666">=</span> (<span style="color:#06287e">as.POSIXct</span>(events<span style="color:#666">$</span>date))) <span style="color:#666">%&amp;gt;%</span>
-    <span style="color:#06287e">group_by</span>(day) <span style="color:#666">%&amp;gt;%</span>
+by_day <span style="color:#666">=</span> events <span style="color:#666">%&gt;%</span> 
+    <span style="color:#06287e">mutate</span>(day <span style="color:#666">=</span> (<span style="color:#06287e">as.POSIXct</span>(events<span style="color:#666">$</span>date))) <span style="color:#666">%&gt;%</span>
+    <span style="color:#06287e">group_by</span>(day) <span style="color:#666">%&gt;%</span>
     <span style="color:#06287e">summarise</span>(events <span style="color:#666">=</span> <span style="color:#06287e">n</span>(), 
-              count <span style="color:#666">=</span> <span style="color:#06287e">sum</span>(rsvps)) <span style="color:#666">%&amp;gt;%</span>
-    <span style="color:#06287e">mutate</span>(avg <span style="color:#666">=</span> count <span style="color:#666">/</span> events) <span style="color:#666">%&amp;gt;%</span>
+              count <span style="color:#666">=</span> <span style="color:#06287e">sum</span>(rsvps)) <span style="color:#666">%&gt;%</span>
+    <span style="color:#06287e">mutate</span>(avg <span style="color:#666">=</span> count <span style="color:#666">/</span> events) <span style="color:#666">%&gt;%</span>
     <span style="color:#06287e">arrange</span>(<span style="color:#06287e">desc</span>(avg))
-weather <span style="color:#666">=</span> weather <span style="color:#666">%&amp;gt;%</span> <span style="color:#06287e">mutate</span>(day <span style="color:#666">=</span> Date)
+weather <span style="color:#666">=</span> weather <span style="color:#666">%&gt;%</span> <span style="color:#06287e">mutate</span>(day <span style="color:#666">=</span> Date)
 merged <span style="color:#666">=</span> <span style="color:#06287e">merge</span>(weather, by_day, by <span style="color:#666">=</span> <span style="color:#4070a0">&#39;day&#39;</span>)
 
 <span style="color:#06287e">ggplot</span>(<span style="color:#06287e">aes</span>(x <span style="color:#666">=</span> count, y <span style="color:#666">=</span> Mean_TemperatureC, group <span style="color:#666">=</span> day), data <span style="color:#666">=</span> merged) <span style="color:#666">+</span> <span style="color:#06287e">geom_point</span>()

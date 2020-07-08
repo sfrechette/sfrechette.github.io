@@ -27,7 +27,7 @@ Lately I have been helping customers that are using CDAP, an 100% open source, i
       <pubDate>Thu, 19 May 2016 16:47:34 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/</guid>
-      <description>With SQL Server 2016 literately just days away from being officially available to public for download (Get ready, SQL Server 2016 coming on June 1st). I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).</description>
+      <description>With SQL Server 2016 literately just days away from being officially available to public for download Get ready, SQL Server 2016 coming on June 1st. I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).</description>
     </item>
     
     <item>

@@ -57,7 +57,7 @@ Note: DDM is also available in Azure SQL Database see the following link for det
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.72.0" />
+    <meta name="generator" content="Hugo 0.73.0" />
   </head>
 
   <body class=" ">
@@ -143,7 +143,7 @@ Note: DDM is also available in Azure SQL Database see the following link for det
          alt="Dynamic Data Masking" width="350" height="240"/> 
 </figure>
  What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries. It is implemented within the database itself, the logic is centralized and always applies when the sensitive data is queried. Traditionally, obfuscation of sensitive data as been coded in the application layer, using views to limits the exposure of sensitive pieces of data, and third-party tools… Bottom line, it is now quite simple to configure DDM rules on sensitive columns, which can be done on an existing database without affecting database operations or requiring changes in application code.</p>
-<p>In SQL Server 2016 there are four types of masks rules: <!-- raw HTML omitted -->(details)<!-- raw HTML omitted --></p>
+<p>In SQL Server 2016 there are four types of masks rules: <a href="https://msdn.microsoft.com/library/mt130841.aspx">(details)</a></p>
 <ul>
 <li><strong>Default</strong>: Full masking – replaces characters with XXXX, numbers with 0 and date/time data types with 01.01.1900 00:00:00.0000000</li>
 <li><strong>Email</strong>: Masking method which exposes the first letter of an email address and the constant suffix “.com”, in the form of an email address. <a href="mailto:aXXX@XXXX.com">aXXX@XXXX.com</a>.</li>

@@ -17,7 +17,7 @@
       <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</guid>
-      <description>It’s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricksand Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
+      <description>It’s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@
       
       <guid>https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/</guid>
       <description>In-memory distributed processing for large datasets… How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
-    First, what is Apache Spark? Apache Sparkis an open source big data processing framework built around speed, ease of use, and sophisticated analytics. A fast and general processing engine compatible with Hadoop data.</description>
+    First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics.</description>
     </item>
     
   </channel>

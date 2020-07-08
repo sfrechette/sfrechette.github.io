@@ -11,12 +11,12 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SQL Server HA using Kubernetes in Azure Container Services (AKS)"/>
-<meta name="twitter:description" content="In a nutshell, Kubernetesis a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
-Enters Azure Container Service (AKS)which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise."/>
+<meta name="twitter:description" content="In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for (https://www.docker.com/what-docker)[Docker]. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
+Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise."/>
 
     <meta property="og:title" content="SQL Server HA using Kubernetes in Azure Container Services (AKS)" />
-<meta property="og:description" content="In a nutshell, Kubernetesis a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
-Enters Azure Container Service (AKS)which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise." />
+<meta property="og:description" content="In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for (https://www.docker.com/what-docker)[Docker]. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
+Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/" />
 <meta property="article:published_time" content="2018-04-25T13:40:28-04:00" />
@@ -55,7 +55,7 @@ Enters Azure Container Service (AKS)which manages your hosted Kubernetes environ
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.72.0" />
+    <meta name="generator" content="Hugo 0.73.0" />
   </head>
 
   <body class=" ">
@@ -149,16 +149,16 @@ Enters Azure Container Service (AKS)which manages your hosted Kubernetes environ
          alt="Azure Container Services (AKS)" width="200" height="200"/> 
 </figure>
 <br>
-In a nutshell, <!-- raw HTML omitted -->Kubernetes<!-- raw HTML omitted --> is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for <!-- raw HTML omitted -->Docker<!-- raw HTML omitted -->. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e <!-- raw HTML omitted -->Docker Swarm<!-- raw HTML omitted -->). To learn more about Kubernetes, check out this <!-- raw HTML omitted -->Getting Started Guide<!-- raw HTML omitted -->.</p>
-<p>Enters <!-- raw HTML omitted -->Azure Container Service (AKS)<!-- raw HTML omitted --> which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.</p>
+In a nutshell, <a href="https://kubernetes.io/">Kubernetes</a> is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for (<a href="https://www.docker.com/what-docker)%5BDocker%5D">https://www.docker.com/what-docker)[Docker]</a>. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e <a href="https://docs.docker.com/engine/swarm/">Docker Swarm</a>). To learn more about Kubernetes, check out this <a href="https://kubernetes.io/docs/home/?path=users&amp;persona=app-developer&amp;level=foundational">Getting Started Guide</a>.</p>
+<p>Enters <a href="https://azure.microsoft.com/en-us/services/container-service/">Azure Container Service (AKS)</a> which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.</p>
 <p><em><strong>[Important]:</strong> Azure Container Service is currently in preview – Some aspects of this feature may change prior to general availability (GA).</em></p>
-<p>This post will demonstrate how to configure a SQL Server instance on Kubernetes in Azure Container Services (AKS) with persistent storage for high availability. The outcome provides resiliency against SQL Server pod failure or cluster node failure. Kubernetes 1.6+ has support for <!-- raw HTML omitted -->Storage Classes<!-- raw HTML omitted --> , <!-- raw HTML omitted -->Persistent Volume Claims<!-- raw HTML omitted --> , and the <!-- raw HTML omitted -->Azure disk volume type<!-- raw HTML omitted -->. You can create and manage your SQL Server instances natively in Kubernetes.</p>
+<p>This post will demonstrate how to configure a SQL Server instance on Kubernetes in Azure Container Services (AKS) with persistent storage for high availability. The outcome provides resiliency against SQL Server pod failure or cluster node failure. Kubernetes 1.6+ has support for <a href="https://kubernetes.io/docs/concepts/storage/storage-classes/">Storage Classes</a>, <a href="https://kubernetes.io/docs/concepts/storage/storage-classes/#persistentvolumeclaims">Persistent Volume Claims</a> , and the <a href="https://github.com/kubernetes/examples/tree/master/staging/volumes/azure_disk">Azure disk volume type</a>. You can create and manage your SQL Server instances natively in Kubernetes.</p>
 <p>The following will walk you through creating a deployment to achieve a high availability configuration similar to shared disk failover cluster instance. In this configuration, Kubernetes plays the role of the cluster orchestrator. When a SQL Server instance in a container fails, the orchestrator bootstraps another instance of the container that attaches to the same persistent storage.</p>
 <p>Of course i’m on macOS, but this could also be done using Windows or Linux…</p>
 <h3 id="requirements">Requirements</h3>
-<p>First thing, you will need an <!-- raw HTML omitted -->Azure subscription<!-- raw HTML omitted --> with enough credits to provision the Kubernetes cluster (4 VMs).</p>
+<p>First thing, you will need an <a href="https://azure.microsoft.com/en-ca/free/">Azure subscription</a> with enough credits to provision the Kubernetes cluster (4 VMs).</p>
 <p><strong>Install Azure CLI</strong><br>
-Next you need to have Azure CLI installed – For detailed instructions on how to install and configure the Azure CLI follow this <!-- raw HTML omitted -->link<!-- raw HTML omitted --></p>
+Next you need to have Azure CLI installed – For detailed instructions on how to install and configure the Azure CLI follow this <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">link</a>.</p>
 <p><strong>Install kubectl</strong><br>
 After installing the Azure CLI run the following command to install kubectl (need elevated privileges)<br>
 <code>sudo az aks install-cli</code><br>
@@ -209,16 +209,16 @@ A new browser tab or window should open or simply navigate to <!-- raw HTML omit
 
 <h3 id="deploy-sql-server-in-kubernetes">Deploy SQL Server in Kubernetes</h3>
 <p><strong>Create secret to store SQL Server SA password</strong><br>
-We will now create a password in the Kubernetes cluster. Kubernetes can manage sensitive configuration information like passwords as <!-- raw HTML omitted -->secrets<!-- raw HTML omitted -->. The following command creates a secret that holds the value for the password that will be using for the SQL Server SA account. Replace <em>YourComplexPassword</em> with a complex password.</p>
+We will now create a password in the Kubernetes cluster. Kubernetes can manage sensitive configuration information like passwords as <a href="https://kubernetes.io/docs/concepts/configuration/secret/">secrets</a>. The following command creates a secret that holds the value for the password that will be using for the SQL Server SA account. Replace <em>YourComplexPassword</em> with a complex password.</p>
 <p><code>kubectl create secret generic mssql --from-literal=SA_PASSWORD=&quot;&lt;em&gt;YourComplexPassword&lt;/em&gt;&quot;</code></p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/k8s_6.png" width="1010" height="307"/> 
 </figure>
 
 <p><strong>Configure storage for SQL Server files</strong><br>
-Create a manifest to define the storage class and the persistent volume claim. The manifest specifies the storage provisioner, parameters, and the <!-- raw HTML omitted -->reclaim policy<!-- raw HTML omitted -->. The Kubernetes cluster uses this manifest to create the persistent storage.</p>
+Create a manifest to define the storage class and the persistent volume claim. The manifest specifies the storage provisioner, parameters, and the <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming">reclaim policy</a>. The Kubernetes cluster uses this manifest to create the persistent storage.</p>
 <p>The following yaml example defines a storage class and persistent volume claim. The storage class provisioner is <strong>azure-disk</strong> because this Kubernetes cluster is in Azure. The storage account type is Standard_LRS. The persistent volume claim is named <strong>mssql-data</strong>. The persistent volume claim metadata includes an annotation connecting it back to the storage class.</p>
-<p>Open your favorite editor (<!-- raw HTML omitted -->VS Code<!-- raw HTML omitted -->) and paste the following:</p>
+<p>Open your favorite editor (<a href="https://code.visualstudio.com/">VS Code</a>) and paste the following:</p>
 <ul>
 <li>pvc.yml
 <div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -291,7 +291,7 @@ Create a manifest to define the storage class and the persistent volume claim. T
 </figure>
 
 <h3 id="create-the-deployment">Create the deployment</h3>
-<p>The container hosting the SQL Server instance is described as a Kubernetes deployment object. The deployment creates a replica set. The replica set creates the <!-- raw HTML omitted -->pod<!-- raw HTML omitted -->. In this step, create a manifest to describe the container based on the SQL Server <!-- raw HTML omitted -->mssql-server-linux<!-- raw HTML omitted --> Docker image. The manifest references the <strong>mssql-server</strong> persistent volume claim, and the <strong>mssql</strong> secret that you already applied to the Kubernetes cluster. The manifest also describes a service. This service is a load balancer. The load balancer guarantees that the IP address persists after SQL Server instance is recovered.</p>
+<p>The container hosting the SQL Server instance is described as a Kubernetes deployment object. The deployment creates a replica set. The replica set creates the <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/">pod</a>. In this step, create a manifest to describe the container based on the SQL Server <a href="https://hub.docker.com/r/microsoft/mssql-server-linux/">mssql-server-linux</a> Docker image. The manifest references the <strong>mssql-server</strong> persistent volume claim, and the <strong>mssql</strong> secret that you already applied to the Kubernetes cluster. The manifest also describes a service. This service is a load balancer. The load balancer guarantees that the IP address persists after SQL Server instance is recovered.</p>
 <p>The following describes a deployment, including a container based on the SQL Server container image. Copy and paste the following in a new file:</p>
 <ul>
 <li>sqldeployment.yml
@@ -418,7 +418,7 @@ Create a manifest to define the storage class and the persistent volume claim. T
 </figure>
 
 <h3 id="connect-to-sql-server-instance">Connect to SQL Server instance</h3>
-<p>You could use <!-- raw HTML omitted -->SSMS<!-- raw HTML omitted -->, <!-- raw HTML omitted -->SSDT<!-- raw HTML omitted -->, <!-- raw HTML omitted -->Visual Studio Code<!-- raw HTML omitted --> and <!-- raw HTML omitted -->SQL Operations Studio<!-- raw HTML omitted --> to connect to the SQL Server instance, here will use <code>sqlcmd</code></p>
+<p>You could use <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-develop-use-ssms?view=sql-server-linux-2017">SSMS</a>, <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-develop-use-ssdt?view=sql-server-linux-2017">SSDT</a>, <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-develop-use-vscode?view=sql-server-linux-2017">Visual Studio Code</a> and <a href="https://docs.microsoft.com/en-us/sql/sql-operations-studio/quickstart-sql-server?view=sql-server-2017">SQL Operations Studio</a> to connect to the SQL Server instance, here will use <code>sqlcmd</code></p>
 <p><code>sqlcmd -S &lt;em&gt;&lt;External IP Address&gt;&lt;/em&gt; -U sa -P &quot;&lt;em&gt;YourComplexPassword&lt;/em&gt;&quot;</code></p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/k8s_13.png" width="1010" height="341"/> 
