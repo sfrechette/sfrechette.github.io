@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -138,12 +138,12 @@
     <img src="https://stephanefrechette.dev/images/cloudsql.png#floatleft"
          alt="cloudsql" width="150" height="150"/> 
 </figure>
- Finally <a href="https://cloud.google.com/sql/docs/sqlserver/">Cloud SQL for SQL Server</a> is now available in beta. Announced at Google Next &lsquo;19, Cloud SQL Server is a managed database service that makes it easy to set up, maintain, manage, and administer your SQL Server databases on Google Cloud Platform. Cloud SQL pricing requires no up-front commitment and includes per-second billing and sustained-use discounts, similar to Google Compute Engine. For pricing, please see the <a href="https://cloud.google.com/sql/pricing#sql-server">Cloud SQL pricing guide</a> for details and for information specific to Microsoft SQL Server, see the <a href="https://docs.microsoft.com/en-ca/sql/sql-server/sql-server-technical-documentation?view=sql-server-2017">SQL Server documentation</a>.</p>
+ Finally <a href="https://cloud.google.com/sql/docs/sqlserver/" target="_blank">Cloud SQL for SQL Server</a> is now available in beta. Announced at Google Next &lsquo;19, Cloud SQL Server is a managed database service that makes it easy to set up, maintain, manage, and administer your SQL Server databases on Google Cloud Platform. Cloud SQL pricing requires no up-front commitment and includes per-second billing and sustained-use discounts, similar to Google Compute Engine. For pricing, please see the <a href="https://cloud.google.com/sql/pricing#sql-server" target="_blank">Cloud SQL pricing guide</a> for details and for information specific to Microsoft SQL Server, see the <a href="https://docs.microsoft.com/en-ca/sql/sql-server/sql-server-technical-documentation?view=sql-server-2017" target="_blank">SQL Server documentation</a>.</p>
 <p>This post is to quickly get you started and deploy a Cloud SQL for SQL Server managed instance that is not intended for production use! You will mostly use all defaults when configuring your instance, in a future post we will go deeper on how to configure for Backups and High Availability, connectivity with Private IP and restoring backups.</p>
-<p>For a list of major features and capabilities (supported and unsupported) for the Cloud SQL for SQL Server beta, please refer to the following page -&gt; <a href="https://cloud.google.com/sql/docs/sqlserver/features">Cloud SQL for SQL Server features</a>.</p>
+<p>For a list of major features and capabilities (supported and unsupported) for the Cloud SQL for SQL Server beta, please refer to the following page -&gt; <a href="https://cloud.google.com/sql/docs/sqlserver/features" target="_blank">Cloud SQL for SQL Server features</a>.</p>
 <p>Let&rsquo;s get started!</p>
 <h4 id="log-on-to-the-gcp-console">Log on to the GCP console</h4>
-<p>First go to the <a href="https://console.cloud.google.com">GCP console</a> and log in using your Google account.</p>
+<p>First go to the <a href="https://console.cloud.google.com" target="_blank">GCP console</a> and log in using your Google account.</p>
 <h4 id="selecting-a-gcp-project">Selecting a GCP project</h4>
 <p>You need to select a project. If you don’t have any projects then go to the project selector page to create one - For this demonstration I have created and using a specific project named <code>Sandbox</code>.</p>
 <figure>
@@ -235,8 +235,8 @@ Maintenance window and timing selection</li>
 </figure>
 
 <h4 id="cloud-sql-proxy">Cloud SQL Proxy</h4>
-<p>Next step is for you to install the Cloud SQL Proxy. The <a href="https://cloud.google.com/sql/docs/sqlserver/sql-proxy">Cloud SQL Proxy</a> provides secure access to your Cloud SQL Second Generation instances without having to whitelist IP addresses or configure SSL.</p>
-<p>It&rsquo;s important to follow the steps outlined in the following page <a href="https://cloud.google.com/sql/docs/sqlserver/quickstart-proxy-test">Quickstart for using the proxy for local testing</a> which shows you how to install and connect to Cloud SQL from a local test environment using the Cloud SQL Proxy. Connecting through the proxy enables you to test an App Engine application in your local environment, or establish a secure connection for database administration.</p>
+<p>Next step is for you to install the Cloud SQL Proxy. The <a href="https://cloud.google.com/sql/docs/sqlserver/sql-proxy" target="_blank">Cloud SQL Proxy</a> provides secure access to your Cloud SQL Second Generation instances without having to whitelist IP addresses or configure SSL.</p>
+<p>It&rsquo;s important to follow the steps outlined in the following page <a href="https://cloud.google.com/sql/docs/sqlserver/quickstart-proxy-test" target="_blank">Quickstart for using the proxy for local testing</a> which shows you how to install and connect to Cloud SQL from a local test environment using the Cloud SQL Proxy. Connecting through the proxy enables you to test an App Engine application in your local environment, or establish a secure connection for database administration.</p>
 <p>Steps you will need to perform:</p>
 <ul>
 <li>Enable the Cloud SQL API</li>
@@ -248,10 +248,10 @@ Maintenance window and timing selection</li>
 <h4 id="connecting-to-your-sql-server-instance">Connecting to your SQL Server instance</h4>
 <p>As outlined in the previous section you can connect with sqlcmd, but you can also use other tools. Depending on which OS platform you are using, the following is a list of tools you can download and use to connect to your instance.</p>
 <ul>
-<li>sqlcmd: <a href="https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15">Windows</a> or <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver15">Linux/macOS</a></li>
-<li><a href="https://docs.microsoft.com/en-us/sql/tools/mssql-cli?view=sql-server-ver15">mssql-cli command line query tool for SQL Server</a></li>
-<li><a href="https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15">SQL Server Management Studio (SSMS)</a></li>
-<li><a href="https://docs.microsoft.com/en-us/sql/azure-data-studio/download?view=sql-server-ver15">Azure Data Studio</a></li>
+<li>sqlcmd: <a href="https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15" target="_blank">Windows</a> or <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver15" target="_blank">Linux/macOS</a></li>
+<li><a href="https://docs.microsoft.com/en-us/sql/tools/mssql-cli?view=sql-server-ver15" target="_blank">mssql-cli command line query tool for SQL Server</a></li>
+<li><a href="https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15" target="_blank">SQL Server Management Studio (SSMS)</a></li>
+<li><a href="https://docs.microsoft.com/en-us/sql/azure-data-studio/download?view=sql-server-ver15" target="_blank">Azure Data Studio</a></li>
 </ul>
 <p>For the purpose of this demonstration I am using the mssql-cli and Azure Data Studio running on macOS.</p>
 <p>First thing is to start the Cloud SQL Proxy, remember to replace <code>&lt;INSTANCE_CONNECTION_NAME&gt;</code> with your <strong>Instance connection name</strong> copied earlier, located on the Instance details page.</p>
@@ -283,7 +283,7 @@ Maintenance window and timing selection</li>
 </figure>
 </p>
 <p>Done! You have now setup your first Cloud SQL for SQL Server instance.<br>
-Expect future post that will outline how to use the <a href="https://cloud.google.com/sdk/gcloud/reference/">gcloud</a> command line to create and configure an instance, configure for Backups and High Availability, connectivity with Private IP and restoring backups.</p>
+Expect future post that will outline how to use the <a href="https://cloud.google.com/sdk/gcloud/reference/" target="_blank">gcloud</a> command line to create and configure an instance, configure for Backups and High Availability, connectivity with Private IP and restoring backups.</p>
 <p>Enjoy!</p>
 
       </div>

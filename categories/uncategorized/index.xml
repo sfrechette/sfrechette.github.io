@@ -6,11 +6,7 @@
     <description>Recent content in Uncategorized on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 27 Mar 2019 10:12:22 -0400</lastBuildDate>
-    
-	<atom:link href="https://stephanefrechette.dev/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 27 Mar 2019 10:12:22 -0400</lastBuildDate><atom:link href="https://stephanefrechette.dev/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post using Hugo!</title>
       <link>https://stephanefrechette.dev/posts/my-first-post/</link>
@@ -27,7 +23,7 @@ So what to expect? Well basically rants, lessons learned either from the field o
       <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/podcasts-blogs-about-data-engineering-data-science-ml-and-ai/</guid>
-      <description>Hope you are all enjoying summer? Been asked several times, How do I keep current with technology? What blogs do you read or follow? Which podcasts do you follow and listen to? So I have quickly put together a list of resources, more specifically podcasts, blogs that I consume regularly… This is no way a definitive list 😉 and in no particular order! Of course these are related to Data Engineering, Data Science, Machine Learning and Artificial Intelligence.</description>
+      <description>Hope you are all enjoying summer? Been asked several times, How do I keep current with technology? What blogs do you read or follow? Which podcasts do you follow and listen to? So I have quickly put together a list of resources, more specifically podcasts, blogs that I consume regularly&amp;hellip; This is no way a definitive list 😉 and in no particular order! Of course these are related to Data Engineering, Data Science, Machine Learning and Artificial Intelligence.</description>
     </item>
     
     <item>

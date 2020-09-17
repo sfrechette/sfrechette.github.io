@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -147,12 +147,12 @@
         <p><figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/databricks_trans.png#floatleft" width="150" height="150"/> 
 </figure>
- It’s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of <a href="https://spark.apache.org/">Apache Spark</a>, Azure Databricks combines the best of <a href="https://databricks.com/">Databricks</a> and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts. Currently in Preview, I recommend you explore and start with the <a href="https://docs.microsoft.com/en-us/azure/azure-databricks/">Azure Databricks Preview documentation</a>. The <a href="https://docs.microsoft.com/en-us/azure/azure-databricks/quickstart-create-databricks-workspace-portal">Quickstarts</a> section shows you how to create a Databricks workspace and create an Apache Spark cluster within that workspace and finally running a Spark job. Your best friend for this journey is also the <a href="https://docs.azuredatabricks.net/user-guide/index.html">Azure Databricks Guide (Documentation)</a> check out the <a href="https://docs.azuredatabricks.net/user-guide/getting-started.html">Getting Started</a> section.</p>
+ It’s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of <a href="https://spark.apache.org/" target="_blank">Apache Spark</a>, Azure Databricks combines the best of <a href="https://databricks.com/" target="_blank">Databricks</a> and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts. Currently in Preview, I recommend you explore and start with the <a href="https://docs.microsoft.com/en-us/azure/azure-databricks/" target="_blank">Azure Databricks Preview documentation</a>. The <a href="https://docs.microsoft.com/en-us/azure/azure-databricks/quickstart-create-databricks-workspace-portal" target="_blank">Quickstarts</a> section shows you how to create a Databricks workspace and create an Apache Spark cluster within that workspace and finally running a Spark job. Your best friend for this journey is also the <a href="https://docs.azuredatabricks.net/user-guide/index.html" target="_blank">Azure Databricks Guide (Documentation)</a> check out the <a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" target="_blank">Getting Started</a> section.</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/azure-databricks-overview.png" width="628" height="373"/> 
 </figure>
 
-<p>Let’s get started. I am using a subset of the <a href="https://www.citibikenyc.com/system-data">Citi Bike System Data</a> which you can explore and download from here -&gt; <a href="https://s3.amazonaws.com/tripdata/index.html">tripdata</a>. For this demo I am using data from 2017 only. Once I downloaded the required dataset I then uploaded it to my Azure Blob Storage account.</p>
+<p>Let’s get started. I am using a subset of the <a href="https://www.citibikenyc.com/system-data" target="_blank">Citi Bike System Data</a> which you can explore and download from here -&gt; <a href="https://s3.amazonaws.com/tripdata/index.html" target="_blank">tripdata</a>. For this demo I am using data from 2017 only. Once I downloaded the required dataset I then uploaded it to my Azure Blob Storage account.</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/blob_citibike.png" width="889" height="674"/> 
 </figure>
@@ -162,7 +162,7 @@
     <img src="https://stephanefrechette.dev/images/legacy-post/cluster_citibike.png" width="914" height="597"/> 
 </figure>
 
-<p>Then I create a Python notebook named <a href="https://github.com/sfrechette/azure-databricks-citibike-nyc-analysis">“citibike_nyc_analysis”</a> which you can download from GitHub <a href="https://github.com/sfrechette/azure-databricks-citibike-nyc-analysis">here</a> and import into your Azure Databricks Workspace and execute. The following is the ipynb file (IPython Notebook) rendered in html in an iframe for you to explore.</p>
+<p>Then I create a Python notebook named <a href="https://github.com/sfrechette/azure-databricks-citibike-nyc-analysis" target="_blank">“citibike_nyc_analysis”</a> which you can download from GitHub <a href="https://github.com/sfrechette/azure-databricks-citibike-nyc-analysis" target="_blank">here</a> and import into your Azure Databricks Workspace and execute. The following is the ipynb file (IPython Notebook) rendered in html in an iframe for you to explore.</p>
 <p>BTW for those of you near Ottawa, ON (Canada) I will be presenting “Introducing Microsoft Azure Databricks” next Thursday February 15 2018 at the Ottawa Data User Group Meetup</p>
 <p>Enjoy!</p>
 <!-- raw HTML omitted -->

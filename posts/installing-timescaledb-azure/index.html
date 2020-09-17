@@ -55,7 +55,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -141,7 +141,7 @@
     <img src="https://stephanefrechette.dev/images/legacy-post/tsdb.png#floatleft" width="200" height="200"/> 
 </figure>
 
-Lately I discovered <a href="http://www.timescale.com/">TimescaleDB</a>, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries. It’s scalable, reliable and easy to use! Please read <a href="http://www.timescale.com/how-it-works.html">How it works</a> to understanding how they made it happen and most importantly the following paper: <a href="http://www.timescale.com/papers/timescaledb.pdf">TimescaleDB: SQL made scalable for time-series data</a>. I would also recommend you read the following blog post <a href="https://blog.timescale.com/what-the-heck-is-time-series-data-and-why-do-i-need-a-time-series-database-dcf3b1b18563">What the heck is time-series data (and why do I need a time-series database)?</a>.</p>
+Lately I discovered <a href="http://www.timescale.com/" target="_blank">TimescaleDB</a>, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries. It’s scalable, reliable and easy to use! Please read <a href="http://www.timescale.com/how-it-works.html" target="_blank">How it works</a> to understanding how they made it happen and most importantly the following paper: <a href="http://www.timescale.com/papers/timescaledb.pdf" target="_blank">TimescaleDB: SQL made scalable for time-series data</a>. I would also recommend you read the following blog post <a href="https://blog.timescale.com/what-the-heck-is-time-series-data-and-why-do-i-need-a-time-series-database-dcf3b1b18563" target="_blank">What the heck is time-series data (and why do I need a time-series database)?</a>.</p>
 <p> </p>
 <p>Best way to learn about it is to play with it…So this post will be about:</p>
 <ul>
@@ -152,7 +152,7 @@ Lately I discovered <a href="http://www.timescale.com/">TimescaleDB</a>, an open
 </ul>
 <p>Let’s do this!</p>
 <h4 id="setting-up-a-linux-vm-instance-in-azure">Setting up a Linux VM instance in Azure</h4>
-<p>First login to your Azure portal <a href="https://portal.azure.com">https://portal.azure.com</a>, if you don’t have an Azure account get started with a $250 in Credit when you Sign Up for a Free Trial <a href="https://azure.microsoft.com/en-ca/free/">here</a>. Next we want to search the Marketplace for an Ubuntu Server 16.04 LTS image.</p>
+<p>First login to your Azure portal <a href="https://portal.azure.com" target="_blank">https://portal.azure.com</a>, if you don’t have an Azure account get started with a $250 in Credit when you Sign Up for a Free Trial <a href="https://azure.microsoft.com/en-ca/free/" target="_blank">here</a>. Next we want to search the Marketplace for an Ubuntu Server 16.04 LTS image.</p>
 <p>Once found and selected click the &ldquo;Create&rdquo; button to continue</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/tsdb01-1.png" width="857" height="565"/> 
@@ -219,7 +219,7 @@ sudo apt install timescaledb-postgresql-9.6
 </figure>
 
 <p>Second, scroll to the RESOURCE USAGE (except WAL) heading and uncomment the following -&gt; #shared_preload_libraries = ” with shared_preload_libraries = ‘timescaledb’</p>
-<p>** Need some help with basic Vim commands -&gt; <a href="https://coderwall.com/p/adv71w/basic-vim-commands-for-getting-started">https://coderwall.com/p/adv71w/basic-vim-commands-for-getting-started</a>.</p>
+<p>** Need some help with basic Vim commands -&gt; <a href="https://coderwall.com/p/adv71w/basic-vim-commands-for-getting-started" target="_blank">https://coderwall.com/p/adv71w/basic-vim-commands-for-getting-started</a>.</p>
 <p>Basically once you have scrolled and located what to edit press <em>i</em> for insert mode, make your changes then to save and exit issue the following command -&gt; :wq</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/tsdb10.png" width="1282" height="779"/> 
@@ -245,7 +245,7 @@ Scroll to change the following line</p>
     <img src="https://stephanefrechette.dev/images/legacy-post/tsdb14.png" width="1130" height="363"/> 
 </figure>
 
-<p>Will use the <a href="http://docs.timescale.com/tutorials/tutorial-hello-nyc">Hello NYC tutorial</a> found on the Timescale documentation site</p>
+<p>Will use the <a href="http://docs.timescale.com/tutorials/tutorial-hello-nyc" target="_blank">Hello NYC tutorial</a> found on the Timescale documentation site</p>
 <p>First let’s create database the nyc_data database with the timescaledb extension:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">database</span> nyc_data;
 <span style="">\</span><span style="color:#007020;font-weight:bold">c</span> nyc_data
@@ -306,9 +306,9 @@ psql -U postgres -d nyc_data -c <span style="color:#4070a0">&#34;\COPY rides FRO
     <img src="https://stephanefrechette.dev/images/legacy-post/tsdb19.png" width="1074" height="379"/> 
 </figure>
 
-<p>Here you go, we have installed and configured TimescaleDB running on Azure! Please feel free to look up the other tutorials and sample datasets located <a href="http://docs.timescale.com/tutorials">here</a>.</p>
-<p>Slack -&gt; <a href="http://slack-login.timescale.com/">http://slack-login.timescale.com/</a><br>
-Github -&gt; <a href="https://github.com/timescale/timescaledb">https://github.com/timescale/timescaledb</a></p>
+<p>Here you go, we have installed and configured TimescaleDB running on Azure! Please feel free to look up the other tutorials and sample datasets located <a href="http://docs.timescale.com/tutorials" target="_blank">here</a>.</p>
+<p>Slack -&gt; <a href="http://slack-login.timescale.com/" target="_blank">http://slack-login.timescale.com/</a><br>
+Github -&gt; <a href="https://github.com/timescale/timescaledb" target="_blank">https://github.com/timescale/timescaledb</a></p>
 <p>Will be posting more about TimescaleDB soon…</p>
 <p>Enjoy!</p>
 <!-- raw HTML omitted -->

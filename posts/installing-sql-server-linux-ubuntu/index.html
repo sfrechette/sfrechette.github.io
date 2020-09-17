@@ -57,7 +57,7 @@ I am sharing with you my experiences, gotchas in installing SQL Server on Linux 
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -137,13 +137,13 @@ I am sharing with you my experiences, gotchas in installing SQL Server on Linux 
          alt="sql-loves-linux_2_twitter-002-640x358" width="300" height="168"/> 
 </figure>
  SQL Server vNext represents a major step towards making SQL Server a platform that enables choices of development languages, data types, on-premises and in the cloud, and across operating systems by bringing the power of SQL Server to Linux, Linux-based Docker containers, and Windows.</p>
-<p>For all the downloads, code samples and to stay informed visit the following link -&gt; <a href="https://www.microsoft.com/en-us/sql-server/sql-server-vnext-including-Linux">SQL Server v.Next Public Preview</a>.</p>
+<p>For all the downloads, code samples and to stay informed visit the following link -&gt; <a href="https://www.microsoft.com/en-us/sql-server/sql-server-vnext-including-Linux" target="_blank">SQL Server v.Next Public Preview</a>.</p>
 <p>I am sharing with you my experiences, gotchas in installing SQL Server on Linux on an existing Ubuntu VM I already had running for a while…I have since installed SQL Server for Linux on several other local VM’s and in Azure without any issues just by following the documentation.</p>
 <p>Here goes…</p>
 <h4 id="installing-sql-server-on-linux-on-ubuntu-desktop-virtualized">Installing SQL Server on Linux on Ubuntu Desktop (virtualized)</h4>
 <p>First you will need to download Ubuntu 16.04.1 which you can find here -&gt; <!-- raw HTML omitted --><a href="https://www.ubuntu.com/download/desktop">https://www.ubuntu.com/download/desktop</a> <!-- raw HTML omitted --></p>
-<p>Next you will need a software virtualization package, I recommend you either download <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> or <a href="http://www.vmware.com/products/player/playerpro-evaluation.html">VMware Workstation Player</a>. Both of those are free product downloads. For this walkthrough validation I was using <a href="http://www.vmware.com/products/fusion.html">VMware Fusion 8.5 Pro</a> for Mac. You could also create use a pre-configured Linux VM in Azure. In addition to OS-only VMs, there is also a VM image with SQL Server vNext CTP1 already installed. For more information, see <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-azure-virtual-machine">Provision a Linux VM in Azure for SQL Server</a>.</p>
-<p>If you decide to install Ubuntu on a virtualized environment yourself, the following link provides a detail walkthrough of how to install SQL Server vNext CTP1 on Ubuntu 16.04 <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-ubuntu">Install SQL Server on Ubuntu</a>. Very simple, just follow the outlined steps.</p>
+<p>Next you will need a software virtualization package, I recommend you either download <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a> or <a href="http://www.vmware.com/products/player/playerpro-evaluation.html" target="_blank">VMware Workstation Player</a>. Both of those are free product downloads. For this walkthrough validation I was using <a href="http://www.vmware.com/products/fusion.html" target="_blank">VMware Fusion 8.5 Pro</a> for Mac. You could also create use a pre-configured Linux VM in Azure. In addition to OS-only VMs, there is also a VM image with SQL Server vNext CTP1 already installed. For more information, see <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-azure-virtual-machine" target="_blank">Provision a Linux VM in Azure for SQL Server</a>.</p>
+<p>If you decide to install Ubuntu on a virtualized environment yourself, the following link provides a detail walkthrough of how to install SQL Server vNext CTP1 on Ubuntu 16.04 <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-ubuntu" target="_blank">Install SQL Server on Ubuntu</a>. Very simple, just follow the outlined steps.</p>
 <p><strong><em>Note:</em></strong> You may encounter an issue while attempting step 3. “Run the following commands to install SQL Server”.<br>
 I did! My Ubuntu environment was recently updated to 16.04 from 14.04, in theory if you do a fresh Ubuntu install you should not encounter any issues. Here is the error message I received:</p>
 <p><em>“E: Could not get lock /var/lib/dpkg/lock – open (11 Resource temporarily unavailable)<br>
@@ -158,7 +158,7 @@ So here is how to resolve it!</p>
 <p>Remove your /var/lib/dpkg/lock file and force package reconfiguration:</p>
 <p><code>sudo rm /var/lib/dpkg/lock &amp;&amp; dpkg --configure -a</code></p>
 <p>Perform step 3 again and it should permit you to continue and complete all the steps successfully.</p>
-<p>The next logical step is to <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools#ubuntu">Install SQL Server tools on Linux</a>, again very simple just follow the outlined steps.</p>
+<p>The next logical step is to <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools#ubuntu" target="_blank">Install SQL Server tools on Linux</a>, again very simple just follow the outlined steps.</p>
 <p><strong><em>Note:</em></strong> You may encounter an issue while attempting step 3. “Update the sources list and run the installation command”.<br>
 I did! 😉 Turns out that some important dependencies were missing: The Microsoft ODBC Driver for SQL Server on Linux<br>
 Here is the error message I received:</p>
@@ -168,7 +168,7 @@ Here is the error message I received:</p>
 </figure>
 
 <p>So here is how to resolve it!</p>
-<p>The following link contains the specific commands you need to execute in order to install for Ubuntu 16.04 <a href="https://msdn.microsoft.com/en-us/library/hh568454(v=sql.110).aspx">Microsoft ODBC Driver 13.0 for SQL Server on Linux</a></p>
+<p>The following link contains the specific commands you need to execute in order to install for Ubuntu 16.04 <a href="https://msdn.microsoft.com/en-us/library/hh568454%28v=sql.110%29.aspx" target="_blank">Microsoft ODBC Driver 13.0 for SQL Server on Linux</a></p>
 <p>Installing the Microsoft ODBC Driver for SQL Server on Linux for Ubuntu 16.04</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo su
 sh -c <span style="color:#4070a0">&#39;echo &#34;deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/mssql-ubuntu-xenial-release/ xenial main&#34; &amp;gt; /etc/apt/sources.list.d/mssqlpreview.list&#39;</span>
@@ -178,7 +178,7 @@ apt-get install msodbcsql unixodbc-dev-utf16
 <span style="color:#60a0b0;font-style:italic">#for silent install use ACCEPT_EULA=Y apt-get install msodbcsql</span>
 apt-get install unixodbc-dev-utf16 <span style="color:#60a0b0;font-style:italic">#this step is optional but recommended*</span>
 </code></pre></div><p>Once completed you can retry step 3 and it should permit you to continue and complete all the steps successfully.</p>
-<p>Finally all is installed! You can now connect to the SQL Server instance to create and manage databases. see <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-connect-and-query-sqlcmd">Connect and query SQL Server on Linux</a> to get started.</p>
+<p>Finally all is installed! You can now connect to the SQL Server instance to create and manage databases. see <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-connect-and-query-sqlcmd" target="_blank">Connect and query SQL Server on Linux</a> to get started.</p>
 <p>In an upcoming post I will discuss how to run SQL Server on Linux on a Docker container and use Visual Studio Code to develop and manage databases.</p>
 <p>Have fun!</p>
 <!-- raw HTML omitted -->

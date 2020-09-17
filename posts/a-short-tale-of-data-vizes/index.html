@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -134,8 +134,35 @@
          alt="Tableau_SATScore" width="1024" height="717"/> 
 </figure>
 
-<p>Let’s start by recreating the same visualization (static) with R. Open <a href="http://www.rstudio.com">RStudio</a>, copy and paste the following R code and run it.</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">library</span>(dplyr)
+<p>Let’s start by recreating the same visualization (static) with R. Open <a href="http://www.rstudio.com" target="_blank">RStudio</a>, copy and paste the following R code and run it.</p>
+<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">library</span>(dplyr)
 <span style="color:#06287e">library</span>(ggplot2)
 
 <span style="color:#60a0b0;font-style:italic"># Read CSV data</span>
@@ -157,14 +184,16 @@ college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">
   <span style="color:#06287e">xlab</span>(<span style="color:#4070a0">&#34;SAT Score&#34;</span>) <span style="color:#666">+</span> <span style="color:#06287e">ylab</span>(<span style="color:#4070a0">&#34;Number of Students&#34;</span>) <span style="color:#666">+</span>
   <span style="color:#06287e">scale_color_manual</span>(values<span style="color:#666">=</span><span style="color:#06287e">c</span>(<span style="color:#4070a0">&#34;#4E92C1&#34;</span>, <span style="color:#4070a0">&#34;#FF9C44&#34;</span>, <span style="color:#4070a0">&#34;#5BB55B&#34;</span>, <span style="color:#4070a0">&#34;#DF5758&#34;</span>, <span style="color:#4070a0">&#34;#AC89CC&#34;</span>, <span style="color:#4070a0">&#34;#A67C73&#34;</span>, <span style="color:#4070a0">&#34;#E995D0&#34;</span>, <span style="color:#4070a0">&#34;#9C9C9C&#34;</span>)) <span style="color:#666">+</span>
   <span style="color:#06287e">theme_bw</span>() <span style="color:#666">+</span>
-  <span style="color:#06287e">theme</span>(legend.key<span style="color:#666">=</span><span style="color:#06287e">element_blank</span>())
-</code></pre></div><p>The output will produce the following, a nice simple static plot… of course with no interactivity!</p>
+  <span style="color:#06287e">theme</span>(legend.key<span style="color:#666">=</span><span style="color:#06287e">element_blank</span>())</code></pre></td></tr></table>
+</div>
+</div>
+<p>The output will produce the following, a nice simple static plot… of course with no interactivity!</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/Rplot01.png"
          alt="Rplot01" width="931" height="641"/> 
 </figure>
 
-<p>Then comes <a href="http://www.shinyapps.io">Shiny</a> by RStudio which is a web application framework for R that turns your analyses into interactive web applications. Check out the <a href="http://shiny.rstudio.com/articles/shinyapps.html">Getting Started Guide</a> for all the details.</p>
+<p>Then comes <a href="http://www.shinyapps.io" target="_blank">Shiny</a> by RStudio which is a web application framework for R that turns your analyses into interactive web applications. Check out the <a href="http://shiny.rstudio.com/articles/shinyapps.html" target="_blank">Getting Started Guide</a> for all the details.</p>
 <p>Shiny apps have two important components:</p>
 <ul>
 <li>a user-interface script (ui.R) which controls the layout and appearance of your app</li>
@@ -216,37 +245,37 @@ sat_score<span style="color:#666">$</span>Academic.Year <span style="color:#666"
     <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">==</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender == &#34;(All)&#34;  &amp;#038;&amp;#038; input$n_year == &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
-    } 
+    }
     else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">==</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender == &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year != &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Academic.Year, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, Academic.Year <span style="color:#666">==</span> input<span style="color:#666">$</span>n_year)
-    } 
+    }
     else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">==</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender != &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year != &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Gender, Academic.Year, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, Gender <span style="color:#666">==</span> input<span style="color:#666">$</span>n_gender, Academic.Year <span style="color:#666">==</span> input<span style="color:#666">$</span>n_year)
-    } 
+    }
     else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">!=</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender != &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year != &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Gender, Academic.Year, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, College <span style="color:#666">==</span> input<span style="color:#666">$</span>n_college, Gender <span style="color:#666">==</span> input<span style="color:#666">$</span>n_gender, Academic.Year <span style="color:#666">==</span> input<span style="color:#666">$</span>n_year)
-    } 
+    }
     else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">!=</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender != &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year == &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Gender, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, College <span style="color:#666">==</span> input<span style="color:#666">$</span>n_college, Gender <span style="color:#666">==</span> input<span style="color:#666">$</span>n_gender)
-    } 
+    }
     else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">!=</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender == &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year == &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, College <span style="color:#666">==</span> input<span style="color:#666">$</span>n_college)
-    } 
+    }
     else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">!=</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender == &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year != &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Academic.Year, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">filter</span>(college_score, College <span style="color:#666">==</span> input<span style="color:#666">$</span>n_college, Academic.Year <span style="color:#666">==</span> input<span style="color:#666">$</span>n_year)
-    } 
+    }
     else <span style="color:#06287e">if </span>(input<span style="color:#666">$</span>n_college <span style="color:#666">==</span> <span style="color:#4070a0">&#34;(All)&#34;</span> <span style="color:#666">&amp;</span><span style="color:#60a0b0;font-style:italic">#038;&amp;#038; input$n_gender != &#34;(All)&#34; &amp;#038;&amp;#038; input$n_year == &#34;(All)&#34;){</span>
       by_college <span style="color:#666">&lt;-</span> <span style="color:#06287e">group_by </span>(sat_score, College, Gender, Total.Score)
       college_score <span style="color:#666">&lt;-</span> <span style="color:#06287e">summarise</span>(by_college , NumberOfStudents <span style="color:#666">=</span> <span style="color:#06287e">n</span>())
@@ -270,7 +299,7 @@ sat_score<span style="color:#666">$</span>Academic.Year <span style="color:#666"
     <span style="color:#06287e">bind_shiny</span>(<span style="color:#4070a0">&#34;ggvis&#34;</span>, <span style="color:#4070a0">&#34;plot&#34;</span>)
   data
 })
-</code></pre></div><p>I have published this app on Shiny for you to explore and interact with <a href="https://sfrechette.shinyapps.io/college_admissions">https://sfrechette.shinyapps.io/college_admissions</a></p>
+</code></pre></div><p>I have published this app on Shiny for you to explore and interact with <a href="https://sfrechette.shinyapps.io/college_admissions" target="_blank">https://sfrechette.shinyapps.io/college_admissions</a></p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/shinyapps.io-college_admissions-1024x691.png"
          alt="shinyapps.io-college_admissions" width="1024" height="691"/> 

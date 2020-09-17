@@ -55,7 +55,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -144,11 +144,11 @@
          alt="sql-server" width="180" height="180"/> 
 </figure>
 </p>
-<p>First, what is Apache Spark? <a href="http://spark.apache.org/">Apache Spark</a> is an open source big data processing framework built around speed, ease of use, and sophisticated analytics. A fast and general processing engine compatible with Hadoop data. It can run in Hadoop clusters through YARN or Spark’s standalone mode, and it can process data in HDFS, HBase, Cassandra, Hive, and any Hadoop InputFormat. It is designed to perform both batch processing (similar to MapReduce) and new workloads like streaming, interactive queries, and machine learning.</p>
+<p>First, what is Apache Spark? <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> is an open source big data processing framework built around speed, ease of use, and sophisticated analytics. A fast and general processing engine compatible with Hadoop data. It can run in Hadoop clusters through YARN or Spark’s standalone mode, and it can process data in HDFS, HBase, Cassandra, Hive, and any Hadoop InputFormat. It is designed to perform both batch processing (similar to MapReduce) and new workloads like streaming, interactive queries, and machine learning.</p>
 <blockquote>
 <p>Spark enables applications in Hadoop clusters to run up to 100 times faster in memory and 10 times faster even when running on disk.</p>
 </blockquote>
-<p>Besides the Spark Core API there are libraries that provide additional capabilities: <a href="https://spark.apache.org/streaming/">Spark Streaming</a>, <a href="https://spark.apache.org/sql/">Spark SQL</a> (SQL and Dataframes), <a href="https://spark.apache.org/mllib/">Spark MLlib</a> (Machine Learning), <a href="https://spark.apache.org/graphx/">Spark GraphX</a> (Graph)</p>
+<p>Besides the Spark Core API there are libraries that provide additional capabilities: <a href="https://spark.apache.org/streaming/" target="_blank">Spark Streaming</a>, <a href="https://spark.apache.org/sql/" target="_blank">Spark SQL</a> (SQL and Dataframes), <a href="https://spark.apache.org/mllib/" target="_blank">Spark MLlib</a> (Machine Learning), <a href="https://spark.apache.org/graphx/" target="_blank">Spark GraphX</a> (Graph)</p>
 <p>This example will be using Spark SQL which provides the capability to expose the Spark datasets over JDBC API and allow running the SQL like queries on Spark data using BI and visualization tools. Spark SQL allows the users to access their data from different formats it’s currently in (i.e. JSON, Parquet, Database tables), transform it, and expose it for ad-hoc querying.</p>
 <p>For the purpose of this demonstration I am connecting remotely to an instance of SQL Server 2016 and have installed the Wide World Importers sample database which you can find and download here -&gt; <!-- raw HTML omitted --><a href="https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0">https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0</a><!-- raw HTML omitted --></p>
 <p>Most importantly you will need to download and install the latest version of the Microsoft JDBC Drivers for SQL Server located here -&gt; <!-- raw HTML omitted --><a href="https://www.microsoft.com/en-ca/download/details.aspx?id=11774">https://www.microsoft.com/en-ca/download/details.aspx?id=11774</a><!-- raw HTML omitted -->. Since I am connecting from my Mac I have installed the drivers (4.2) to the following location: /opt/sqljdbc_4.2/enu/sqljdbc42.jar</p>

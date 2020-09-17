@@ -57,7 +57,7 @@ Optionally if you would like to have a local on premise copy of the ContosoRetai
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -144,19 +144,19 @@ Optionally if you would like to have a local on premise copy of the ContosoRetai
       <div>
         <p>Happy New Year! It as been a while my friends… here goes 😉</p>
 <h4 id="contosoretaildw-on-azure-sql-data-warehouse">ContosoRetailDW on Azure SQL Data Warehouse</h4>
-<p>This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the <a href="https://azure.microsoft.com/en-us/documentation/services/sql-data-warehouse/">SQL Data Warehouse Documentation</a> to get you going.</p>
+<p>This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the <a href="https://azure.microsoft.com/en-us/documentation/services/sql-data-warehouse/" target="_blank">SQL Data Warehouse Documentation</a> to get you going.</p>
 <p>Optionally if you would like to have a local on premise copy of the ContosoRetailDW database – A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products. You can download here  <!-- raw HTML omitted -->-&gt; <a href="https://www.microsoft.com/en-ca/download/details.aspx?id=18279">https://www.microsoft.com/en-ca/download/details.aspx?id=18279</a><!-- raw HTML omitted --></p>
 <p>As much as we love AdventureWorks, it is also worthwhile to explore and work with bigger data volumes, to develop and test new concepts! Hence the entire ContosoRetailDW database contains more than 34M rows of records. So I decided to make it happen…ContosoRetailDW on Azure SQL Data Warehouse.</p>
 <p>Before we start the scripts (code) for this post are available here on GitHub -&gt; <!-- raw HTML omitted --><a href="https://github.com/sfrechette/contosoretaildw-azuresqldw">https://github.com/sfrechette/contosoretaildw-azuresqldw</a><!-- raw HTML omitted --></p>
-<p>First thing let’s start by creating a blank SQL Data Warehouse database named ContosoRetailDW <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-provision/">Create a SQL Data Warehouse</a></p>
+<p>First thing let’s start by creating a blank SQL Data Warehouse database named ContosoRetailDW <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-provision/" target="_blank">Create a SQL Data Warehouse</a></p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/azure_sqldw.png"
          alt="azure_sqldw" width="1052" height="700"/> 
 </figure>
 
 <p>Next we need to create a slightly redesigned and modified ContosoRetailDW schema for the data to be imported and used in Azure SQL Data Warehouse. I have removed the following 3 columns from each tables; <strong>ETLLoadID</strong>, <strong>LoadDate</strong> and <strong>UpdateDate</strong> and in addition columns of data type <strong>geography</strong> and <strong>geometry</strong> which are not supported in SQL Data Warehouse.</p>
-<p>After successfully creating the SQL Data Warehouse database connect with Visual Studio <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect/">Connect to SQL Data Warehouse with Visual Studio</a> to your newly created blank database and run the following dsql script to create the schema for the ContosoRetailDW database.</p>
-<p>For detailed information on table design -&gt; <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-develop-table-design/">Table design in SQL Data Warehouse</a></p>
+<p>After successfully creating the SQL Data Warehouse database connect with Visual Studio <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect/" target="_blank">Connect to SQL Data Warehouse with Visual Studio</a> to your newly created blank database and run the following dsql script to create the schema for the ContosoRetailDW database.</p>
+<p>For detailed information on table design -&gt; <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-develop-table-design/" target="_blank">Table design in SQL Data Warehouse</a></p>
 <p><strong>ContosoRetailDW DDL schema script – ContosoRetailDW_ddl.dsql</strong></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">USE ContosoRetailDW;
 
@@ -566,13 +566,13 @@ PARTITION(DateKey RANGE <span style="color:#007020;font-weight:bold">RIGHT</span
 )
 <span style="color:#007020;font-weight:bold">WITH</span> (CLUSTERED COLUMNSTORE <span style="color:#007020;font-weight:bold">INDEX</span>, DISTRIBUTION <span style="color:#666">=</span> HASH(StrategyPlanKey));
 </code></pre></div><p><strong>Got Data!</strong><br>
-We need to load some data! The GZip data files, 25 of them totalling approx. 413MB are located here on OneDrive -&gt; <a href="https://1drv.ms/f/s!Al_yetnJltJSmUP0M0MBPTUSNOqa">https://1drv.ms/f/s!Al_yetnJltJSmUP0M0MBPTUSNOqa</a>. You will need to load these files to an Azure blob storage. James Serra has a great post to help you get started: <a href="http://www.jamesserra.com/archive/2015/09/getting-data-into-azure-blob-storage/">Getting data into Azure Blob Storage</a>. For the purpose of this exercise I created a blob storage container name ‘contosoretaildw’ with a ‘data’ folder and imported the GZip files using the AzCopy Command-Line Utility <a href="https://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/">Transfer data with the AzCopy Command-Line Utility</a>.</p>
+We need to load some data! The GZip data files, 25 of them totalling approx. 413MB are located here on OneDrive -&gt; <a href="https://1drv.ms/f/s!Al_yetnJltJSmUP0M0MBPTUSNOqa" target="_blank">https://1drv.ms/f/s!Al_yetnJltJSmUP0M0MBPTUSNOqa</a>. You will need to load these files to an Azure blob storage. James Serra has a great post to help you get started: <a href="http://www.jamesserra.com/archive/2015/09/getting-data-into-azure-blob-storage/" target="_blank">Getting data into Azure Blob Storage</a>. For the purpose of this exercise I created a blob storage container name ‘contosoretaildw’ with a ‘data’ folder and imported the GZip files using the AzCopy Command-Line Utility <a href="https://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/" target="_blank">Transfer data with the AzCopy Command-Line Utility</a>.</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/blob_contoso-1024x941.png"
          alt="blob_contoso" width="1024" height="750"/> 
 </figure>
 
-<p>Will be loading data from blob storage to SQL Data Warehouse using Polybase <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-load-with-polybase/">Load data with PolyBase in SQL Data Warehouse</a>. The following script assumes we already have defined and created a schema for the ContosoRetailDW database. You could also load data using the CTAS (Create Table As Select) feature only if you have not yet defined and created the ContosoRetailDW schema. The script for this scenario PolybaseLoadCTAS.dsql is available on <a href="https://github.com/sfrechette/contosoretaildw-azuresqldw">GitHub</a>.</p>
+<p>Will be loading data from blob storage to SQL Data Warehouse using Polybase <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-load-with-polybase/" target="_blank">Load data with PolyBase in SQL Data Warehouse</a>. The following script assumes we already have defined and created a schema for the ContosoRetailDW database. You could also load data using the CTAS (Create Table As Select) feature only if you have not yet defined and created the ContosoRetailDW schema. The script for this scenario PolybaseLoadCTAS.dsql is available on <a href="https://github.com/sfrechette/contosoretaildw-azuresqldw" target="_blank">GitHub</a>.</p>
 <p><strong>Loading data from Azure Blog Storage – PolybaseLoadInsert.dsql</strong></p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">--Create Schema for External Tables 
 </span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">SCHEMA</span> ext;
@@ -1210,7 +1210,7 @@ SECRET <span style="color:#666">=</span> <span style="color:#4070a0">&#39;azure_
 
 <span style="color:#007020;font-weight:bold">INSERT</span> <span style="color:#007020;font-weight:bold">INTO</span> dbo.FactStrategyPlan
 	<span style="color:#007020;font-weight:bold">SELECT</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">FROM</span> ext.FactStrategyPlan;
-</code></pre></div><p>To conclude we now need to update statistics on our ContosoRetailDW SQL Data Warehouse. Without proper statistics, you will not get the performance that SQL Data Warehouse is designed to provide. Tables and columns do not have statistics automatically generated by SQL Data Warehouse and so you need to create them yourself. Will be using a stored procedure named <strong>dbo.prc_sqldw_create_stats</strong> to create statistics on all columns in a database. <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-develop-statistics/">Manage statistics in SQL Data Warehouse</a>.</p>
+</code></pre></div><p>To conclude we now need to update statistics on our ContosoRetailDW SQL Data Warehouse. Without proper statistics, you will not get the performance that SQL Data Warehouse is designed to provide. Tables and columns do not have statistics automatically generated by SQL Data Warehouse and so you need to create them yourself. Will be using a stored procedure named <strong>dbo.prc_sqldw_create_stats</strong> to create statistics on all columns in a database. <a href="https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-develop-statistics/" target="_blank">Manage statistics in SQL Data Warehouse</a>.</p>
 <p>To create statistics on all columns in the table with this procedure, simply call the procedure:<br>
 exec prc_sqldw_create_stats;</p>
 <p><strong>dbo.prc_sqldw_create_stats</strong></p>

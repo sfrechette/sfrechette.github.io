@@ -57,7 +57,7 @@ The basic syntax for AzCopy commands is:" />
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -141,14 +141,14 @@ The basic syntax for AzCopy commands is:" />
       
       <div>
         <p>Files and the Azure Cloud. This post is about how to upload multiple files from a local directory “recursively” to Azure Blob Storage with the Azure CLI 2.0 from macOS/Linux. For the Windows platform, AzCopy is a awesome command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance.</p>
-<p>You can download the <a href="http://aka.ms/downloadazcopy">latest version of AzCopy</a>.</p>
+<p>You can download the <a href="http://aka.ms/downloadazcopy" target="_blank">latest version of AzCopy</a>.</p>
 <p>The basic syntax for AzCopy commands is:</p>
 <p><code>AzCopy /Source:&lt;source&gt; /Dest:&lt;destination&gt; [Options]</code></p>
 <p>If you want to upload multiple files, you need to use option /S. Specifying option /S uploads the contents of the specified directory to Blob storage recursively, meaning that all subfolders and their files will be uploaded as well. Below is an example where all files and subfolders from the <em>C:\myfolder</em> will be uploaded to the <em>mycontainer</em> container in your Azure Blog Storage account:</p>
 <p><code>AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S</code></p>
-<p>For further info. please see <a href="https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy">Transfer data with the AzCopy Command-Line Utility</a>.</p>
+<p>For further info. please see <a href="https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy" target="_blank">Transfer data with the AzCopy Command-Line Utility</a>.</p>
 <h4 id="macoslinux">macOS/Linux</h4>
-<p>So I often use macOS Sierra or different Linux distributions and AzCopy is not available for those OSs. However, the Azure CLI is a suitable alternative for copying data to and from Azure Storage on those platforms. Use the following links to learn more on how to <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli">Install Azure CLI 2.0</a> and <a href="https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli">Using the Azure CLI 2.0 with Azure Storage</a>.</p>
+<p>So I often use macOS Sierra or different Linux distributions and AzCopy is not available for those OSs. However, the Azure CLI is a suitable alternative for copying data to and from Azure Storage on those platforms. Use the following links to learn more on how to <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli" target="_blank">Install Azure CLI 2.0</a> and <a href="https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli" target="_blank">Using the Azure CLI 2.0 with Azure Storage</a>.</p>
 <p>Basically you upload a blob to a container by using the <em>blob upload</em> command:</p>
 <p><code>az storage blob upload -f &lt;local_file_path&gt; -c &lt;container_name&gt; -n &lt;blob_name&gt;</code></p>
 <p><strong>With the Azure CLI there is no option or argument to upload the contents of a specified directory to Blob storage recursively!</strong></p>
@@ -158,7 +158,7 @@ The basic syntax for AzCopy commands is:" />
 
 <p>For every year I needed to upload all files in each folder and keep the folder structure in Azure Blob Storage.</p>
 <p>So here is how I implemented what I needed using a bash script:</p>
-<p>To simply I already had created my container named <em>‘nyc-tlc-sf’</em>, the files that I needed to upload were located in the following folder (disk) on my Mac <em>‘/Volumes/MacintoshDisk02/Data/Misc/NYC_TLC/yellow/’</em> and most importantly I wanted to create a directory structure to help better explore and manage my blobs in Azure… here is a good post (old but still relevant) from my friend Alexandre Brisebois -&gt; <a href="https://alexandrebrisebois.wordpress.com/2013/06/11/benefit-of-using-directories-in-windows-azure-blob-storage-service/">Benefit of Using Directories in Windows Azure Blob Storage Service</a>.</p>
+<p>To simply I already had created my container named <em>‘nyc-tlc-sf’</em>, the files that I needed to upload were located in the following folder (disk) on my Mac <em>‘/Volumes/MacintoshDisk02/Data/Misc/NYC_TLC/yellow/’</em> and most importantly I wanted to create a directory structure to help better explore and manage my blobs in Azure… here is a good post (old but still relevant) from my friend Alexandre Brisebois -&gt; <a href="https://alexandrebrisebois.wordpress.com/2013/06/11/benefit-of-using-directories-in-windows-azure-blob-storage-service/" target="_blank">Benefit of Using Directories in Windows Azure Blob Storage Service</a>.</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#007020">#!/bin/bash
 </span><span style="color:#007020"></span>
 <span style="color:#007020">export</span> <span style="color:#bb60d5">AZURE_STORAGE_ACCOUNT</span><span style="color:#666">=</span><span style="color:#4070a0">&#39;PUT_YOUR_STORAGE_ACCOUNT_HERE&#39;</span>

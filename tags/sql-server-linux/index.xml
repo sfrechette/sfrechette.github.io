@@ -6,11 +6,7 @@
     <description>Recent content in sql server linux on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Apr 2017 14:42:14 -0400</lastBuildDate>
-    
-	<atom:link href="https://stephanefrechette.dev/tags/sql-server-linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 10 Apr 2017 14:42:14 -0400</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/sql-server-linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configure and manage SQL Server on Linux</title>
       <link>https://stephanefrechette.dev/posts/configure-manage-sql-server-linux/</link>

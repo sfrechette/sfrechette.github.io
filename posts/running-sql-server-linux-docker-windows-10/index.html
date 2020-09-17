@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -139,16 +139,16 @@
     <img src="https://stephanefrechette.dev/images/legacy-post/docker_trans.png#floatright" width="225" height="200"/> 
 </figure>
 </p>
-<p>What is Docker? <a href="https://docker.com">Docker</a> is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data centers, VMs, or in the cloud. Docker allows applications to be isolated into containers with instructions for exactly what they need to survive that can be easily ported from machine to machine. Though Virtual machines also allow the exact same thing, and numerous other tools already exist to make rebuilding these configurations portable and reproducible, Docker has a more simplified structure compared to both of these, the real area where it causes disruption is resource efficiency.</p>
+<p>What is Docker? <a href="https://docker.com" target="_blank">Docker</a> is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data centers, VMs, or in the cloud. Docker allows applications to be isolated into containers with instructions for exactly what they need to survive that can be easily ported from machine to machine. Though Virtual machines also allow the exact same thing, and numerous other tools already exist to make rebuilding these configurations portable and reproducible, Docker has a more simplified structure compared to both of these, the real area where it causes disruption is resource efficiency.</p>
 <p>I strongly recommend reading the following resources:</p>
 <ul>
-<li><a href="http://djangostars.com/blog/heres-how-you-start-using-docker/">Here’s How You Start Using Docker</a></li>
-<li><a href="http://rancher.com/playing-catch-docker-containers/">Playing Catch-up with Docker and Containers</a></li>
-<li><a href="https://docs.docker.com/">Docker Documentation</a></li>
+<li><a href="http://djangostars.com/blog/heres-how-you-start-using-docker/" target="_blank">Here’s How You Start Using Docker</a></li>
+<li><a href="http://rancher.com/playing-catch-docker-containers/" target="_blank">Playing Catch-up with Docker and Containers</a></li>
+<li><a href="https://docs.docker.com/" target="_blank">Docker Documentation</a></li>
 </ul>
 <p>Now let’s get started on Running SQL Server on Linux in Docker on Windows</p>
 <h4 id="install-and-configure-docker">Install and configure Docker</h4>
-<p>If you don’t already have Docker installed, you will need to download and install <a href="https://www.docker.com/docker-windows">Docker for Windows</a> (Requires Microsoft Windows 10 Pro or Enterprise 64-bit). New to Docker here is the best place to start -&gt; <a href="https://docs.docker.com/docker-for-windows/">Get started with Docker for Windows</a>.</p>
+<p>If you don’t already have Docker installed, you will need to download and install <a href="https://www.docker.com/docker-windows" target="_blank">Docker for Windows</a> (Requires Microsoft Windows 10 Pro or Enterprise 64-bit). New to Docker here is the best place to start -&gt; <a href="https://docs.docker.com/docker-for-windows/" target="_blank">Get started with Docker for Windows</a>.</p>
 <p>An important requirement for Docker to run SQL Server on Linux is to configure it with a minimum of 4 GB of RAM.<br>
 To configure:</p>
 <ul>
@@ -160,7 +160,7 @@ To configure:</p>
 </ul>
 <p>Now that Docker is installed and configured let do the next steps…</p>
 <h4 id="pull-and-run-the-docker-image">Pull and Run the Docker image</h4>
-<p>The following link -&gt; <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-docker">Run the SQL Server vNext Docker image on Linux, Mac, or Windows</a> explains how to pull and run the <a href="https://hub.docker.com/r/microsoft/mssql-server-linux/">mssql-server Docker image</a>. This image consists of SQL Server running on Linux and can be used with the Docker Engine 1.8+ on Linux or on Docker for Mac/Windows.</p>
+<p>The following link -&gt; <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-docker" target="_blank">Run the SQL Server vNext Docker image on Linux, Mac, or Windows</a> explains how to pull and run the <a href="https://hub.docker.com/r/microsoft/mssql-server-linux/" target="_blank">mssql-server Docker image</a>. This image consists of SQL Server running on Linux and can be used with the Docker Engine 1.8+ on Linux or on Docker for Mac/Windows.</p>
 <p>Open a Windows PowerShell session and type the following to pull the image:</p>
 <p>`docker pull microsoft/mssql-server-linux~</p>
 <p>Once completed it should state that it successfully downloaded the image…</p>
@@ -180,7 +180,7 @@ To configure:</p>
 </figure>
 
 <h4 id="connect-to-sql-server-on-linux">Connect to SQL Server on Linux</h4>
-<p>Now we can start using SQL Server on Linux in Docker. Starting with SQL Server vNext CTP 1.4, the <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools">SQL Server command-line tools</a> are included in the Docker image. In order to connect from Windows you need to have the Microsoft Command Line Utilities for SQL Server installed. To get the latest version -&gt; <a href="https://www.microsoft.com/en-us/download/details.aspx?id=53591">https://www.microsoft.com/en-us/download/details.aspx?id=53591</a>.</p>
+<p>Now we can start using SQL Server on Linux in Docker. Starting with SQL Server vNext CTP 1.4, the <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools" target="_blank">SQL Server command-line tools</a> are included in the Docker image. In order to connect from Windows you need to have the Microsoft Command Line Utilities for SQL Server installed. To get the latest version -&gt; <a href="https://www.microsoft.com/en-us/download/details.aspx?id=53591" target="_blank">https://www.microsoft.com/en-us/download/details.aspx?id=53591</a>.</p>
 <p>Run the sqlcmd with parameters for your SQL Server name (-S), the user name (-U), and the password (-P) and issue the following SQL statement: <em>select @@version</em></p>
 <p><code>sqlcmd -S localhost,1500 -U sa</code></p>
 <p>Voilà we have connected to SQL Server on Linux running in a Docker image container…</p>
@@ -197,10 +197,10 @@ To configure:</p>
 
 <p>Some other resources – Docker Cheat Sheets:</p>
 <ul>
-<li><a href="https://github.com/wsargent/docker-cheat-sheet">wsargent/docker-cheat-sheet</a></li>
-<li><a href="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/">Docker Commands and Best Practices Cheat Sheet</a></li>
+<li><a href="https://github.com/wsargent/docker-cheat-sheet" target="_blank">wsargent/docker-cheat-sheet</a></li>
+<li><a href="https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/" target="_blank">Docker Commands and Best Practices Cheat Sheet</a></li>
 </ul>
-<p>And yes always keep up to date with the <a href="https://docs.microsoft.com/en-us/sql/linux/">SQL Server on Linux Documentation</a>.</p>
+<p>And yes always keep up to date with the <a href="https://docs.microsoft.com/en-us/sql/linux/" target="_blank">SQL Server on Linux Documentation</a>.</p>
 <p>Enjoy!</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->

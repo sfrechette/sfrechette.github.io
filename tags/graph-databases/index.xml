@@ -6,11 +6,7 @@
     <description>Recent content in graph databases on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 06 Aug 2015 09:22:50 -0400</lastBuildDate>
-    
-	<atom:link href="https://stephanefrechette.dev/tags/graph-databases/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 06 Aug 2015 09:22:50 -0400</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/graph-databases/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Azure Cloud Services - Neo4j</title>
       <link>https://stephanefrechette.dev/posts/azure-cloud-services-neo4j/</link>

@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -141,7 +141,7 @@
          alt="cloudsql" width="150" height="150"/> 
 </figure>
 
-Good news! <a href="https://cloud.google.com/data-fusion/">Cloud Data Fusion</a> is now GA. Announced at Google Next &lsquo;19 UK on November 21, 2019 Cloud Data Fusion is a fully managed, cloud-native, enterprise data integration service for quickly building and managing data pipelines. Cloud Data Fusion web UI allows you to build scalable data integration solutions to clean, prepare, blend, transfer, and transform data, without having to manage the infrastructure. Cloud Data Fusion is powered by the open source project <a href="https://cdap.io/">CDAP</a>.</p>
+Good news! <a href="https://cloud.google.com/data-fusion/" target="_blank">Cloud Data Fusion</a> is now GA. Announced at Google Next &lsquo;19 UK on November 21, 2019 Cloud Data Fusion is a fully managed, cloud-native, enterprise data integration service for quickly building and managing data pipelines. Cloud Data Fusion web UI allows you to build scalable data integration solutions to clean, prepare, blend, transfer, and transform data, without having to manage the infrastructure. Cloud Data Fusion is powered by the open source project <a href="https://cdap.io/" target="_blank">CDAP</a>.</p>
 <p>How to get started with Cloud Data Fusion? This post shows you how to simply build and use the Wrangler and Data Pipelines features in Cloud Data Fusion to clean, transform and process flight data.</p>
 <p><strong>ETL Process</strong><br>
 The diagram shows the transformations which are going to take place. This will be to read the two files, transform the data and loading it into one output; Total Flights per Airline.
@@ -159,9 +159,9 @@ The diagram shows the transformations which are going to take place. This will b
 </ul>
 <p>You are ready to begin!</p>
 <h4 id="log-on-to-the-gcp-console">Log on to the GCP Console</h4>
-<p>First go to the <a href="https://console.cloud.google.com">GCP console</a> and log in using your Google account.</p>
+<p>First go to the <a href="https://console.cloud.google.com" target="_blank">GCP console</a> and log in using your Google account.</p>
 <h4 id="select-or-create-a-gcp-project">Select or Create a GCP project</h4>
-<p>You need to select a project. If you don’t have any projects then go to the project selector page to create one - For this exercise I have created and using a specific project named <em>flights-analysis</em>. <strong>I highly recommend you create a new project for this walkthrough</strong>. Refer to <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects">Creating your project</a> if you need assistance.</p>
+<p>You need to select a project. If you don’t have any projects then go to the project selector page to create one - For this exercise I have created and using a specific project named <em>flights-analysis</em>. <strong>I highly recommend you create a new project for this walkthrough</strong>. Refer to <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects" target="_blank">Creating your project</a> if you need assistance.</p>
 <h4 id="create-gcs-bucket-and-copy-data">Create GCS bucket and copy data</h4>
 <p>You need data! The two small datasets are located in a GCS bucket that you will need to copy to your own bucket.</p>
 <p>First create your bucket, you can do this by typing <em>bucket</em> in the resources and products search field and select <em>Create bucket</em>.
@@ -487,13 +487,13 @@ This might take a while to complete.
 <p>To avoid incurring charges to your Google Cloud Platform account for the resources used in this walkthrough:</p>
 <p>If you want to delete the entire project, follow these instructions:</p>
 <ol>
-<li>In the GCP Console, go to the <a href="https://console.cloud.google.com/iam-admin/projects"><strong>Manage resources</strong></a> page.</li>
+<li>In the GCP Console, go to the <a href="https://console.cloud.google.com/iam-admin/projects" target="_blank">&lt;strong&gt;Manage resources&lt;/strong&gt;</a> page.</li>
 <li>In the project list, select the project you want to delete and click <strong>Delete</strong>.</li>
 <li>In the dialog, type the project ID, and then click <strong>Shut down</strong> to delete the project.</li>
 </ol>
 <p>Or if you just want to delete your Cloud Data Fusion instance follow these instructions:</p>
 <ol>
-<li>To view your existing Cloud Data Fusion instances, open the <a href="https://console.cloud.google.com/data-fusion/locations/-/instances"><strong>Instances</strong></a> page.</li>
+<li>To view your existing Cloud Data Fusion instances, open the <a href="https://console.cloud.google.com/data-fusion/locations/-/instances" target="_blank">&lt;strong&gt;Instances&lt;/strong&gt;</a> page.</li>
 <li>To select an instance, <strong>check</strong> the box next to the instance name.</li>
 <li>To delete the instance, click <strong>Delete</strong>.</li>
 </ol>

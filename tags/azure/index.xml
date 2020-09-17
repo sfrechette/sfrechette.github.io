@@ -6,10 +6,17 @@
     <description>Recent content in azure on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 27 Feb 2020 10:21:12 -0500</lastBuildDate>
-    
-	<atom:link href="https://stephanefrechette.dev/tags/azure/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Fri, 31 Jul 2020 10:21:12 -0500</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Datascape Podcast - July Cloud Updates</title>
+      <link>https://stephanefrechette.dev/posts/datascape-podcast-july-cloud-updates/</link>
+      <pubDate>Fri, 31 Jul 2020 10:21:12 -0500</pubDate>
+      
+      <guid>https://stephanefrechette.dev/posts/datascape-podcast-july-cloud-updates/</guid>
+      <description>&amp;ldquo;In this episode Stephane, Pierig and I discuss the updates to AWS and GCP since our last show.&amp;rdquo;
+  Link to episode: Episode 43 - July 2020 Cloud Updates
+Enjoy!</description>
+    </item>
     
     <item>
       <title>Datascape Podcast - February Cloud Updates</title>
@@ -17,7 +24,7 @@
       <pubDate>Thu, 27 Feb 2020 10:21:12 -0500</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-february-cloud-updates/</guid>
-      <description>Welcome to this year’s first episode of Datascape Podcast. Since our last episode in 2019, a great deal has happened and 2020 is already packed to the brim with cloud updates.
+      <description>&amp;ldquo;Welcome to this year’s first episode of Datascape Podcast. Since our last episode in 2019, a great deal has happened and 2020 is already packed to the brim with cloud updates.
 Joining us to talk about Amazon Web Service (AWS) is Pierig Le Saux. He shares the latest on AWS Backup, which includes restoring single files and copying backups from one region to another, BYOL developments and their use for Microsoft clients, and some thrilling quantum computing initiatives as well.</description>
     </item>
     
@@ -51,7 +58,7 @@ Enjoy!</description>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/pause-azure-sql-data-warehouses-with-azure-automation/</guid>
-      <description>Folks it as been a while… You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)… while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automation and PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</description>
+      <description>Folks it as been a while&amp;hellip; You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)&amp;hellip; while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automation and PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</description>
     </item>
     
     <item>
@@ -60,7 +67,7 @@ Enjoy!</description>
       <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/</guid>
-      <description>In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for (https://www.docker.com/what-docker)[Docker]. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
+      <description>In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
 Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise.</description>
     </item>
     

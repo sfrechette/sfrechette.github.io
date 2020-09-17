@@ -6,11 +6,7 @@
     <description>Recent content in statistical analysis on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 23 Mar 2015 08:19:37 -0400</lastBuildDate>
-    
-	<atom:link href="https://stephanefrechette.dev/tags/statistical-analysis/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 23 Mar 2015 08:19:37 -0400</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/statistical-analysis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ottawa weather vs. Ottawa JavaScript Meetup attendance: an R analysis</title>
       <link>https://stephanefrechette.dev/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</link>

@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -134,22 +134,22 @@
     <img src="https://stephanefrechette.dev/images/legacy-post/icon-1971133_960_720-150x150.png#floatleft"
          alt="Search for a String in Multiple Files" width="150" height="150"/> 
 </figure>
- In support of an earlier post <a href="https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/">Fetching NHL Play by Play game data</a>, I was recently asked how could one quickly search for a specific string in multiple JSON files recursively? Well if you are running macOS or Linux <a href="https://www.gnu.org/software/grep/manual/grep.html">grep</a> is your best friend! In a nutshell grep prints lines that contain a match for a pattern. The following is a sample grep and cut command that will list out (output) the games (files) that contains the following string -&gt; “Montréal Canadiens”:</p>
-<p>Want to try it out! You can <a href="https://www.dropbox.com/s/1h1pxv7ls9712rw/data.zip?dl=0">download</a> and extract sample data which contains all the play by play games from the 2016-2017 season</p>
+ In support of an earlier post <a href="https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/" target="_blank">Fetching NHL Play by Play game data</a>, I was recently asked how could one quickly search for a specific string in multiple JSON files recursively? Well if you are running macOS or Linux <a href="https://www.gnu.org/software/grep/manual/grep.html" target="_blank">grep</a> is your best friend! In a nutshell grep prints lines that contain a match for a pattern. The following is a sample grep and cut command that will list out (output) the games (files) that contains the following string -&gt; “Montréal Canadiens”:</p>
+<p>Want to try it out! You can <a href="https://www.dropbox.com/s/1h1pxv7ls9712rw/data.zip?dl=0" target="_blank">download</a> and extract sample data which contains all the play by play games from the 2016-2017 season</p>
 <p><code>grep -H -R &quot;Montréal Canadiens&quot; /data/20162017/*.json | cut -d: -f1</code></p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/grep01-1024x435.png"
          alt="Search for a String in Multiple Files" width="1024" height="435"/> 
 </figure>
 
-<p>The above command outputs the path and file name, if you just want the file name then use the command below (uses <a href="https://www.gnu.org/software/gawk/manual/gawk.html">awk</a> – text processing and data extraction):</p>
+<p>The above command outputs the path and file name, if you just want the file name then use the command below (uses <a href="https://www.gnu.org/software/gawk/manual/gawk.html" target="_blank">awk</a> – text processing and data extraction):</p>
 <p><code>grep -rl &quot;Montréal Canadiens&quot; /data/20162017 | awk -F/ '{ print $NF }'</code></p>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/grep02-1024x435.png"
          alt="Search for a String in Multiple Files" width="1024" height="435"/> 
 </figure>
 
-<p>If you are running Windows you could use <a href="https://technet.microsoft.com/en-us/library/bb490907.asp">Findstr</a> or <a href="https://docs.microsoft.com/en-us/powershell/">PowerShell</a> … The following is the findstr command that will output the files where the following string “Montréal Canadiens” is present:</p>
+<p>If you are running Windows you could use <a href="https://technet.microsoft.com/en-us/library/bb490907.asp" target="_blank">Findstr</a> or <a href="https://docs.microsoft.com/en-us/powershell/" target="_blank">PowerShell</a> … The following is the findstr command that will output the files where the following string “Montréal Canadiens” is present:</p>
 <p><code>findstr /m /s /i /p /c:&quot;Montréal Canadiens&quot; &quot;C:\data\20162017\*.*&quot;</code></p>
 <p>And for Powershell use the following command:</p>
 <p><code>Get-ChildItem -Recurse C:\data\20162017\*.* | Select-String -Pattern &quot;Montréal Canadiens&quot; | Select-Object -Unique Path</code></p>

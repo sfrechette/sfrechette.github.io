@@ -6,11 +6,7 @@
     <description>Recent content in windows 10 on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 21 Mar 2017 12:23:03 -0400</lastBuildDate>
-    
-	<atom:link href="https://stephanefrechette.dev/tags/windows-10/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 21 Mar 2017 12:23:03 -0400</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/windows-10/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Running SQL Server on Linux in Docker on Windows 10</title>
       <link>https://stephanefrechette.dev/posts/running-sql-server-linux-docker-windows-10/</link>

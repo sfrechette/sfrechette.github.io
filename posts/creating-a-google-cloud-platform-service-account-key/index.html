@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -143,13 +143,13 @@
       
       <div>
         <p>Some context&hellip; A service account is a special type of Google account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs.</p>
-<p>Lately I have been helping customers that are using <a href="https://cdap.io">CDAP</a>, an 100% open source, integrated framework that accelerates application development for data analytics. Specifically around creating and connecting to Google Cloud Storage as a source to ingest and do data preparation (a.k.a data wrangling). The following post demonstrates how to create an API key file that can be used for any type of application that requires connectivity to Google APIs.</p>
-<p>An important note. A little over a year ago, <a href="https://techcrunch.com/2018/05/16/google-acquires-cask-data-to-beef-up-its-tools-for-building-and-running-big-data-analytics/">Google acquired Cask Data</a> (creator of CDAP) &raquo; fast forward to which Google recently unveiled a cloud native data integration and ETL service called <a href="https://cloud.google.com/data-fusion/">Cloud Data Fusion</a>. More on that in future posts&hellip; ;-)</p>
+<p>Lately I have been helping customers that are using <a href="https://cdap.io" target="_blank">CDAP</a>, an 100% open source, integrated framework that accelerates application development for data analytics. Specifically around creating and connecting to Google Cloud Storage as a source to ingest and do data preparation (a.k.a data wrangling). The following post demonstrates how to create an API key file that can be used for any type of application that requires connectivity to Google APIs.</p>
+<p>An important note. A little over a year ago, <a href="https://techcrunch.com/2018/05/16/google-acquires-cask-data-to-beef-up-its-tools-for-building-and-running-big-data-analytics/" target="_blank">Google acquired Cask Data</a> (creator of CDAP) &raquo; fast forward to which Google recently unveiled a cloud native data integration and ETL service called <a href="https://cloud.google.com/data-fusion/" target="_blank">Cloud Data Fusion</a>. More on that in future posts&hellip; ;-)</p>
 <p>Let&rsquo;s do this!</p>
 <h4 id="log-on-to-the-gcp-console">Log on to the GCP console</h4>
-<p>Go to the <a href="https://console.cloud.google.com">GCP console</a> and log in using your Google account</p>
+<p>Go to the <a href="https://console.cloud.google.com" target="_blank">GCP console</a> and log in using your Google account</p>
 <h4 id="selecting-a-gcp-project">Selecting a GCP project</h4>
-<p>You need to select a project. If you don&rsquo;t have any projects then <a href="https://console.cloud.google.com/projectselector2/home/dashboard">go to the project selector page</a> to create one - For this demonstration I have created and using a specific project named <code>cdap-gcs</code>.</p>
+<p>You need to select a project. If you don&rsquo;t have any projects then <a href="https://console.cloud.google.com/projectselector2/home/dashboard" target="_blank">go to the project selector page</a> to create one - For this demonstration I have created and using a specific project named <code>cdap-gcs</code>.</p>
 <figure>
     <img src="https://stephanefrechette.dev/images/sak-01.jpg"
          alt="sak-01"/> 

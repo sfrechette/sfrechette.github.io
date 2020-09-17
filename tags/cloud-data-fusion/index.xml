@@ -6,11 +6,7 @@
     <description>Recent content in cloud data fusion on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 Nov 2019 10:20:30 -0500</lastBuildDate>
-    
-	<atom:link href="https://stephanefrechette.dev/tags/cloud-data-fusion/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 24 Nov 2019 10:20:30 -0500</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/cloud-data-fusion/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Join, Group By and Aggregate in Cloud Data Fusion</title>
       <link>https://stephanefrechette.dev/posts/join-group-by-and-aggregate-in-cloud-data-fusion/</link>

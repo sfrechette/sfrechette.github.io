@@ -6,15 +6,11 @@
     <description>Recent content in Tags on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 27 Feb 2020 10:21:12 -0500</lastBuildDate>
-    
-	<atom:link href="https://stephanefrechette.dev/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 31 Jul 2020 10:21:12 -0500</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aws</title>
       <link>https://stephanefrechette.dev/tags/aws/</link>
-      <pubDate>Thu, 27 Feb 2020 10:21:12 -0500</pubDate>
+      <pubDate>Fri, 31 Jul 2020 10:21:12 -0500</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/aws/</guid>
       <description></description>
@@ -23,7 +19,7 @@
     <item>
       <title>azure</title>
       <link>https://stephanefrechette.dev/tags/azure/</link>
-      <pubDate>Thu, 27 Feb 2020 10:21:12 -0500</pubDate>
+      <pubDate>Fri, 31 Jul 2020 10:21:12 -0500</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/azure/</guid>
       <description></description>
@@ -32,7 +28,7 @@
     <item>
       <title>datascape</title>
       <link>https://stephanefrechette.dev/tags/datascape/</link>
-      <pubDate>Thu, 27 Feb 2020 10:21:12 -0500</pubDate>
+      <pubDate>Fri, 31 Jul 2020 10:21:12 -0500</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/datascape/</guid>
       <description></description>
@@ -41,7 +37,7 @@
     <item>
       <title>gcp</title>
       <link>https://stephanefrechette.dev/tags/gcp/</link>
-      <pubDate>Thu, 27 Feb 2020 10:21:12 -0500</pubDate>
+      <pubDate>Fri, 31 Jul 2020 10:21:12 -0500</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/gcp/</guid>
       <description></description>
@@ -50,7 +46,7 @@
     <item>
       <title>google cloud</title>
       <link>https://stephanefrechette.dev/tags/google-cloud/</link>
-      <pubDate>Thu, 27 Feb 2020 10:21:12 -0500</pubDate>
+      <pubDate>Fri, 31 Jul 2020 10:21:12 -0500</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/google-cloud/</guid>
       <description></description>
@@ -59,7 +55,7 @@
     <item>
       <title>google cloud platform</title>
       <link>https://stephanefrechette.dev/tags/google-cloud-platform/</link>
-      <pubDate>Thu, 27 Feb 2020 10:21:12 -0500</pubDate>
+      <pubDate>Fri, 31 Jul 2020 10:21:12 -0500</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/google-cloud-platform/</guid>
       <description></description>
@@ -68,7 +64,7 @@
     <item>
       <title>podcast</title>
       <link>https://stephanefrechette.dev/tags/podcast/</link>
-      <pubDate>Thu, 27 Feb 2020 10:21:12 -0500</pubDate>
+      <pubDate>Fri, 31 Jul 2020 10:21:12 -0500</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/podcast/</guid>
       <description></description>

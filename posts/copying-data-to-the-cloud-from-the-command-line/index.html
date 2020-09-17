@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -156,9 +156,9 @@
 Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.</p>
 <p>In no particular order I strongly recommend you read and get knowledgeable on each of their offerings and register for a free subscription:</p>
 <ul>
-<li><a href="https://cloud.google.com/storage/">Google Cloud Storage</a></li>
-<li><a href="https://aws.amazon.com/s3/">Amazon S3</a><!-- raw HTML omitted --></li>
-<li><a href="https://azure.microsoft.com/en-ca/services/storage/blobs/">Azure Blob Storage</a></li>
+<li><a href="https://cloud.google.com/storage/" target="_blank">Google Cloud Storage</a></li>
+<li><a href="https://aws.amazon.com/s3/" target="_blank">Amazon S3</a><!-- raw HTML omitted --></li>
+<li><a href="https://azure.microsoft.com/en-ca/services/storage/blobs/" target="_blank">Azure Blob Storage</a></li>
 </ul>
 <p>Now for each platform we will specifically implement 4 actions (commands):</p>
 <ol>
@@ -167,14 +167,14 @@ Copying data to the Cloud from the Command line, this is what this post is all a
 <li><strong>delete</strong> <em>objects(s)</em></li>
 <li><strong>delete</strong> a <em>bucket/container (placeholder)</em></li>
 </ol>
-<p>We will be using the 2016 Jersey City – Citi Bike trip data, details and info about the data -&gt; <a href="https://www.citibikenyc.com/system-data">https://www.citibikenyc.com/system-data</a>, but for this sample demo I already downloaded and packaged the data for you! Which you can download <a href="https://www.dropbox.com/sh/s8rq8rnjl6c6x6e/AAAranOxsJEnu8yl5cl2bzC0a?dl=0">here</a>.</p>
+<p>We will be using the 2016 Jersey City – Citi Bike trip data, details and info about the data -&gt; <a href="https://www.citibikenyc.com/system-data" target="_blank">https://www.citibikenyc.com/system-data</a>, but for this sample demo I already downloaded and packaged the data for you! Which you can download <a href="https://www.dropbox.com/sh/s8rq8rnjl6c6x6e/AAAranOxsJEnu8yl5cl2bzC0a?dl=0" target="_blank">here</a>.</p>
 <p>Once downloaded and unzipped the data should look like this…<br>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/data_01.png" width="584" height="436"/> 
 </figure>
 </p>
 <p><strong>Warning!</strong><br>
-I am on macOS, all works in Windows, just don’t forget to change the file path (i.e. from “/data/citibike/jc/2016/” to “C:\data\citibike\jc\2016\&rdquo;. The goal is to load/copy the same “file” structure from local source (image above) to the cloud, but with a root “bucket/container” named <em>citibike-tripdata</em> instead of <em>citibike</em>. Let’s get started…</p>
+I am on macOS, all works in Windows, just don’t forget to change the file path (i.e. from “/data/citibike/jc/2016/” to “C:\data\citibike\jc\2016\&quot;. The goal is to load/copy the same “file” structure from local source (image above) to the cloud, but with a root “bucket/container” named <em>citibike-tripdata</em> instead of <em>citibike</em>. Let’s get started…</p>
 <p> 
  
  </p>
@@ -183,18 +183,18 @@ I am on macOS, all works in Windows, just don’t forget to change the file path
 </figure>
 
 <h4 id="google-cloud-storage">Google Cloud Storage</h4>
-<p>Access to Google Cloud Storage from the command line is done with the <a href="https://cloud.google.com/storage/docs/gsutil">gsutil</a> Tool. Assumption is that you have selected and created a <a href="https://console.cloud.google.com/cloud-resource-manager">Cloud Platform project</a> and <a href="https://cloud.google.com/billing/docs/how-to/modify-project?visit_id=1-636450616292805861-2066841552%EF%BF%BDrd=1#enable-billing">enabled billing</a> for your project. Next you need to install the <a href="https://cloud.google.com/sdk/docs/">Cloud SDK</a> and <a href="https://www.python.org/downloads/release/python-2711/">Python 2.7</a> (if not already installed). To install and initialize follow these <a href="https://cloud.google.com/sdk/docs/quickstarts">Quickstarts</a>.</p>
+<p>Access to Google Cloud Storage from the command line is done with the <a href="https://cloud.google.com/storage/docs/gsutil" target="_blank">gsutil</a> Tool. Assumption is that you have selected and created a <a href="https://console.cloud.google.com/cloud-resource-manager" target="_blank">Cloud Platform project</a> and <a href="https://cloud.google.com/billing/docs/how-to/modify-project?visit_id=1-636450616292805861-2066841552&amp;#038;rd=1#enable-billing" target="_blank">enabled billing</a> for your project. Next you need to install the <a href="https://cloud.google.com/sdk/docs/" target="_blank">Cloud SDK</a> and <a href="https://www.python.org/downloads/release/python-2711/" target="_blank">Python 2.7</a> (if not already installed). To install and initialize follow these <a href="https://cloud.google.com/sdk/docs/quickstarts" target="_blank">Quickstarts</a>.</p>
 <p><strong>Create a bucket</strong></p>
-<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/mb">mb – Make buckets</a>. The following command creates a bucket named citibike-tripdata to a nearline storage class in the us-east-1 region:</p>
+<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/mb" target="_blank">mb – Make buckets</a>. The following command creates a bucket named citibike-tripdata to a nearline storage class in the us-east-1 region:</p>
 <p><code>gsutil mb -c nearline -l us-east1 gs://citibike-tripdata</code></p>
 <p><strong>Copy object(s)</strong></p>
-<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/cp">cp – Copy files and objects</a>. The following command performs a parallel (multi-threaded/multi-processing) copy of files recursively, and applies the gzip content-encoding to each:</p>
+<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/cp" target="_blank">cp – Copy files and objects</a>. The following command performs a parallel (multi-threaded/multi-processing) copy of files recursively, and applies the gzip content-encoding to each:</p>
 <p><code>gsutil -m cp -r -Z &quot;/data/citibike/jc/2016/&quot; gs://citibike-tripdata/jc/</code></p>
 <p><strong>Delete object(s)</strong></p>
-<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/rm">rm – Remove objects</a>. The following command causes bucket or bucket subdirectory contents (all objects and subdirectories that it contains) to be removed recursively:</p>
+<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/rm" target="_blank">rm – Remove objects</a>. The following command causes bucket or bucket subdirectory contents (all objects and subdirectories that it contains) to be removed recursively:</p>
 <p><code>gsutil -m rm -r gs://citibike-tripdata/jc/2016/</code></p>
 <p><strong>Delete bucket</strong></p>
-<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/rb">rb – Remove buckets</a>. Buckets must be empty before you can delete them. The following command deletes the citibike-tripdata bucket (and all of it’s subdirectories, because we deleted all objects previously):</p>
+<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/rb" target="_blank">rb – Remove buckets</a>. Buckets must be empty before you can delete them. The following command deletes the citibike-tripdata bucket (and all of it’s subdirectories, because we deleted all objects previously):</p>
 <p><code>gsutil rb gs://citibike-tripdata</code></p>
 <p> 
  
@@ -204,19 +204,19 @@ I am on macOS, all works in Windows, just don’t forget to change the file path
 </figure>
 </p>
 <h4 id="amazon-s3">Amazon S3</h4>
-<p>The <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS CLI</a> is an open source tool built on top of the AWS SDK for Python that provides commands for interacting with AWS services. It uses all of the functionality provided by the AWS Management Console from your favorite terminal program. Start with <a href="https://docs.aws.amazon.com/cli/latest/userguide/installing.html">Installing the AWS Command Line Interface</a> and next <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">configure your settings</a>.</p>
+<p>The <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html" target="_blank">AWS CLI</a> is an open source tool built on top of the AWS SDK for Python that provides commands for interacting with AWS services. It uses all of the functionality provided by the AWS Management Console from your favorite terminal program. Start with <a href="https://docs.aws.amazon.com/cli/latest/userguide/installing.html" target="_blank">Installing the AWS Command Line Interface</a> and next <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html" target="_blank">configure your settings</a>.</p>
 <p><strong>Create a bucket</strong></p>
-<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html">mb – Creates an S3 bucket</a>. The following command creates a bucket named citibike-tripdata in the ca-central-1 region:</p>
+<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html" target="_blank">mb – Creates an S3 bucket</a>. The following command creates a bucket named citibike-tripdata in the ca-central-1 region:</p>
 <p><code>aws s3 mb s3://citibike-tripdata --region ca-central-1</code>
 <!-- raw HTML omitted --></p>
 <p><strong>Copy object(s)</strong></p>
-<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html">cp – Copies a local file or S3 object to another location locally or in S3</a>. The following command copies files recursively to a STANDARD_IA (infrequent access) storage class and applies the gzip content-encoding to each:</p>
+<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html" target="_blank">cp – Copies a local file or S3 object to another location locally or in S3</a>. The following command copies files recursively to a STANDARD_IA (infrequent access) storage class and applies the gzip content-encoding to each:</p>
 <p><code>aws s3 cp &quot;/data/citibike/jc/2016/&quot;  s3://citibike-tripdata/jc/2016/ --storage-class STANDARD_IA --recursive --content-encoding gzip</code></p>
 <p><strong>Delete object(s)</strong></p>
-<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/rm.html">rm – Deletes an S3 object</a>. The following command causes bucket or bucket subdirectory contents (all objects and subdirectories that it contains) to be removed recursively:</p>
+<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/rm.html" target="_blank">rm – Deletes an S3 object</a>. The following command causes bucket or bucket subdirectory contents (all objects and subdirectories that it contains) to be removed recursively:</p>
 <p><code>aws s3 rm s3://citibike-tripdata/jc/2016/ --recursive</code></p>
 <p><strong>Delete bucket</strong></p>
-<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/rb.html">rb – Deletes an empty S3 bucket</a>. A bucket must be completely empty of objects and versioned objects before it can be deleted. The following command deletes the citibike-tripdata bucket (and all of it’s subdirectories, because we deleted all objects previously):</p>
+<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/rb.html" target="_blank">rb – Deletes an empty S3 bucket</a>. A bucket must be completely empty of objects and versioned objects before it can be deleted. The following command deletes the citibike-tripdata bucket (and all of it’s subdirectories, because we deleted all objects previously):</p>
 <p><code>aws s3 rb s3://citibike-tripdata</code></p>
 <p> 
  
@@ -226,11 +226,11 @@ I am on macOS, all works in Windows, just don’t forget to change the file path
 </figure>
 
 <h4 id="azure-blob-storage">Azure Blob Storage</h4>
-<p>The <a href="https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest">Azure CLI</a> and <a href="https://docs.microsoft.com/en-us/powershell/azure/overview">Azure PowerShell</a> module are used to create and manage Azure resources from the command line or in scripts. <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy">AzCopy</a> available on <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy">Windows</a> and <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux">Linux</a> is also an interesting command-line utility designed for high-performance copying of data to and from Azure Storage.</p>
+<p>The <a href="https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest" target="_blank">Azure CLI</a> and <a href="https://docs.microsoft.com/en-us/powershell/azure/overview" target="_blank">Azure PowerShell</a> module are used to create and manage Azure resources from the command line or in scripts. <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy" target="_blank">AzCopy</a> available on <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy" target="_blank">Windows</a> and <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux" target="_blank">Linux</a> is also an interesting command-line utility designed for high-performance copying of data to and from Azure Storage.</p>
 <p>Both the Azure CLI and Azure PowerShell are available for macOS, Windows and Linux, but at this time for macOS and Linux, the PowerShell 6 (beta) and Azure PowerShell for .NET Core are still in beta, so the Azure PowerShell sample commands below are done on the Windows platform.</p>
-<p>If using the Azure CLI run the login command: <a href="https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest">az login</a> or <a href="https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart">launch the Cloud Shell</a> and if using the Azure PowerShell run the login command: <a href="https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps">Login-AzureRmAccount</a>.</p>
+<p>If using the Azure CLI run the login command: <a href="https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest" target="_blank">az login</a> or <a href="https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart" target="_blank">launch the Cloud Shell</a> and if using the Azure PowerShell run the login command: <a href="https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps" target="_blank">Login-AzureRmAccount</a>.</p>
 <p><strong>Create a container</strong></p>
-<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/container?view=azure-cli-latest#create">az storage container</a>. The following commands creates a resource group <em>citibiketripdata_rg</em>, a storage account <em>citibiketripdata</em>, and a container <em>citibike-tripdata</em>:</p>
+<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/container?view=azure-cli-latest#create" target="_blank">az storage container</a>. The following commands creates a resource group <em>citibiketripdata_rg</em>, a storage account <em>citibiketripdata</em>, and a container <em>citibike-tripdata</em>:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#60a0b0;font-style:italic"># Create a resource group</span>
 az <span style="color:#007020">group </span>create --name citibiketripdata_rg --location eastus
 
@@ -248,7 +248,7 @@ export AZURE_STORAGE_ACCESS_KEY=<span style="color:#4070a0">&#39;PUT_YOUR_ACCESS
 
 <span style="color:#60a0b0;font-style:italic"># Create a container</span>
 az storage container create --name citibike-tripdata
-</code></pre></div><p><a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer">New-AzureStorageContainer</a>. The following commands creates a resource group <em>citibiketripdata_rg</em>, a storage account <em>citibiketripdata</em>, and a container <em>citibike-tripdata</em>:</p>
+</code></pre></div><p><a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer" target="_blank">New-AzureStorageContainer</a>. The following commands creates a resource group <em>citibiketripdata_rg</em>, a storage account <em>citibiketripdata</em>, and a container <em>citibike-tripdata</em>:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#60a0b0;font-style:italic"># Create a resource group</span>
 <span style="color:#007020">New-AzureRmResourceGroup</span> -Name citibiketripdata_rg -Location eastus 
 
@@ -265,9 +265,9 @@ az storage container create --name citibike-tripdata
 <span style="color:#60a0b0;font-style:italic"># Create a container</span>
 <span style="color:#007020">New-AzureStorageContainer</span> -Name <span style="color:#4070a0">&#34;citibike-tripdata&#34;</span> -Context <span style="color:#bb60d5">$ctx</span> -Permission Off
 </code></pre></div><p><strong>Copy object(s)</strong></p>
-<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_upload_batch">az storage blob upload-batch</a>. The following command uploads files from a local directory <em>/data/citibike/</em> to a blob container <em>citibike-tripdata</em> with gzip content-encoding</p>
+<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_upload_batch" target="_blank">az storage blob upload-batch</a>. The following command uploads files from a local directory <em>/data/citibike/</em> to a blob container <em>citibike-tripdata</em> with gzip content-encoding</p>
 <p><code>az storage blob upload-batch --destination citibike-tripdata \ --source /data/citibike/ \ --content-encoding gzip</code></p>
-<p>The <a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/set-azurestorageblobcontent">Set-AzureStorageBlobContent</a> does the job, however it does not keep and copy the folder structure from our local source. So here is a PowerShell script that does exactly what we need:</p>
+<p>The <a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/set-azurestorageblobcontent" target="_blank">Set-AzureStorageBlobContent</a> does the job, however it does not keep and copy the folder structure from our local source. So here is a PowerShell script that does exactly what we need:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#bb60d5">$StorageAccountName</span> = <span style="color:#4070a0">&#34;citibiketripdata&#34;</span>
 <span style="color:#bb60d5">$StorageAccountKey</span> = <span style="color:#4070a0">&#34;PUT_YOUR_ACCESS_KEY_HERE&#34;</span>
 <span style="color:#bb60d5">$ContainerName</span> = <span style="color:#4070a0">&#34;citibike-tripdata&#34;</span>
@@ -303,16 +303,16 @@ UploadFilesToAzureStorageContainer -StorageAccountName <span style="color:#bb60d
 </code></pre></div><p>As mentioned earlier the AzCopy utility is another option for high-performance scriptable data transfer for Azure Storage. The following command will recursively copy data from the <em>C:\data\citibike</em> local folder to the <em>citibike-tripdata</em> container</p>
 <p><code>AzCopy /Source:C:\data\citibike /Dest:https://citibiketripdata.blob.core.windows.net/citibike-tripdata /DestKey:PUT_YOUR_ACCESS_KEY_HERE /S</code></p>
 <p><strong>Delete object(s)</strong></p>
-<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_delete_batch">az storage blob delete-batch</a>. Delete blobs from a blob container recursively</p>
+<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_delete_batch" target="_blank">az storage blob delete-batch</a>. Delete blobs from a blob container recursively</p>
 <p>Azure-CLI<br>
-*<strong>Note:</strong> It’s documented! But at the time of writing this post, it’s not yet implemented. The following GitHub Pull Request as been approved and should be released soon. Details here -&gt; <a href="https://github.com/Azure/azure-cli/pull/4781">https://github.com/Azure/azure-cli/pull/4781</a></p>
+*<strong>Note:</strong> It’s documented! But at the time of writing this post, it’s not yet implemented. The following GitHub Pull Request as been approved and should be released soon. Details here -&gt; <a href="https://github.com/Azure/azure-cli/pull/4781" target="_blank">https://github.com/Azure/azure-cli/pull/4781</a></p>
 <p><code>Get-AzureStorageBlob -Container $ContainerName -Context $ctx | ForEach-Object {Remove-AzureStorageBlob -Blob $_.Name -Container $ContainerName -Context $ctx}</code></p>
 <p><strong>Delete container</strong></p>
-<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_delete">az storage container delete</a>. The following command marks the specified container for deletion</p>
+<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_delete" target="_blank">az storage container delete</a>. The following command marks the specified container for deletion</p>
 <p><code>az storage container delete --name citibike-tripdata</code></p>
-<p><a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/remove-azurestoragecontainer">Remove-AzureStorageContainer</a>. The following command removes the specified storage container</p>
+<p><a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/remove-azurestoragecontainer" target="_blank">Remove-AzureStorageContainer</a>. The following command removes the specified storage container</p>
 <p><code>Remove-AzureStorageContainer -Name &quot;citibike-tripdata&quot;</code></p>
-<p>But wait! It can be easier… If you no longer need any of the resources in your resource group, including the storage account and blobs, delete the resource group with the <a href="https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_delete">az group delete</a> command using Azure CLI or the <a href="https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup">Remove-AzureRmResourceGroup</a> command in Azure PowerShell</p>
+<p>But wait! It can be easier… If you no longer need any of the resources in your resource group, including the storage account and blobs, delete the resource group with the <a href="https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_delete" target="_blank">az group delete</a> command using Azure CLI or the <a href="https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup" target="_blank">Remove-AzureRmResourceGroup</a> command in Azure PowerShell</p>
 <p><code>az group delete --name citibiketripdata_rg</code></p>
 <p><code>Remove-AzureRmResourceGroup -Name &quot;citibiketripdata_rg&quot;</code></p>
 <p>Voilà! We are done. Need further assistance and guidance, post a comment below.<br>

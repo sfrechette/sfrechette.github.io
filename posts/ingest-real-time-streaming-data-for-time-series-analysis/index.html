@@ -53,7 +53,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -146,12 +146,12 @@
     <img src="https://stephanefrechette.dev/images/legacy-post/stock-exchange-911612_960_720-300x212.jpg#floatleft" width="300" height="212"/> 
 </figure>
 
-<p>This post describes how to ingest sample real time streaming data from <a href="https://www.pubnub.com/">PubNub</a> to a <a href="https://www.postgresql.org/">Postgres</a> database with the <a href="https://www.timescale.com/">TimescaleDB</a> extension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, <a href="https://www.pubnub.com/developers/realtime-data-streams/financial-securities-market-orders/">Market Orders</a> – an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&gt; <a href="https://github.com/sfrechette/stream-sequelize-node">https://github.com/sfrechette/stream-sequelize-node</a>.</p>
-<p>The Market Orders data feed generates on average 4 inserts per second, if you would to ingest more inserts per second I recommend you look at the following data feed <a href="https://www.pubnub.com/developers/realtime-data-streams/sensor-network/">Sensor Network</a> which generates on average 10 inserts per second.</p>
+<p>This post describes how to ingest sample real time streaming data from <a href="https://www.pubnub.com/" target="_blank">PubNub</a> to a <a href="https://www.postgresql.org/" target="_blank">Postgres</a> database with the <a href="https://www.timescale.com/" target="_blank">TimescaleDB</a> extension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, <a href="https://www.pubnub.com/developers/realtime-data-streams/financial-securities-market-orders/" target="_blank">Market Orders</a> – an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&gt; <a href="https://github.com/sfrechette/stream-sequelize-node" target="_blank">https://github.com/sfrechette/stream-sequelize-node</a>.</p>
+<p>The Market Orders data feed generates on average 4 inserts per second, if you would to ingest more inserts per second I recommend you look at the following data feed <a href="https://www.pubnub.com/developers/realtime-data-streams/sensor-network/" target="_blank">Sensor Network</a> which generates on average 10 inserts per second.</p>
 <h3 id="ingest-real-time-streaming-data-for-time-series-analysis">Ingest real time streaming data for time series analysis</h3>
 <h4 id="prerequesites">Prerequesites</h4>
-<p>Running this application assumes that you already have an instance of Postgres running and have installed the TimescaleDB extension. If not please refer to the following documentation -&gt; Getting started, installing and setting up -&gt; <a href="https://docs.timescale.com/v0.9/getting-started">https://docs.timescale.com/v0.9/getting-started</a>.</p>
-<p>Once Postgres with the TimescaleDB extension is installed you will need to execute the following SQL code snippets in your Postgres environment using your preferred tool to connect (I am using <a href="https://www.pgcli.com/">pgcli</a>) in order to create the database, create the timescaledb extension, create the schema, and hypertable.</p>
+<p>Running this application assumes that you already have an instance of Postgres running and have installed the TimescaleDB extension. If not please refer to the following documentation -&gt; Getting started, installing and setting up -&gt; <a href="https://docs.timescale.com/v0.9/getting-started" target="_blank">https://docs.timescale.com/v0.9/getting-started</a>.</p>
+<p>Once Postgres with the TimescaleDB extension is installed you will need to execute the following SQL code snippets in your Postgres environment using your preferred tool to connect (I am using <a href="https://www.pgcli.com/" target="_blank">pgcli</a>) in order to create the database, create the timescaledb extension, create the schema, and hypertable.</p>
 <p>Issue the following SQL statements in your Postgres environment:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">database</span> market_orders;
 
@@ -181,7 +181,7 @@
 <p><code>cd stream-sequilize-node</code></p>
 <p>Next install the dependencies with the following command:<br>
 <code>npm install</code></p>
-<p>You will then need to create an .env file in the root folder of the app “stream-sequilize-node” and add configuration values. Copy and paste the following snippet in your .env file and provide the appropriate connectivity information to your Postgres environment:</p>
+<p>You will then need to create an .env file in the root folder of the app &ldquo;stream-sequilize-node&rdquo; and add configuration values. Copy and paste the following snippet in your .env file and provide the appropriate connectivity information to your Postgres environment:</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">DB_SERVER_USER_NAME = &#34;&#34;    
 DB_SERVER_USER_PASSWORD = &#34;&#34;    
 DB_SERVER_HOST = &#34;&#34; 

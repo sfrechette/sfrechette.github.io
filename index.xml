@@ -6,10 +6,17 @@
     <description>Recent content on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 27 Feb 2020 10:21:12 -0500</lastBuildDate>
-    
-	<atom:link href="https://stephanefrechette.dev/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Fri, 31 Jul 2020 10:21:12 -0500</lastBuildDate><atom:link href="https://stephanefrechette.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Datascape Podcast - July Cloud Updates</title>
+      <link>https://stephanefrechette.dev/posts/datascape-podcast-july-cloud-updates/</link>
+      <pubDate>Fri, 31 Jul 2020 10:21:12 -0500</pubDate>
+      
+      <guid>https://stephanefrechette.dev/posts/datascape-podcast-july-cloud-updates/</guid>
+      <description>&amp;ldquo;In this episode Stephane, Pierig and I discuss the updates to AWS and GCP since our last show.&amp;rdquo;
+  Link to episode: Episode 43 - July 2020 Cloud Updates
+Enjoy!</description>
+    </item>
     
     <item>
       <title>Datascape Podcast - February Cloud Updates</title>
@@ -17,7 +24,7 @@
       <pubDate>Thu, 27 Feb 2020 10:21:12 -0500</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-february-cloud-updates/</guid>
-      <description>Welcome to this year’s first episode of Datascape Podcast. Since our last episode in 2019, a great deal has happened and 2020 is already packed to the brim with cloud updates.
+      <description>&amp;ldquo;Welcome to this year’s first episode of Datascape Podcast. Since our last episode in 2019, a great deal has happened and 2020 is already packed to the brim with cloud updates.
 Joining us to talk about Amazon Web Service (AWS) is Pierig Le Saux. He shares the latest on AWS Backup, which includes restoring single files and copying backups from one region to another, BYOL developments and their use for Microsoft clients, and some thrilling quantum computing initiatives as well.</description>
     </item>
     
@@ -110,7 +117,7 @@ So what to expect? Well basically rants, lessons learned either from the field o
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/pause-azure-sql-data-warehouses-with-azure-automation/</guid>
-      <description>Folks it as been a while… You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)… while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automation and PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</description>
+      <description>Folks it as been a while&amp;hellip; You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)&amp;hellip; while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automation and PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</description>
     </item>
     
     <item>
@@ -119,7 +126,7 @@ So what to expect? Well basically rants, lessons learned either from the field o
       <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/podcasts-blogs-about-data-engineering-data-science-ml-and-ai/</guid>
-      <description>Hope you are all enjoying summer? Been asked several times, How do I keep current with technology? What blogs do you read or follow? Which podcasts do you follow and listen to? So I have quickly put together a list of resources, more specifically podcasts, blogs that I consume regularly… This is no way a definitive list 😉 and in no particular order! Of course these are related to Data Engineering, Data Science, Machine Learning and Artificial Intelligence.</description>
+      <description>Hope you are all enjoying summer? Been asked several times, How do I keep current with technology? What blogs do you read or follow? Which podcasts do you follow and listen to? So I have quickly put together a list of resources, more specifically podcasts, blogs that I consume regularly&amp;hellip; This is no way a definitive list 😉 and in no particular order! Of course these are related to Data Engineering, Data Science, Machine Learning and Artificial Intelligence.</description>
     </item>
     
     <item>
@@ -128,7 +135,7 @@ So what to expect? Well basically rants, lessons learned either from the field o
       <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/</guid>
-      <description>In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for (https://www.docker.com/what-docker)[Docker]. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
+      <description>In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
 Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise.</description>
     </item>
     
@@ -395,9 +402,9 @@ There are several ways that could get you started; the neo4j-shell-tools, Load C
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://stephanefrechette.dev/about/</guid>
-      <description>About My name is Stéphane Fréchette. I&amp;rsquo;m a Cloud Solution Architect and a Google Cloud Expert (GDE) - Google Cloud Platform.
+      <description>About My name is Stéphane Fréchette, I&amp;rsquo;m a Cloud Solution Architect.
 I have a passion for architecting, designing and building solutions that matter.
-An all around data guy! Former SQL Server | Data Platform MVP, focusing on Cloud Computing (GCP, Azure, and AWS), Data Engineering, Big Data, Advanced Analytics, and Data Visualization. Worked and fluent with several database platforms (SQL Server, MySQL, PostgreSQL, Neo4j, MongoDB and other NoSQL type databases) as well as programming languages such as (SQL, Bash, R, Python, JavaScript&amp;hellip;)</description>
+An all around data guy! Former SQL Server | Data Platform MVP, and Google Developer Expert - Google Cloud . I focus on hybrid and cloud computing solutions, Data Engineering, Big Data, Advanced Analytics, and Data Visualization. Worked and fluent with several database platforms (SQL Server, MySQL, PostgreSQL, Neo4j, MongoDB and other NoSQL type databases) as well as programming languages such as (SQL, Bash, R, Python, JavaScript&amp;hellip;)</description>
     </item>
     
     <item>
@@ -407,12 +414,10 @@ An all around data guy! Former SQL Server | Data Platform MVP, focusing on Cloud
       
       <guid>https://stephanefrechette.dev/talks/</guid>
       <description>Talks List of all my upcoming and past public talks | presentations.
-Upcoming Recording mid June 2020, Datascape Podcast - June Cloud Updates
-GDG Montreal - TBA
-GDG Ottawa - TBA
+Upcoming TBA
 Past Tuesday May 26, 2020 GDG Ottawa | Ottawa, ON
  GDG Cloud Ottawa May Online Meetup - Real-time data ingestion with Cloud Data Fusion.   Wednesday April 22, 2020 GDG Ottawa | Ottawa, ON
- GDG Cloud Ottawa April Online Meetup - GCP Certifications and training resources.</description>
+ GDG Cloud Ottawa April Online Meetup - GCP Certifications and training resources.   Wednesday May 15, 2019 GDG Cloud Montreal | Montreal, QC</description>
     </item>
     
   </channel>

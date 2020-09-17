@@ -55,7 +55,7 @@ What is a graph database? In context, a graph database is a database that uses g
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -141,12 +141,12 @@ What is a graph database? In context, a graph database is a database that uses g
 <li>A node table represents an entity in a graph schema.</li>
 <li>An edge table represents a relationship in a graph. Edges are always directed and connect two nodes. An edge table enables users to model many-to-many relationships in the graph. An edge table may or may not have any user defined attributes in it.</li>
 </ul>
-<p>I strongly recommend you read the following -&gt; <a href="https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-architecture">SQL Graph Architecture</a> to learn how SQL Graph is architected.</p>
-<p>You can also refer to previous <a href="https://stephanefrechette.com/?s=neo4j">blog posts</a> I did about <a href="https://neo4j.com/">Neo4j</a> (which I am big fan) to understand other key concepts about Graph databases.</p>
+<p>I strongly recommend you read the following -&gt; <a href="https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-architecture" target="_blank">SQL Graph Architecture</a> to learn how SQL Graph is architected.</p>
+<p>You can also refer to previous <a href="https://stephanefrechette.com/?s=neo4j" target="_blank">blog posts</a> I did about <a href="https://neo4j.com/" target="_blank">Neo4j</a> (which I am big fan) to understand other key concepts about Graph databases.</p>
 <h4 id="let8217s-demo-this">Let’s demo this</h4>
 <p>We will use a dataset inspired from CraftCans.com  was a site dedicated to news and reviews for the “Canned Beer Revolution”. It also contains a database of all canned craft beers available in the US which I scraped and slightly modified for our needs. I love beer, but for those who don’t know me well I prefer wine 😉</p>
-<p>First assumption is that you have already downloaded and installed <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2017">SQL Server 2017 CTP 2.0</a>.<br>
-Then you will need to execute the following SQL script <a href="https://gist.github.com/sfrechette/6b0897c977076fe26c8cabfcecd19add">CraftCans.sql</a> that will create the CraftCans relational database with all the required objects and load data into tables.</p>
+<p>First assumption is that you have already downloaded and installed <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2017" target="_blank">SQL Server 2017 CTP 2.0</a>.<br>
+Then you will need to execute the following SQL script <a href="https://gist.github.com/sfrechette/6b0897c977076fe26c8cabfcecd19add" target="_blank">CraftCans.sql</a> that will create the CraftCans relational database with all the required objects and load data into tables.</p>
 <p>The CraftCans Relational Model:<br>
 <figure>
     <img src="https://stephanefrechette.dev/images/legacy-post/erd_01-1.png" width="472" height="510"/> 
@@ -321,7 +321,7 @@ Then you will need to execute the following SQL script <a href="https://gist.git
     <img src="https://stephanefrechette.dev/images/legacy-post/db_01-1.png" width="243" height="400"/> 
 </figure>
 
-<p>That’s it! We are now ready to query our graph model. The following are sample queries to explore our model, I also recommend you read the following page <a href="https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-sample">Create a graph database and run some pattern matching queries using T-SQL</a> to further understand the <strong>MATCH</strong> command that enables to match a pattern or traverse through the graph.</p>
+<p>That’s it! We are now ready to query our graph model. The following are sample queries to explore our model, I also recommend you read the following page <a href="https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-sample" target="_blank">Create a graph database and run some pattern matching queries using T-SQL</a> to further understand the <strong>MATCH</strong> command that enables to match a pattern or traverse through the graph.</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">/*----------------------------------------------------
 </span><span style="color:#60a0b0;font-style:italic">Queries
 </span><span style="color:#60a0b0;font-style:italic">----------------------------------------------------*/</span>
@@ -387,7 +387,7 @@ Then you will need to execute the following SQL script <a href="https://gist.git
 		City.[name]
 <span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span>
 		[<span style="color:#007020">Number</span> <span style="color:#007020;font-weight:bold">of</span> Breweries] <span style="color:#007020;font-weight:bold">desc</span>
-</code></pre></div><p>It’s important to note that Microsoft is starting to add graph extension to SQL Server, to make storing and querying graph data easier. These are the <a href="https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview">features</a> that were introduced in this first release. Looking forward to the upcoming releases and explore what’s new in SQL Graph in SQL Server 2017.</p>
+</code></pre></div><p>It’s important to note that Microsoft is starting to add graph extension to SQL Server, to make storing and querying graph data easier. These are the <a href="https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview" target="_blank">features</a> that were introduced in this first release. Looking forward to the upcoming releases and explore what’s new in SQL Graph in SQL Server 2017.</p>
 <p>Keep you posted<br>
 Enjoy!</p>
 <!-- raw HTML omitted -->

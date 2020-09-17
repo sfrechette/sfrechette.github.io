@@ -55,7 +55,7 @@ The following is a mirrored post from the README.md on the Github repo -&gt; htt
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="generator" content="Hugo 0.75.0" />
   </head>
 
   <body class=" ">
@@ -140,21 +140,21 @@ The following is a mirrored post from the README.md on the Github repo -&gt; htt
     <img src="https://stephanefrechette.dev/images/legacy-post/iStock-186022164_small.jpg#floatleft" width="350" height="293"/> 
 </figure>
 
-<p>Finally the 2017-2018 NHL hockey season has begun! But wait… <strong>**PANIC**</strong> my little thingy <a href="https://github.com/sfrechette/nhlplaybyplay-node">nhlplaybyplay-node</a> for fetching games and play-by-play does not work anymore… Hmmm, after some research it looked like I needed to do some updates and fixes in order to make it work again… Instead I decided to create another Node.js app <a href="https://github.com/sfrechette/nhlplaybyplay2-node">nhlplaybyplay2-node</a>.</p>
+<p>Finally the 2017-2018 NHL hockey season has begun! But wait… <strong>**PANIC**</strong> my little thingy <a href="https://github.com/sfrechette/nhlplaybyplay-node" target="_blank">nhlplaybyplay-node</a> for fetching games and play-by-play does not work anymore… Hmmm, after some research it looked like I needed to do some updates and fixes in order to make it work again… Instead I decided to create another Node.js app <a href="https://github.com/sfrechette/nhlplaybyplay2-node" target="_blank">nhlplaybyplay2-node</a>.</p>
 <p>The following is a mirrored post from the README.md on the Github repo -&gt; <!-- raw HTML omitted --><a href="https://github.com/sfrechette/nhlplaybyplay2-node">https://github.com/sfrechette/nhlplaybyplay2-node</a><!-- raw HTML omitted --></p>
 <p> 
  </p>
 <h5 id="fetch-and-convert-nhl-play-by-play-game-data-v2">Fetch and Convert NHL Play by Play game data v2</h5>
 <p>Purpose: Application built using Node.js that provides the means for accessing, fetching NHL Schedule and Play by Play game data in JSON format and converting data outputs to CSV.</p>
 <p><strong>Get yourself familiar with the following…</strong></p>
-<p>2017-2018 NHL Season Schedule -&gt; <a href="http://live.nhl.com/GameData/SeasonSchedule-20172018.json">http://live.nhl.com/GameData/SeasonSchedule-20172018.json</a>
+<p>2017-2018 NHL Season Schedule -&gt; <a href="http://live.nhl.com/GameData/SeasonSchedule-20172018.json" target="_blank">http://live.nhl.com/GameData/SeasonSchedule-20172018.json</a>
 This URL (API) outputs the complete NHL regular season schedule in JSON format</p>
 <p>Play by Play for game 2017020001 -&gt; <!-- raw HTML omitted --><!-- raw HTML omitted --><a href="http://live.nhl.com/GameData/20172018/2017020001/PlayByPlay.json">http://live.nhl.com/GameData/20172018/2017020001/PlayByPlay.json</a><!-- raw HTML omitted --><!-- raw HTML omitted --><br>
 The following URL (API) used to provide the detailed play-by-play for a specific game… It doesn’t work anymore!</p>
 <p>Now will be using this one -&gt; <!-- raw HTML omitted --><a href="http://statsapi.web.nhl.com/api/v1/game/2017020001/feed/live">http://statsapi.web.nhl.com/api/v1/game/2017020001/feed/live</a><!-- raw HTML omitted --><br>
 A richer output with more detailed events and information.</p>
 <h3 id="installation">Installation</h3>
-<p><strong>If you don’t already have jq installed you will need to <a href="https://stedolan.github.io/jq/download/">download</a> and install it either before or after doing the npm install</strong></p>
+<p><strong>If you don’t already have jq installed you will need to <a href="https://stedolan.github.io/jq/download/" target="_blank">download</a> and install it either before or after doing the npm install</strong></p>
 <p>Install the dependencies with the following command:</p>
 <p><code>npm install</code></p>
 <p>Create a data directory:</p>
@@ -169,7 +169,7 @@ node fetch.js season <em>[game]</em></p>
 <p>To fetch a specific game from a specific season</p>
 <p><code>node fetch.js 20172018 2017020001</code></p>
 <p>Sample JSON, 2017020001.json<br>
-<a href="https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001.json">https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001.json</a></p>
+<a href="https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001.json" target="_blank">https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001.json</a></p>
 <hr>
 <p><strong>Convert Play by Play – “Events” to CSV</strong><br>
 node convert-events.js season <em>[game]</em></p>
@@ -178,7 +178,7 @@ node convert-events.js season <em>[game]</em></p>
 <p>To convert a specific game from a specific season</p>
 <p><code>node convert-events.js 20172018 2017020001</code></p>
 <p>Sample CSV, 201702001_events.csv<br>
-<a href="https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001_events.csv">https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001_events.csv</a></p>
+<a href="https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001_events.csv" target="_blank">https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001_events.csv</a></p>
 <p>Data dictionary: (game_id, away_team_id, away_team_code, away_team_name, home_team_id, home_team_code,<br>
 home_team_name, event_type, event_description, event_id, period, period_type, period_time,<br>
 period_time_remaining, away_goals, home_goals, coord_x, coord_y)</p>
@@ -190,7 +190,7 @@ node convert-eventplayers.js season <em>[game]</em></p>
 <p>To convert a specific game from a specific season</p>
 <p><code>node convert-eventplayers.js 20172018 2017020001</code></p>
 <p>Sample CSV, 201702001_eventplayers.csv<br>
-<a href="https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001_eventplayers.csv">https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001_eventplayers.csv</a></p>
+<a href="https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001_eventplayers.csv" target="_blank">https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001_eventplayers.csv</a></p>
 <p>Data dictionary: (game_id, event_id, event_type, player_id, player_name, player_type)</p>
 <hr>
 <p><strong>Convert Play by Play – “Players” to CSV</strong><br>
@@ -200,7 +200,7 @@ node convert-players.js season <em>[game]</em></p>
 <p>To convert a specific game from a specific season</p>
 <p><code>node convert-players.js 20172018 2017020001</code></p>
 <p>Sample CSV, 201702001_players.csv<br>
-<a href="https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001_players.csv">https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001_players.csv</a></p>
+<a href="https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001_players.csv" target="_blank">https://github.com/sfrechette/nhlplaybyplay2-node/blob/master/sample/2017020001_players.csv</a></p>
 <p>Data dictionary: (game_id, player_id, full_name, first_name, last_name, current_number, birth_date, current_age,<br>
 birth_city, birth_state_province, birth_country, nationality, height, weight, active, alternate_captain,<br>
 captain, rookie, shoots_catches, roster_status, current_team, position_type, position)</p>

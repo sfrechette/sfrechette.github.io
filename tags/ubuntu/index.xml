@@ -6,11 +6,7 @@
     <description>Recent content in ubuntu on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 22 Nov 2016 22:49:55 -0400</lastBuildDate>
-    
-	<atom:link href="https://stephanefrechette.dev/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 22 Nov 2016 22:49:55 -0400</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Installing SQL Server on Linux on Ubuntu</title>
       <link>https://stephanefrechette.dev/posts/installing-sql-server-linux-ubuntu/</link>

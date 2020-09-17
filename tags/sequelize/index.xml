@@ -6,11 +6,7 @@
     <description>Recent content in sequelize on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 17 Apr 2018 11:59:21 -0400</lastBuildDate>
-    
-	<atom:link href="https://stephanefrechette.dev/tags/sequelize/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 17 Apr 2018 11:59:21 -0400</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/sequelize/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ingest real time streaming data for time series analysis</title>
       <link>https://stephanefrechette.dev/posts/ingest-real-time-streaming-data-for-time-series-analysis/</link>
