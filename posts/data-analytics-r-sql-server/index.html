@@ -18,9 +18,10 @@ Yes, Data Analytics with R and SQL Server … As Data and Business Intelligence 
 <meta property="og:description" content="First Happy New Year and best wishes for 2015!
 Yes, Data Analytics with R and SQL Server … As Data and Business Intelligence Architects I personally think we just can’t dismiss or push aside the Data Science “landscape”. Hence that’s why I registered and currently more than half way through the Data Science Specialization on Courserafrom the Johns Hopkins University. Even though I have been working with R for a while I wanted to get some kind of recognition, attestation for my skills and also just because I can 😉" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/data-analytics-r-sql-server/" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/data-analytics-r-sql-server/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2015-01-07T20:04:51-04:00" />
 <meta property="article:modified_time" content="2015-01-07T20:04:51-04:00" />
+
 
 
     
@@ -55,7 +56,7 @@ Yes, Data Analytics with R and SQL Server … As Data and Business Intelligence 
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
   </head>
 
   <body class=" ">
@@ -107,7 +108,7 @@ Yes, Data Analytics with R and SQL Server … As Data and Business Intelligence 
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              6 minutes read
+              5 minutes read
             </span>
           </div>
           <div class="categories">
@@ -138,206 +139,189 @@ Yes, Data Analytics with R and SQL Server … As Data and Business Intelligence 
 <p><strong>[Required]</strong><br>
 Here is what you first need to install to get started:<br>
 R<br>
-<!-- raw HTML omitted --><a href="http://www.r-project.org/">http://www.r-project.org/</a><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted --><a href="http://www.r-project.org/" target="_blank">http://www.r-project.org/</a><!-- raw HTML omitted --></p>
 <p>RStudio Desktop<br>
-<!-- raw HTML omitted --><a href="http://www.rstudio.com/products/rstudio/">http://www.rstudio.com/products/rstudio/</a><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted --><a href="http://www.rstudio.com/products/rstudio/" target="_blank">http://www.rstudio.com/products/rstudio/</a><!-- raw HTML omitted --></p>
 <p><strong>[Optional – but required for this demo!]</strong><br>
 For the purpose of this demo I am using the following:<br>
-The Adventure Works DW 2014 Database which can be downloaded here <!-- raw HTML omitted --><a href="https://msftdbprodsamples.codeplex.com/">https://msftdbprodsamples.codeplex.com/</a><!-- raw HTML omitted -->. The demo (and scripts) will also work with the Adventure Works DW 2012 database.</p>
+The Adventure Works DW 2014 Database which can be downloaded here <!-- raw HTML omitted --><a href="https://msftdbprodsamples.codeplex.com/" target="_blank">https://msftdbprodsamples.codeplex.com/</a><!-- raw HTML omitted -->. The demo (and scripts) will also work with the Adventure Works DW 2012 database.</p>
 <p>If you decided to use and restore the Adventure Works DW database, you will need to create the following SQL Server View which will serve as our data frame (data table):</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">VIEW</span> [dbo].[vw_FactSales]
-<span style="color:#007020;font-weight:bold">AS</span>
-<span style="color:#007020;font-weight:bold">SELECT</span>	p.EnglishProductName <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;Product&#39;</span>,
-        pc.EnglishProductCategoryName <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;ProductCategory&#39;</span>, 
-        ps.EnglishProductSubcategoryName <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;ProductSubCategory&#39;</span>,  
-		<span style="color:#007020;font-weight:bold">do</span>.FullDateAlternateKey <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;DateOrder&#39;</span>,
-		dd.FullDateAlternateKey <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;DateDue&#39;</span>,
-		ds.FullDateAlternateKey <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;DateShip&#39;</span>,
-		dc.BirthDate, 
-		dc.MaritalStatus, 
-		dc.Gender,
-		dc.YearlyIncome,
-		dc.TotalChildren,
-		dc.NumberChildrenAtHome,
-		dc.EnglishEducation <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;Education&#39;</span>,
-		dc.EnglishOccupation <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;Occupation&#39;</span>,
-		dc.HouseOwnerFlag,
-		dc.NumberCarsOwned,
-		dc.DateFirstPurchase,
-		dc.CommuteDistance,
-		<span style="color:#007020;font-weight:bold">g</span>.City,
-        <span style="color:#007020;font-weight:bold">g</span>.StateProvinceName <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;StateProvince&#39;</span>,
-        <span style="color:#007020;font-weight:bold">g</span>.EnglishCountryRegionName <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;CountryRegion&#39;</span>,
-		<span style="color:#007020;font-weight:bold">g</span>.PostalCode,
-		pr.EnglishPromotionName <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;Promotion&#39;</span>,
-		pr.EnglishPromotionType <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;PromotionType&#39;</span>,
-		pr.EnglishPromotionCategory <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;PromotionCategory&#39;</span>,
-        cu.CurrencyName <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;Currency&#39;</span>,
-		st.SalesTerritoryRegion, 
-		st.SalesTerritoryCountry,
-		st.SalesTerritoryGroup,
-		fs.OrderQuantity, 
-		fs.UnitPrice, 
-		fs.ExtendedAmount, 
-		fs.UnitPriceDiscountPct, 
-		fs.DiscountAmount, 
-		fs.ProductStandardCost, 
-		fs.TotalProductCost, 
-		fs.SalesAmount, 
-		fs.TaxAmt, 
-		fs.Freight
-<span style="color:#007020;font-weight:bold">FROM</span>    dbo.FactInternetSales fs <span style="color:#007020;font-weight:bold">JOIN</span>
- 		dbo.DimProduct p <span style="color:#007020;font-weight:bold">ON</span> fs.ProductKey <span style="color:#666">=</span> p.ProductKey <span style="color:#007020;font-weight:bold">JOIN</span>
-        dbo.DimProductSubcategory ps <span style="color:#007020;font-weight:bold">ON</span> p.ProductSubcategoryKey <span style="color:#666">=</span> ps.ProductSubcategoryKey <span style="color:#007020;font-weight:bold">JOIN</span>
-        dbo.DimProductCategory pc <span style="color:#007020;font-weight:bold">ON</span> ps.ProductCategoryKey <span style="color:#666">=</span> pc.ProductCategoryKey <span style="color:#007020;font-weight:bold">JOIN</span>       
-		dbo.DimDate <span style="color:#007020;font-weight:bold">do</span> <span style="color:#007020;font-weight:bold">ON</span> fs.OrderDateKey <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">do</span>.Datekey <span style="color:#007020;font-weight:bold">JOIN</span>
-		dbo.DimDate dd <span style="color:#007020;font-weight:bold">ON</span> fs.DueDateKey <span style="color:#666">=</span> dd.DateKey <span style="color:#007020;font-weight:bold">JOIN</span>
-		dbo.DimDate ds <span style="color:#007020;font-weight:bold">ON</span> fs.DueDateKey <span style="color:#666">=</span> ds.DateKey <span style="color:#007020;font-weight:bold">JOIN</span>
-		dbo.DimCustomer dc <span style="color:#007020;font-weight:bold">ON</span> fs.CustomerKey <span style="color:#666">=</span> dc.CustomerKey <span style="color:#007020;font-weight:bold">JOIN</span>
-		dbo.DimGeography <span style="color:#007020;font-weight:bold">g</span> <span style="color:#007020;font-weight:bold">ON</span> dc.GeographyKey <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">g</span>.GeographyKey <span style="color:#007020;font-weight:bold">JOIN</span>
-		dbo.DimPromotion pr <span style="color:#007020;font-weight:bold">ON</span> fs.PromotionKey <span style="color:#666">=</span> pr.PromotionKey <span style="color:#007020;font-weight:bold">JOIN</span>
-        dbo.DimCurrency cu <span style="color:#007020;font-weight:bold">ON</span> fs.CurrencyKey <span style="color:#666">=</span> cu.CurrencyKey <span style="color:#007020;font-weight:bold">JOIN</span>
-		dbo.DimSalesTerritory st <span style="color:#007020;font-weight:bold">ON</span> fs.SalesTerritoryKey <span style="color:#666">=</span> st.SalesTerritoryKey 
-<span style="color:#007020;font-weight:bold">GO</span>
-</code></pre></div><p>You will also need to create a SQL Server Login named RUser with db_datareader role membership to the Adventure Works DW database</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R_00.png"
-         alt="R_00" width="704" height="632"/> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">VIEW</span><span style="color:#bbb"> </span>[dbo].[vw_FactSales]<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">SELECT</span><span style="color:#bbb">	</span>p.EnglishProductName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Product&#39;</span>,<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>pc.EnglishProductCategoryName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;ProductCategory&#39;</span>,<span style="color:#bbb"> 
+</span><span style="color:#bbb">        </span>ps.EnglishProductSubcategoryName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;ProductSubCategory&#39;</span>,<span style="color:#bbb">  
+</span><span style="color:#bbb">		</span><span style="color:#007020;font-weight:bold">do</span>.FullDateAlternateKey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;DateOrder&#39;</span>,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dd.FullDateAlternateKey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;DateDue&#39;</span>,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>ds.FullDateAlternateKey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;DateShip&#39;</span>,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dc.BirthDate,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>dc.MaritalStatus,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>dc.Gender,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dc.YearlyIncome,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dc.TotalChildren,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dc.NumberChildrenAtHome,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dc.EnglishEducation<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Education&#39;</span>,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dc.EnglishOccupation<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Occupation&#39;</span>,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dc.HouseOwnerFlag,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dc.NumberCarsOwned,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dc.DateFirstPurchase,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dc.CommuteDistance,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span><span style="color:#007020;font-weight:bold">g</span>.City,<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#007020;font-weight:bold">g</span>.StateProvinceName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;StateProvince&#39;</span>,<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#007020;font-weight:bold">g</span>.EnglishCountryRegionName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;CountryRegion&#39;</span>,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span><span style="color:#007020;font-weight:bold">g</span>.PostalCode,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>pr.EnglishPromotionName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Promotion&#39;</span>,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>pr.EnglishPromotionType<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;PromotionType&#39;</span>,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>pr.EnglishPromotionCategory<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;PromotionCategory&#39;</span>,<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>cu.CurrencyName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Currency&#39;</span>,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>st.SalesTerritoryRegion,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>st.SalesTerritoryCountry,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>st.SalesTerritoryGroup,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>fs.OrderQuantity,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>fs.UnitPrice,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>fs.ExtendedAmount,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>fs.UnitPriceDiscountPct,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>fs.DiscountAmount,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>fs.ProductStandardCost,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>fs.TotalProductCost,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>fs.SalesAmount,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>fs.TaxAmt,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>fs.Freight<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb">    </span>dbo.FactInternetSales<span style="color:#bbb"> </span>fs<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">JOIN</span><span style="color:#bbb">
+</span><span style="color:#bbb"> 		</span>dbo.DimProduct<span style="color:#bbb"> </span>p<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>fs.ProductKey<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>p.ProductKey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">JOIN</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span>dbo.DimProductSubcategory<span style="color:#bbb"> </span>ps<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>p.ProductSubcategoryKey<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>ps.ProductSubcategoryKey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">JOIN</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span>dbo.DimProductCategory<span style="color:#bbb"> </span>pc<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>ps.ProductCategoryKey<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>pc.ProductCategoryKey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">JOIN</span><span style="color:#bbb">       
+</span><span style="color:#bbb">		</span>dbo.DimDate<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">do</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>fs.OrderDateKey<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">do</span>.Datekey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">JOIN</span><span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dbo.DimDate<span style="color:#bbb"> </span>dd<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>fs.DueDateKey<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>dd.DateKey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">JOIN</span><span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dbo.DimDate<span style="color:#bbb"> </span>ds<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>fs.DueDateKey<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>ds.DateKey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">JOIN</span><span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dbo.DimCustomer<span style="color:#bbb"> </span>dc<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>fs.CustomerKey<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>dc.CustomerKey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">JOIN</span><span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dbo.DimGeography<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">g</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>dc.GeographyKey<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">g</span>.GeographyKey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">JOIN</span><span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dbo.DimPromotion<span style="color:#bbb"> </span>pr<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>fs.PromotionKey<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>pr.PromotionKey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">JOIN</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span>dbo.DimCurrency<span style="color:#bbb"> </span>cu<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>fs.CurrencyKey<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>cu.CurrencyKey<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">JOIN</span><span style="color:#bbb">
+</span><span style="color:#bbb">		</span>dbo.DimSalesTerritory<span style="color:#bbb"> </span>st<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>fs.SalesTerritoryKey<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>st.SalesTerritoryKey<span style="color:#bbb"> 
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">GO</span><span style="color:#bbb">
+</span></code></pre></div><p>You will also need to create a SQL Server Login named RUser with db_datareader role membership to the Adventure Works DW database</p>
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R_00.png"
+         alt="R_00" width="704" height="632"/>
 </figure>
 
 <p>Next we need create a new ODBC System DSN (I opted for 64-bit) click Add</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R_01.png"
-         alt="R_01" width="608" height="428"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R_01.png"
+         alt="R_01" width="608" height="428"/>
 </figure>
 
 <p>Select SQL Server Native Client 11.0</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R_02.png"
-         alt="R_02" width="478" height="359"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R_02.png"
+         alt="R_02" width="478" height="359"/>
 </figure>
 
 <p>Name it AdventureWorksDW</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R_03.png"
-         alt="R_03" width="580" height="402"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R_03.png"
+         alt="R_03" width="580" height="402"/>
 </figure>
 
 <p>Provide the SQL Server Login information</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R_04.png"
-         alt="R_04" width="580" height="402"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R_04.png"
+         alt="R_04" width="580" height="402"/>
 </figure>
 
 <p>Change the default database</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R_05.png"
-         alt="R_05" width="580" height="402"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R_05.png"
+         alt="R_05" width="580" height="402"/>
 </figure>
 
 <p>Next</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R_06.png"
-         alt="R_06" width="580" height="402"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R_06.png"
+         alt="R_06" width="580" height="402"/>
 </figure>
 
 <p>Test connectivity</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R_07.png"
-         alt="R_07" width="408" height="393"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R_07.png"
+         alt="R_07" width="408" height="393"/>
 </figure>
 
 <p>Your done!</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R_08.png"
-         alt="R_08" width="378" height="393"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R_08.png"
+         alt="R_08" width="378" height="393"/>
 </figure>
 
 <p>Open RStudio and let’s start exploring. (You will have a different IDE – I am using the ‘Idle Fingers’ theme. To change yours go to <em>Tools – Global Options</em>)</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R10.png"
-         alt="R10" width="1023" height="831"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R10.png"
+         alt="R10" width="1023" height="831"/>
 </figure>
 
-<p>First we need to install a specific package named <strong>RODBC</strong> which provides ODBC Database Access and will permit us to connect to SQL Server. For more information on the RODBC package follow this link -&gt; <!-- raw HTML omitted --><a href="http://cran.r-project.org/web/packages/RODBC/index.html">http://cran.r-project.org/web/packages/RODBC/index.html</a><!-- raw HTML omitted --></p>
+<p>First we need to install a specific package named <strong>RODBC</strong> which provides ODBC Database Access and will permit us to connect to SQL Server. For more information on the RODBC package follow this link -&gt; <!-- raw HTML omitted --><a href="http://cran.r-project.org/web/packages/RODBC/index.html" target="_blank">http://cran.r-project.org/web/packages/RODBC/index.html</a><!-- raw HTML omitted --></p>
 <p>Simply type the following at the prompt in the Console window and press enter.</p>
 <p><code>install.packages(&quot;RODBC&quot;)</code></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R11.png"
-         alt="R11" width="838" height="727"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R11.png"
+         alt="R11" width="838" height="727"/>
 </figure>
 
 <p>Now we need to load the <strong>RODBC</strong> package, create a connection “con” to the ODBC DSN “AdventureWorksDW” we created earlier, query the database and put the results into a data frame “df_adventureworks” and close the connection.</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">library</span>(RODBC)
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">library</span>(RODBC)
 con <span style="color:#666">&lt;-</span> <span style="color:#06287e">odbcConnect</span>(<span style="color:#4070a0">&#34;AdventureWorksDW&#34;</span>, uid<span style="color:#666">=</span><span style="color:#4070a0">&#34;RUser&#34;</span>, pwd<span style="color:#666">=</span><span style="color:#4070a0">&#34;RUser12345&#34;</span>)
 df_adventureworks <span style="color:#666">&lt;-</span> <span style="color:#06287e">as.data.frame</span>(<span style="color:#06287e">sqlQuery</span>(con, <span style="color:#4070a0">&#34;select * from vw_FactSales&#34;</span>), stringsAsFactors <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">FALSE</span>)
 <span style="color:#06287e">close </span>(con)
-</code></pre></div><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R12.png"
-         alt="R12" width="889" height="728"/> 
+</code></pre></div><figure><img src="https://stephanefrechette.dev/images/legacy-post/R12.png"
+         alt="R12" width="889" height="728"/>
 </figure>
 
 <p>You should see in your Environment window pane the following data frame <strong>df_adventureworks</strong> with 60398 obs. of 39 variables. Meaning 60398 rows of data with 39 attributes (columns)</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R13.png"
-         alt="R13" width="649" height="223"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R13.png"
+         alt="R13" width="649" height="223"/>
 </figure>
 
 <p>The most useful multipurpose function in R is <strong>summary</strong>(X) where X can be one of any number of objects, including datasets, variables, and linear models&hellip; just to name a few! The summary function has different outputs depending on what kind of object it takes as an argument. Besides being widely applicable, this method is valuable because it often provides exactly what is needed in terms of summary statistics.</p>
 <p>Let&rsquo;s give it a try - type the following command in the Console window and press enter</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">summary</span>(df_adventureworks)
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">summary</span>(df_adventureworks)
 </code></pre></div><p>Take time to look at the generated output (very interesting)</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R14.png"
-         alt="R14" width="892" height="731"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/R14.png"
+         alt="R14" width="892" height="731"/>
 </figure>
 
 <p>Now let’s look at two other functions <strong>colMeans</strong> and <strong>aggregate</strong></p>
 <p>Type the following commands in the Console window and press enter</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">colMeans</span>(df_adventureworks[<span style="color:#4070a0">&#34;SalesAmount&#34;</span>])
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">colMeans</span>(df_adventureworks[<span style="color:#4070a0">&#34;SalesAmount&#34;</span>])
 <span style="color:#06287e">aggregate</span>(SalesAmount <span style="color:#666">~</span> ProductCategory <span style="color:#666">+</span> CountryRegion, data<span style="color:#666">=</span>df_adventureworks, FUN<span style="color:#666">=</span>sum)
 </code></pre></div><p><strong>colMeans</strong> returns the mean for the specified columns, in this case for SalesAmount the mean is 486.0869<br>
 <strong>aggregate</strong> splits the data into subsets, computes summary statistics for each, and returns the result in a convenient form.<br>
 Those of you who are familiar with SQL Server will notice that this function <em>“aggregate(SalesAmount ~ ProductCategory + CountryRegion, data=df_adventureworks, FUN=sum)”</em> is somewhat similar to GROUP BY and thus the following T-SQL will return the same results.</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">SELECT</span>	ProductCategory,
-		CountryRegion,
-		<span style="color:#007020;font-weight:bold">SUM</span>(SalesAmount) <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#4070a0">&#39;SalesAmount&#39;</span>
-<span style="color:#007020;font-weight:bold">FROM</span>	dbo.vw_FactSales
-<span style="color:#007020;font-weight:bold">GROUP</span> <span style="color:#007020;font-weight:bold">BY</span>
-		ProductCategory,
-		CountryRegion
-<span style="color:#007020;font-weight:bold">ORDER</span> <span style="color:#007020;font-weight:bold">BY</span>
-		CountryRegion, 
-		ProductCategory
-</code></pre></div><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/R15.png"
-         alt="R15" width="890" height="730"/> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">SELECT</span><span style="color:#bbb">	</span>ProductCategory,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>CountryRegion,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span><span style="color:#007020;font-weight:bold">SUM</span>(SalesAmount)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;SalesAmount&#39;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb">	</span>dbo.vw_FactSales<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">BY</span><span style="color:#bbb">
+</span><span style="color:#bbb">		</span>ProductCategory,<span style="color:#bbb">
+</span><span style="color:#bbb">		</span>CountryRegion<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">BY</span><span style="color:#bbb">
+</span><span style="color:#bbb">		</span>CountryRegion,<span style="color:#bbb"> 
+</span><span style="color:#bbb">		</span>ProductCategory<span style="color:#bbb">
+</span></code></pre></div><figure><img src="https://stephanefrechette.dev/images/legacy-post/R15.png"
+         alt="R15" width="890" height="730"/>
 </figure>
 
-<p>On to graphics, you can create several basic graph types like density plots, dot plots, bar charts, line charts, pie charts, boxplots and scatter plots in R, I recommend you look at the following link -&gt; <!-- raw HTML omitted --><a href="http://www.statmethods.net/graphs/index.html">http://www.statmethods.net/graphs/index.html</a><!-- raw HTML omitted --> to get you started.</p>
+<p>On to graphics, you can create several basic graph types like density plots, dot plots, bar charts, line charts, pie charts, boxplots and scatter plots in R, I recommend you look at the following link -&gt; <!-- raw HTML omitted --><a href="http://www.statmethods.net/graphs/index.html" target="_blank">http://www.statmethods.net/graphs/index.html</a><!-- raw HTML omitted --> to get you started.</p>
 <p>But to create advanced graphics in R one needs to install the <strong>ggplot2</strong> package.<br>
-<strong>ggplot2</strong> is an implementation of the grammar of graphics in R. Official documentation can be found at the following link -&gt; <!-- raw HTML omitted --><a href="http://docs.ggplot2.org/current/">http://docs.ggplot2.org/current/</a><!-- raw HTML omitted --></p>
+<strong>ggplot2</strong> is an implementation of the grammar of graphics in R. Official documentation can be found at the following link -&gt; <!-- raw HTML omitted --><a href="http://docs.ggplot2.org/current/" target="_blank">http://docs.ggplot2.org/current/</a><!-- raw HTML omitted --></p>
 <p>In order to install and use the <strong>ggplot2</strong> library, type the following commands in the Console window</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">install.packages</span>(<span style="color:#4070a0">&#34;ggplot2&#34;</span>, dependencies <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">TRUE</span>)
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">install.packages</span>(<span style="color:#4070a0">&#34;ggplot2&#34;</span>, dependencies <span style="color:#666">=</span> <span style="color:#007020;font-weight:bold">TRUE</span>)
 <span style="color:#06287e">library</span>(ggplot2)
 </code></pre></div><p>Let’s create a bar plot with the count of sold ProductCategory [Accessories, Bikes, Clothing] by CountryRegion<br>
 Type the following command in the console and press enter</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">ggplot </span>(df_adventureworks, <span style="color:#06287e">aes</span>(CountryRegion, fill<span style="color:#666">=</span>ProductCategory)) <span style="color:#666">+</span> <span style="color:#06287e">geom_bar</span>()
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">ggplot </span>(df_adventureworks, <span style="color:#06287e">aes</span>(CountryRegion, fill<span style="color:#666">=</span>ProductCategory)) <span style="color:#666">+</span> <span style="color:#06287e">geom_bar</span>()
 </code></pre></div><p>The graph will appear in the Plot window and should look similar to the following</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/rgraph00.png"
-         alt="rgraph00" width="673" height="557"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/rgraph00.png"
+         alt="rgraph00" width="673" height="557"/>
 </figure>
 
 <p>This one will create 2 separate bar plots [MaritalStatus] one for Married and other for Single with count by Occupation</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">ggplot</span>(df_adventureworks, <span style="color:#06287e">aes</span>(Occupation) ) <span style="color:#666">+</span>  <span style="color:#06287e">geom_histogram</span>(color <span style="color:#666">=</span> <span style="color:#4070a0">&#34;white&#34;</span>) <span style="color:#666">+</span> <span style="color:#06287e">facet_grid</span>(MaritalStatus <span style="color:#666">~</span> .)
-</code></pre></div><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/rgraph01.png"
-         alt="rgraph01" width="588" height="555"/> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#06287e">ggplot</span>(df_adventureworks, <span style="color:#06287e">aes</span>(Occupation) ) <span style="color:#666">+</span>  <span style="color:#06287e">geom_histogram</span>(color <span style="color:#666">=</span> <span style="color:#4070a0">&#34;white&#34;</span>) <span style="color:#666">+</span> <span style="color:#06287e">facet_grid</span>(MaritalStatus <span style="color:#666">~</span> .)
+</code></pre></div><figure><img src="https://stephanefrechette.dev/images/legacy-post/rgraph01.png"
+         alt="rgraph01" width="588" height="555"/>
 </figure>
 
 <p>Before we wrap up here is the entire R script used for this demo</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#60a0b0;font-style:italic"># Install RODBC package</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#60a0b0;font-style:italic"># Install RODBC package</span>
 <span style="color:#06287e">install.packages</span>(<span style="color:#4070a0">&#34;RODBC&#34;</span>)
 
 <span style="color:#60a0b0;font-style:italic"># Load RODBC package</span>
@@ -418,7 +402,7 @@ df_adventureworks <span style="color:#666">&lt;-</span> <span style="color:#0628
       <footer class="footer">
   <section class="container">
     
-     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2021 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>
@@ -439,7 +423,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

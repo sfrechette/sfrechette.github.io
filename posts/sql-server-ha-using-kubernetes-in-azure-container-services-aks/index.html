@@ -18,9 +18,10 @@ Enters Azure Container Service (AKS) which manages your hosted Kubernetes enviro
 <meta property="og:description" content="In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
 Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-04-25T13:40:28-04:00" />
 <meta property="article:modified_time" content="2018-04-25T13:40:28-04:00" />
+
 
 
     
@@ -55,7 +56,7 @@ Enters Azure Container Service (AKS) which manages your hosted Kubernetes enviro
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
   </head>
 
   <body class=" ">
@@ -144,9 +145,8 @@ Enters Azure Container Service (AKS) which manages your hosted Kubernetes enviro
       </header>
       
       <div>
-        <p><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/Azure-Container-Service_COLOR-300x300.png#floatleft"
-         alt="Azure Container Services (AKS)" width="200" height="200"/> 
+        <p><figure><img src="https://stephanefrechette.dev/images/legacy-post/Azure-Container-Service_COLOR-300x300.png#floatleft"
+         alt="Azure Container Services (AKS)" width="200" height="200"/>
 </figure>
 <br>
 In a nutshell, <a href="https://kubernetes.io/" target="_blank">Kubernetes</a> is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for <a href="https://www.docker.com/what-docker" target="_blank">Docker</a>. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e <a href="https://docs.docker.com/engine/swarm/" target="_blank">Docker Swarm</a>). To learn more about Kubernetes, check out this <a href="https://kubernetes.io/docs/home/?path=users&amp;persona=app-developer&amp;level=foundational" target="_blank">Getting Started Guide</a>.</p>
@@ -172,23 +172,20 @@ After installing the Azure CLI run the following command to install kubectl (nee
 <p><strong>Create a resource group</strong><br>
 <code>az group create --name &lt;em&gt;&lt;resourceGroupName&gt;&lt;/em&gt; --location canadaeast</code><br>
 <em>While AKS is in preview, only some location options are available. These are eastus, westeurope, centralus, canadacentral, canadaeast</em></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_1.png" width="1010" height="307"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_1.png" width="1010" height="307"/>
 </figure>
 
 <p><strong>Create Kubernetes cluster in Azure Container Services (AKS)</strong><br>
 <code>az provider register -n Microsoft.ContainerService</code><br>
 <em>While AKS is in preview, creating new clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. Use the az provider register command to register the AKS provider. After registering, you are now ready to create a Kubernetes cluster with AKS.</em></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_2.png" width="1010" height="307"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_2.png" width="1010" height="307"/>
 </figure>
 
 <p><strong>Create the cluster</strong><br>
 <code>az aks create --name=&lt;em&gt;&lt;clusterName&gt;&lt;/em&gt; --resource-group=&lt;em&gt;&lt;resourceGroupName&gt;&lt;/em&gt; --generate-ssh-key --location canadaeast</code><br>
 <em>Expect to take a couple of minutes to bootstrap the cluster. The command will return once bootstrapping is complete.</em></p>
 <p>Something similar to the following:<br>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_3.png" width="1010" height="307"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_3.png" width="1010" height="307"/>
 </figure>
 </p>
 <p>Next let&rsquo;s Authenticate into the cluster<br>
@@ -196,23 +193,20 @@ After installing the Azure CLI run the following command to install kubectl (nee
 and validate connectivity to the cluster<br>
 <code>kubectl get nodes</code></p>
 <p>You should see that our newly created cluster with 3 nodes and a status of Ready.<br>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_4.png" width="1010" height="307"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_4.png" width="1010" height="307"/>
 </figure>
 </p>
 <p>To explore the web-based Kubernetes dashboard, issue the following command:<br>
 <code>az aks browse -n &lt;em&gt;&lt;clusterName&gt;&lt;/em&gt; -g &lt;em&gt;&lt;resourceGroupName&gt;&lt;/em&gt;</code><br>
 A new browser tab or window should open or simply navigate to <a href="http://127.0.0.1:8001" target="_blank">http://127.0.0.1:8001</a></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_5.png" width="1008" height="256"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_5.png" width="1008" height="256"/>
 </figure>
 
 <h3 id="deploy-sql-server-in-kubernetes">Deploy SQL Server in Kubernetes</h3>
 <p><strong>Create secret to store SQL Server SA password</strong><br>
 We will now create a password in the Kubernetes cluster. Kubernetes can manage sensitive configuration information like passwords as <a href="https://kubernetes.io/docs/concepts/configuration/secret/" target="_blank">secrets</a>. The following command creates a secret that holds the value for the password that will be using for the SQL Server SA account. Replace <em>YourComplexPassword</em> with a complex password.</p>
 <p><code>kubectl create secret generic mssql --from-literal=SA_PASSWORD=&quot;&lt;em&gt;YourComplexPassword&lt;/em&gt;&quot;</code></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_6.png" width="1010" height="307"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_6.png" width="1010" height="307"/>
 </figure>
 
 <p><strong>Configure storage for SQL Server files</strong><br>
@@ -222,7 +216,7 @@ Create a manifest to define the storage class and the persistent volume claim. T
 <ul>
 <li>pvc.yml</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#062873;font-weight:bold">kind</span>:<span style="color:#bbb"> </span>StorageClass<span style="color:#bbb">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#062873;font-weight:bold">kind</span>:<span style="color:#bbb"> </span>StorageClass<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#062873;font-weight:bold">apiVersion</span>:<span style="color:#bbb"> </span>storage.k8s.io/v1beta1<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#062873;font-weight:bold">metadata</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">     </span><span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span>azure-disk<span style="color:#bbb">
@@ -246,21 +240,18 @@ Create a manifest to define the storage class and the persistent volume claim. T
 </span></code></pre></div><p><strong>Save the file</strong> (for example pvc.yml)</p>
 <p><strong>Create the persistent volume claim in Kubernetes</strong><br>
 <code>kubectl apply -f &lt;em&gt;&lt;Path to you recently saved pvc.yml file&gt;&lt;/em&gt;</code></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_7.png" width="1010" height="307"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_7.png" width="1010" height="307"/>
 </figure>
 
 <p><strong>Verify the persistent volume claim</strong><br>
 <code>kubectl describe pvc mssql-data</code><br>
 <em>In our pvc.yml created earlier the persistent volume claim is named <strong>mssql-data</strong></em></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_8.png" width="1010" height="409"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_8.png" width="1010" height="409"/>
 </figure>
 
 <p><strong>Verify the persistent volume</strong><br>
 <code>kubectl describe pv</code></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_9.png" width="1010" height="460"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_9.png" width="1010" height="460"/>
 </figure>
 
 <h3 id="create-the-deployment">Create the deployment</h3>
@@ -269,7 +260,7 @@ Create a manifest to define the storage class and the persistent volume claim. T
 <ul>
 <li>sqldeployment.yml</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#062873;font-weight:bold">apiVersion</span>:<span style="color:#bbb"> </span>apps/v1beta1<span style="color:#bbb">
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#062873;font-weight:bold">apiVersion</span>:<span style="color:#bbb"> </span>apps/v1beta1<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#062873;font-weight:bold">kind</span>:<span style="color:#bbb"> </span>Deployment<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#062873;font-weight:bold">metadata</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#062873;font-weight:bold">name</span>:<span style="color:#bbb"> </span>mssql-deployment<span style="color:#bbb">
@@ -318,29 +309,25 @@ Create a manifest to define the storage class and the persistent volume claim. T
 </span></code></pre></div><p><strong>Save the file</strong> (for example sqldeployment.yml)</p>
 <p><strong>Create deployment</strong><br>
 <code>kubectl apply -f &lt;em&gt;&lt;Path to your recently saved sqldeployment.yml file&gt;&lt;/em&gt;</code></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_10.png" width="1010" height="324"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_10.png" width="1010" height="324"/>
 </figure>
 
 <p>View the status of the pod<br>
 <code>kubectl get pods -0 wide</code></p>
 <p>Because I just issued the command right after creating the deployment, it is showing that the container is being created&hellip; leave it some time to pull the docker image and try again. It should then show a status of Running.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_11.png" width="1010" height="324"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_11.png" width="1010" height="324"/>
 </figure>
 
 <p><strong>Verify the services are running</strong><br>
 <code>kubectl get services</code></p>
 <p>Take note of the EXTERNAL-IP, that&rsquo;s the one will be using to connect to the SQL Server instance.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_12.png" width="1010" height="324"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_12.png" width="1010" height="324"/>
 </figure>
 
 <h3 id="connect-to-sql-server-instance">Connect to SQL Server instance</h3>
 <p>You could use <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-develop-use-ssms?view=sql-server-linux-2017" target="_blank">SSMS</a>, <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-develop-use-ssdt?view=sql-server-linux-2017" target="_blank">SSDT</a>, <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-develop-use-vscode?view=sql-server-linux-2017" target="_blank">Visual Studio Code</a> and <a href="https://docs.microsoft.com/en-us/sql/sql-operations-studio/quickstart-sql-server?view=sql-server-2017" target="_blank">SQL Operations Studio</a> to connect to the SQL Server instance, here will use <code>sqlcmd</code></p>
 <p><code>sqlcmd -S &lt;em&gt;&lt;External IP Address&gt;&lt;/em&gt; -U sa -P &quot;&lt;em&gt;YourComplexPassword&lt;/em&gt;&quot;</code></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_13.png" width="1010" height="341"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_13.png" width="1010" height="341"/>
 </figure>
 
 <p>We have a connection!</p>
@@ -353,18 +340,15 @@ Create a manifest to define the storage class and the persistent volume claim. T
 <em>Use the value returned from kubectl get pods command</em>. In this case my pod name is mssql-deployment-6f8946b5d-xbpx5 running on node 1 (aks-nodepool1-142282291-1)</p>
 <p>After issuing the delete pod command here is what&rsquo;s happening; in this case Kubernetes is terminating the pod running the SQL Server instance in node 1 (aks-nodepool1-142282291-1) and then recreating it in node 0 (aks-nodepool1-142282291-0) and then connecting to the persistent storage. In this scenario because it&rsquo;s recreating a pod (SQL Server instance) in another node it is not as fast as like recreating a pod in the same node (very fast&hellip;like Instantaneously!)</p>
 <p>It worked! Notice the pod name before and after the delete, it is different and running on a different node.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_14.png" width="1024" height="253"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_14.png" width="1024" height="253"/>
 </figure>
 
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_15.png" width="1026" height="307"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_15.png" width="1026" height="307"/>
 </figure>
 
 <p>You could then use <code>kubectl get pods -o wide</code> to verify that a new pod is now deployed and running and use <code>kubectl get services</code> to verify that you have the same EXTERNAL-IP address for the new container. Hence also try to reconnect to the SQL Server instance (with same ip) and voilà!</p>
 <p>Here is a screenshot of the k8s dashboard</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/k8s_16.png" width="1144" height="850"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/k8s_16.png" width="1144" height="850"/>
 </figure>
 
 <p>That&rsquo;s it. We just walkthrough on how to configure SQL Server containers to a Kubernetes cluster for high availability in Azure Container Services (AKS).<br>
@@ -409,7 +393,7 @@ Enjoy!</p>
       <footer class="footer">
   <section class="container">
     
-     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2021 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>
@@ -430,7 +414,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

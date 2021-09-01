@@ -23,7 +23,7 @@
       
       <guid>https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/</guid>
       <description>In-memory distributed processing for large datasets… How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
-    First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics.</description>
+  First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics. A fast and general processing engine compatible with Hadoop data.</description>
     </item>
     
   </channel>

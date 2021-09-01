@@ -16,9 +16,10 @@
     <meta property="og:title" content="Azure Cloud Services - Neo4j" />
 <meta property="og:description" content="Yes another exploration and exercise on graph modeling. This time about something I often use… the Cloud: Microsoft Azure. Thought it would be interesting to model the available Azure Cloud Service offerings by category, region, and location. The inspiration and data comes from the following source of information on the following web page http://azure.microsoft.com/en-us/regions/#services. A trivial one, but useful for demonstrating and understanding concepts. This is also a great example of how to store master data and discover new insights in existing data." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/azure-cloud-services-neo4j/" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/azure-cloud-services-neo4j/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2015-08-06T09:22:50-04:00" />
 <meta property="article:modified_time" content="2015-08-06T09:22:50-04:00" />
+
 
 
     
@@ -53,7 +54,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
   </head>
 
   <body class=" ">
@@ -105,7 +106,7 @@
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              3 minutes read
+              2 minutes read
             </span>
           </div>
           <div class="categories">
@@ -140,117 +141,112 @@
       </header>
       
       <div>
-        <p><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/azurecloud-150x150.png#floatright"
-         alt="azurecloud" width="150" height="150"/> 
+        <p><figure><img src="https://stephanefrechette.dev/images/legacy-post/azurecloud-150x150.png#floatright"
+         alt="azurecloud" width="150" height="150"/>
 </figure>
 
-Yes another exploration and exercise on graph modeling. This time about something I often use… the Cloud: <a href="https://azure.microsoft.com/" target="_blank">Microsoft Azure</a>. Thought it would be interesting to model the available Azure Cloud Service offerings by category, region, and location. The inspiration and data comes from the following source of information on the following web page <!-- raw HTML omitted --><a href="http://azure.microsoft.com/en-us/regions/#services">http://azure.microsoft.com/en-us/regions/#services</a><!-- raw HTML omitted -->. A trivial one, but useful for demonstrating and understanding concepts. This is also a great example of how to store master data and discover new insights in existing data.</p>
-<p>The Cypher, CSV files, and database backup can be found here -&gt; <!-- raw HTML omitted --><a href="https://github.com/sfrechette/azureservices-neo4j">https://github.com/sfrechette/azureservices-neo4j</a><!-- raw HTML omitted --></p>
+Yes another exploration and exercise on graph modeling. This time about something I often use… the Cloud: <a href="https://azure.microsoft.com/" target="_blank">Microsoft Azure</a>. Thought it would be interesting to model the available Azure Cloud Service offerings by category, region, and location. The inspiration and data comes from the following source of information on the following web page <!-- raw HTML omitted --><a href="http://azure.microsoft.com/en-us/regions/#services" target="_blank">http://azure.microsoft.com/en-us/regions/#services</a><!-- raw HTML omitted -->. A trivial one, but useful for demonstrating and understanding concepts. This is also a great example of how to store master data and discover new insights in existing data.</p>
+<p>The Cypher, CSV files, and database backup can be found here -&gt; <!-- raw HTML omitted --><a href="https://github.com/sfrechette/azureservices-neo4j" target="_blank">https://github.com/sfrechette/azureservices-neo4j</a><!-- raw HTML omitted --></p>
 <p>You can also get a copy of the raw data in Excel here on <a href="https://onedrive.live.com/redir?resid=D752E0624B9A6E05%21986" target="_blank">OneDrive</a></p>
 <p><strong>How to approach and model our graph</strong></p>
 <p>Let’s visualize it! A <strong>Region</strong> ‘East US’ is in a <strong>Location</strong> ‘Virginia’, that <strong>Region</strong> offers a <strong>Service</strong> ‘Stream Analytics’ and that <strong>Service</strong> belongs in a <strong>Category</strong> named ‘Analytics’. Also a <strong>Service</strong> could be a parent or child of another <strong>Service</strong>. From that analysis we can create the following model.</p>
 <p><em><strong>Azure Cloud Services Graph Model:</strong></em><br>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/graph_azure.png"
-         alt="graph_azure" width="1008" height="479"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/graph_azure.png"
+         alt="graph_azure" width="1008" height="479"/>
 </figure>
 </p>
-<p><em><!-- raw HTML omitted -->Graph model built using Arrows <!-- raw HTML omitted --><a href="http://www.apcjones.com/arrows/">http://www.apcjones.com/arrows/</a><!-- raw HTML omitted --><!-- raw HTML omitted --></em></p>
+<p><em><!-- raw HTML omitted -->Graph model built using Arrows <!-- raw HTML omitted --><a href="http://www.apcjones.com/arrows/" target="_blank">http://www.apcjones.com/arrows/</a><!-- raw HTML omitted --><!-- raw HTML omitted --></em></p>
 <p><strong>Importing the Data using Cypher</strong></p>
 <p>Using the CSV files will be using Cypher’s LOAD CSV command to transform and load the content into a graph structure.<br>
 You can import and run the entire Cypher script using the neo4j-shell by issuing the following command:<br>
 <em><strong>bin/neo4j-shell -path azureservices.db -file cypher/import.cql</strong></em><br>
 <em>*make sure the Neo4j service is not running before you execute the script (bin/neo4j stop)</em></p>
 <p>The following is the Cypher script that creates the indexes, constraints, nodes and relationships for our graph.</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> indexes <span style="color:#007020;font-weight:bold">for</span> faster lookup
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :Service(serviceName);
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :Category(categoryName);
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :Region(regionName);
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :<span style="color:#007020;font-weight:bold">Location</span>(locationName);
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :<span style="color:#007020;font-weight:bold">Location</span>(countryName);
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :<span style="color:#007020;font-weight:bold">Location</span>(continentName);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> <span style="color:#007020;font-weight:bold">constraints</span>
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (s:Service) ASSERT s.serviceId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (sc:Category) ASSERT sc.categoryId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (r:Region) ASSERT r.regionId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (l:<span style="color:#007020;font-weight:bold">Location</span>) ASSERT l.locationId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> services
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/services.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">CREATE</span> (:Service <span style="">{</span>serviceName: <span style="color:#007020;font-weight:bold">row</span>.Service, serviceId: <span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> service categories
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/categories.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">CREATE</span> (:Category <span style="">{</span>categoryName: <span style="color:#007020;font-weight:bold">row</span>.Category, categoryId: <span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> regions
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/regions.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">CREATE</span> (:Region <span style="">{</span>regionName: <span style="color:#007020;font-weight:bold">row</span>.Region, regionId: <span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> locations
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/locations.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">CREATE</span> (:<span style="color:#007020;font-weight:bold">Location</span> <span style="">{</span>locationName: <span style="color:#007020;font-weight:bold">row</span>.<span style="color:#007020;font-weight:bold">Location</span>, locationId: <span style="color:#007020;font-weight:bold">row</span>.ID, countryName: <span style="color:#007020;font-weight:bold">row</span>.Country, continentName: <span style="color:#007020;font-weight:bold">row</span>.Continent<span style="">}</span>);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Service <span style="color:#007020;font-weight:bold">to</span> Category
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/services.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">MATCH</span> (service:Service <span style="">{</span>serviceId: <span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>)
-<span style="color:#007020;font-weight:bold">MATCH</span> (category:Category <span style="">{</span>categoryId: <span style="color:#007020;font-weight:bold">row</span>.CategoryID<span style="">}</span>)
-MERGE (service)<span style="color:#666">-</span>[:CATEGORY]<span style="color:#666">-&gt;</span>(category);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationship <span style="color:#007020;font-weight:bold">for</span> service <span style="color:#007020;font-weight:bold">to</span> service (parent<span style="color:#666">-</span>child)
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/services.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">MATCH</span> (child:Service <span style="">{</span>serviceId: <span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>)
-<span style="color:#007020;font-weight:bold">MATCH</span> (parent:Service <span style="">{</span>serviceId: <span style="color:#007020;font-weight:bold">row</span>.ParentID<span style="">}</span>)
-MERGE (parent)<span style="color:#666">-</span>[:PARENT_OF]<span style="color:#666">-&gt;</span>(child);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Region <span style="color:#007020;font-weight:bold">to</span> Service
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/serviceregions.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">MATCH</span> (service:Service <span style="">{</span>serviceId: <span style="color:#007020;font-weight:bold">row</span>.ServiceID<span style="">}</span>)
-<span style="color:#007020;font-weight:bold">MATCH</span> (region:Region <span style="">{</span>regionId: <span style="color:#007020;font-weight:bold">row</span>.RegionID<span style="">}</span>)
-MERGE (region)<span style="color:#666">-</span>[:OFFERS]<span style="color:#666">-&gt;</span>(service);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Region <span style="color:#007020;font-weight:bold">to</span> <span style="color:#007020;font-weight:bold">Location</span>
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/regions.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">MATCH</span> (region:Region <span style="">{</span>regionId: <span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>)
-<span style="color:#007020;font-weight:bold">MATCH</span> (<span style="color:#007020;font-weight:bold">location</span>:<span style="color:#007020;font-weight:bold">Location</span> <span style="">{</span>locationId: <span style="color:#007020;font-weight:bold">row</span>.LocationID<span style="">}</span>)
-MERGE (region)<span style="color:#666">-</span>[:LOCATED_IN]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">location</span>);
-</code></pre></div><p>Once the script successfully executed, start Neo4j and load the web console (http://localhost:7474)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>indexes<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">for</span><span style="color:#bbb"> </span>faster<span style="color:#bbb"> </span>lookup<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:Service(serviceName);<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:Category(categoryName);<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:Region(regionName);<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:<span style="color:#007020;font-weight:bold">Location</span>(locationName);<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:<span style="color:#007020;font-weight:bold">Location</span>(countryName);<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:<span style="color:#007020;font-weight:bold">Location</span>(continentName);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">constraints</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(s:Service)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span>s.serviceId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(sc:Category)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span>sc.categoryId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(r:Region)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span>r.regionId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(l:<span style="color:#007020;font-weight:bold">Location</span>)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span>l.locationId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>services<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/services.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:Service<span style="color:#bbb"> </span><span style="">{</span>serviceName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.Service,<span style="color:#bbb"> </span>serviceId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>service<span style="color:#bbb"> </span>categories<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/categories.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:Category<span style="color:#bbb"> </span><span style="">{</span>categoryName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.Category,<span style="color:#bbb"> </span>categoryId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>regions<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/regions.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:Region<span style="color:#bbb"> </span><span style="">{</span>regionName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.Region,<span style="color:#bbb"> </span>regionId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>locations<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/locations.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:<span style="color:#007020;font-weight:bold">Location</span><span style="color:#bbb"> </span><span style="">{</span>locationName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.<span style="color:#007020;font-weight:bold">Location</span>,<span style="color:#bbb"> </span>locationId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ID,<span style="color:#bbb"> </span>countryName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.Country,<span style="color:#bbb"> </span>continentName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.Continent<span style="">}</span>);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span>Service<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>Category<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/services.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(service:Service<span style="color:#bbb"> </span><span style="">{</span>serviceId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(category:Category<span style="color:#bbb"> </span><span style="">{</span>categoryId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.CategoryID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(service)<span style="color:#666">-</span>[:CATEGORY]<span style="color:#666">-&gt;</span>(category);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationship<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">for</span><span style="color:#bbb"> </span>service<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>service<span style="color:#bbb"> </span>(parent<span style="color:#666">-</span>child)<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/services.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(child:Service<span style="color:#bbb"> </span><span style="">{</span>serviceId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(parent:Service<span style="color:#bbb"> </span><span style="">{</span>serviceId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ParentID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(parent)<span style="color:#666">-</span>[:PARENT_OF]<span style="color:#666">-&gt;</span>(child);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span>Region<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>Service<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/serviceregions.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(service:Service<span style="color:#bbb"> </span><span style="">{</span>serviceId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ServiceID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(region:Region<span style="color:#bbb"> </span><span style="">{</span>regionId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.RegionID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(region)<span style="color:#666">-</span>[:OFFERS]<span style="color:#666">-&gt;</span>(service);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span>Region<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Location</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/regions.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(region:Region<span style="color:#bbb"> </span><span style="">{</span>regionId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">location</span>:<span style="color:#007020;font-weight:bold">Location</span><span style="color:#bbb"> </span><span style="">{</span>locationId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.LocationID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(region)<span style="color:#666">-</span>[:LOCATED_IN]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">location</span>);<span style="color:#bbb">
+</span></code></pre></div><p>Once the script successfully executed, start Neo4j and load the web console (http://localhost:7474)</p>
 <p><strong>Some cypher queries</strong></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span> Service <span style="color:#007020;font-weight:bold">and</span> categories offered <span style="color:#007020;font-weight:bold">in</span> Region <span style="color:#666">-</span>  North Europe
-<span style="color:#007020;font-weight:bold">MATCH</span> (r:Region <span style="">{</span>regionName:<span style="color:#4070a0">&#39;North Europe&#39;</span><span style="">}</span>)<span style="color:#666">-</span>[o:OFFERS]<span style="color:#666">-&gt;</span>(s:Service)<span style="color:#60a0b0;font-style:italic">--&gt;() RETURN r,o,c;
-</span></code></pre></div><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/azure_europe.png"
-         alt="azure_europe" width="877" height="769"/> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span><span style="color:#bbb"> </span>Service<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">and</span><span style="color:#bbb"> </span>categories<span style="color:#bbb"> </span>offered<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">in</span><span style="color:#bbb"> </span>Region<span style="color:#bbb"> </span><span style="color:#666">-</span><span style="color:#bbb">  </span>North<span style="color:#bbb"> </span>Europe<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(r:Region<span style="color:#bbb"> </span><span style="">{</span>regionName:<span style="color:#4070a0">&#39;North Europe&#39;</span><span style="">}</span>)<span style="color:#666">-</span>[o:OFFERS]<span style="color:#666">-&gt;</span>(s:Service)<span style="color:#60a0b0;font-style:italic">--&gt;() RETURN r,o,c;
+</span></code></pre></div><figure><img src="https://stephanefrechette.dev/images/legacy-post/azure_europe.png"
+         alt="azure_europe" width="877" height="769"/>
 </figure>
 
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span> List Services <span style="color:#007020;font-weight:bold">with</span> Category available <span style="color:#007020;font-weight:bold">by</span> Regions
-<span style="color:#007020;font-weight:bold">MATCH</span> (<span style="color:#007020;font-weight:bold">c</span>:Category)<span style="color:#666">&lt;</span><span style="color:#60a0b0;font-style:italic">--(s:Service)&lt;--(r:Region)
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">RETURN</span> s.serviceName <span style="color:#007020;font-weight:bold">as</span> Service, <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#007020;font-weight:bold">as</span> Category,  collect(<span style="color:#007020;font-weight:bold">distinct</span> r.regionName) <span style="color:#007020;font-weight:bold">as</span> Regions
-<span style="color:#007020;font-weight:bold">ORDER</span> <span style="color:#007020;font-weight:bold">BY</span> Category, Service
-</code></pre></div><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/azure_services1.png"
-         alt="azure_services" width="1058" height="538"/> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span><span style="color:#bbb"> </span>List<span style="color:#bbb"> </span>Services<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">with</span><span style="color:#bbb"> </span>Category<span style="color:#bbb"> </span>available<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">by</span><span style="color:#bbb"> </span>Regions<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">c</span>:Category)<span style="color:#666">&lt;</span><span style="color:#60a0b0;font-style:italic">--(s:Service)&lt;--(r:Region)
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">RETURN</span><span style="color:#bbb"> </span>s.serviceName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>Service,<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">c</span>.categoryName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>Category,<span style="color:#bbb">  </span>collect(<span style="color:#007020;font-weight:bold">distinct</span><span style="color:#bbb"> </span>r.regionName)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>Regions<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">BY</span><span style="color:#bbb"> </span>Category,<span style="color:#bbb"> </span>Service<span style="color:#bbb">
+</span></code></pre></div><figure><img src="https://stephanefrechette.dev/images/legacy-post/azure_services1.png"
+         alt="azure_services" width="1058" height="538"/>
 </figure>
 
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span> Regions that offer the service Machine Learning<span style="color:#666">?</span>
-<span style="color:#007020;font-weight:bold">MATCH</span> (region)<span style="color:#666">-</span>[:OFFERS]<span style="color:#666">-&gt;</span>(Service <span style="">{</span>serviceName:<span style="color:#4070a0">&#39;Machine Learning&#39;</span><span style="">}</span>)
-<span style="color:#007020;font-weight:bold">RETURN</span> region.regionName <span style="color:#007020;font-weight:bold">as</span> Region
-</code></pre></div><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/azure_ml_cypher.png"
-         alt="azure_ml_cypher" width="985" height="189"/> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span><span style="color:#bbb"> </span>Regions<span style="color:#bbb"> </span>that<span style="color:#bbb"> </span>offer<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>service<span style="color:#bbb"> </span>Machine<span style="color:#bbb"> </span>Learning<span style="color:#666">?</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(region)<span style="color:#666">-</span>[:OFFERS]<span style="color:#666">-&gt;</span>(Service<span style="color:#bbb"> </span><span style="">{</span>serviceName:<span style="color:#4070a0">&#39;Machine Learning&#39;</span><span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">RETURN</span><span style="color:#bbb"> </span>region.regionName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>Region<span style="color:#bbb">
+</span></code></pre></div><figure><img src="https://stephanefrechette.dev/images/legacy-post/azure_ml_cypher.png"
+         alt="azure_ml_cypher" width="985" height="189"/>
 </figure>
 
-<p>New to Neo4j and graph databases, follow this link to get you started <!-- raw HTML omitted --><a href="http://neo4j.com/developer/get-started/">http://neo4j.com/developer/get-started/</a><!-- raw HTML omitted --></p>
+<p>New to Neo4j and graph databases, follow this link to get you started <!-- raw HTML omitted --><a href="http://neo4j.com/developer/get-started/" target="_blank">http://neo4j.com/developer/get-started/</a><!-- raw HTML omitted --></p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 
@@ -291,7 +287,7 @@ MERGE (region)<span style="color:#666">-</span>[:LOCATED_IN]<span style="color:#
       <footer class="footer">
   <section class="container">
     
-     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2021 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>
@@ -312,7 +308,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

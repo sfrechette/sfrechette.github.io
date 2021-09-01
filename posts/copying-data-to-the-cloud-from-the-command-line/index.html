@@ -16,9 +16,10 @@
     <meta property="og:title" content="Copying data to the Cloud from the Command line" />
 <meta property="og:description" content="Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2017-11-19T16:46:01-04:00" />
 <meta property="article:modified_time" content="2017-11-19T16:46:01-04:00" />
+
 
 
     
@@ -53,7 +54,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
   </head>
 
   <body class=" ">
@@ -150,8 +151,7 @@
       </header>
       
       <div>
-        <p><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/sky-1513292_640.png#floatleft" width="250" height="160"/> 
+        <p><figure><img src="https://stephanefrechette.dev/images/legacy-post/sky-1513292_640.png#floatleft" width="250" height="160"/>
 </figure>
 Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.</p>
 <p>In no particular order I strongly recommend you read and get knowledgeable on each of their offerings and register for a free subscription:</p>
@@ -169,8 +169,7 @@ Copying data to the Cloud from the Command line, this is what this post is all a
 </ol>
 <p>We will be using the 2016 Jersey City – Citi Bike trip data, details and info about the data -&gt; <a href="https://www.citibikenyc.com/system-data" target="_blank">https://www.citibikenyc.com/system-data</a>, but for this sample demo I already downloaded and packaged the data for you! Which you can download <a href="https://www.dropbox.com/sh/s8rq8rnjl6c6x6e/AAAranOxsJEnu8yl5cl2bzC0a?dl=0" target="_blank">here</a>.</p>
 <p>Once downloaded and unzipped the data should look like this…<br>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/data_01.png" width="584" height="436"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/data_01.png" width="584" height="436"/>
 </figure>
 </p>
 <p><strong>Warning!</strong><br>
@@ -178,8 +177,7 @@ I am on macOS, all works in Windows, just don’t forget to change the file path
 <p> 
  
  </p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/Cloud-Storage-150x150.png" width="75" height="75"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/Cloud-Storage-150x150.png" width="75" height="75"/>
 </figure>
 
 <h4 id="google-cloud-storage">Google Cloud Storage</h4>
@@ -199,8 +197,7 @@ I am on macOS, all works in Windows, just don’t forget to change the file path
 <p> 
  
  
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/awss3.png" width="75" height="92"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/awss3.png" width="75" height="92"/>
 </figure>
 </p>
 <h4 id="amazon-s3">Amazon S3</h4>
@@ -221,8 +218,7 @@ I am on macOS, all works in Windows, just don’t forget to change the file path
 <p> 
  
  </p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/Azure-Storage-Blob-150x150.png" width="75" height="75"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/Azure-Storage-Blob-150x150.png" width="75" height="75"/>
 </figure>
 
 <h4 id="azure-blob-storage">Azure Blob Storage</h4>
@@ -231,7 +227,7 @@ I am on macOS, all works in Windows, just don’t forget to change the file path
 <p>If using the Azure CLI run the login command: <a href="https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest" target="_blank">az login</a> or <a href="https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart" target="_blank">launch the Cloud Shell</a> and if using the Azure PowerShell run the login command: <a href="https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps" target="_blank">Login-AzureRmAccount</a>.</p>
 <p><strong>Create a container</strong></p>
 <p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/container?view=azure-cli-latest#create" target="_blank">az storage container</a>. The following commands creates a resource group <em>citibiketripdata_rg</em>, a storage account <em>citibiketripdata</em>, and a container <em>citibike-tripdata</em>:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#60a0b0;font-style:italic"># Create a resource group</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#60a0b0;font-style:italic"># Create a resource group</span>
 az <span style="color:#007020">group </span>create --name citibiketripdata_rg --location eastus
 
 <span style="color:#60a0b0;font-style:italic"># Create a storage account</span>
@@ -247,9 +243,9 @@ export AZURE_STORAGE_ACCOUNT=<span style="color:#4070a0">&#39;PUT_YOUR_STORAGE_A
 export AZURE_STORAGE_ACCESS_KEY=<span style="color:#4070a0">&#39;PUT_YOUR_ACCESS_KEY_HERE&#39;</span>
 
 <span style="color:#60a0b0;font-style:italic"># Create a container</span>
-az storage container create --name citibike-tripdata
+az storage container create --name <span style="color:#007020">citibike-tripdata</span>
 </code></pre></div><p><a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer" target="_blank">New-AzureStorageContainer</a>. The following commands creates a resource group <em>citibiketripdata_rg</em>, a storage account <em>citibiketripdata</em>, and a container <em>citibike-tripdata</em>:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#60a0b0;font-style:italic"># Create a resource group</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#60a0b0;font-style:italic"># Create a resource group</span>
 <span style="color:#007020">New-AzureRmResourceGroup</span> -Name citibiketripdata_rg -Location eastus 
 
 <span style="color:#60a0b0;font-style:italic"># Create a storage account</span>
@@ -268,7 +264,7 @@ az storage container create --name citibike-tripdata
 <p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_upload_batch" target="_blank">az storage blob upload-batch</a>. The following command uploads files from a local directory <em>/data/citibike/</em> to a blob container <em>citibike-tripdata</em> with gzip content-encoding</p>
 <p><code>az storage blob upload-batch --destination citibike-tripdata \ --source /data/citibike/ \ --content-encoding gzip</code></p>
 <p>The <a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/set-azurestorageblobcontent" target="_blank">Set-AzureStorageBlobContent</a> does the job, however it does not keep and copy the folder structure from our local source. So here is a PowerShell script that does exactly what we need:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#bb60d5">$StorageAccountName</span> = <span style="color:#4070a0">&#34;citibiketripdata&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#bb60d5">$StorageAccountName</span> = <span style="color:#4070a0">&#34;citibiketripdata&#34;</span>
 <span style="color:#bb60d5">$StorageAccountKey</span> = <span style="color:#4070a0">&#34;PUT_YOUR_ACCESS_KEY_HERE&#34;</span>
 <span style="color:#bb60d5">$ContainerName</span> = <span style="color:#4070a0">&#34;citibike-tripdata&#34;</span>
 <span style="color:#bb60d5">$sourceFileRootDirectory</span> = <span style="color:#4070a0">&#34;C:\data\citibike&#34;</span>
@@ -357,7 +353,7 @@ Enjoy!</p>
       <footer class="footer">
   <section class="container">
     
-     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2021 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>
@@ -378,7 +374,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

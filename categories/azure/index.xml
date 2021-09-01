@@ -51,7 +51,7 @@ Enters Azure Container Service (AKS) which manages your hosted Kubernetes enviro
       
       <guid>https://stephanefrechette.dev/posts/installing-timescaledb-azure/</guid>
       <description>Installing TimescaleDB on Azure. First some housekeeping… A time series database is a software system that is optimized for handling time series data, arrays of numbers indexed by time (a datetime or a datetime range). In some fields these time series are called profiles, curves, or traces.
-  Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries.</description>
+ Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries.</description>
     </item>
     
     <item>

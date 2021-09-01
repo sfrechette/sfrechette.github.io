@@ -20,9 +20,10 @@ Open a Terminal session and see what type of help and information we get…"/>
 The tool is installed in the following directory path /opt/mssql/bin let’s explore what mssql-conf is all about.
 Open a Terminal session and see what type of help and information we get…" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/configure-manage-sql-server-linux/" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/configure-manage-sql-server-linux/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2017-04-10T14:42:14-04:00" />
 <meta property="article:modified_time" content="2017-04-10T14:42:14-04:00" />
+
 
 
     
@@ -57,7 +58,7 @@ Open a Terminal session and see what type of help and information we get…" />
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
   </head>
 
   <body class=" ">
@@ -138,15 +139,13 @@ Open a Terminal session and see what type of help and information we get…</p>
 <p>Proving the -h or –help argument will return more information about how to use mssql-conf<br>
 <code>cd /opt/mssql/bin</code><br>
 <code>./mssql-conf -h</code></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_01.png" width="977" height="559"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_01.png" width="977" height="559"/>
 </figure>
 
 <p>This command gives us various the options/arguments that we can use with the mssql-conf tool.</p>
 <p>Now Let’s explore the supported configurable settings by issuing the following command<br>
 <code>./mssql-conf list</code></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_02.png" width="977" height="270"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_02.png" width="977" height="270"/>
 </figure>
 
 <p>The following are the supported settings that can be changed/modified using the ‘set’ option:</p>
@@ -178,22 +177,19 @@ By default, the backup files are generated in <code>/var/opt/mssql/data</code>. 
 List files and directories -&gt; <code>ls -l</code> backup directory does not exist!<br>
 Create a new directory named ‘backup’ -&gt; <code>mkdir /var/opt/mssql/backup</code><br>
 Validate that new directory was created -&gt; <code>ls -l</code></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_03.png" width="896" height="440"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_03.png" width="896" height="440"/>
 </figure>
 
 <p>Now that we have our new backup directory we can change the directory where SQL Server will send the backup files by default:</p>
 <p><code>/opt/mssql/bin/mssql-conf set defaultbackupdir /var/opt/mssql/backup</code></p>
 <p>You also need to restart the mssql-server service:</p>
 <p><code>systemctl restart mssql-server</code></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_05.png" width="1121" height="287"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_05.png" width="1121" height="287"/>
 </figure>
 
 <p>To see the content of the <strong>mssql.conf</strong> file, you use the <strong>cat</strong> command which stands for “catenate”. It reads data from files, and outputs their contents. It is the simplest way to display the contents of a file at the command line.</p>
 <p><code>cat /var/opt/mssql/mssql.conf</code></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_04.png" width="896" height="440"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/mssql-conf_04.png" width="896" height="440"/>
 </figure>
 
 <p>Again for further details on how to configure SQL Server on Linux with the mssql-conf tool see the following link -&gt; <a href="https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf" target="_blank">https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf</a>.</p>
@@ -238,7 +234,7 @@ Validate that new directory was created -&gt; <code>ls -l</code></p>
       <footer class="footer">
   <section class="container">
     
-     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2021 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>
@@ -259,7 +255,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

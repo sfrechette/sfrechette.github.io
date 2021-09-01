@@ -16,9 +16,10 @@
     <meta property="og:title" content="Pause Azure SQL Data Warehouse(s) with Azure Automation" />
 <meta property="og:description" content="Folks it as been a while&hellip; You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)&hellip; while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automation and PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/pause-azure-sql-data-warehouses-with-azure-automation/" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/pause-azure-sql-data-warehouses-with-azure-automation/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-11-27T11:19:56-04:00" />
 <meta property="article:modified_time" content="2018-11-27T11:19:56-04:00" />
+
 
 
     
@@ -53,7 +54,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
   </head>
 
   <body class=" ">
@@ -138,8 +139,7 @@
       <div>
         <p>Folks it as been a while&hellip; You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to <strong>Pause</strong> your Azure SQL Data Warehouse(s)&hellip; while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use <a href="https://azure.microsoft.com/en-ca/services/automation/" target="_blank">Azure Automation</a> and PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</p>
 <p>Context: Azure SQL Data Warehouse a massively parallel processing (MPP) architecture, separates compute from storage which enables you to scale compute independently of the data in your system. I recommend you read and watch the following <a href="https://docs.microsoft.com/en-us/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture" target="_blank">SQL Data Warehouse Architecture</a> to lear more.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/PauseAzureDwh01-150x150.png#floatright" width="150" height="150"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/PauseAzureDwh01-150x150.png#floatright" width="150" height="150"/>
 </figure>
 
 <p>With decoupled storage and compute, SQL Data Warehouse can:</p>
@@ -153,49 +153,40 @@
 First you will need to download and save a local copy of the following PowerShell script &ldquo;PauseAzureSQLDataWarehouses.ps1&rdquo; from GitHub (Gist)</p>
 <p>Next you need to create an Automation Account: Management Tools - Automation<br>
 *****It&rsquo;s important that &ldquo;Yes&rdquo; is selected (default) for &ldquo;Create Azure Run As account&rdquo;. Run As accounts are used to provide authentication for managing resources in Azure with the Azure cmdlets.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/auto01.jpg" width="812" height="708"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/auto01.jpg" width="812" height="708"/>
 </figure>
 
 <p>Once your new resource is deployed, you will need to add a new Runbook: Runbooks - Add a runbook.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/auto02.jpg" width="952" height="701"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/auto02.jpg" width="952" height="701"/>
 </figure>
 
 <p>Select: &ldquo;Import an existing runbook&rdquo;, in &ldquo;Runbook file&rdquo; locate the PowerShell script you downloaded earlier to your local environment, give your runbook a name and the select &ldquo;Create&rdquo;.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/auto03.jpg" width="574" height="710"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/auto03.jpg" width="574" height="710"/>
 </figure>
 
 <p>Your new runbook should appear in the list with a Authoring Status of New, click on (select) your new runbook (PauseAzureSQLDataWarehouses).</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/auto04.jpg" width="875" height="705"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/auto04.jpg" width="875" height="705"/>
 </figure>
 
 <p>Next select &ldquo;Edit&rdquo;.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/auto05.jpg" width="931" height="648"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/auto05.jpg" width="931" height="648"/>
 </figure>
 
 <p>And select &ldquo;Publish&rdquo; to publish your runbook.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/auto06.jpg" width="989" height="698"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/auto06.jpg" width="989" height="698"/>
 </figure>
 
 <p>This will bring you back to your runbook where you can now either &ldquo;Start&rdquo; (run) or create a &ldquo;Schedule&rdquo;.<br>
 To test this out, make sure you have at least one SQL Data Warehouse running, if so select &ldquo;Start&rdquo;.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/auto07.jpg" width="871" height="588"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/auto07.jpg" width="871" height="588"/>
 </figure>
 
 <p>This will bring you to the Job summary page, once the job completes you will be able to view the output that will outline the SQL Data Warehouse(s) that have been paused. Check to see if your running instance(s) of SQL Data Warehouse(s) have been paused 😉</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/auto08.jpg" width="769" height="419"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/auto08.jpg" width="769" height="419"/>
 </figure>
 
 <p>To schedule a runbook: Schedule - Link a schedule to you runbook - Create a new schedule. Fill out the required information and select &ldquo;Create&rdquo;.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/auto09.jpg" width="854" height="652"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/auto09.jpg" width="854" height="652"/>
 </figure>
 
 <p>That&rsquo;s it. This will ensure that all of your SQL Data Warehouses are paused and not incurring any compute cost when you are not using them.<br>
@@ -240,7 +231,7 @@ Enjoy!</p>
       <footer class="footer">
   <section class="container">
     
-     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2021 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>
@@ -261,7 +252,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

@@ -12,15 +12,16 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installing TimescaleDB on Azure"/>
 <meta name="twitter:description" content="Installing TimescaleDB on Azure. First some housekeeping… A time series database is a software system that is optimized for handling time series data, arrays of numbers indexed by time (a datetime or a datetime range). In some fields these time series are called profiles, curves, or traces.
-  Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries."/>
+ Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries."/>
 
     <meta property="og:title" content="Installing TimescaleDB on Azure" />
 <meta property="og:description" content="Installing TimescaleDB on Azure. First some housekeeping… A time series database is a software system that is optimized for handling time series data, arrays of numbers indexed by time (a datetime or a datetime range). In some fields these time series are called profiles, curves, or traces.
-  Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries." />
+ Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/installing-timescaledb-azure/" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/installing-timescaledb-azure/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2017-07-25T16:30:49-04:00" />
 <meta property="article:modified_time" content="2017-07-25T16:30:49-04:00" />
+
 
 
     
@@ -55,7 +56,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
   </head>
 
   <body class=" ">
@@ -137,8 +138,7 @@
       
       <div>
         <p>Installing TimescaleDB on Azure. First some housekeeping… A time series database is a software system that is optimized for handling time series data, arrays of numbers indexed by time (a datetime or a datetime range). In some fields these time series are called profiles, curves, or traces.</p>
-<p><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb.png#floatleft" width="200" height="200"/> 
+<p><figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb.png#floatleft" width="200" height="200"/>
 </figure>
 
 Lately I discovered <a href="http://www.timescale.com/" target="_blank">TimescaleDB</a>, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries. It’s scalable, reliable and easy to use! Please read <a href="http://www.timescale.com/how-it-works.html" target="_blank">How it works</a> to understanding how they made it happen and most importantly the following paper: <a href="http://www.timescale.com/papers/timescaledb.pdf" target="_blank">TimescaleDB: SQL made scalable for time-series data</a>. I would also recommend you read the following blog post <a href="https://blog.timescale.com/what-the-heck-is-time-series-data-and-why-do-i-need-a-time-series-database-dcf3b1b18563" target="_blank">What the heck is time-series data (and why do I need a time-series database)?</a>.</p>
@@ -154,86 +154,73 @@ Lately I discovered <a href="http://www.timescale.com/" target="_blank">Timescal
 <h4 id="setting-up-a-linux-vm-instance-in-azure">Setting up a Linux VM instance in Azure</h4>
 <p>First login to your Azure portal <a href="https://portal.azure.com" target="_blank">https://portal.azure.com</a>, if you don’t have an Azure account get started with a $250 in Credit when you Sign Up for a Free Trial <a href="https://azure.microsoft.com/en-ca/free/" target="_blank">here</a>. Next we want to search the Marketplace for an Ubuntu Server 16.04 LTS image.</p>
 <p>Once found and selected click the &ldquo;Create&rdquo; button to continue</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb01-1.png" width="857" height="565"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb01-1.png" width="857" height="565"/>
 </figure>
 
 <p>Next is the Create virtual machine wizard, first step is to provide Basic information; name, disk type, auth type… and select <em>“OK”</em> to continue</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb02-1.png" width="741" height="660"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb02-1.png" width="741" height="660"/>
 </figure>
 
 <p>Next we need to Choose a size, for the purpose of this tutorial I selected DS1_V2 Standard a small VM instance (1 Core, 3.5 GB Memory). It goes without saying that for production workloads you would need to consider bigger VM instances. When I need to crank it up, I usually go for a DS12_V2 (4 Cores, 28 GB Memory) and attach a 1TB disk 😉</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb03-1.png" width="861" height="658"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb03-1.png" width="861" height="658"/>
 </figure>
 
 <p>Next are the Settings, simply leave all the defaults and select <em>“OK”</em> to continue</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb04-1.png" width="744" height="659"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb04-1.png" width="744" height="659"/>
 </figure>
 
 <p>And finally the final step the confirmation, select “Purchase” to confirm and deploy</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb05-1.png" width="851" height="652"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb05-1.png" width="851" height="652"/>
 </figure>
 
 <p>Once the deployment is successful we connect to the Linux VM using SSH. Select “Connect” and the ssh command will appear, simply copy and paste it into your terminal session</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb06-1.png" width="877" height="215"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb06-1.png" width="877" height="215"/>
 </figure>
 
 <p>Pasting the ssh command in this case <strong>ssh mytimescaledb@<em>[public_ip_address]</em></strong> and providing the password for the mytimescaledb user we have configured earlier will connect us to the Linux VM</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb07.png" width="1130" height="555"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb07.png" width="1130" height="555"/>
 </figure>
 
 <h4 id="installing-timescaledb">Installing TimescaleDB</h4>
 <p>Now that we have our Linux VM running and are signed in we need to install TimescaleDB. Issue the following commands:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#60a0b0;font-style:italic"># Add PPA</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#60a0b0;font-style:italic"># Add PPA</span>
 sudo add-apt-repository ppa:timescale/timescaledb-ppa
 sudo apt-get update
 <span style="color:#60a0b0;font-style:italic"># To install</span>
 sudo apt install timescaledb-postgresql-9.6
 </code></pre></div><p>Add the timescaledb Personal Package Archives and resynchronize the package index files… – &gt; <strong>sudo add-apt-repository ppa:timescale/timescaledb-ppa &amp;&amp; sudo apt-get update</strong></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb08.png" width="1132" height="251"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb08.png" width="1132" height="251"/>
 </figure>
 
 <p>Install timescaledb package -&gt; <strong>sudo apt install timescaledb</strong></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb09.png" width="1298" height="507"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb09.png" width="1298" height="507"/>
 </figure>
 
 <h4 id="configuring-postgresql">Configuring PostgreSQL</h4>
 <p>Next we need to update the <em>postgresql.conf</em> configuration file to include necessary libraries and connections and authentication information:</p>
 <p>To make it happen, issue the following command to change the directory to where the postgresql.conf file is located<br>
 <code>cd /etc/postgresql/9.6/main</code> then issue the following <code>sudo vi postgresql.conf</code> command to edit the file.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb12.png" width="1154" height="363"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb12.png" width="1154" height="363"/>
 </figure>
 
 <p>First, scroll to the ‘CONNECTIONS AND AUTHENTICATION’ heading and within the ‘Connection Settings’ area (see below), uncomment the ‘listen_addresses’ attribute and add in the value ‘*’ to set all IP addresses to listen on</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb11.png" width="1266" height="683"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb11.png" width="1266" height="683"/>
 </figure>
 
 <p>Second, scroll to the RESOURCE USAGE (except WAL) heading and uncomment the following -&gt; #shared_preload_libraries = ” with shared_preload_libraries = ‘timescaledb’</p>
 <p>** Need some help with basic Vim commands -&gt; <a href="https://coderwall.com/p/adv71w/basic-vim-commands-for-getting-started" target="_blank">https://coderwall.com/p/adv71w/basic-vim-commands-for-getting-started</a>.</p>
 <p>Basically once you have scrolled and located what to edit press <em>i</em> for insert mode, make your changes then to save and exit issue the following command -&gt; :wq</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb10.png" width="1282" height="779"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb10.png" width="1282" height="779"/>
 </figure>
 
 <p>Next we need to modify and update the host-based authentication file -&gt; <em>pg_hba.conf</em><br>
 Issue the following command <code>sudo vi pg_hba.conf</code><br>
 Scroll to change the following line</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">local               all             postgres                                peer
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">local               all             postgres                                peer
 </code></pre></div><p>to</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">local               all             postgres                                trust
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">local               all             postgres                                trust
 </code></pre></div><p>After editing should look like the following screenshot:</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb13.png" width="1130" height="363"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb13.png" width="1130" height="363"/>
 </figure>
 
 <p>Finally we need to restart the postgresql service by issuing the following command <code>sudo service postgresql restart</code></p>
@@ -241,22 +228,20 @@ Scroll to change the following line</p>
 <p>Now we can start using Timescaledb! Issue the following command to connect:<br>
 <code>psql -U postgres</code></p>
 <p>Should look something like this</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb14.png" width="1130" height="363"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb14.png" width="1130" height="363"/>
 </figure>
 
 <p>Will use the <a href="http://docs.timescale.com/tutorials/tutorial-hello-nyc" target="_blank">Hello NYC tutorial</a> found on the Timescale documentation site</p>
 <p>First let’s create database the nyc_data database with the timescaledb extension:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">database</span> nyc_data;
-<span style="">\</span><span style="color:#007020;font-weight:bold">c</span> nyc_data
-<span style="color:#007020;font-weight:bold">create</span> extension <span style="color:#007020;font-weight:bold">if</span> <span style="color:#007020;font-weight:bold">not</span> <span style="color:#007020;font-weight:bold">exists</span> timescaledb <span style="color:#007020;font-weight:bold">cascade</span>;
-</code></pre></div><p>After you have created the database and extension issue the <code>\q</code> command to terminate our psql session</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb15-1.png" width="1082" height="363"/> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">database</span><span style="color:#bbb"> </span>nyc_data;<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="">\</span><span style="color:#007020;font-weight:bold">c</span><span style="color:#bbb"> </span>nyc_data<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">create</span><span style="color:#bbb"> </span>extension<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">if</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">not</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">exists</span><span style="color:#bbb"> </span>timescaledb<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">cascade</span>;<span style="color:#bbb">
+</span></code></pre></div><p>After you have created the database and extension issue the <code>\q</code> command to terminate our psql session</p>
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb15-1.png" width="1082" height="363"/>
 </figure>
 
 <p>We will now proceed to download the data using <em>curl</em>, but first will create a new directory named <em>temp_data</em> to store it and then will unzip the file…(this could take up to a couple of seconds to complete)</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#60a0b0;font-style:italic"># make directory</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#60a0b0;font-style:italic"># make directory</span>
 mkdir temp_data
 
 <span style="color:#60a0b0;font-style:italic"># change to newly created directory</span>
@@ -268,42 +253,38 @@ curl -O https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz
 <span style="color:#60a0b0;font-style:italic"># unzip the archive</span>
 tar -xvzf nyc_data.tar.gz
 </code></pre></div><p>Should look something like the following</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb16.png" width="1082" height="363"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb16.png" width="1082" height="363"/>
 </figure>
 
 <p>Then the following steps are to import the table schemas and data… (this could take up a couple of minutes to complete – it will be importing/copying 10,906,858 records)</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#60a0b0;font-style:italic"># import the table schemas</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#60a0b0;font-style:italic"># import the table schemas</span>
 psql -U postgres -d nyc_data &amp;lt; ~/temp_data/nyc_data.sql
 
 <span style="color:#60a0b0;font-style:italic"># import data</span>
 psql -U postgres -d nyc_data -c <span style="color:#4070a0">&#34;\COPY rides FROM ~/temp_data/nyc_data_rides.csv CSV&#34;</span>
 </code></pre></div><p>Should look something like the following</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb17.png" width="1082" height="347"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb17.png" width="1082" height="347"/>
 </figure>
 
 <p>We are now ready to issue some queries. Let&rsquo;s connect to our database by issuing the following command:<br>
 <code>psql -U postgres -d nyc_data</code></p>
 <p>Our first query which TimescaleDB handles better than vanilla PostgreSQL is the following</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Average fare amount of rides with 2+ passengers by day
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">SELECT</span> date_trunc(<span style="color:#4070a0">&#39;day&#39;</span>, pickup_datetime) <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">day</span>, <span style="color:#007020;font-weight:bold">avg</span>(fare_amount)
-  <span style="color:#007020;font-weight:bold">FROM</span> rides
-  <span style="color:#007020;font-weight:bold">WHERE</span> passenger_count <span style="color:#666">&gt;</span> <span style="color:#40a070">1</span> <span style="color:#007020;font-weight:bold">AND</span> pickup_datetime <span style="color:#666">&amp;</span>lt; <span style="color:#4070a0">&#39;2016-01-08&#39;</span>
-  <span style="color:#007020;font-weight:bold">GROUP</span> <span style="color:#007020;font-weight:bold">BY</span> <span style="color:#007020;font-weight:bold">day</span> <span style="color:#007020;font-weight:bold">ORDER</span> <span style="color:#007020;font-weight:bold">BY</span> <span style="color:#007020;font-weight:bold">day</span>;
-</code></pre></div><p>The output should look similar to the following</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb18.png" width="1074" height="379"/> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Average fare amount of rides with 2+ passengers by day
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>date_trunc(<span style="color:#4070a0">&#39;day&#39;</span>,<span style="color:#bbb"> </span>pickup_datetime)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">day</span>,<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">avg</span>(fare_amount)<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span>rides<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">WHERE</span><span style="color:#bbb"> </span>passenger_count<span style="color:#bbb"> </span><span style="color:#666">&gt;</span><span style="color:#bbb"> </span><span style="color:#40a070">1</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AND</span><span style="color:#bbb"> </span>pickup_datetime<span style="color:#bbb"> </span><span style="color:#666">&amp;</span>lt;<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;2016-01-08&#39;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">day</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">day</span>;<span style="color:#bbb">
+</span></code></pre></div><p>The output should look similar to the following</p>
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb18.png" width="1074" height="379"/>
 </figure>
 
 <p>Some queries will execute over 20x faster on TimescaleDB than on vanilla PostgreSQL. Here&rsquo;s one example</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Total number of rides by day for first 5 days
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">SELECT</span> date_trunc(<span style="color:#4070a0">&#39;day&#39;</span>, pickup_datetime) <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">day</span>, <span style="color:#007020;font-weight:bold">COUNT</span>(<span style="color:#666">*</span>) <span style="color:#007020;font-weight:bold">FROM</span> rides
-  <span style="color:#007020;font-weight:bold">GROUP</span> <span style="color:#007020;font-weight:bold">BY</span> <span style="color:#007020;font-weight:bold">day</span> <span style="color:#007020;font-weight:bold">ORDER</span> <span style="color:#007020;font-weight:bold">BY</span> <span style="color:#007020;font-weight:bold">day</span>
-  <span style="color:#007020;font-weight:bold">LIMIT</span> <span style="color:#40a070">5</span>;
-</code></pre></div><p>The output should look similar to the following</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/tsdb19.png" width="1074" height="379"/> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#60a0b0;font-style:italic">-- Total number of rides by day for first 5 days
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">SELECT</span><span style="color:#bbb"> </span>date_trunc(<span style="color:#4070a0">&#39;day&#39;</span>,<span style="color:#bbb"> </span>pickup_datetime)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">day</span>,<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COUNT</span>(<span style="color:#666">*</span>)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span>rides<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">GROUP</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">day</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">day</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">LIMIT</span><span style="color:#bbb"> </span><span style="color:#40a070">5</span>;<span style="color:#bbb">
+</span></code></pre></div><p>The output should look similar to the following</p>
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/tsdb19.png" width="1074" height="379"/>
 </figure>
 
 <p>Here you go, we have installed and configured TimescaleDB running on Azure! Please feel free to look up the other tutorials and sample datasets located <a href="http://docs.timescale.com/tutorials" target="_blank">here</a>.</p>
@@ -351,7 +332,7 @@ Github -&gt; <a href="https://github.com/timescale/timescaledb" target="_blank">
       <footer class="footer">
   <section class="container">
     
-     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2021 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>
@@ -372,7 +353,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

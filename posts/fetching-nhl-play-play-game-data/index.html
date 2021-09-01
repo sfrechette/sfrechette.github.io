@@ -22,9 +22,10 @@ Hope your familiar with this…
 The following URL retrieves the complete 2016-2017 NHL season schedule
 http://live.nhl.com/GameData/SeasonSchedule-20162017.jsonWhile this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs. EDM on October 16 @ 19:00 EDT)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2016-10-25T15:16:20-04:00" />
 <meta property="article:modified_time" content="2016-10-25T15:16:20-04:00" />
+
 
 
     
@@ -59,7 +60,7 @@ http://live.nhl.com/GameData/SeasonSchedule-20162017.jsonWhile this one retrieve
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
   </head>
 
   <body class=" ">
@@ -138,17 +139,16 @@ http://live.nhl.com/GameData/SeasonSchedule-20162017.jsonWhile this one retrieve
       </header>
       
       <div>
-        <figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/hockey-rink.png" width="640" height="349"/> 
+        <figure><img src="https://stephanefrechette.dev/images/legacy-post/hockey-rink.png" width="640" height="349"/>
 </figure>
 
 <h4 id="fetching-nhl-play-by-play-game-data">Fetching NHL Play by Play game data</h4>
 <p>I created a Node.js application called <!-- raw HTML omitted -->nhlplaybyplay-node<!-- raw HTML omitted --> that provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.</p>
 <p>Hope your familiar with this…<br>
 The following URL retrieves the complete 2016-2017 NHL season schedule<br>
-<!-- raw HTML omitted --><a href="http://live.nhl.com/GameData/SeasonSchedule-20162017.json">http://live.nhl.com/GameData/SeasonSchedule-20162017.json</a><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted --><a href="http://live.nhl.com/GameData/SeasonSchedule-20162017.json" target="_blank">http://live.nhl.com/GameData/SeasonSchedule-20162017.json</a><!-- raw HTML omitted --></p>
 <p>While this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs. EDM on October 16 @ 19:00 EDT)<br>
-<!-- raw HTML omitted --><a href="http://live.nhl.com/GameData/20162017/2016020031/PlayByPlay.json">http://live.nhl.com/GameData/20162017/2016020031/PlayByPlay.json</a><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted --><a href="http://live.nhl.com/GameData/20162017/2016020031/PlayByPlay.json" target="_blank">http://live.nhl.com/GameData/20162017/2016020031/PlayByPlay.json</a><!-- raw HTML omitted --></p>
 <p><em><strong>Note:</strong> Schedule and Play by Play data only available from the 2011-2012 NHL Season and onward…</em></p>
 <h3 id="installation">Installation</h3>
 <p>Once you have cloned the repo from GitHub:<br>
@@ -159,9 +159,8 @@ The following URL retrieves the complete 2016-2017 NHL season schedule<br>
 <code>mkdir data</code></p>
 <p>Before using you will need to create a specific directory for each of the seasons you will be fetching data for.<br>
 i.e. To fetch data from the 2012-2013 NHL season you need to create the following folder <strong>20122013</strong> under the data directory.<br>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/nhlplaybyplay-node.png"
-         alt="nhlplaybyplay-node" width="731" height="469"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/nhlplaybyplay-node.png"
+         alt="nhlplaybyplay-node" width="731" height="469"/>
 </figure>
 </p>
 <h3 id="usage">Usage</h3>
@@ -211,7 +210,7 @@ i.e. To fetch data from the 2012-2013 NHL season you need to create the followin
       <footer class="footer">
   <section class="container">
     
-     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2021 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>
@@ -232,7 +231,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

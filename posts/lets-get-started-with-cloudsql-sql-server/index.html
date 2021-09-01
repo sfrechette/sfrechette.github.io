@@ -16,9 +16,10 @@
     <meta property="og:title" content="Getting started with Cloud SQL for SQL Server" />
 <meta property="og:description" content="Getting started started with Cloud SQL for SQL Server" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/lets-get-started-with-cloudsql-sql-server/" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/lets-get-started-with-cloudsql-sql-server/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-10-21T08:36:51-04:00" />
 <meta property="article:modified_time" content="2019-10-21T08:36:51-04:00" />
+
 
 
     
@@ -53,7 +54,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
   </head>
 
   <body class=" ">
@@ -134,9 +135,8 @@
       </header>
       
       <div>
-        <p><figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql.png#floatleft"
-         alt="cloudsql" width="150" height="150"/> 
+        <p><figure><img src="https://stephanefrechette.dev/images/cloudsql.png#floatleft"
+         alt="cloudsql" width="150" height="150"/>
 </figure>
  Finally <a href="https://cloud.google.com/sql/docs/sqlserver/" target="_blank">Cloud SQL for SQL Server</a> is now available in beta. Announced at Google Next &lsquo;19, Cloud SQL Server is a managed database service that makes it easy to set up, maintain, manage, and administer your SQL Server databases on Google Cloud Platform. Cloud SQL pricing requires no up-front commitment and includes per-second billing and sustained-use discounts, similar to Google Compute Engine. For pricing, please see the <a href="https://cloud.google.com/sql/pricing#sql-server" target="_blank">Cloud SQL pricing guide</a> for details and for information specific to Microsoft SQL Server, see the <a href="https://docs.microsoft.com/en-ca/sql/sql-server/sql-server-technical-documentation?view=sql-server-2017" target="_blank">SQL Server documentation</a>.</p>
 <p>This post is to quickly get you started and deploy a Cloud SQL for SQL Server managed instance that is not intended for production use! You will mostly use all defaults when configuring your instance, in a future post we will go deeper on how to configure for Backups and High Availability, connectivity with Private IP and restoring backups.</p>
@@ -146,34 +146,29 @@
 <p>First go to the <a href="https://console.cloud.google.com" target="_blank">GCP console</a> and log in using your Google account.</p>
 <h4 id="selecting-a-gcp-project">Selecting a GCP project</h4>
 <p>You need to select a project. If you don’t have any projects then go to the project selector page to create one - For this demonstration I have created and using a specific project named <code>Sandbox</code>.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql01.jpg"
-         alt="cloudsql01"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql01.jpg"
+         alt="cloudsql01"/>
 </figure>
 
 <p>If the GCP project you want to use is not the one shown or selected, click the organization name (1), then select the name of the GCP project you want to use (2), and click on Open (3).</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql02.jpg"
-         alt="cloudsql02"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql02.jpg"
+         alt="cloudsql02"/>
 </figure>
 
 <h4 id="cloud-sql">Cloud SQL</h4>
 <p>Go to the Cloud SQL page, you can do this by typing <code>cloud sql</code> in the resources and products search field and select SQL.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql03.jpg"
-         alt="cloudsql03"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql03.jpg"
+         alt="cloudsql03"/>
 </figure>
 
 <p>Click on Create instance</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql04.jpg"
-         alt="cloudsql04"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql04.jpg"
+         alt="cloudsql04"/>
 </figure>
 
 <p>Select Choose SQL Server</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql05.jpg"
-         alt="cloudsql05"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql05.jpg"
+         alt="cloudsql05"/>
 </figure>
 
 <h4 id="create-a-sql-server-instance">Create a SQL Server instance</h4>
@@ -183,9 +178,8 @@
 <li>Provide a strong password for your default service admin username. Remember the default user name is <code>sqlserver</code></li>
 <li>Choose Region and Zone, for my Instance I chose region: <code>northamerica-northeast1</code> and zone: <code>northamerica-northeast1a</code></li>
 </ol>
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql06.jpg"
-         alt="cloudsql06"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql06.jpg"
+         alt="cloudsql06"/>
 </figure>
 
 <p>Before you select Create, as mentioned earlier you will now use all defaults for configurations. Let&rsquo;s at least walkthrough them:</p>
@@ -193,18 +187,16 @@
 <li><strong>Machine type and storage:</strong><br>
 This is where you would choose which database version and edition you would need. Machine type, compute needs and storage capacity. Accept default and select Close.</li>
 </ul>
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql07.jpg"
-         alt="cloudsql07"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql07.jpg"
+         alt="cloudsql07"/>
 </figure>
 
 <ul>
 <li><strong>Connectivity:</strong><br>
 This is where you would choose how to connect to your database instance. For now will use Public IP and will create a Cloud SQL Proxy later on to enable us to connect. Accept defaults and select Close.</li>
 </ul>
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql08.jpg"
-         alt="cloudsql08"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql08.jpg"
+         alt="cloudsql08"/>
 </figure>
 
 <ul>
@@ -217,21 +209,18 @@ Maintenance window and timing selection</li>
 <li><strong>Labels</strong></li>
 </ul>
 <p>Once all defaults have been accepted, you can now select Create to deploy your instance. This might take a few minutes to complete.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql09.jpg"
-         alt="cloudsql09"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql09.jpg"
+         alt="cloudsql09"/>
 </figure>
 
 <p>Once your instance is created and deployed, click on it to go to the Instance details page.</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql10.jpg"
-         alt="cloudsql10"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql10.jpg"
+         alt="cloudsql10"/>
 </figure>
 
 <p>You can now browse and familiarize yourself with your instance, but for now the important thing is to copy or remember for later use the <strong>Instance connection name</strong> from the <strong>Connect to this instance</strong> section to use with the Cloud SQL Proxy&hellip;</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql11.jpg"
-         alt="cloudsql11"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql11.jpg"
+         alt="cloudsql11"/>
 </figure>
 
 <h4 id="cloud-sql-proxy">Cloud SQL Proxy</h4>
@@ -255,31 +244,27 @@ Maintenance window and timing selection</li>
 </ul>
 <p>For the purpose of this demonstration I am using the mssql-cli and Azure Data Studio running on macOS.</p>
 <p>First thing is to start the Cloud SQL Proxy, remember to replace <code>&lt;INSTANCE_CONNECTION_NAME&gt;</code> with your <strong>Instance connection name</strong> copied earlier, located on the Instance details page.</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./cloud_sql_proxy -instances<span style="color:#666">=</span>&lt;INSTANCE_CONNECTION_NAME&gt;<span style="color:#666">=</span>tcp:1433
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./cloud_sql_proxy -instances<span style="color:#666">=</span>&lt;INSTANCE_CONNECTION_NAME&gt;<span style="color:#666">=</span>tcp:1433
 </code></pre></div><p>The output is similar to the following:
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql12.jpg"
-         alt="cloudsql12"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql12.jpg"
+         alt="cloudsql12"/>
 </figure>
 </p>
 <p>Now that the proxy is ready for new connections, using mssql-cli connect to you instance by issuing the following command:</p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mssql-cli -S 127.0.0.1 -U sqlserver
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mssql-cli -S 127.0.0.1 -U sqlserver
 </code></pre></div><p>The output is similar to the following:
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql13.jpg"
-         alt="cloudsql13"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql13.jpg"
+         alt="cloudsql13"/>
 </figure>
 </p>
 <p>Connecting using Azure Data Studio
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql14.jpg"
-         alt="cloudsql14"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql14.jpg"
+         alt="cloudsql14"/>
 </figure>
 </p>
 <p>The output is similar to the following:
-<figure>
-    <img src="https://stephanefrechette.dev/images/cloudsql15.jpg"
-         alt="cloudsql15"/> 
+<figure><img src="https://stephanefrechette.dev/images/cloudsql15.jpg"
+         alt="cloudsql15"/>
 </figure>
 </p>
 <p>Done! You have now setup your first Cloud SQL for SQL Server instance.<br>
@@ -323,7 +308,7 @@ Expect future post that will outline how to use the <a href="https://cloud.googl
       <footer class="footer">
   <section class="container">
     
-     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2021 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>
@@ -344,7 +329,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

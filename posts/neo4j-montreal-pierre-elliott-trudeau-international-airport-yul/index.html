@@ -16,9 +16,10 @@
     <meta property="og:title" content="Neo4j: Montreal-Pierre Elliott Trudeau International Airport (YUL)" />
 <meta property="og:description" content="A quick exercise on graph modeling. I recently got inspired from one of Nicole White’s post who did something similar with the Dallas Fort Worth Airport (DFW) data. So I decided to create a Neo4j graph database of the shopping places (boutiques, restaurants and services) at the Montreal-Pierre Elliott Trudeau International Airport (YUL). There isn’t any raw data to download on the site. So I will spare you the details of my scrapping efforts and instead share with you my findings and results." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2015-06-14T19:50:49-04:00" />
 <meta property="article:modified_time" content="2015-06-14T19:50:49-04:00" />
+
 
 
     
@@ -53,7 +54,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
   </head>
 
   <body class=" ">
@@ -105,7 +106,7 @@
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              4 minutes read
+              2 minutes read
             </span>
           </div>
           <div class="categories">
@@ -132,16 +133,14 @@
       </header>
       
       <div>
-        <p><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/Airplane_silhouette-150x150.png#floatleft"
-         alt="Airplane_silhouette" width="150" height="150"/> 
+        <p><figure><img src="https://stephanefrechette.dev/images/legacy-post/Airplane_silhouette-150x150.png#floatleft"
+         alt="Airplane_silhouette" width="150" height="150"/>
 </figure>
  A quick exercise on graph modeling. I recently got inspired from one of <a href="https://nicolewhite.github.io/" target="_blank">Nicole White’s</a> post who did something similar with the Dallas Fort Worth Airport (DFW) data. So I decided to create a Neo4j graph database of the <a href="http://www.admtl.com/en/shopping" target="_blank">shopping places (boutiques, restaurants and services)</a> at the <a href="http://www.admtl.com/en" target="_blank">Montreal-Pierre Elliott Trudeau International Airport (YUL)</a>. There isn’t any raw data to download on the site. So I will spare you the details of my scrapping efforts and instead share with you my findings and results.</p>
 <p>You can view and download the data here from <a href="https://docs.google.com/spreadsheets/d/12VIPE8Ck2Zg19oe7k_gZaaIlClPYB7YjlwClz6nlT3s/edit?usp=sharing" target="_blank">Google Drive</a>. The code, sample queries and database backup can be found on <a href="https://github.com/sfrechette/yul-neo4j" target="_blank">Github</a>.</p>
 <p>Here is a sample from the Data sheet:</p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/yul_data_sheet-1024x607.png"
-         alt="yul_data_sheet" width="1024" height="607"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/yul_data_sheet-1024x607.png"
+         alt="yul_data_sheet" width="1024" height="607"/>
 </figure>
 
 <p>Essentially from the raw data collected I was able to create individual sheets for each ‘entities’ and for ‘relationships’, just like tables you would model in your favourite RDBMS and from that exported them to individual CSV files ready for import;</p>
@@ -157,9 +156,8 @@
 <p>But first let take a look at how we will approach and model our graph, FYI at YUL airport there is no ‘Terminals’ but rather ‘Levels’…</p>
 <p>Case in Point: A <strong>Place</strong> ‘Tim Hortons’ belongs in a <strong>Category</strong> ‘Cafés’ and that <strong>Place</strong> is located at a <strong>Gate</strong> ‘Gate 3’ in the following <strong>Area</strong> ‘Restricted area – Canada’ on a certain <strong>Level</strong> ‘First Floor/Departures’. Pretty straight forward and from that perspective we can create our model.</p>
 <p><strong>YUL Graph Model:</strong><br>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/yul_propertygraph.png"
-         alt="yul_propertygraph" width="897" height="170"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/yul_propertygraph.png"
+         alt="yul_propertygraph" width="897" height="170"/>
 </figure>
 </p>
 <p><strong>Importing the Data using Cypher</strong></p>
@@ -167,104 +165,101 @@
 You can import and run the entire Cypher script using the neo4j-shell by issuing the following command:<br>
 <strong>bin/neo4j-shell -path yul.db -file cypher/import.cypher</strong></p>
 <p><em><strong>import.cypher</strong></em></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> indexes <span style="color:#007020;font-weight:bold">for</span> faster lookup
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :Category(categoryName);
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :GateZone(gateZoneName);
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :Area(areaName);
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">INDEX</span> <span style="color:#007020;font-weight:bold">ON</span> :<span style="color:#007020;font-weight:bold">Level</span>(levelName);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> <span style="color:#007020;font-weight:bold">constraints</span>
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (a:Area) ASSERT a.areaId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (<span style="color:#007020;font-weight:bold">c</span>:Category) ASSERT <span style="color:#007020;font-weight:bold">c</span>.categoryId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (<span style="color:#007020;font-weight:bold">g</span>:GateZone) ASSERT <span style="color:#007020;font-weight:bold">g</span>.gateZoneId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (l:<span style="color:#007020;font-weight:bold">Level</span>) ASSERT l.levelId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
-<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">CONSTRAINT</span> <span style="color:#007020;font-weight:bold">ON</span> (p:Place) ASSERT p.placeId <span style="color:#007020;font-weight:bold">IS</span> <span style="color:#007020;font-weight:bold">UNIQUE</span>;
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> places
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/places.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">CREATE</span> (:Place <span style="">{</span>placeName: <span style="color:#007020;font-weight:bold">row</span>.PlaceName, placeId: <span style="color:#007020;font-weight:bold">row</span>.PlaceID<span style="">}</span>);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> categories
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/categories.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">CREATE</span> (:Category <span style="">{</span>categoryName: <span style="color:#007020;font-weight:bold">row</span>.CategoryName, categoryId: <span style="color:#007020;font-weight:bold">row</span>.CategoryID<span style="">}</span>);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> gatezones
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/gatezones.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">CREATE</span> (:GateZone <span style="">{</span>gateZoneName: <span style="color:#007020;font-weight:bold">row</span>.GateZoneName, gateZoneId: <span style="color:#007020;font-weight:bold">row</span>.GateZoneID<span style="">}</span>);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> levels
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/levels.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">CREATE</span> (:<span style="color:#007020;font-weight:bold">Level</span> <span style="">{</span>levelName: <span style="color:#007020;font-weight:bold">row</span>.LevelName, levelId: <span style="color:#007020;font-weight:bold">row</span>.LevelID<span style="">}</span>);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> areas
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/areas.csv&#34;</span> <span style="color:#007020;font-weight:bold">as</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">CREATE</span> (:Area <span style="">{</span>areaName: <span style="color:#007020;font-weight:bold">row</span>.AreaName, areaId: <span style="color:#007020;font-weight:bold">row</span>.AreaID<span style="">}</span>);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Place <span style="color:#007020;font-weight:bold">to</span> Category
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/placecategorygatezone.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">MATCH</span> (place:Place <span style="">{</span>placeId: <span style="color:#007020;font-weight:bold">row</span>.PlaceID<span style="">}</span>)
-<span style="color:#007020;font-weight:bold">MATCH</span> (category:Category <span style="">{</span>categoryId: <span style="color:#007020;font-weight:bold">row</span>.CategoryID<span style="">}</span>)
-MERGE (place)<span style="color:#666">-</span>[:IN_CATEGORY]<span style="color:#666">-&gt;</span>(category);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Place <span style="color:#007020;font-weight:bold">to</span> GateZone
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/placecategorygatezone.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">MATCH</span> (place:Place <span style="">{</span>placeId: <span style="color:#007020;font-weight:bold">row</span>.PlaceID<span style="">}</span>)
-<span style="color:#007020;font-weight:bold">MATCH</span> (gatezone:GateZone <span style="">{</span>gateZoneId: <span style="color:#007020;font-weight:bold">row</span>.GateZoneID<span style="">}</span>)
-MERGE (place)<span style="color:#666">-</span>[:AT_GATEZONE]<span style="color:#666">-&gt;</span>(gatezone);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: GateZone <span style="color:#007020;font-weight:bold">to</span> Area
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/gatezones.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">MATCH</span> (gatezone:GateZone <span style="">{</span>gateZoneId: <span style="color:#007020;font-weight:bold">row</span>.GateZoneID<span style="">}</span>)
-<span style="color:#007020;font-weight:bold">MATCH</span> (area:Area <span style="">{</span>areaId: <span style="color:#007020;font-weight:bold">row</span>.AreaID<span style="">}</span>)
-MERGE (gatezone)<span style="color:#666">-</span>[:IN_AREA]<span style="color:#666">-&gt;</span>(area);
-
-<span style="color:#666">//</span> <span style="color:#007020;font-weight:bold">Create</span> relationships: Area <span style="color:#007020;font-weight:bold">to</span> <span style="color:#007020;font-weight:bold">Level</span>
-<span style="color:#007020;font-weight:bold">USING</span> PERIODIC <span style="color:#007020;font-weight:bold">COMMIT</span>
-<span style="color:#007020;font-weight:bold">LOAD</span> CSV <span style="color:#007020;font-weight:bold">WITH</span> HEADERS <span style="color:#007020;font-weight:bold">FROM</span> <span style="color:#4070a0">&#34;file:data/areas.csv&#34;</span> <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">row</span>
-<span style="color:#007020;font-weight:bold">MATCH</span> (area:Area <span style="">{</span>areaId: <span style="color:#007020;font-weight:bold">row</span>.AreaID<span style="">}</span>)
-<span style="color:#007020;font-weight:bold">MATCH</span> (<span style="color:#007020;font-weight:bold">level</span>:<span style="color:#007020;font-weight:bold">Level</span> <span style="">{</span>levelId: <span style="color:#007020;font-weight:bold">row</span>.LevelID<span style="">}</span>)
-MERGE (area)<span style="color:#666">-</span>[:AT_LEVEL]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">level</span>);
-</code></pre></div><p>Start Neo4j and load the web console (http://localhost:7474), we are now ready to issue some Cypher queries…</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>indexes<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">for</span><span style="color:#bbb"> </span>faster<span style="color:#bbb"> </span>lookup<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:Category(categoryName);<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:GateZone(gateZoneName);<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:Area(areaName);<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:<span style="color:#007020;font-weight:bold">Level</span>(levelName);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">constraints</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(a:Area)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span>a.areaId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">c</span>:Category)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">c</span>.categoryId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">g</span>:GateZone)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">g</span>.gateZoneId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(l:<span style="color:#007020;font-weight:bold">Level</span>)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span>l.levelId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(p:Place)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span>p.placeId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>places<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/places.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:Place<span style="color:#bbb"> </span><span style="">{</span>placeName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.PlaceName,<span style="color:#bbb"> </span>placeId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.PlaceID<span style="">}</span>);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>categories<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/categories.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:Category<span style="color:#bbb"> </span><span style="">{</span>categoryName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.CategoryName,<span style="color:#bbb"> </span>categoryId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.CategoryID<span style="">}</span>);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>gatezones<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/gatezones.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:GateZone<span style="color:#bbb"> </span><span style="">{</span>gateZoneName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.GateZoneName,<span style="color:#bbb"> </span>gateZoneId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.GateZoneID<span style="">}</span>);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>levels<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/levels.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:<span style="color:#007020;font-weight:bold">Level</span><span style="color:#bbb"> </span><span style="">{</span>levelName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.LevelName,<span style="color:#bbb"> </span>levelId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.LevelID<span style="">}</span>);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>areas<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/areas.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:Area<span style="color:#bbb"> </span><span style="">{</span>areaName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.AreaName,<span style="color:#bbb"> </span>areaId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.AreaID<span style="">}</span>);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span>Place<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>Category<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/placecategorygatezone.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(place:Place<span style="color:#bbb"> </span><span style="">{</span>placeId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.PlaceID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(category:Category<span style="color:#bbb"> </span><span style="">{</span>categoryId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.CategoryID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(place)<span style="color:#666">-</span>[:IN_CATEGORY]<span style="color:#666">-&gt;</span>(category);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span>Place<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>GateZone<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/placecategorygatezone.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(place:Place<span style="color:#bbb"> </span><span style="">{</span>placeId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.PlaceID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(gatezone:GateZone<span style="color:#bbb"> </span><span style="">{</span>gateZoneId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.GateZoneID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(place)<span style="color:#666">-</span>[:AT_GATEZONE]<span style="color:#666">-&gt;</span>(gatezone);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span>GateZone<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>Area<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/gatezones.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(gatezone:GateZone<span style="color:#bbb"> </span><span style="">{</span>gateZoneId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.GateZoneID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(area:Area<span style="color:#bbb"> </span><span style="">{</span>areaId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.AreaID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(gatezone)<span style="color:#666">-</span>[:IN_AREA]<span style="color:#666">-&gt;</span>(area);<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span>Area<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Level</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/areas.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(area:Area<span style="color:#bbb"> </span><span style="">{</span>areaId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.AreaID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">level</span>:<span style="color:#007020;font-weight:bold">Level</span><span style="color:#bbb"> </span><span style="">{</span>levelId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.LevelID<span style="">}</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(area)<span style="color:#666">-</span>[:AT_LEVEL]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">level</span>);<span style="color:#bbb">
+</span></code></pre></div><p>Start Neo4j and load the web console (http://localhost:7474), we are now ready to issue some Cypher queries…</p>
 <p><strong>Find all places and their categories located at Gate 57 (with Area and Level)</strong></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">MATCH</span> (<span style="color:#007020;font-weight:bold">c</span>:Category)<span style="color:#666">&lt;</span><span style="color:#60a0b0;font-style:italic">--(p:Place)--&gt;(g:GateZone)--&gt;(a:Area)--&gt;(l:Level)
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">WHERE</span> <span style="color:#007020;font-weight:bold">g</span>.gateZoneName <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Gate 57&#39;</span>
-<span style="color:#007020;font-weight:bold">RETURN</span> <span style="color:#007020;font-weight:bold">c</span>, p, <span style="color:#007020;font-weight:bold">g</span>, a, l;
-</code></pre></div><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/gate57.png"
-         alt="gate57" width="771" height="353"/> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">c</span>:Category)<span style="color:#666">&lt;</span><span style="color:#60a0b0;font-style:italic">--(p:Place)--&gt;(g:GateZone)--&gt;(a:Area)--&gt;(l:Level)
+</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">WHERE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">g</span>.gateZoneName<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Gate 57&#39;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">RETURN</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">c</span>,<span style="color:#bbb"> </span>p,<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">g</span>,<span style="color:#bbb"> </span>a,<span style="color:#bbb"> </span>l;<span style="color:#bbb">
+</span></code></pre></div><figure><img src="https://stephanefrechette.dev/images/legacy-post/gate57.png"
+         alt="gate57" width="771" height="353"/>
 </figure>
 
 <p><strong>Find Boutiques in Restricted area – International on First Floor/Departures</strong></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">MATCH</span> (p:Place)<span style="color:#666">-</span>[:IN_CATEGORY]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">c</span>:Category),
-      (p)<span style="color:#666">-</span>[:AT_GATEZONE]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">g</span>:GateZone),
-      (<span style="color:#007020;font-weight:bold">g</span>)<span style="color:#666">-</span>[:IN_AREA]<span style="color:#666">-&gt;</span>(a:Area),
-      (a)<span style="color:#666">-</span>[:AT_LEVEL]<span style="color:#666">-&gt;</span>(l:<span style="color:#007020;font-weight:bold">Level</span>)
-<span style="color:#007020;font-weight:bold">WHERE</span> <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Boutiques&#39;</span> <span style="color:#007020;font-weight:bold">AND</span> a.areaName <span style="color:#666">=</span> <span style="color:#4070a0">&#39;Restricted area - International&#39;</span> <span style="color:#007020;font-weight:bold">AND</span> l.levelName <span style="color:#666">=</span> <span style="color:#4070a0">&#39;First Floor/Departures&#39;</span>
-<span style="color:#007020;font-weight:bold">RETURN</span> p.placeName <span style="color:#007020;font-weight:bold">AS</span> Name, <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#007020;font-weight:bold">AS</span> Category, <span style="color:#007020;font-weight:bold">g</span>.gateZoneName <span style="color:#007020;font-weight:bold">AS</span> Gate, a.areaName <span style="color:#007020;font-weight:bold">AS</span> Area, l.levelName <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">Level</span>
-</code></pre></div><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/yul_resultquery02.png"
-         alt="yul_resultquery02" width="1072" height="254"/> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(p:Place)<span style="color:#666">-</span>[:IN_CATEGORY]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">c</span>:Category),<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>(p)<span style="color:#666">-</span>[:AT_GATEZONE]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">g</span>:GateZone),<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>(<span style="color:#007020;font-weight:bold">g</span>)<span style="color:#666">-</span>[:IN_AREA]<span style="color:#666">-&gt;</span>(a:Area),<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>(a)<span style="color:#666">-</span>[:AT_LEVEL]<span style="color:#666">-&gt;</span>(l:<span style="color:#007020;font-weight:bold">Level</span>)<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">WHERE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">c</span>.categoryName<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Boutiques&#39;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AND</span><span style="color:#bbb"> </span>a.areaName<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Restricted area - International&#39;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AND</span><span style="color:#bbb"> </span>l.levelName<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;First Floor/Departures&#39;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">RETURN</span><span style="color:#bbb"> </span>p.placeName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span>Name,<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">c</span>.categoryName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span>Category,<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">g</span>.gateZoneName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span>Gate,<span style="color:#bbb"> </span>a.areaName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span>Area,<span style="color:#bbb"> </span>l.levelName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Level</span><span style="color:#bbb">
+</span></code></pre></div><figure><img src="https://stephanefrechette.dev/images/legacy-post/yul_resultquery02.png"
+         alt="yul_resultquery02" width="1072" height="254"/>
 </figure>
 
 <p><strong>Return count of places in each Category</strong></p>
-<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">MATCH</span> (p:Place)<span style="color:#666">-</span>[:IN_CATEGORY]<span style="color:#666">-</span>(<span style="color:#007020;font-weight:bold">c</span>:Category)
-<span style="color:#007020;font-weight:bold">RETURN</span> <span style="color:#007020;font-weight:bold">c</span>.categoryName <span style="color:#007020;font-weight:bold">AS</span> Category, collect(<span style="color:#007020;font-weight:bold">distinct</span> p.placeName) <span style="color:#007020;font-weight:bold">as</span> Place, <span style="color:#007020;font-weight:bold">count</span>(p) <span style="color:#007020;font-weight:bold">AS</span> <span style="color:#007020;font-weight:bold">Count</span>
-<span style="color:#007020;font-weight:bold">ORDER</span> <span style="color:#007020;font-weight:bold">BY</span> <span style="color:#007020;font-weight:bold">Count</span> <span style="color:#007020;font-weight:bold">DESC</span>
-</code></pre></div><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/yul_result03.png"
-         alt="yul_result03" width="980" height="437"/> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(p:Place)<span style="color:#666">-</span>[:IN_CATEGORY]<span style="color:#666">-</span>(<span style="color:#007020;font-weight:bold">c</span>:Category)<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">RETURN</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">c</span>.categoryName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span>Category,<span style="color:#bbb"> </span>collect(<span style="color:#007020;font-weight:bold">distinct</span><span style="color:#bbb"> </span>p.placeName)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>Place,<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">count</span>(p)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Count</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Count</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">DESC</span><span style="color:#bbb">
+</span></code></pre></div><figure><img src="https://stephanefrechette.dev/images/legacy-post/yul_result03.png"
+         alt="yul_result03" width="980" height="437"/>
 </figure>
 
 <p>Take time to explore the data and try to write your own queries!</p>
-<p>Don’t forget the available online training from Neo4j: <strong>Getting Started with Neo4j</strong> and recently added <strong>Neo4j in Production</strong> <!-- raw HTML omitted --><a href="http://neo4j.com/graphacademy/online-training/">http://neo4j.com/graphacademy/online-training/</a><!-- raw HTML omitted --></p>
+<p>Don’t forget the available online training from Neo4j: <strong>Getting Started with Neo4j</strong> and recently added <strong>Neo4j in Production</strong> <!-- raw HTML omitted --><a href="http://neo4j.com/graphacademy/online-training/" target="_blank">http://neo4j.com/graphacademy/online-training/</a><!-- raw HTML omitted --></p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 
@@ -305,7 +300,7 @@ MERGE (area)<span style="color:#666">-</span>[:AT_LEVEL]<span style="color:#666"
       <footer class="footer">
   <section class="container">
     
-     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2021 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>
@@ -326,7 +321,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 

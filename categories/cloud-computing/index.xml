@@ -14,7 +14,7 @@
       
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-july-cloud-updates/</guid>
       <description>&amp;ldquo;In this episode Stephane, Pierig and I discuss the updates to AWS and GCP since our last show.&amp;rdquo;
-  Link to episode: Episode 43 - July 2020 Cloud Updates
+ Link to episode: Episode 43 - July 2020 Cloud Updates
 Enjoy!</description>
     </item>
     
@@ -36,7 +36,7 @@ Joining us to talk about Amazon Web Service (AWS) is Pierig Le Saux. He shares t
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-december-cloud-updates/</guid>
       <description>I had a great discussion with my friends on the Datascape Podcast to discuss latest cloud updates.
 In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.
-  Link to episode: Episode 38 - December Cloud Updates
+ Link to episode: Episode 38 - December Cloud Updates
 Enjoy!</description>
     </item>
     
@@ -66,7 +66,7 @@ Enjoy!</description>
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-august-cloud-updates/</guid>
       <description>I sat down with my friends on the Datascape Podcast to discuss latest cloud updates.
 In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.
-  Link to episode: Episode 36 - August Cloud Updates
+ Link to episode: Episode 36 - August Cloud Updates
 Enjoy!</description>
     </item>
     
@@ -97,7 +97,7 @@ The following post is a tutorial we recently published on Google’s Partner Sol
       
       <guid>https://stephanefrechette.dev/posts/recapping-google-next-2019-with-stephane/</guid>
       <description>I was invited to the Datascape Podcast by my friend and Team lead Chris Presley from Pythian to discuss and recap some of the interesting announcements at Google Next &amp;lsquo;19. Great discussions. I look forward to my next invitation!
-  Link to episode: Episode 33 - Recapping Google Next 2019 with Stephane
+ Link to episode: Episode 33 - Recapping Google Next 2019 with Stephane
 Enjoy!</description>
     </item>
     
@@ -145,7 +145,7 @@ Enters Azure Container Service (AKS) which manages your hosted Kubernetes enviro
       
       <guid>https://stephanefrechette.dev/posts/installing-timescaledb-azure/</guid>
       <description>Installing TimescaleDB on Azure. First some housekeeping… A time series database is a software system that is optimized for handling time series data, arrays of numbers indexed by time (a datetime or a datetime range). In some fields these time series are called profiles, curves, or traces.
-  Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries.</description>
+ Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries.</description>
     </item>
     
     <item>

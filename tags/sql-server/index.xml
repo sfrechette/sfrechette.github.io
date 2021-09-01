@@ -94,7 +94,7 @@ I am sharing with you my experiences, gotchas in installing SQL Server on Linux 
       
       <guid>https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/</guid>
       <description>In-memory distributed processing for large datasets… How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
-    First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics.</description>
+  First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics. A fast and general processing engine compatible with Hadoop data.</description>
     </item>
     
     <item>
@@ -114,7 +114,7 @@ I am sharing with you my experiences, gotchas in installing SQL Server on Linux 
       <guid>https://stephanefrechette.dev/posts/anonymize-sensitive-data-dynamic-data-masking/</guid>
       <description>With SQL Server 2016 just around the corner, a series of new features and enhancements will be introduced. More specifically some important Security Upgrades; Always Encrypted, Row Level Security, and Dynamic Data Masking. This post covers SQL Server 2016 – Dynamic Data Masking (DDM).
 Note: DDM is also available in Azure SQL Database see the following link for details -&amp;gt; http://bit.ly/1eG7Que
-  What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries.</description>
+ What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries.</description>
     </item>
     
     <item>

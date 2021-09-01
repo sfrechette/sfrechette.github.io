@@ -16,9 +16,10 @@
     <meta property="og:title" content="Real-time streaming dashboard with Power BI" />
 <meta property="og:description" content="I was recently asked to provide a simple demo/proof-of-concept on how to quickly create a real-time streaming dashboard with Power BI. Did you know that you can stream data and update dashboards in real-time? Any visual or dashboard that can be created in Power BI can also be created to display and update real-time data and visuals. The devices and sources of streaming data can be factory sensors, social media sources, service usage metrics, and anything else from which time-sensitive data can be collected or transmitted." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/real-time-streaming-dashboard-power-bi/" />
+<meta property="og:url" content="https://stephanefrechette.dev/posts/real-time-streaming-dashboard-power-bi/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2017-07-18T15:32:29-04:00" />
 <meta property="article:modified_time" content="2017-07-18T15:32:29-04:00" />
+
 
 
     
@@ -53,7 +54,7 @@
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
   </head>
 
   <body class=" ">
@@ -136,8 +137,7 @@
       </header>
       
       <div>
-        <p><figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/powerbi.png#floatleft" width="200" height="200"/> 
+        <p><figure><img src="https://stephanefrechette.dev/images/legacy-post/powerbi.png#floatleft" width="200" height="200"/>
 </figure>
 
 I was recently asked to provide a simple demo/proof-of-concept on how to quickly create a real-time streaming dashboard with Power BI. Did you know that you can stream data and update dashboards in real-time? Any visual or dashboard that can be created in Power BI can also be created to display and update real-time data and visuals. The devices and sources of streaming data can be factory sensors, social media sources, service usage metrics, and anything else from which time-sensitive data can be collected or transmitted.</p>
@@ -156,15 +156,13 @@ I was recently asked to provide a simple demo/proof-of-concept on how to quickly
 <ol>
 <li>We will first create a dataset. Once signed-in, go to your <em>My Workspace</em>, select <em>Datasets</em>, then <em>+ Create</em> and select <em>Streaming dataset</em></li>
 </ol>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset01.png" width="858" height="228"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset01.png" width="858" height="228"/>
 </figure>
 
 <ol start="2">
 <li>Select <em>PubNub</em> and click the <em>Next</em> button</li>
 </ol>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset02.png" width="490" height="575"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset02.png" width="490" height="575"/>
 </figure>
 
 <ol start="3">
@@ -172,57 +170,49 @@ I was recently asked to provide a simple demo/proof-of-concept on how to quickly
 </ol>
 <p><strong>Subscription key:</strong> <!-- raw HTML omitted --><!-- raw HTML omitted -->sub-c-5f1b7c8e-fbee-11e3-aa40-02ee2ddab7fe<!-- raw HTML omitted --><!-- raw HTML omitted --><br>
 <strong>Channel name:</strong> <!-- raw HTML omitted --><!-- raw HTML omitted -->pubnub-sensor-network<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset03.png" width="693" height="561"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset03.png" width="693" height="561"/>
 </figure>
 
 <ol start="4">
 <li>You will be presented with the ‘schema’ and values for this dataset, select the <em>Create</em> button to save the dataset</li>
 </ol>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset05.png" width="691" height="789"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset05.png" width="691" height="789"/>
 </figure>
 
 <ol start="5">
 <li>Next we go to <em>Dashboards</em>, select <em>+ Create</em> and select Dashboard</li>
 </ol>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset06.png" width="750" height="217"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset06.png" width="750" height="217"/>
 </figure>
 
 <ol start="6">
 <li>We want to add tile(s), in the <em>Real-Time Data</em> section, select <em>Custom Streaming Data</em>, and select the <em>Next</em> button</li>
 </ol>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset07.png" width="819" height="730"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset07.png" width="819" height="730"/>
 </figure>
 
 <ol start="7">
 <li>Under <em>Your Datasets</em>, you should see the streaming dataset you created earlier, select it and select the <em>Next</em> button</li>
 </ol>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset08.png" width="486" height="679"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset08.png" width="486" height="679"/>
 </figure>
 
 <ol start="8">
 <li>For your Tile select <em>Line chart</em> from the <em>Visualization Type</em>, timestamp for the <em>Axis</em>, and ambient_temperature for <em>Values</em>, then select <em>Apply</em></li>
 </ol>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset12.png" width="963" height="802"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset12.png" width="963" height="802"/>
 </figure>
 
 <ol start="9">
 <li>You can provide further Tile details, like <em>Tile</em>, <em>Subtitle</em> and link functionality…</li>
 </ol>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset11.png" width="958" height="817"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/pbi_dataset11.png" width="958" height="817"/>
 </figure>
 
 <ol start="10">
 <li>You can add more tiles with different visualization types to your dashboard like Cards, Clustered bar charts, Clustered column charts and Gauges. I added four Cards to display the current value of each measure provided by the dataset… My final live streaming dashboard looks like this 😉</li>
 </ol>
-<figure>
-    <img src="https://stephanefrechette.dev/images/legacy-post/powerbi_gif.gif" width="968" height="599"/> 
+<figure><img src="https://stephanefrechette.dev/images/legacy-post/powerbi_gif.gif" width="968" height="599"/>
 </figure>
 
 <p>That’s a pretty simple way to demonstrate how to quickly build a Real-time streaming dashboard with Power BI</p>
@@ -267,7 +257,7 @@ I was recently asked to provide a simple demo/proof-of-concept on how to quickly
       <footer class="footer">
   <section class="container">
     
-     © 2020 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+     © 2021 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
     
     
   </section>
@@ -288,7 +278,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
   </body>
 
