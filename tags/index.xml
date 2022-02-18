@@ -6,7 +6,43 @@
     <description>Recent content in Tags on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 31 Jul 2020 10:21:12 -0500</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Feb 2022 08:52:19 -0500</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>data visualisation</title>
+      <link>https://stephanefrechette.dev/tags/data-visualisation/</link>
+      <pubDate>Fri, 18 Feb 2022 08:52:19 -0500</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/data-visualisation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>datafam</title>
+      <link>https://stephanefrechette.dev/tags/datafam/</link>
+      <pubDate>Fri, 18 Feb 2022 08:52:19 -0500</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/datafam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hockey</title>
+      <link>https://stephanefrechette.dev/tags/hockey/</link>
+      <pubDate>Fri, 18 Feb 2022 08:52:19 -0500</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/hockey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tableau</title>
+      <link>https://stephanefrechette.dev/tags/tableau/</link>
+      <pubDate>Fri, 18 Feb 2022 08:52:19 -0500</pubDate>
+      
+      <guid>https://stephanefrechette.dev/tags/tableau/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>aws</title>
       <link>https://stephanefrechette.dev/tags/aws/</link>
@@ -683,15 +719,6 @@
     </item>
     
     <item>
-      <title>hockey</title>
-      <link>https://stephanefrechette.dev/tags/hockey/</link>
-      <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/hockey/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>jq</title>
       <link>https://stephanefrechette.dev/tags/jq/</link>
       <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
@@ -1057,15 +1084,6 @@
       <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
       
       <guid>https://stephanefrechette.dev/tags/shiny/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tableau</title>
-      <link>https://stephanefrechette.dev/tags/tableau/</link>
-      <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
-      
-      <guid>https://stephanefrechette.dev/tags/tableau/</guid>
       <description></description>
     </item>
     

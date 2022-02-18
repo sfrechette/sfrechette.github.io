@@ -6,7 +6,16 @@
     <description>Recent content in tableau on Stéphane Fréchette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 29 Sep 2015 09:12:54 -0400</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/tableau/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Feb 2022 08:52:19 -0500</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/tableau/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Team Canada Women&#39;s Hockey - Some interesting numbers...</title>
+      <link>https://stephanefrechette.dev/posts/team-canada-womens-hockey/</link>
+      <pubDate>Fri, 18 Feb 2022 08:52:19 -0500</pubDate>
+      
+      <guid>https://stephanefrechette.dev/posts/team-canada-womens-hockey/</guid>
+      <description>Yes, Canada Women&amp;rsquo;s Hockey Team has reclaimed gold! I had this idea at the beginning of the Beijing Olympic Winter Games to design, build a visual about the women&amp;rsquo;s national team. With source data from Hockey Canada and The Women’s Hockey Web here is what I came up with: some interesting numbers about Age (age at time of olympics), Shoots/Catches (left-handed, right-handed players), and Team composition (players by birth provinces).</description>
+    </item>
+    
     <item>
       <title>A short tale of... data vizes</title>
       <link>https://stephanefrechette.dev/posts/a-short-tale-of-data-vizes/</link>

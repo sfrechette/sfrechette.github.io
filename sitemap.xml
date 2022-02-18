@@ -2,13 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://stephanefrechette.dev/categories/</loc>
+    <lastmod>2022-02-18T08:52:19-05:00</lastmod>
+  </url><url>
+    <loc>https://stephanefrechette.dev/tags/data-visualisation/</loc>
+    <lastmod>2022-02-18T08:52:19-05:00</lastmod>
+  </url><url>
+    <loc>https://stephanefrechette.dev/tags/datafam/</loc>
+    <lastmod>2022-02-18T08:52:19-05:00</lastmod>
+  </url><url>
+    <loc>https://stephanefrechette.dev/tags/hockey/</loc>
+    <lastmod>2022-02-18T08:52:19-05:00</lastmod>
+  </url><url>
+    <loc>https://stephanefrechette.dev/posts/</loc>
+    <lastmod>2022-02-18T08:52:19-05:00</lastmod>
+  </url><url>
+    <loc>https://stephanefrechette.dev/</loc>
+    <lastmod>2022-02-18T08:52:19-05:00</lastmod>
+  </url><url>
+    <loc>https://stephanefrechette.dev/categories/tableau/</loc>
+    <lastmod>2022-02-18T08:52:19-05:00</lastmod>
+  </url><url>
+    <loc>https://stephanefrechette.dev/tags/tableau/</loc>
+    <lastmod>2022-02-18T08:52:19-05:00</lastmod>
+  </url><url>
+    <loc>https://stephanefrechette.dev/tags/</loc>
+    <lastmod>2022-02-18T08:52:19-05:00</lastmod>
+  </url><url>
+    <loc>https://stephanefrechette.dev/posts/team-canada-womens-hockey/</loc>
+    <lastmod>2022-02-18T08:52:19-05:00</lastmod>
+  </url><url>
     <loc>https://stephanefrechette.dev/tags/aws/</loc>
     <lastmod>2020-07-31T10:21:12-05:00</lastmod>
   </url><url>
     <loc>https://stephanefrechette.dev/tags/azure/</loc>
-    <lastmod>2020-07-31T10:21:12-05:00</lastmod>
-  </url><url>
-    <loc>https://stephanefrechette.dev/categories/</loc>
     <lastmod>2020-07-31T10:21:12-05:00</lastmod>
   </url><url>
     <loc>https://stephanefrechette.dev/categories/cloud-computing/</loc>
@@ -36,15 +63,6 @@
     <lastmod>2020-07-31T10:21:12-05:00</lastmod>
   </url><url>
     <loc>https://stephanefrechette.dev/tags/podcast/</loc>
-    <lastmod>2020-07-31T10:21:12-05:00</lastmod>
-  </url><url>
-    <loc>https://stephanefrechette.dev/posts/</loc>
-    <lastmod>2020-07-31T10:21:12-05:00</lastmod>
-  </url><url>
-    <loc>https://stephanefrechette.dev/</loc>
-    <lastmod>2020-07-31T10:21:12-05:00</lastmod>
-  </url><url>
-    <loc>https://stephanefrechette.dev/tags/</loc>
     <lastmod>2020-07-31T10:21:12-05:00</lastmod>
   </url><url>
     <loc>https://stephanefrechette.dev/posts/datascape-podcast-february-cloud-updates/</loc>
@@ -317,9 +335,6 @@
     <loc>https://stephanefrechette.dev/tags/github/</loc>
     <lastmod>2017-10-09T19:52:18-04:00</lastmod>
   </url><url>
-    <loc>https://stephanefrechette.dev/tags/hockey/</loc>
-    <lastmod>2017-10-09T19:52:18-04:00</lastmod>
-  </url><url>
     <loc>https://stephanefrechette.dev/tags/jq/</loc>
     <lastmod>2017-10-09T19:52:18-04:00</lastmod>
   </url><url>
@@ -492,9 +507,6 @@
     <lastmod>2015-09-29T09:12:54-04:00</lastmod>
   </url><url>
     <loc>https://stephanefrechette.dev/tags/shiny/</loc>
-    <lastmod>2015-09-29T09:12:54-04:00</lastmod>
-  </url><url>
-    <loc>https://stephanefrechette.dev/tags/tableau/</loc>
     <lastmod>2015-09-29T09:12:54-04:00</lastmod>
   </url><url>
     <loc>https://stephanefrechette.dev/posts/azure-cloud-services-neo4j/</loc>
