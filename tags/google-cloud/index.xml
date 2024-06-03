@@ -1,105 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>google cloud on Stéphane Fréchette</title>
+    <title>Google Cloud on Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/tags/google-cloud/</link>
-    <description>Recent content in google cloud on Stéphane Fréchette</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Google Cloud on Stéphane Fréchette</description>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 31 Jul 2020 10:21:12 -0500</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/google-cloud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Jul 2020 10:21:12 -0500</lastBuildDate>
+    <atom:link href="https://stephanefrechette.dev/tags/google-cloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Datascape Podcast - July Cloud Updates</title>
       <link>https://stephanefrechette.dev/posts/datascape-podcast-july-cloud-updates/</link>
       <pubDate>Fri, 31 Jul 2020 10:21:12 -0500</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-july-cloud-updates/</guid>
-      <description>&amp;ldquo;In this episode Stephane, Pierig and I discuss the updates to AWS and GCP since our last show.&amp;rdquo;
- Link to episode: Episode 43 - July 2020 Cloud Updates
-Enjoy!</description>
+      <description>&amp;ldquo;In this episode Stephane, Pierig and I discuss the updates to AWS and GCP since our last show.&amp;rdquo;&#xA;Link to episode: Episode 43 - July 2020 Cloud Updates&#xA;Enjoy!</description>
     </item>
-    
     <item>
       <title>Datascape Podcast - February Cloud Updates</title>
       <link>https://stephanefrechette.dev/posts/datascape-podcast-february-cloud-updates/</link>
       <pubDate>Thu, 27 Feb 2020 10:21:12 -0500</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-february-cloud-updates/</guid>
-      <description>&amp;ldquo;Welcome to this year’s first episode of Datascape Podcast. Since our last episode in 2019, a great deal has happened and 2020 is already packed to the brim with cloud updates.
-Joining us to talk about Amazon Web Service (AWS) is Pierig Le Saux. He shares the latest on AWS Backup, which includes restoring single files and copying backups from one region to another, BYOL developments and their use for Microsoft clients, and some thrilling quantum computing initiatives as well.</description>
+      <description>&amp;ldquo;Welcome to this year’s first episode of Datascape Podcast. Since our last episode in 2019, a great deal has happened and 2020 is already packed to the brim with cloud updates.&#xA;Joining us to talk about Amazon Web Service (AWS) is Pierig Le Saux. He shares the latest on AWS Backup, which includes restoring single files and copying backups from one region to another, BYOL developments and their use for Microsoft clients, and some thrilling quantum computing initiatives as well.</description>
     </item>
-    
     <item>
       <title>Datascape Podcast - December Cloud Updates</title>
       <link>https://stephanefrechette.dev/posts/datascape-podcast-december-cloud-updates/</link>
       <pubDate>Tue, 24 Dec 2019 08:31:46 -0500</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-december-cloud-updates/</guid>
-      <description>I had a great discussion with my friends on the Datascape Podcast to discuss latest cloud updates.
-In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.
- Link to episode: Episode 38 - December Cloud Updates
-Enjoy!</description>
+      <description>I had a great discussion with my friends on the Datascape Podcast to discuss latest cloud updates.&#xA;In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.&#xA;Link to episode: Episode 38 - December Cloud Updates&#xA;Enjoy!</description>
     </item>
-    
     <item>
       <title>Join, Group By and Aggregate in Cloud Data Fusion</title>
       <link>https://stephanefrechette.dev/posts/join-group-by-and-aggregate-in-cloud-data-fusion/</link>
       <pubDate>Sun, 24 Nov 2019 10:20:30 -0500</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/join-group-by-and-aggregate-in-cloud-data-fusion/</guid>
       <description>Good news! Cloud Data Fusion is now GA. Announced at Google Next &amp;lsquo;19 UK on November 21, 2019 Cloud Data Fusion is a fully managed, cloud-native, enterprise data integration service for quickly building and managing data pipelines. Cloud Data Fusion web UI allows you to build scalable data integration solutions to clean, prepare, blend, transfer, and transform data, without having to manage the infrastructure. Cloud Data Fusion is powered by the open source project CDAP.</description>
     </item>
-    
     <item>
       <title>Getting started with Cloud SQL for SQL Server</title>
       <link>https://stephanefrechette.dev/posts/lets-get-started-with-cloudsql-sql-server/</link>
       <pubDate>Mon, 21 Oct 2019 08:36:51 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/lets-get-started-with-cloudsql-sql-server/</guid>
       <description>Finally Cloud SQL for SQL Server is now available in beta. Announced at Google Next &amp;lsquo;19, Cloud SQL Server is a managed database service that makes it easy to set up, maintain, manage, and administer your SQL Server databases on Google Cloud Platform. Cloud SQL pricing requires no up-front commitment and includes per-second billing and sustained-use discounts, similar to Google Compute Engine. For pricing, please see the Cloud SQL pricing guide for details and for information specific to Microsoft SQL Server, see the SQL Server documentation.</description>
     </item>
-    
     <item>
       <title>Datascape Podcast - August Cloud Updates</title>
       <link>https://stephanefrechette.dev/posts/datascape-podcast-august-cloud-updates/</link>
       <pubDate>Thu, 15 Aug 2019 14:45:03 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-august-cloud-updates/</guid>
-      <description>I sat down with my friends on the Datascape Podcast to discuss latest cloud updates.
-In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.
- Link to episode: Episode 36 - August Cloud Updates
-Enjoy!</description>
+      <description>I sat down with my friends on the Datascape Podcast to discuss latest cloud updates.&#xA;In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.&#xA;Link to episode: Episode 36 - August Cloud Updates&#xA;Enjoy!</description>
     </item>
-    
     <item>
       <title>Creating a Google Cloud Platform service account key</title>
       <link>https://stephanefrechette.dev/posts/creating-a-google-cloud-platform-service-account-key/</link>
       <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/creating-a-google-cloud-platform-service-account-key/</guid>
-      <description>Some context&amp;hellip; A service account is a special type of Google account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs.
-Lately I have been helping customers that are using CDAP, an 100% open source, integrated framework that accelerates application development for data analytics. Specifically around creating and connecting to Google Cloud Storage as a source to ingest and do data preparation (a.</description>
+      <description>Some context&amp;hellip; A service account is a special type of Google account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs.&#xA;Lately I have been helping customers that are using CDAP, an 100% open source, integrated framework that accelerates application development for data analytics. Specifically around creating and connecting to Google Cloud Storage as a source to ingest and do data preparation (a.</description>
     </item>
-    
     <item>
       <title>Deploying single instance SQL Server 2017 on GKE</title>
       <link>https://stephanefrechette.dev/posts/deploying-single-instance-sql-server-2017-on-gke/</link>
       <pubDate>Wed, 03 Jul 2019 09:30:49 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/deploying-single-instance-sql-server-2017-on-gke/</guid>
-      <description>Kubernetes is an open-source container orchestration system for automating deployment, scaling and management of containerized applications. Running a SQL Server database on Kubernetes is a topic of discussion nowadays as Kubernetes provides ways to provision stateful containers using persistent volumes, statefulsets, etc.
-The following post is a tutorial we recently published on Google’s Partner Solutions that demonstrates how to provision a single instance of SQL Server 2017 on Linux on GKE using Regional persistent disks.</description>
+      <description>Kubernetes is an open-source container orchestration system for automating deployment, scaling and management of containerized applications. Running a SQL Server database on Kubernetes is a topic of discussion nowadays as Kubernetes provides ways to provision stateful containers using persistent volumes, statefulsets, etc.&#xA;The following post is a tutorial we recently published on Google’s Partner Solutions that demonstrates how to provision a single instance of SQL Server 2017 on Linux on GKE using Regional persistent disks.</description>
     </item>
-    
     <item>
       <title>Recapping Google Next &#39;19 with Stephane</title>
       <link>https://stephanefrechette.dev/posts/recapping-google-next-2019-with-stephane/</link>
       <pubDate>Thu, 30 May 2019 09:30:49 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/recapping-google-next-2019-with-stephane/</guid>
-      <description>I was invited to the Datascape Podcast by my friend and Team lead Chris Presley from Pythian to discuss and recap some of the interesting announcements at Google Next &amp;lsquo;19. Great discussions. I look forward to my next invitation!
- Link to episode: Episode 33 - Recapping Google Next 2019 with Stephane
-Enjoy!</description>
+      <description>I was invited to the Datascape Podcast by my friend and Team lead Chris Presley from Pythian to discuss and recap some of the interesting announcements at Google Next &amp;lsquo;19. Great discussions. I look forward to my next invitation!&#xA;Link to episode: Episode 33 - Recapping Google Next 2019 with Stephane&#xA;Enjoy!</description>
     </item>
-    
   </channel>
 </rss>

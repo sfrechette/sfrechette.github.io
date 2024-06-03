@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>high availability on Stéphane Fréchette</title>
+    <title>High Availability on Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/tags/high-availability/</link>
-    <description>Recent content in high availability on Stéphane Fréchette</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in High Availability on Stéphane Fréchette</description>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 03 Jul 2019 09:30:49 -0400</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/high-availability/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jul 2019 09:30:49 -0400</lastBuildDate>
+    <atom:link href="https://stephanefrechette.dev/tags/high-availability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deploying single instance SQL Server 2017 on GKE</title>
       <link>https://stephanefrechette.dev/posts/deploying-single-instance-sql-server-2017-on-gke/</link>
       <pubDate>Wed, 03 Jul 2019 09:30:49 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/deploying-single-instance-sql-server-2017-on-gke/</guid>
-      <description>Kubernetes is an open-source container orchestration system for automating deployment, scaling and management of containerized applications. Running a SQL Server database on Kubernetes is a topic of discussion nowadays as Kubernetes provides ways to provision stateful containers using persistent volumes, statefulsets, etc.
-The following post is a tutorial we recently published on Google’s Partner Solutions that demonstrates how to provision a single instance of SQL Server 2017 on Linux on GKE using Regional persistent disks.</description>
+      <description>Kubernetes is an open-source container orchestration system for automating deployment, scaling and management of containerized applications. Running a SQL Server database on Kubernetes is a topic of discussion nowadays as Kubernetes provides ways to provision stateful containers using persistent volumes, statefulsets, etc.&#xA;The following post is a tutorial we recently published on Google’s Partner Solutions that demonstrates how to provision a single instance of SQL Server 2017 on Linux on GKE using Regional persistent disks.</description>
     </item>
-    
     <item>
       <title>SQL Server HA using Kubernetes in Azure Container Services (AKS)</title>
       <link>https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/</link>
       <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/</guid>
-      <description>In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
-Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise.</description>
+      <description>In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.&#xA;Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise.</description>
     </item>
-    
   </channel>
 </rss>

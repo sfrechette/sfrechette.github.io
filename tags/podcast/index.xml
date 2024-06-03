@@ -1,67 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>podcast on Stéphane Fréchette</title>
+    <title>Podcast on Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/tags/podcast/</link>
-    <description>Recent content in podcast on Stéphane Fréchette</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Podcast on Stéphane Fréchette</description>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 31 Jul 2020 10:21:12 -0500</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Jul 2020 10:21:12 -0500</lastBuildDate>
+    <atom:link href="https://stephanefrechette.dev/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Datascape Podcast - July Cloud Updates</title>
       <link>https://stephanefrechette.dev/posts/datascape-podcast-july-cloud-updates/</link>
       <pubDate>Fri, 31 Jul 2020 10:21:12 -0500</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-july-cloud-updates/</guid>
-      <description>&amp;ldquo;In this episode Stephane, Pierig and I discuss the updates to AWS and GCP since our last show.&amp;rdquo;
- Link to episode: Episode 43 - July 2020 Cloud Updates
-Enjoy!</description>
+      <description>&amp;ldquo;In this episode Stephane, Pierig and I discuss the updates to AWS and GCP since our last show.&amp;rdquo;&#xA;Link to episode: Episode 43 - July 2020 Cloud Updates&#xA;Enjoy!</description>
     </item>
-    
     <item>
       <title>Datascape Podcast - February Cloud Updates</title>
       <link>https://stephanefrechette.dev/posts/datascape-podcast-february-cloud-updates/</link>
       <pubDate>Thu, 27 Feb 2020 10:21:12 -0500</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-february-cloud-updates/</guid>
-      <description>&amp;ldquo;Welcome to this year’s first episode of Datascape Podcast. Since our last episode in 2019, a great deal has happened and 2020 is already packed to the brim with cloud updates.
-Joining us to talk about Amazon Web Service (AWS) is Pierig Le Saux. He shares the latest on AWS Backup, which includes restoring single files and copying backups from one region to another, BYOL developments and their use for Microsoft clients, and some thrilling quantum computing initiatives as well.</description>
+      <description>&amp;ldquo;Welcome to this year’s first episode of Datascape Podcast. Since our last episode in 2019, a great deal has happened and 2020 is already packed to the brim with cloud updates.&#xA;Joining us to talk about Amazon Web Service (AWS) is Pierig Le Saux. He shares the latest on AWS Backup, which includes restoring single files and copying backups from one region to another, BYOL developments and their use for Microsoft clients, and some thrilling quantum computing initiatives as well.</description>
     </item>
-    
     <item>
       <title>Datascape Podcast - December Cloud Updates</title>
       <link>https://stephanefrechette.dev/posts/datascape-podcast-december-cloud-updates/</link>
       <pubDate>Tue, 24 Dec 2019 08:31:46 -0500</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-december-cloud-updates/</guid>
-      <description>I had a great discussion with my friends on the Datascape Podcast to discuss latest cloud updates.
-In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.
- Link to episode: Episode 38 - December Cloud Updates
-Enjoy!</description>
+      <description>I had a great discussion with my friends on the Datascape Podcast to discuss latest cloud updates.&#xA;In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.&#xA;Link to episode: Episode 38 - December Cloud Updates&#xA;Enjoy!</description>
     </item>
-    
     <item>
       <title>Datascape Podcast - August Cloud Updates</title>
       <link>https://stephanefrechette.dev/posts/datascape-podcast-august-cloud-updates/</link>
       <pubDate>Thu, 15 Aug 2019 14:45:03 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-august-cloud-updates/</guid>
-      <description>I sat down with my friends on the Datascape Podcast to discuss latest cloud updates.
-In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.
- Link to episode: Episode 36 - August Cloud Updates
-Enjoy!</description>
+      <description>I sat down with my friends on the Datascape Podcast to discuss latest cloud updates.&#xA;In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.&#xA;Link to episode: Episode 36 - August Cloud Updates&#xA;Enjoy!</description>
     </item>
-    
     <item>
       <title>Recapping Google Next &#39;19 with Stephane</title>
       <link>https://stephanefrechette.dev/posts/recapping-google-next-2019-with-stephane/</link>
       <pubDate>Thu, 30 May 2019 09:30:49 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/recapping-google-next-2019-with-stephane/</guid>
-      <description>I was invited to the Datascape Podcast by my friend and Team lead Chris Presley from Pythian to discuss and recap some of the interesting announcements at Google Next &amp;lsquo;19. Great discussions. I look forward to my next invitation!
- Link to episode: Episode 33 - Recapping Google Next 2019 with Stephane
-Enjoy!</description>
+      <description>I was invited to the Datascape Podcast by my friend and Team lead Chris Presley from Pythian to discuss and recap some of the interesting announcements at Google Next &amp;lsquo;19. Great discussions. I look forward to my next invitation!&#xA;Link to episode: Episode 33 - Recapping Google Next 2019 with Stephane&#xA;Enjoy!</description>
     </item>
-    
   </channel>
 </rss>

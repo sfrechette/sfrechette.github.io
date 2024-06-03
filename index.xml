@@ -4,431 +4,303 @@
     <title>Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/</link>
     <description>Recent content on Stéphane Fréchette</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 18 Feb 2022 08:52:19 -0500</lastBuildDate><atom:link href="https://stephanefrechette.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Feb 2022 08:52:19 -0500</lastBuildDate>
+    <atom:link href="https://stephanefrechette.dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Team Canada Women&#39;s Hockey - Some interesting numbers...</title>
       <link>https://stephanefrechette.dev/posts/team-canada-womens-hockey/</link>
       <pubDate>Fri, 18 Feb 2022 08:52:19 -0500</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/team-canada-womens-hockey/</guid>
       <description>Yes, Canada Women&amp;rsquo;s Hockey Team has reclaimed gold! I had this idea at the beginning of the Beijing Olympic Winter Games to design, build a visual about the women&amp;rsquo;s national team. With source data from Hockey Canada and The Women’s Hockey Web here is what I came up with: some interesting numbers about Age (age at time of olympics), Shoots/Catches (left-handed, right-handed players), and Team composition (players by birth provinces).</description>
     </item>
-    
     <item>
       <title>Datascape Podcast - July Cloud Updates</title>
       <link>https://stephanefrechette.dev/posts/datascape-podcast-july-cloud-updates/</link>
       <pubDate>Fri, 31 Jul 2020 10:21:12 -0500</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-july-cloud-updates/</guid>
-      <description>&amp;ldquo;In this episode Stephane, Pierig and I discuss the updates to AWS and GCP since our last show.&amp;rdquo;
- Link to episode: Episode 43 - July 2020 Cloud Updates
-Enjoy!</description>
+      <description>&amp;ldquo;In this episode Stephane, Pierig and I discuss the updates to AWS and GCP since our last show.&amp;rdquo;&#xA;Link to episode: Episode 43 - July 2020 Cloud Updates&#xA;Enjoy!</description>
     </item>
-    
     <item>
       <title>Datascape Podcast - February Cloud Updates</title>
       <link>https://stephanefrechette.dev/posts/datascape-podcast-february-cloud-updates/</link>
       <pubDate>Thu, 27 Feb 2020 10:21:12 -0500</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-february-cloud-updates/</guid>
-      <description>&amp;ldquo;Welcome to this year’s first episode of Datascape Podcast. Since our last episode in 2019, a great deal has happened and 2020 is already packed to the brim with cloud updates.
-Joining us to talk about Amazon Web Service (AWS) is Pierig Le Saux. He shares the latest on AWS Backup, which includes restoring single files and copying backups from one region to another, BYOL developments and their use for Microsoft clients, and some thrilling quantum computing initiatives as well.</description>
+      <description>&amp;ldquo;Welcome to this year’s first episode of Datascape Podcast. Since our last episode in 2019, a great deal has happened and 2020 is already packed to the brim with cloud updates.&#xA;Joining us to talk about Amazon Web Service (AWS) is Pierig Le Saux. He shares the latest on AWS Backup, which includes restoring single files and copying backups from one region to another, BYOL developments and their use for Microsoft clients, and some thrilling quantum computing initiatives as well.</description>
     </item>
-    
     <item>
       <title>Datascape Podcast - December Cloud Updates</title>
       <link>https://stephanefrechette.dev/posts/datascape-podcast-december-cloud-updates/</link>
       <pubDate>Tue, 24 Dec 2019 08:31:46 -0500</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-december-cloud-updates/</guid>
-      <description>I had a great discussion with my friends on the Datascape Podcast to discuss latest cloud updates.
-In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.
- Link to episode: Episode 38 - December Cloud Updates
-Enjoy!</description>
+      <description>I had a great discussion with my friends on the Datascape Podcast to discuss latest cloud updates.&#xA;In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.&#xA;Link to episode: Episode 38 - December Cloud Updates&#xA;Enjoy!</description>
     </item>
-    
     <item>
       <title>Join, Group By and Aggregate in Cloud Data Fusion</title>
       <link>https://stephanefrechette.dev/posts/join-group-by-and-aggregate-in-cloud-data-fusion/</link>
       <pubDate>Sun, 24 Nov 2019 10:20:30 -0500</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/join-group-by-and-aggregate-in-cloud-data-fusion/</guid>
       <description>Good news! Cloud Data Fusion is now GA. Announced at Google Next &amp;lsquo;19 UK on November 21, 2019 Cloud Data Fusion is a fully managed, cloud-native, enterprise data integration service for quickly building and managing data pipelines. Cloud Data Fusion web UI allows you to build scalable data integration solutions to clean, prepare, blend, transfer, and transform data, without having to manage the infrastructure. Cloud Data Fusion is powered by the open source project CDAP.</description>
     </item>
-    
     <item>
       <title>Getting started with Cloud SQL for SQL Server</title>
       <link>https://stephanefrechette.dev/posts/lets-get-started-with-cloudsql-sql-server/</link>
       <pubDate>Mon, 21 Oct 2019 08:36:51 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/lets-get-started-with-cloudsql-sql-server/</guid>
       <description>Finally Cloud SQL for SQL Server is now available in beta. Announced at Google Next &amp;lsquo;19, Cloud SQL Server is a managed database service that makes it easy to set up, maintain, manage, and administer your SQL Server databases on Google Cloud Platform. Cloud SQL pricing requires no up-front commitment and includes per-second billing and sustained-use discounts, similar to Google Compute Engine. For pricing, please see the Cloud SQL pricing guide for details and for information specific to Microsoft SQL Server, see the SQL Server documentation.</description>
     </item>
-    
     <item>
       <title>Datascape Podcast - August Cloud Updates</title>
       <link>https://stephanefrechette.dev/posts/datascape-podcast-august-cloud-updates/</link>
       <pubDate>Thu, 15 Aug 2019 14:45:03 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/datascape-podcast-august-cloud-updates/</guid>
-      <description>I sat down with my friends on the Datascape Podcast to discuss latest cloud updates.
-In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.
- Link to episode: Episode 36 - August Cloud Updates
-Enjoy!</description>
+      <description>I sat down with my friends on the Datascape Podcast to discuss latest cloud updates.&#xA;In this episode, Warner (Azure), yours truly -&amp;gt; Stephane (GCP), Pierig (AWS) and Chris discuss several interesting cloud updates released on the public cloud(s) over the last few months.&#xA;Link to episode: Episode 36 - August Cloud Updates&#xA;Enjoy!</description>
     </item>
-    
     <item>
       <title>Creating a Google Cloud Platform service account key</title>
       <link>https://stephanefrechette.dev/posts/creating-a-google-cloud-platform-service-account-key/</link>
       <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/creating-a-google-cloud-platform-service-account-key/</guid>
-      <description>Some context&amp;hellip; A service account is a special type of Google account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs.
-Lately I have been helping customers that are using CDAP, an 100% open source, integrated framework that accelerates application development for data analytics. Specifically around creating and connecting to Google Cloud Storage as a source to ingest and do data preparation (a.</description>
+      <description>Some context&amp;hellip; A service account is a special type of Google account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs.&#xA;Lately I have been helping customers that are using CDAP, an 100% open source, integrated framework that accelerates application development for data analytics. Specifically around creating and connecting to Google Cloud Storage as a source to ingest and do data preparation (a.</description>
     </item>
-    
     <item>
       <title>Deploying single instance SQL Server 2017 on GKE</title>
       <link>https://stephanefrechette.dev/posts/deploying-single-instance-sql-server-2017-on-gke/</link>
       <pubDate>Wed, 03 Jul 2019 09:30:49 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/deploying-single-instance-sql-server-2017-on-gke/</guid>
-      <description>Kubernetes is an open-source container orchestration system for automating deployment, scaling and management of containerized applications. Running a SQL Server database on Kubernetes is a topic of discussion nowadays as Kubernetes provides ways to provision stateful containers using persistent volumes, statefulsets, etc.
-The following post is a tutorial we recently published on Google’s Partner Solutions that demonstrates how to provision a single instance of SQL Server 2017 on Linux on GKE using Regional persistent disks.</description>
+      <description>Kubernetes is an open-source container orchestration system for automating deployment, scaling and management of containerized applications. Running a SQL Server database on Kubernetes is a topic of discussion nowadays as Kubernetes provides ways to provision stateful containers using persistent volumes, statefulsets, etc.&#xA;The following post is a tutorial we recently published on Google’s Partner Solutions that demonstrates how to provision a single instance of SQL Server 2017 on Linux on GKE using Regional persistent disks.</description>
     </item>
-    
     <item>
       <title>Recapping Google Next &#39;19 with Stephane</title>
       <link>https://stephanefrechette.dev/posts/recapping-google-next-2019-with-stephane/</link>
       <pubDate>Thu, 30 May 2019 09:30:49 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/recapping-google-next-2019-with-stephane/</guid>
-      <description>I was invited to the Datascape Podcast by my friend and Team lead Chris Presley from Pythian to discuss and recap some of the interesting announcements at Google Next &amp;lsquo;19. Great discussions. I look forward to my next invitation!
- Link to episode: Episode 33 - Recapping Google Next 2019 with Stephane
-Enjoy!</description>
+      <description>I was invited to the Datascape Podcast by my friend and Team lead Chris Presley from Pythian to discuss and recap some of the interesting announcements at Google Next &amp;lsquo;19. Great discussions. I look forward to my next invitation!&#xA;Link to episode: Episode 33 - Recapping Google Next 2019 with Stephane&#xA;Enjoy!</description>
     </item>
-    
     <item>
       <title>My First Post using Hugo!</title>
       <link>https://stephanefrechette.dev/posts/my-first-post/</link>
       <pubDate>Wed, 27 Mar 2019 10:12:22 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/my-first-post/</guid>
-      <description>Yes this is my first blog post using Hugo. Finally decided to venture out of my comfort zone and try some new things this year. So done with Wordpress (thank you for all these years), I have decided to import selected posts from my old blog&amp;hellip;
-So what to expect? Well basically rants, lessons learned either from the field or from my personal life, and most importantly about technology, cloud computing and dev stuff.</description>
+      <description>Yes this is my first blog post using Hugo. Finally decided to venture out of my comfort zone and try some new things this year. So done with Wordpress (thank you for all these years), I have decided to import selected posts from my old blog&amp;hellip;&#xA;So what to expect? Well basically rants, lessons learned either from the field or from my personal life, and most importantly about technology, cloud computing and dev stuff.</description>
     </item>
-    
     <item>
       <title>Pause Azure SQL Data Warehouse(s) with Azure Automation</title>
       <link>https://stephanefrechette.dev/posts/pause-azure-sql-data-warehouses-with-azure-automation/</link>
       <pubDate>Tue, 27 Nov 2018 11:19:56 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/pause-azure-sql-data-warehouses-with-azure-automation/</guid>
       <description>Folks it as been a while&amp;hellip; You are knee deep in your Development and Testing activities and you just noticed that you have forgotten to Pause your Azure SQL Data Warehouse(s)&amp;hellip; while you were not using it! Thus incurring significant costs towards your next Azure billing cycle. This post will quickly show you how to use Azure Automation and PowerShell in order to remediate this. You may not have access to create an Azure Automation service, but you can share this with your Azure Administrator and/or DevOps Team Lead.</description>
     </item>
-    
     <item>
       <title>Podcasts, Blogs about Data Engineering, Data Science, ML, and AI</title>
       <link>https://stephanefrechette.dev/posts/podcasts-blogs-about-data-engineering-data-science-ml-and-ai/</link>
       <pubDate>Thu, 26 Jul 2018 09:21:40 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/podcasts-blogs-about-data-engineering-data-science-ml-and-ai/</guid>
       <description>Hope you are all enjoying summer? Been asked several times, How do I keep current with technology? What blogs do you read or follow? Which podcasts do you follow and listen to? So I have quickly put together a list of resources, more specifically podcasts, blogs that I consume regularly&amp;hellip; This is no way a definitive list 😉 and in no particular order! Of course these are related to Data Engineering, Data Science, Machine Learning and Artificial Intelligence.</description>
     </item>
-    
     <item>
       <title>SQL Server HA using Kubernetes in Azure Container Services (AKS)</title>
       <link>https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/</link>
       <pubDate>Wed, 25 Apr 2018 13:40:28 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/sql-server-ha-using-kubernetes-in-azure-container-services-aks/</guid>
-      <description>In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.
-Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise.</description>
+      <description>In a nutshell, Kubernetes is a container orchestration tool that enables container management at scale. Kubernetes isn’t a replacement for Docker. However, Kubernetes is a replacement for some of the higher-level technologies that have emerged around Docker (i.e Docker Swarm). To learn more about Kubernetes, check out this Getting Started Guide.&#xA;Enters Azure Container Service (AKS) which manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise.</description>
     </item>
-    
     <item>
       <title>Ingest real time streaming data for time series analysis</title>
       <link>https://stephanefrechette.dev/posts/ingest-real-time-streaming-data-for-time-series-analysis/</link>
       <pubDate>Tue, 17 Apr 2018 11:59:21 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/ingest-real-time-streaming-data-for-time-series-analysis/</guid>
       <description>This post describes how to ingest sample real time streaming data from PubNub to a Postgres database with the TimescaleDB extension installed and enabled for time series analysis. I wrote a small Node.js app to test and demonstrate how TimescaleDB performs well in fetching results while data is also being ingested in the database. Will be using the following data feed, Market Orders – an artificial data stream that provides the latest market orders for a fictitious marketplace and you can clone or download the GitHub repository from -&amp;gt; https://github.</description>
     </item>
-    
     <item>
       <title>Analyzing NYC Citi Bike data with Azure Databricks</title>
       <link>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</link>
       <pubDate>Thu, 08 Feb 2018 15:09:48 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</guid>
       <description>It’s been a while since my last post! How about analyzing NYC Citi Bike data with Azure Databricks. Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform. Designed in collaboration with Microsoft and the creators of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click set up, streamlined workflows and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.</description>
     </item>
-    
     <item>
       <title>Copying data to the Cloud from the Command line</title>
       <link>https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/</link>
       <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/</guid>
       <description>Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.</description>
     </item>
-    
     <item>
       <title>Fetching NHL Play by Play v2</title>
       <link>https://stephanefrechette.dev/posts/fetching-nhl-play-by-play-v2/</link>
       <pubDate>Mon, 09 Oct 2017 19:52:18 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/fetching-nhl-play-by-play-v2/</guid>
-      <description>Finally the 2017-2018 NHL hockey season has begun! But wait… **PANIC** my little thingy nhlplaybyplay-node for fetching games and play-by-play does not work anymore… Hmmm, after some research it looked like I needed to do some updates and fixes in order to make it work again… Instead I decided to create another Node.js app nhlplaybyplay2-node.
-The following is a mirrored post from the README.md on the Github repo -&amp;gt; https://github.</description>
+      <description>Finally the 2017-2018 NHL hockey season has begun! But wait… **PANIC** my little thingy nhlplaybyplay-node for fetching games and play-by-play does not work anymore… Hmmm, after some research it looked like I needed to do some updates and fixes in order to make it work again… Instead I decided to create another Node.js app nhlplaybyplay2-node.&#xA;The following is a mirrored post from the README.md on the Github repo -&amp;gt; https://github.</description>
     </item>
-    
     <item>
       <title>Search for a String in Multiple Files</title>
       <link>https://stephanefrechette.dev/posts/search-string-multiple-files/</link>
       <pubDate>Fri, 22 Sep 2017 10:36:08 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/search-string-multiple-files/</guid>
       <description>In support of an earlier post Fetching NHL Play by Play game data, I was recently asked how could one quickly search for a specific string in multiple JSON files recursively? Well if you are running macOS or Linux grep is your best friend! In a nutshell grep prints lines that contain a match for a pattern. The following is a sample grep and cut command that will list out (output) the games (files) that contains the following string -&amp;gt; “Montréal Canadiens”:</description>
     </item>
-    
     <item>
       <title>Installing TimescaleDB on Azure</title>
       <link>https://stephanefrechette.dev/posts/installing-timescaledb-azure/</link>
       <pubDate>Tue, 25 Jul 2017 16:30:49 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/installing-timescaledb-azure/</guid>
-      <description>Installing TimescaleDB on Azure. First some housekeeping… A time series database is a software system that is optimized for handling time series data, arrays of numbers indexed by time (a datetime or a datetime range). In some fields these time series are called profiles, curves, or traces.
- Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries.</description>
+      <description>Installing TimescaleDB on Azure. First some housekeeping… A time series database is a software system that is optimized for handling time series data, arrays of numbers indexed by time (a datetime or a datetime range). In some fields these time series are called profiles, curves, or traces.&#xA;Lately I discovered TimescaleDB, an open source time-series database engineered up from PostgreSQL and packaged as an extension. It is optimized for fast ingest and complex queries.</description>
     </item>
-    
     <item>
       <title>Real-time streaming dashboard with Power BI</title>
       <link>https://stephanefrechette.dev/posts/real-time-streaming-dashboard-power-bi/</link>
       <pubDate>Tue, 18 Jul 2017 15:32:29 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/real-time-streaming-dashboard-power-bi/</guid>
       <description>I was recently asked to provide a simple demo/proof-of-concept on how to quickly create a real-time streaming dashboard with Power BI. Did you know that you can stream data and update dashboards in real-time? Any visual or dashboard that can be created in Power BI can also be created to display and update real-time data and visuals. The devices and sources of streaming data can be factory sensors, social media sources, service usage metrics, and anything else from which time-sensitive data can be collected or transmitted.</description>
     </item>
-    
     <item>
       <title>SQL Graph in SQL Server 2017</title>
       <link>https://stephanefrechette.dev/posts/sql-graph-sql-server-2017/</link>
       <pubDate>Tue, 16 May 2017 09:35:21 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/sql-graph-sql-server-2017/</guid>
-      <description>As I mentioned several times before… Graphs are everywhere! Graph features are being introduced in SQL Server 2017. Offering graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.
-What is a graph database? In context, a graph database is a database that uses graph structures for semantic queries with nodes, edges and properties to represent and store data.</description>
+      <description>As I mentioned several times before… Graphs are everywhere! Graph features are being introduced in SQL Server 2017. Offering graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.&#xA;What is a graph database? In context, a graph database is a database that uses graph structures for semantic queries with nodes, edges and properties to represent and store data.</description>
     </item>
-    
     <item>
       <title>Configure and manage SQL Server on Linux</title>
       <link>https://stephanefrechette.dev/posts/configure-manage-sql-server-linux/</link>
       <pubDate>Mon, 10 Apr 2017 14:42:14 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/configure-manage-sql-server-linux/</guid>
-      <description>SQL Server Configuration Manageris a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use mssql-conf. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&amp;gt; https://docs.microsoft.com/en-us/sql/linux/.
-The tool is installed in the following directory path /opt/mssql/bin let’s explore what mssql-conf is all about.
-Open a Terminal session and see what type of help and information we get…</description>
+      <description>SQL Server Configuration Manageris a tool to manage the services associated with SQL Server running on Windows. To configure and manage SQL Server on Linux we use mssql-conf. mssql-conf is a configuration script that installs with SQL Server vNext (Linux). Latest release and documentation available here -&amp;gt; https://docs.microsoft.com/en-us/sql/linux/.&#xA;The tool is installed in the following directory path /opt/mssql/bin let’s explore what mssql-conf is all about.&#xA;Open a Terminal session and see what type of help and information we get…</description>
     </item>
-    
     <item>
       <title>Upload multiple files &#34;recursively&#34; to Azure Blob Storage with the Azure CLI 2.0...</title>
       <link>https://stephanefrechette.dev/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</link>
       <pubDate>Tue, 04 Apr 2017 11:13:18 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</guid>
-      <description>Files and the Azure Cloud. This post is about how to upload multiple files from a local directory “recursively” to Azure Blob Storage with the Azure CLI 2.0 from macOS/Linux. For the Windows platform, AzCopy is a awesome command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance.
-You can download the latest version of AzCopy.
-The basic syntax for AzCopy commands is:</description>
+      <description>Files and the Azure Cloud. This post is about how to upload multiple files from a local directory “recursively” to Azure Blob Storage with the Azure CLI 2.0 from macOS/Linux. For the Windows platform, AzCopy is a awesome command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance.&#xA;You can download the latest version of AzCopy.&#xA;The basic syntax for AzCopy commands is:</description>
     </item>
-    
     <item>
       <title>Running SQL Server on Linux in Docker on Windows 10</title>
       <link>https://stephanefrechette.dev/posts/running-sql-server-linux-docker-windows-10/</link>
       <pubDate>Tue, 21 Mar 2017 12:23:03 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/running-sql-server-linux-docker-windows-10/</guid>
       <description>What is Docker? Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data centers, VMs, or in the cloud. Docker allows applications to be isolated into containers with instructions for exactly what they need to survive that can be easily ported from machine to machine. Though Virtual machines also allow the exact same thing, and numerous other tools already exist to make rebuilding these configurations portable and reproducible, Docker has a more simplified structure compared to both of these, the real area where it causes disruption is resource efficiency.</description>
     </item>
-    
     <item>
       <title>SQL Server on Linux - What&#39;s installed?</title>
       <link>https://stephanefrechette.dev/posts/sql-server-linux-whats-installed/</link>
       <pubDate>Wed, 18 Jan 2017 23:23:49 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/sql-server-linux-whats-installed/</guid>
-      <description>Software… Are you the curious type like me who needs to know what’s been installed and where it is located on your system!
-Exploring the public preview of SQL Server vNext CTP1.1, and installing the following necessary packages mssql-server, mssql-tools, and msodbcsql for running and using SQL Server on Linux. This post is about these packages, finding out what files are installed and where, but before we jump in some minor housekeeping stuff…</description>
+      <description>Software… Are you the curious type like me who needs to know what’s been installed and where it is located on your system!&#xA;Exploring the public preview of SQL Server vNext CTP1.1, and installing the following necessary packages mssql-server, mssql-tools, and msodbcsql for running and using SQL Server on Linux. This post is about these packages, finding out what files are installed and where, but before we jump in some minor housekeeping stuff…</description>
     </item>
-    
     <item>
       <title>Fetching NHL Play by Play game data (part 2)</title>
       <link>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data-part-2/</link>
       <pubDate>Fri, 09 Dec 2016 10:25:54 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data-part-2/</guid>
-      <description>Following-up from a previous post Fetching NHL Play by Play game data where I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring… say like analyzing with R, load into a RDBMS, or visualizing it!
-So I added a new javascript file convert.</description>
+      <description>Following-up from a previous post Fetching NHL Play by Play game data where I created a Node.js app that enabled the fetching of NHL Play by Play JSON game files. The next step was to enable the parsing of JSON files into CSV files in order to do some further exploring… say like analyzing with R, load into a RDBMS, or visualizing it!&#xA;So I added a new javascript file convert.</description>
     </item>
-    
     <item>
       <title>Installing SQL Server on Linux on Ubuntu</title>
       <link>https://stephanefrechette.dev/posts/installing-sql-server-linux-ubuntu/</link>
       <pubDate>Tue, 22 Nov 2016 22:49:55 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/installing-sql-server-linux-ubuntu/</guid>
-      <description>SQL Server vNext represents a major step towards making SQL Server a platform that enables choices of development languages, data types, on-premises and in the cloud, and across operating systems by bringing the power of SQL Server to Linux, Linux-based Docker containers, and Windows.
-For all the downloads, code samples and to stay informed visit the following link -&amp;gt; SQL Server v.Next Public Preview.
-I am sharing with you my experiences, gotchas in installing SQL Server on Linux on an existing Ubuntu VM I already had running for a while…I have since installed SQL Server for Linux on several other local VM’s and in Azure without any issues just by following the documentation.</description>
+      <description>SQL Server vNext represents a major step towards making SQL Server a platform that enables choices of development languages, data types, on-premises and in the cloud, and across operating systems by bringing the power of SQL Server to Linux, Linux-based Docker containers, and Windows.&#xA;For all the downloads, code samples and to stay informed visit the following link -&amp;gt; SQL Server v.Next Public Preview.&#xA;I am sharing with you my experiences, gotchas in installing SQL Server on Linux on an existing Ubuntu VM I already had running for a while…I have since installed SQL Server for Linux on several other local VM’s and in Azure without any issues just by following the documentation.</description>
     </item>
-    
     <item>
       <title>Fetching NHL Play by Play game data</title>
       <link>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/</link>
       <pubDate>Tue, 25 Oct 2016 15:16:20 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/fetching-nhl-play-play-game-data/</guid>
-      <description>Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-nodethat provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.
-Hope your familiar with this…
-The following URL retrieves the complete 2016-2017 NHL season schedule
-http://live.nhl.com/GameData/SeasonSchedule-20162017.jsonWhile this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs. EDM on October 16 @ 19:00 EDT)</description>
+      <description>Fetching NHL Play by Play game data I created a Node.js application called nhlplaybyplay-node that provides the means for accessing, fetching the NHL Schedule and Play by Play game data files which are in JSON format.&#xA;Hope your familiar with this…&#xA;The following URL retrieves the complete 2016-2017 NHL season schedule&#xA;http://live.nhl.com/GameData/SeasonSchedule-20162017.json&#xA;While this one retrieves the entire Play by Play game data for game 2016020031 (BUF vs. EDM on October 16 @ 19:00 EDT)</description>
     </item>
-    
     <item>
       <title>Connect to SQL Server using Apache Spark</title>
       <link>https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/</link>
       <pubDate>Fri, 16 Sep 2016 11:59:40 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/connect-sql-server-using-apache-spark/</guid>
-      <description>In-memory distributed processing for large datasets… How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.
-  First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics. A fast and general processing engine compatible with Hadoop data.</description>
+      <description>In-memory distributed processing for large datasets… How to connect to SQL Server using Apache Spark? The Spark documentation covers the basics of the API and Dataframes, there is a lack of info. and examples on actually how to get this feature to work.&#xA;First, what is Apache Spark? Apache Spark is an open source big data processing framework built around speed, ease of use, and sophisticated analytics. A fast and general processing engine compatible with Hadoop data.</description>
     </item>
-    
     <item>
       <title>SQL Server 2016 Row-Level Security</title>
       <link>https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/</link>
       <pubDate>Thu, 19 May 2016 16:47:34 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/</guid>
       <description>With SQL Server 2016 literately just days away from being officially available to public for download Get ready, SQL Server 2016 coming on June 1st. I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).</description>
     </item>
-    
     <item>
       <title>SQL Server 2016 - Dynamic Data Masking</title>
       <link>https://stephanefrechette.dev/posts/anonymize-sensitive-data-dynamic-data-masking/</link>
       <pubDate>Sun, 06 Mar 2016 15:17:24 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/anonymize-sensitive-data-dynamic-data-masking/</guid>
-      <description>With SQL Server 2016 just around the corner, a series of new features and enhancements will be introduced. More specifically some important Security Upgrades; Always Encrypted, Row Level Security, and Dynamic Data Masking. This post covers SQL Server 2016 – Dynamic Data Masking (DDM).
-Note: DDM is also available in Azure SQL Database see the following link for details -&amp;gt; http://bit.ly/1eG7Que
- What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries.</description>
+      <description>With SQL Server 2016 just around the corner, a series of new features and enhancements will be introduced. More specifically some important Security Upgrades; Always Encrypted, Row Level Security, and Dynamic Data Masking. This post covers SQL Server 2016 – Dynamic Data Masking (DDM).&#xA;Note: DDM is also available in Azure SQL Database see the following link for details -&amp;gt; http://bit.ly/1eG7Que&#xA;What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries.</description>
     </item>
-    
     <item>
       <title>ContosoRetailDW on Azure SQL Data Warehouse</title>
       <link>https://stephanefrechette.dev/posts/contosoretaildw-azure-sql-data-warehouse/</link>
       <pubDate>Sun, 03 Jan 2016 14:58:27 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/contosoretaildw-azure-sql-data-warehouse/</guid>
-      <description>Happy New Year! It as been a while my friends… here goes 😉
-ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentation to get you going.
-Optionally if you would like to have a local on premise copy of the ContosoRetailDW database – A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products.</description>
+      <description>Happy New Year! It as been a while my friends… here goes 😉&#xA;ContosoRetailDW on Azure SQL Data Warehouse This post assumes you are familiar or have already been introduced to Azure SQL Data Warehouse. If not I strongly encourage to read and follow-up on the SQL Data Warehouse Documentation to get you going.&#xA;Optionally if you would like to have a local on premise copy of the ContosoRetailDW database – A fictitious retail demo dataset used for presenting Microsoft Business Intelligence products.</description>
     </item>
-    
     <item>
       <title>A short tale of... data vizes</title>
       <link>https://stephanefrechette.dev/posts/a-short-tale-of-data-vizes/</link>
       <pubDate>Tue, 29 Sep 2015 09:12:54 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/a-short-tale-of-data-vizes/</guid>
       <description>A short tale of… data vizes. It’s about Tableau, R, and Shiny. How to prepare/build an existing and well-known Tableau visualization with R and provide web analysis interactivity. Will be using the raw data from the sample workbook named “Regional” that comes with Tableau Desktop. The following image below is a snapshot of the visualization that we will try to reproduce with R. You can also view and interact with this visualization on my Tableau Public profile page -&amp;gt; http://tabsoft.</description>
     </item>
-    
     <item>
       <title>Azure Cloud Services - Neo4j</title>
       <link>https://stephanefrechette.dev/posts/azure-cloud-services-neo4j/</link>
       <pubDate>Thu, 06 Aug 2015 09:22:50 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/azure-cloud-services-neo4j/</guid>
       <description>Yes another exploration and exercise on graph modeling. This time about something I often use… the Cloud: Microsoft Azure. Thought it would be interesting to model the available Azure Cloud Service offerings by category, region, and location. The inspiration and data comes from the following source of information on the following web page http://azure.microsoft.com/en-us/regions/#services. A trivial one, but useful for demonstrating and understanding concepts. This is also a great example of how to store master data and discover new insights in existing data.</description>
     </item>
-    
     <item>
       <title>Neo4j: Montreal-Pierre Elliott Trudeau International Airport (YUL)</title>
       <link>https://stephanefrechette.dev/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/</link>
       <pubDate>Sun, 14 Jun 2015 19:50:49 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/neo4j-montreal-pierre-elliott-trudeau-international-airport-yul/</guid>
       <description>A quick exercise on graph modeling. I recently got inspired from one of Nicole White’s post who did something similar with the Dallas Fort Worth Airport (DFW) data. So I decided to create a Neo4j graph database of the shopping places (boutiques, restaurants and services) at the Montreal-Pierre Elliott Trudeau International Airport (YUL). There isn’t any raw data to download on the site. So I will spare you the details of my scrapping efforts and instead share with you my findings and results.</description>
     </item>
-    
     <item>
       <title>Importing AdventureWorks data into Neo4j</title>
       <link>https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/</link>
       <pubDate>Wed, 01 Apr 2015 11:45:53 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/</guid>
-      <description>Graphs are everywhere! In my efforts to spread the word and inform SQL Server Professionals about Neo4j and learn how to take a relational database schema and model it as a graph… AdventureWorks was a no-brainer! Let’s explore how to import a subset of the AdventureWorks database from SQL Server (RDBMS) into Neo4j (GraphDB).
-But first some prerequisites. You should at least have a basic understanding of what is a property graph model and have completed the following modeling guidelines.</description>
+      <description>Graphs are everywhere! In my efforts to spread the word and inform SQL Server Professionals about Neo4j and learn how to take a relational database schema and model it as a graph… AdventureWorks was a no-brainer! Let’s explore how to import a subset of the AdventureWorks database from SQL Server (RDBMS) into Neo4j (GraphDB).&#xA;But first some prerequisites. You should at least have a basic understanding of what is a property graph model and have completed the following modeling guidelines.</description>
     </item>
-    
     <item>
       <title>Ottawa weather vs. Ottawa JavaScript Meetup attendance: an R analysis</title>
       <link>https://stephanefrechette.dev/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</link>
       <pubDate>Mon, 23 Mar 2015 08:19:37 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/ottawa-weather-vs-ottawa-javascript-meetup-attendance-an-r-analysis/</guid>
-      <description>The more you used it, the more you discover great stuff… I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing…you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.
-So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance!</description>
+      <description>The more you used it, the more you discover great stuff… I wanted to do some analysis with some weather data, but did not want to start searching and scraping sites, then merging and cleansing…you know the drill. So I came across this neat R package named weatherData. weatherData provides functions that help in fetching weather data from websites, documentation found here -&amp;gt; https://ram-n.github.io/weatherData/.&#xA;So I got inspired to compare Ottawa weather and Ottawa JavaScript Meetup attendance!</description>
     </item>
-    
     <item>
       <title>Data Analytics with R and SQL Server</title>
       <link>https://stephanefrechette.dev/posts/data-analytics-r-sql-server/</link>
       <pubDate>Wed, 07 Jan 2015 20:04:51 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/data-analytics-r-sql-server/</guid>
-      <description>First Happy New Year and best wishes for 2015!
-Yes, Data Analytics with R and SQL Server … As Data and Business Intelligence Architects I personally think we just can’t dismiss or push aside the Data Science “landscape”. Hence that’s why I registered and currently more than half way through the Data Science Specialization on Courserafrom the Johns Hopkins University. Even though I have been working with R for a while I wanted to get some kind of recognition, attestation for my skills and also just because I can 😉</description>
+      <description>First Happy New Year and best wishes for 2015!&#xA;Yes, Data Analytics with R and SQL Server … As Data and Business Intelligence Architects I personally think we just can’t dismiss or push aside the Data Science “landscape”. Hence that’s why I registered and currently more than half way through the Data Science Specialization on Coursera from the Johns Hopkins University. Even though I have been working with R for a while I wanted to get some kind of recognition, attestation for my skills and also just because I can 😉</description>
     </item>
-    
     <item>
       <title>Graph data modeling and importing the spreadsheet way</title>
       <link>https://stephanefrechette.dev/posts/graph-data-modeling-and-importing-the-spreadsheet-way/</link>
       <pubDate>Fri, 19 Sep 2014 14:26:35 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/graph-data-modeling-and-importing-the-spreadsheet-way/</guid>
-      <description>You are new or quite interested in exploring Graph Databases and would like to know how to start modeling and importing data in Neo4j?
-There are several ways that could get you started; the neo4j-shell-tools, Load CSV and Batch Import and many more. I strongly recommend reading and exploring the following resources, but to quickly get you started modeling and easily import a small subset of data (&amp;lt;1000 nodes/relationships) the spreadsheet approach is well suited for this.</description>
+      <description>You are new or quite interested in exploring Graph Databases and would like to know how to start modeling and importing data in Neo4j?&#xA;There are several ways that could get you started; the neo4j-shell-tools, Load CSV and Batch Import and many more. I strongly recommend reading and exploring the following resources, but to quickly get you started modeling and easily import a small subset of data (&amp;lt;1000 nodes/relationships) the spreadsheet approach is well suited for this.</description>
     </item>
-    
     <item>
       <title></title>
       <link>https://stephanefrechette.dev/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://stephanefrechette.dev/about/</guid>
-      <description>About My name is Stéphane Fréchette, I&amp;rsquo;m a Cloud Solution Architect.
-I have a passion for architecting, designing and building solutions that matter.
-An all around data guy! Former SQL Server | Data Platform MVP, and current Google Developer Expert - Google Cloud . I focus on hybrid and cloud computing solutions, Data Engineering, Big Data, Advanced Analytics, and Data Visualization.
-Want to start a great conversation, talk to me about (actually anything):</description>
+      <description>About My name is Stéphane Fréchette, I&amp;rsquo;m a Cloud Solution Architect.&#xA;I have a passion for architecting, designing and building solutions that matter.&#xA;An all around data guy! Former SQL Server | Data Platform MVP, and current Google Developer Expert - Google Cloud . I focus on hybrid and cloud computing solutions, Data Engineering, Big Data, Advanced Analytics, and Data Visualization.&#xA;Want to start a great conversation, talk to me about (actually anything):</description>
     </item>
-    
     <item>
       <title></title>
       <link>https://stephanefrechette.dev/talks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://stephanefrechette.dev/talks/</guid>
-      <description>Talks List of all my upcoming and past public talks | presentations.
-Upcoming TBA
-Past Tuesday May 26, 2020 GDG Ottawa | Ottawa, ON
- GDG Cloud Ottawa May Online Meetup - Real-time data ingestion with Cloud Data Fusion.   Wednesday April 22, 2020 GDG Ottawa | Ottawa, ON
- GDG Cloud Ottawa April Online Meetup - GCP Certifications and training resources.   Wednesday May 15, 2019 GDG Cloud Montreal | Montreal, QC</description>
+      <description>Talks List of all my upcoming and past public talks | presentations.&#xA;Upcoming TBA&#xA;Past Tuesday May 26, 2020 GDG Ottawa | Ottawa, ON&#xA;GDG Cloud Ottawa May Online Meetup - Real-time data ingestion with Cloud Data Fusion. Wednesday April 22, 2020 GDG Ottawa | Ottawa, ON&#xA;GDG Cloud Ottawa April Online Meetup - GCP Certifications and training resources. Wednesday May 15, 2019 GDG Cloud Montreal | Montreal, QC&#xA;Next&#39;19 Extended Montreal | Slides Thursday May 16, 2019 GDG Cloud Ottawa | Ottawa, ON</description>
     </item>
-    
   </channel>
 </rss>

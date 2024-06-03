@@ -1,41 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>security on Stéphane Fréchette</title>
+    <title>Security on Stéphane Fréchette</title>
     <link>https://stephanefrechette.dev/tags/security/</link>
-    <description>Recent content in security on Stéphane Fréchette</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Security on Stéphane Fréchette</description>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 26 Jul 2019 09:45:38 -0400</lastBuildDate><atom:link href="https://stephanefrechette.dev/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Jul 2019 09:45:38 -0400</lastBuildDate>
+    <atom:link href="https://stephanefrechette.dev/tags/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating a Google Cloud Platform service account key</title>
       <link>https://stephanefrechette.dev/posts/creating-a-google-cloud-platform-service-account-key/</link>
       <pubDate>Fri, 26 Jul 2019 09:45:38 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/creating-a-google-cloud-platform-service-account-key/</guid>
-      <description>Some context&amp;hellip; A service account is a special type of Google account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs.
-Lately I have been helping customers that are using CDAP, an 100% open source, integrated framework that accelerates application development for data analytics. Specifically around creating and connecting to Google Cloud Storage as a source to ingest and do data preparation (a.</description>
+      <description>Some context&amp;hellip; A service account is a special type of Google account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs.&#xA;Lately I have been helping customers that are using CDAP, an 100% open source, integrated framework that accelerates application development for data analytics. Specifically around creating and connecting to Google Cloud Storage as a source to ingest and do data preparation (a.</description>
     </item>
-    
     <item>
       <title>SQL Server 2016 Row-Level Security</title>
       <link>https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/</link>
       <pubDate>Thu, 19 May 2016 16:47:34 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/</guid>
       <description>With SQL Server 2016 literately just days away from being officially available to public for download Get ready, SQL Server 2016 coming on June 1st. I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).</description>
     </item>
-    
     <item>
       <title>SQL Server 2016 - Dynamic Data Masking</title>
       <link>https://stephanefrechette.dev/posts/anonymize-sensitive-data-dynamic-data-masking/</link>
       <pubDate>Sun, 06 Mar 2016 15:17:24 -0400</pubDate>
-      
       <guid>https://stephanefrechette.dev/posts/anonymize-sensitive-data-dynamic-data-masking/</guid>
-      <description>With SQL Server 2016 just around the corner, a series of new features and enhancements will be introduced. More specifically some important Security Upgrades; Always Encrypted, Row Level Security, and Dynamic Data Masking. This post covers SQL Server 2016 – Dynamic Data Masking (DDM).
-Note: DDM is also available in Azure SQL Database see the following link for details -&amp;gt; http://bit.ly/1eG7Que
- What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries.</description>
+      <description>With SQL Server 2016 just around the corner, a series of new features and enhancements will be introduced. More specifically some important Security Upgrades; Always Encrypted, Row Level Security, and Dynamic Data Masking. This post covers SQL Server 2016 – Dynamic Data Masking (DDM).&#xA;Note: DDM is also available in Azure SQL Database see the following link for details -&amp;gt; http://bit.ly/1eG7Que&#xA;What is Dynamic Data Masking? Dynamic Data Masking enables you to anonymize sensitive data, real-time obfuscation of data to prevent unauthorized access by controlling how the data appears in the output of database queries.</description>
     </item>
-    
   </channel>
 </rss>
