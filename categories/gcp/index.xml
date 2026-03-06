@@ -13,7 +13,7 @@
       <link>https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/</link>
       <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
       <guid>https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/</guid>
-      <description>Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.</description>
+      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;https://stephanefrechette.dev/images/legacy-post/sky-1513292_640.png#floatleft&#34; width=&#34;250&#34; height=&#34;160&#34;&gt;&#xA;&lt;/figure&gt;&#xA;Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,164 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="author" content="Stéphane Fréchette">
-    <meta name="description" content="Stéphane Fréchette&#39;s personal website">
-    <meta name="keywords" content="stephane frechette,blog,data engineer,cloud solution architect,azure,google cloud">
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Copying data to the Cloud from the Command line"/>
-<meta name="twitter:description" content="Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line."/>
-
-    <meta property="og:title" content="Copying data to the Cloud from the Command line" />
-<meta property="og:description" content="Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2017-11-19T16:46:01-04:00" />
-<meta property="article:modified_time" content="2017-11-19T16:46:01-04:00" />
-
-
-
-    
-      <base href="https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/">
-    
-    <title>
+<head>
+  <title>
   Copying data to the Cloud from the Command line · Stéphane Fréchette
 </title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 
+
+
+
+<meta name="author" content="Stéphane Fréchette">
+<meta name="description" content="
+
+Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.">
+<meta name="keywords" content="stephane frechette,blog,data engineer,cloud solution architect,azure,google cloud">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Copying data to the Cloud from the Command line">
+  <meta name="twitter:description" content="Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.">
+
+<meta property="og:url" content="https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/">
+  <meta property="og:site_name" content="Stéphane Fréchette">
+  <meta property="og:title" content="Copying data to the Cloud from the Command line">
+  <meta property="og:description" content="Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-11-19T16:46:01-04:00">
+    <meta property="article:modified_time" content="2017-11-19T16:46:01-04:00">
+    <meta property="article:tag" content="Amazon Web Services">
+    <meta property="article:tag" content="Aws">
+    <meta property="article:tag" content="Aws S3">
+    <meta property="article:tag" content="Azcopy">
+    <meta property="article:tag" content="Azure">
+    <meta property="article:tag" content="Azure Blob Storage">
+
+
+
+
+<link rel="canonical" href="https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.0ab58f0bc42b4f21bff7ac349245f3c5579ad3c46dee51b49ad860d174431d73.css" integrity="sha256-CrWPC8QrTyG/96w0kkXzxVea08Rt7lG0mthg0XRDHXM=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+  
     
-      <link rel="canonical" href="https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/">
-    
+    <link rel="stylesheet" href="/css/custom.min.4a404bec5204d9d065ea08b9c1432f757d34b53a80074c804b9ab84e833f5c23.css" integrity="sha256-SkBL7FIE2dBl6gi5wUMvdX00tTqAB0yAS5q4ToM/XCM=" crossorigin="anonymous" media="screen" />
+  
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
 
-    
-      
-      
-      <link rel="stylesheet" href="https://stephanefrechette.dev/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
 
-    
 
-    
 
-    
-      <link rel="stylesheet" href="https://stephanefrechette.dev/css/custom.css">
-    
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/me-cartoon-32x32.jpg" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    <meta name="generator" content="Hugo 0.92.2" />
-  </head>
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
 
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://stephanefrechette.dev">
+    
+    <a class="navigation-title" href="https://stephanefrechette.dev/">
       Stéphane Fréchette
     </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://stephanefrechette.dev/posts/">Blog</a>
-          </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://stephanefrechette.dev/talks/">Talks</a>
-          </li>
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://stephanefrechette.dev/about/">About</a>
-          </li>
-        
-      
-      
-    </ul>
+      </ul>
+    
   </section>
 </nav>
 
 
-      <div class="content">
-        
+    <div class="content">
+      
   <section class="container post">
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Copying data to the Cloud from the Command line</h1>
+          <h1 class="title">
+            <a class="title-link" href="https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/">
+              Copying data to the Cloud from the Command line
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2017-11-19T16:46:01-04:00'>
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2017-11-19T16:46:01-04:00">
                 November 19, 2017
               </time>
             </span>
             <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              6 minutes read
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6-minute read
             </span>
           </div>
+          
           <div class="categories">
-  <i class="fas fa-folder"></i>
-    <a href="https://stephanefrechette.dev/categories/azure/">Azure</a>
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/azure/">Azure</a>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/categories/aws/">AWS</a>
+    <a href="/categories/aws/">AWS</a>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/categories/gcp/">GCP</a>
+    <a href="/categories/gcp/">GCP</a>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/categories/cloud-computing/">Cloud Computing</a></div>
+    <a href="/categories/cloud-computing/">Cloud Computing</a></div>
 
           <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://stephanefrechette.dev/tags/amazon-web-services/">amazon web services</a>
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/amazon-web-services/">Amazon Web Services</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/aws/">aws</a>
+    <span class="tag">
+      <a href="/tags/aws/">Aws</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/aws-s3/">aws s3</a>
+    <span class="tag">
+      <a href="/tags/aws-s3/">Aws S3</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/azcopy/">azcopy</a>
+    <span class="tag">
+      <a href="/tags/azcopy/">Azcopy</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/azure/">azure</a>
+    <span class="tag">
+      <a href="/tags/azure/">Azure</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/azure-blob-storage/">azure blob storage</a>
+    <span class="tag">
+      <a href="/tags/azure-blob-storage/">Azure Blob Storage</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/azure-cli/">azure cli</a>
+    <span class="tag">
+      <a href="/tags/azure-cli/">Azure Cli</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/azure-powershell/">azure powershell</a>
+    <span class="tag">
+      <a href="/tags/azure-powershell/">Azure Powershell</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/command-line/">command line</a>
+    <span class="tag">
+      <a href="/tags/command-line/">Command Line</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/command-line-interface/">command-line interface</a>
+    <span class="tag">
+      <a href="/tags/command-line-interface/">Command-Line Interface</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/gcp/">gcp</a>
+    <span class="tag">
+      <a href="/tags/gcp/">Gcp</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/google-cloud-platform/">google cloud platform</a>
+    <span class="tag">
+      <a href="/tags/google-cloud-platform/">Google Cloud Platform</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/google-cloud-storage/">google cloud storage</a></div>
+    <span class="tag">
+      <a href="/tags/google-cloud-storage/">Google Cloud Storage</a>
+    </span></div>
 
         </div>
       </header>
-      
-      <div>
-        <p><figure><img src="https://stephanefrechette.dev/images/legacy-post/sky-1513292_640.png#floatleft" width="250" height="160"/>
+
+      <div class="post-content">
+        
+        <p><figure><img src="/images/legacy-post/sky-1513292_640.png#floatleft" width="250" height="160">
 </figure>
 Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.</p>
 <p>In no particular order I strongly recommend you read and get knowledgeable on each of their offerings and register for a free subscription:</p>
 <ul>
-<li><a href="https://cloud.google.com/storage/" target="_blank">Google Cloud Storage</a></li>
-<li><a href="https://aws.amazon.com/s3/" target="_blank">Amazon S3</a><!-- raw HTML omitted --></li>
-<li><a href="https://azure.microsoft.com/en-ca/services/storage/blobs/" target="_blank">Azure Blob Storage</a></li>
+<li><a href="https://cloud.google.com/storage/"  class="external-link" target="_blank" rel="noopener">Google Cloud Storage</a></li>
+<li><a href="https://aws.amazon.com/s3/"  class="external-link" target="_blank" rel="noopener">Amazon S3</a></a></li>
+<li><a href="https://azure.microsoft.com/en-ca/services/storage/blobs/"  class="external-link" target="_blank" rel="noopener">Azure Blob Storage</a></li>
 </ul>
 <p>Now for each platform we will specifically implement 4 actions (commands):</p>
 <ol>
@@ -167,9 +246,9 @@ Copying data to the Cloud from the Command line, this is what this post is all a
 <li><strong>delete</strong> <em>objects(s)</em></li>
 <li><strong>delete</strong> a <em>bucket/container (placeholder)</em></li>
 </ol>
-<p>We will be using the 2016 Jersey City – Citi Bike trip data, details and info about the data -&gt; <a href="https://www.citibikenyc.com/system-data" target="_blank">https://www.citibikenyc.com/system-data</a>, but for this sample demo I already downloaded and packaged the data for you! Which you can download <a href="https://www.dropbox.com/sh/s8rq8rnjl6c6x6e/AAAranOxsJEnu8yl5cl2bzC0a?dl=0" target="_blank">here</a>.</p>
+<p>We will be using the 2016 Jersey City – Citi Bike trip data, details and info about the data -&gt; <a href="https://www.citibikenyc.com/system-data"  class="external-link" target="_blank" rel="noopener">https://www.citibikenyc.com/system-data</a>, but for this sample demo I already downloaded and packaged the data for you! Which you can download <a href="https://www.dropbox.com/sh/s8rq8rnjl6c6x6e/AAAranOxsJEnu8yl5cl2bzC0a?dl=0"  class="external-link" target="_blank" rel="noopener">here</a>.</p>
 <p>Once downloaded and unzipped the data should look like this…<br>
-<figure><img src="https://stephanefrechette.dev/images/legacy-post/data_01.png" width="584" height="436"/>
+<figure><img src="/images/legacy-post/data_01.png" width="584" height="436">
 </figure>
 </p>
 <p><strong>Warning!</strong><br>
@@ -177,204 +256,243 @@ I am on macOS, all works in Windows, just don’t forget to change the file path
 <p> 
  
  </p>
-<figure><img src="https://stephanefrechette.dev/images/legacy-post/Cloud-Storage-150x150.png" width="75" height="75"/>
+<figure><img src="/images/legacy-post/Cloud-Storage-150x150.png" width="75" height="75">
 </figure>
 
-<h4 id="google-cloud-storage">Google Cloud Storage</h4>
-<p>Access to Google Cloud Storage from the command line is done with the <a href="https://cloud.google.com/storage/docs/gsutil" target="_blank">gsutil</a> Tool. Assumption is that you have selected and created a <a href="https://console.cloud.google.com/cloud-resource-manager" target="_blank">Cloud Platform project</a> and <a href="https://cloud.google.com/billing/docs/how-to/modify-project?visit_id=1-636450616292805861-2066841552&amp;#038;rd=1#enable-billing" target="_blank">enabled billing</a> for your project. Next you need to install the <a href="https://cloud.google.com/sdk/docs/" target="_blank">Cloud SDK</a> and <a href="https://www.python.org/downloads/release/python-2711/" target="_blank">Python 2.7</a> (if not already installed). To install and initialize follow these <a href="https://cloud.google.com/sdk/docs/quickstarts" target="_blank">Quickstarts</a>.</p>
+<h4 id="google-cloud-storage">
+  Google Cloud Storage
+  <a class="heading-link" href="#google-cloud-storage">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Access to Google Cloud Storage from the command line is done with the <a href="https://cloud.google.com/storage/docs/gsutil"  class="external-link" target="_blank" rel="noopener">gsutil</a> Tool. Assumption is that you have selected and created a <a href="https://console.cloud.google.com/cloud-resource-manager"  class="external-link" target="_blank" rel="noopener">Cloud Platform project</a> and <a href="https://cloud.google.com/billing/docs/how-to/modify-project?visit_id=1-636450616292805861-2066841552&amp;#038;rd=1#enable-billing"  class="external-link" target="_blank" rel="noopener">enabled billing</a> for your project. Next you need to install the <a href="https://cloud.google.com/sdk/docs/"  class="external-link" target="_blank" rel="noopener">Cloud SDK</a> and <a href="https://www.python.org/downloads/release/python-2711/"  class="external-link" target="_blank" rel="noopener">Python 2.7</a> (if not already installed). To install and initialize follow these <a href="https://cloud.google.com/sdk/docs/quickstarts"  class="external-link" target="_blank" rel="noopener">Quickstarts</a>.</p>
 <p><strong>Create a bucket</strong></p>
-<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/mb" target="_blank">mb – Make buckets</a>. The following command creates a bucket named citibike-tripdata to a nearline storage class in the us-east-1 region:</p>
+<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/mb"  class="external-link" target="_blank" rel="noopener">mb – Make buckets</a>. The following command creates a bucket named citibike-tripdata to a nearline storage class in the us-east-1 region:</p>
 <p><code>gsutil mb -c nearline -l us-east1 gs://citibike-tripdata</code></p>
 <p><strong>Copy object(s)</strong></p>
-<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/cp" target="_blank">cp – Copy files and objects</a>. The following command performs a parallel (multi-threaded/multi-processing) copy of files recursively, and applies the gzip content-encoding to each:</p>
+<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/cp"  class="external-link" target="_blank" rel="noopener">cp – Copy files and objects</a>. The following command performs a parallel (multi-threaded/multi-processing) copy of files recursively, and applies the gzip content-encoding to each:</p>
 <p><code>gsutil -m cp -r -Z &quot;/data/citibike/jc/2016/&quot; gs://citibike-tripdata/jc/</code></p>
 <p><strong>Delete object(s)</strong></p>
-<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/rm" target="_blank">rm – Remove objects</a>. The following command causes bucket or bucket subdirectory contents (all objects and subdirectories that it contains) to be removed recursively:</p>
+<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/rm"  class="external-link" target="_blank" rel="noopener">rm – Remove objects</a>. The following command causes bucket or bucket subdirectory contents (all objects and subdirectories that it contains) to be removed recursively:</p>
 <p><code>gsutil -m rm -r gs://citibike-tripdata/jc/2016/</code></p>
 <p><strong>Delete bucket</strong></p>
-<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/rb" target="_blank">rb – Remove buckets</a>. Buckets must be empty before you can delete them. The following command deletes the citibike-tripdata bucket (and all of it’s subdirectories, because we deleted all objects previously):</p>
+<p><a href="https://cloud.google.com/storage/docs/gsutil/commands/rb"  class="external-link" target="_blank" rel="noopener">rb – Remove buckets</a>. Buckets must be empty before you can delete them. The following command deletes the citibike-tripdata bucket (and all of it’s subdirectories, because we deleted all objects previously):</p>
 <p><code>gsutil rb gs://citibike-tripdata</code></p>
 <p> 
  
  
-<figure><img src="https://stephanefrechette.dev/images/legacy-post/awss3.png" width="75" height="92"/>
+<figure><img src="/images/legacy-post/awss3.png" width="75" height="92">
 </figure>
 </p>
-<h4 id="amazon-s3">Amazon S3</h4>
-<p>The <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html" target="_blank">AWS CLI</a> is an open source tool built on top of the AWS SDK for Python that provides commands for interacting with AWS services. It uses all of the functionality provided by the AWS Management Console from your favorite terminal program. Start with <a href="https://docs.aws.amazon.com/cli/latest/userguide/installing.html" target="_blank">Installing the AWS Command Line Interface</a> and next <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html" target="_blank">configure your settings</a>.</p>
+<h4 id="amazon-s3">
+  Amazon S3
+  <a class="heading-link" href="#amazon-s3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html"  class="external-link" target="_blank" rel="noopener">AWS CLI</a> is an open source tool built on top of the AWS SDK for Python that provides commands for interacting with AWS services. It uses all of the functionality provided by the AWS Management Console from your favorite terminal program. Start with <a href="https://docs.aws.amazon.com/cli/latest/userguide/installing.html"  class="external-link" target="_blank" rel="noopener">Installing the AWS Command Line Interface</a> and next <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html"  class="external-link" target="_blank" rel="noopener">configure your settings</a>.</p>
 <p><strong>Create a bucket</strong></p>
-<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html" target="_blank">mb – Creates an S3 bucket</a>. The following command creates a bucket named citibike-tripdata in the ca-central-1 region:</p>
+<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html"  class="external-link" target="_blank" rel="noopener">mb – Creates an S3 bucket</a>. The following command creates a bucket named citibike-tripdata in the ca-central-1 region:</p>
 <p><code>aws s3 mb s3://citibike-tripdata --region ca-central-1</code>
-<!-- raw HTML omitted --></p>
+</pre></p>
 <p><strong>Copy object(s)</strong></p>
-<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html" target="_blank">cp – Copies a local file or S3 object to another location locally or in S3</a>. The following command copies files recursively to a STANDARD_IA (infrequent access) storage class and applies the gzip content-encoding to each:</p>
+<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html"  class="external-link" target="_blank" rel="noopener">cp – Copies a local file or S3 object to another location locally or in S3</a>. The following command copies files recursively to a STANDARD_IA (infrequent access) storage class and applies the gzip content-encoding to each:</p>
 <p><code>aws s3 cp &quot;/data/citibike/jc/2016/&quot;  s3://citibike-tripdata/jc/2016/ --storage-class STANDARD_IA --recursive --content-encoding gzip</code></p>
 <p><strong>Delete object(s)</strong></p>
-<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/rm.html" target="_blank">rm – Deletes an S3 object</a>. The following command causes bucket or bucket subdirectory contents (all objects and subdirectories that it contains) to be removed recursively:</p>
+<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/rm.html"  class="external-link" target="_blank" rel="noopener">rm – Deletes an S3 object</a>. The following command causes bucket or bucket subdirectory contents (all objects and subdirectories that it contains) to be removed recursively:</p>
 <p><code>aws s3 rm s3://citibike-tripdata/jc/2016/ --recursive</code></p>
 <p><strong>Delete bucket</strong></p>
-<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/rb.html" target="_blank">rb – Deletes an empty S3 bucket</a>. A bucket must be completely empty of objects and versioned objects before it can be deleted. The following command deletes the citibike-tripdata bucket (and all of it’s subdirectories, because we deleted all objects previously):</p>
+<p><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/rb.html"  class="external-link" target="_blank" rel="noopener">rb – Deletes an empty S3 bucket</a>. A bucket must be completely empty of objects and versioned objects before it can be deleted. The following command deletes the citibike-tripdata bucket (and all of it’s subdirectories, because we deleted all objects previously):</p>
 <p><code>aws s3 rb s3://citibike-tripdata</code></p>
 <p> 
  
  </p>
-<figure><img src="https://stephanefrechette.dev/images/legacy-post/Azure-Storage-Blob-150x150.png" width="75" height="75"/>
+<figure><img src="/images/legacy-post/Azure-Storage-Blob-150x150.png" width="75" height="75">
 </figure>
 
-<h4 id="azure-blob-storage">Azure Blob Storage</h4>
-<p>The <a href="https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest" target="_blank">Azure CLI</a> and <a href="https://docs.microsoft.com/en-us/powershell/azure/overview" target="_blank">Azure PowerShell</a> module are used to create and manage Azure resources from the command line or in scripts. <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy" target="_blank">AzCopy</a> available on <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy" target="_blank">Windows</a> and <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux" target="_blank">Linux</a> is also an interesting command-line utility designed for high-performance copying of data to and from Azure Storage.</p>
+<h4 id="azure-blob-storage">
+  Azure Blob Storage
+  <a class="heading-link" href="#azure-blob-storage">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The <a href="https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest"  class="external-link" target="_blank" rel="noopener">Azure CLI</a> and <a href="https://docs.microsoft.com/en-us/powershell/azure/overview"  class="external-link" target="_blank" rel="noopener">Azure PowerShell</a> module are used to create and manage Azure resources from the command line or in scripts. <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy"  class="external-link" target="_blank" rel="noopener">AzCopy</a> available on <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy"  class="external-link" target="_blank" rel="noopener">Windows</a> and <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux"  class="external-link" target="_blank" rel="noopener">Linux</a> is also an interesting command-line utility designed for high-performance copying of data to and from Azure Storage.</p>
 <p>Both the Azure CLI and Azure PowerShell are available for macOS, Windows and Linux, but at this time for macOS and Linux, the PowerShell 6 (beta) and Azure PowerShell for .NET Core are still in beta, so the Azure PowerShell sample commands below are done on the Windows platform.</p>
-<p>If using the Azure CLI run the login command: <a href="https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest" target="_blank">az login</a> or <a href="https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart" target="_blank">launch the Cloud Shell</a> and if using the Azure PowerShell run the login command: <a href="https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps" target="_blank">Login-AzureRmAccount</a>.</p>
+<p>If using the Azure CLI run the login command: <a href="https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest"  class="external-link" target="_blank" rel="noopener">az login</a> or <a href="https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart"  class="external-link" target="_blank" rel="noopener">launch the Cloud Shell</a> and if using the Azure PowerShell run the login command: <a href="https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps"  class="external-link" target="_blank" rel="noopener">Login-AzureRmAccount</a>.</p>
 <p><strong>Create a container</strong></p>
-<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/container?view=azure-cli-latest#create" target="_blank">az storage container</a>. The following commands creates a resource group <em>citibiketripdata_rg</em>, a storage account <em>citibiketripdata</em>, and a container <em>citibike-tripdata</em>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#60a0b0;font-style:italic"># Create a resource group</span>
-az <span style="color:#007020">group </span>create --name citibiketripdata_rg --location eastus
-
-<span style="color:#60a0b0;font-style:italic"># Create a storage account</span>
-az storage account create \
-    --name citibiketripdata \
-    --resource-group citibiketripdata_rg \
-    --location eastus \
-    --sku Standard_LRS \
-    --encryption blob
-
-<span style="color:#60a0b0;font-style:italic"># The Azure CLI needs your storage account credentials...</span>
-export AZURE_STORAGE_ACCOUNT=<span style="color:#4070a0">&#39;PUT_YOUR_STORAGE_ACCOUNT_HERE&#39;</span>
-export AZURE_STORAGE_ACCESS_KEY=<span style="color:#4070a0">&#39;PUT_YOUR_ACCESS_KEY_HERE&#39;</span>
-
-<span style="color:#60a0b0;font-style:italic"># Create a container</span>
-az storage container create --name <span style="color:#007020">citibike-tripdata</span>
-</code></pre></div><p><a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer" target="_blank">New-AzureStorageContainer</a>. The following commands creates a resource group <em>citibiketripdata_rg</em>, a storage account <em>citibiketripdata</em>, and a container <em>citibike-tripdata</em>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#60a0b0;font-style:italic"># Create a resource group</span>
-<span style="color:#007020">New-AzureRmResourceGroup</span> -Name citibiketripdata_rg -Location eastus 
-
-<span style="color:#60a0b0;font-style:italic"># Create a storage account</span>
-<span style="color:#bb60d5">$storageAccount</span> = <span style="color:#007020">New-AzureRmStorageAccount</span> -ResourceGroupName citibiketripdata_rg `
-  -Name <span style="color:#4070a0">&#34;citibiketripdata&#34;</span> `
-  -Location eastus `
-  -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
-
-<span style="color:#bb60d5">$ctx</span> = <span style="color:#bb60d5">$storageAccount</span>.Context
-
-<span style="color:#60a0b0;font-style:italic"># Create a container</span>
-<span style="color:#007020">New-AzureStorageContainer</span> -Name <span style="color:#4070a0">&#34;citibike-tripdata&#34;</span> -Context <span style="color:#bb60d5">$ctx</span> -Permission Off
-</code></pre></div><p><strong>Copy object(s)</strong></p>
-<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_upload_batch" target="_blank">az storage blob upload-batch</a>. The following command uploads files from a local directory <em>/data/citibike/</em> to a blob container <em>citibike-tripdata</em> with gzip content-encoding</p>
+<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/container?view=azure-cli-latest#create"  class="external-link" target="_blank" rel="noopener">az storage container</a>. The following commands creates a resource group <em>citibiketripdata_rg</em>, a storage account <em>citibiketripdata</em>, and a container <em>citibike-tripdata</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Create a resource group</span>
+</span></span><span style="display:flex;"><span>az group create --name citibiketripdata_rg --location eastus
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a storage account</span>
+</span></span><span style="display:flex;"><span>az storage account create \
+</span></span><span style="display:flex;"><span>    --name citibiketripdata \
+</span></span><span style="display:flex;"><span>    --resource-group citibiketripdata_rg \
+</span></span><span style="display:flex;"><span>    --location eastus \
+</span></span><span style="display:flex;"><span>    --sku Standard_LRS \
+</span></span><span style="display:flex;"><span>    --encryption blob
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The Azure CLI needs your storage account credentials...</span>
+</span></span><span style="display:flex;"><span>export AZURE_STORAGE_ACCOUNT=<span style="color:#e6db74">&#39;PUT_YOUR_STORAGE_ACCOUNT_HERE&#39;</span>
+</span></span><span style="display:flex;"><span>export AZURE_STORAGE_ACCESS_KEY=<span style="color:#e6db74">&#39;PUT_YOUR_ACCESS_KEY_HERE&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a container</span>
+</span></span><span style="display:flex;"><span>az storage container create --name citibike-tripdata
+</span></span></code></pre></div><p><a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer"  class="external-link" target="_blank" rel="noopener">New-AzureStorageContainer</a>. The following commands creates a resource group <em>citibiketripdata_rg</em>, a storage account <em>citibiketripdata</em>, and a container <em>citibike-tripdata</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Create a resource group</span>
+</span></span><span style="display:flex;"><span>New-AzureRmResourceGroup -Name citibiketripdata_rg -Location eastus 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a storage account</span>
+</span></span><span style="display:flex;"><span>$storageAccount = New-AzureRmStorageAccount -ResourceGroupName citibiketripdata_rg `
+</span></span><span style="display:flex;"><span>  -Name <span style="color:#e6db74">&#34;citibiketripdata&#34;</span> `
+</span></span><span style="display:flex;"><span>  -Location eastus `
+</span></span><span style="display:flex;"><span>  -SkuName Standard_LRS `
+</span></span><span style="display:flex;"><span>  -Kind Storage `
+</span></span><span style="display:flex;"><span>  -EnableEncryptionService Blob
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ctx = $storageAccount.Context
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a container</span>
+</span></span><span style="display:flex;"><span>New-AzureStorageContainer -Name <span style="color:#e6db74">&#34;citibike-tripdata&#34;</span> -Context $ctx -Permission Off
+</span></span></code></pre></div><p><strong>Copy object(s)</strong></p>
+<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_upload_batch"  class="external-link" target="_blank" rel="noopener">az storage blob upload-batch</a>. The following command uploads files from a local directory <em>/data/citibike/</em> to a blob container <em>citibike-tripdata</em> with gzip content-encoding</p>
 <p><code>az storage blob upload-batch --destination citibike-tripdata \ --source /data/citibike/ \ --content-encoding gzip</code></p>
-<p>The <a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/set-azurestorageblobcontent" target="_blank">Set-AzureStorageBlobContent</a> does the job, however it does not keep and copy the folder structure from our local source. So here is a PowerShell script that does exactly what we need:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#bb60d5">$StorageAccountName</span> = <span style="color:#4070a0">&#34;citibiketripdata&#34;</span>
-<span style="color:#bb60d5">$StorageAccountKey</span> = <span style="color:#4070a0">&#34;PUT_YOUR_ACCESS_KEY_HERE&#34;</span>
-<span style="color:#bb60d5">$ContainerName</span> = <span style="color:#4070a0">&#34;citibike-tripdata&#34;</span>
-<span style="color:#bb60d5">$sourceFileRootDirectory</span> = <span style="color:#4070a0">&#34;C:\data\citibike&#34;</span>
- 
-<span style="color:#007020;font-weight:bold">function</span> UploadFilesToAzureStorageContainer {
-    [<span style="color:#007020;font-weight:bold">cmdletbinding</span>()]
-    <span style="color:#007020;font-weight:bold">param</span>(
-        <span style="color:#bb60d5">$StorageAccountName</span>,
-        <span style="color:#bb60d5">$StorageAccountKey</span>,
-        <span style="color:#bb60d5">$ContainerName</span>,
-        <span style="color:#bb60d5">$sourceFileRootDirectory</span>,
-        <span style="color:#bb60d5">$Force</span>
-    )
- 
-    <span style="color:#bb60d5">$ctx</span> = <span style="color:#007020">New-AzureStorageContext</span> -StorageAccountName <span style="color:#bb60d5">$StorageAccountName</span> -StorageAccountKey <span style="color:#bb60d5">$StorageAccountKey</span>
-    <span style="color:#bb60d5">$container</span> = <span style="color:#007020">Get-AzureStorageContainer</span> -Name <span style="color:#bb60d5">$ContainerName</span> -Context <span style="color:#bb60d5">$ctx</span>
- 
-    <span style="color:#bb60d5">$container</span>.CloudBlobContainer.Uri.AbsoluteUri
-    <span style="color:#007020;font-weight:bold">if</span> (<span style="color:#bb60d5">$container</span>) {
-        <span style="color:#bb60d5">$filesToUpload</span> = <span style="color:#007020">Get-ChildItem</span> <span style="color:#bb60d5">$sourceFileRootDirectory</span> -Recurse <span style="color:#666">-File</span>
- 
-        <span style="color:#007020;font-weight:bold">foreach</span> (<span style="color:#bb60d5">$x</span> <span style="color:#007020;font-weight:bold">in</span> <span style="color:#bb60d5">$filesToUpload</span>) {
-            <span style="color:#bb60d5">$targetPath</span> = (<span style="color:#bb60d5">$x</span>.fullname.Substring(<span style="color:#bb60d5">$sourceFileRootDirectory</span>.Length + 1)).Replace(<span style="color:#4070a0">&#34;\&#34;</span>, <span style="color:#4070a0">&#34;/&#34;</span>)
- 
-            <span style="color:#007020">Write-Verbose</span> <span style="color:#4070a0">&#34;Uploading </span>$(<span style="color:#4070a0">&#34;\&#34;</span> + <span style="color:#bb60d5">$x</span>.fullname.Substring(<span style="color:#bb60d5">$sourceFileRootDirectory</span>.Length + 1))<span style="color:#4070a0"> to </span>$(<span style="color:#bb60d5">$container</span>.CloudBlobContainer.Uri.AbsoluteUri + <span style="color:#4070a0">&#34;/&#34;</span> + <span style="color:#bb60d5">$targetPath</span>)<span style="color:#4070a0">&#34;</span>
-            <span style="color:#007020">Set-AzureStorageBlobContent</span> <span style="color:#666">-File</span> <span style="color:#bb60d5">$x</span>.fullname -Container <span style="color:#bb60d5">$container</span>.Name -Blob <span style="color:#bb60d5">$targetPath</span> -Context <span style="color:#bb60d5">$ctx</span> -Properties @{<span style="color:#4070a0">&#34;ContentEncoding&#34;</span> = <span style="color:#4070a0">&#34;gzip&#34;</span>} -Force<span style="">:</span><span style="color:#bb60d5">$Force</span> | <span style="color:#007020">Out-Null</span>
-        }
-    }
-}
- 
-UploadFilesToAzureStorageContainer -StorageAccountName <span style="color:#bb60d5">$StorageAccountName</span> -StorageAccountKey <span style="color:#bb60d5">$StorageAccountKey</span> -ContainerName <span style="color:#bb60d5">$ContainerName</span> -sourceFileRootDirectory <span style="color:#bb60d5">$sourceFileRootDirectory</span> -Verbose
-</code></pre></div><p>As mentioned earlier the AzCopy utility is another option for high-performance scriptable data transfer for Azure Storage. The following command will recursively copy data from the <em>C:\data\citibike</em> local folder to the <em>citibike-tripdata</em> container</p>
+<p>The <a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/set-azurestorageblobcontent"  class="external-link" target="_blank" rel="noopener">Set-AzureStorageBlobContent</a> does the job, however it does not keep and copy the folder structure from our local source. So here is a PowerShell script that does exactly what we need:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$StorageAccountName = <span style="color:#e6db74">&#34;citibiketripdata&#34;</span>
+</span></span><span style="display:flex;"><span>$StorageAccountKey = <span style="color:#e6db74">&#34;PUT_YOUR_ACCESS_KEY_HERE&#34;</span>
+</span></span><span style="display:flex;"><span>$ContainerName = <span style="color:#e6db74">&#34;citibike-tripdata&#34;</span>
+</span></span><span style="display:flex;"><span>$sourceFileRootDirectory = <span style="color:#e6db74">&#34;C:\data\citibike&#34;</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> UploadFilesToAzureStorageContainer {
+</span></span><span style="display:flex;"><span>    [cmdletbinding()]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">param</span>(
+</span></span><span style="display:flex;"><span>        $StorageAccountName,
+</span></span><span style="display:flex;"><span>        $StorageAccountKey,
+</span></span><span style="display:flex;"><span>        $ContainerName,
+</span></span><span style="display:flex;"><span>        $sourceFileRootDirectory,
+</span></span><span style="display:flex;"><span>        $Force
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+</span></span><span style="display:flex;"><span>    $container = Get-AzureStorageContainer -Name $ContainerName -Context $ctx
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    $container.CloudBlobContainer.Uri.AbsoluteUri
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ($container) {
+</span></span><span style="display:flex;"><span>        $filesToUpload = Get-ChildItem $sourceFileRootDirectory -Recurse <span style="color:#f92672">-File</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> ($x <span style="color:#66d9ef">in</span> $filesToUpload) {
+</span></span><span style="display:flex;"><span>            $targetPath = ($x.fullname.Substring($sourceFileRootDirectory.Length + <span style="color:#ae81ff">1</span>)).Replace(<span style="color:#e6db74">&#34;\&#34;</span>, <span style="color:#e6db74">&#34;/&#34;</span>)
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>            Write-Verbose <span style="color:#e6db74">&#34;Uploading </span>$(<span style="color:#e6db74">&#34;\&#34;</span> + $x.fullname.Substring($sourceFileRootDirectory.Length + <span style="color:#ae81ff">1</span>))<span style="color:#e6db74"> to </span>$($container.CloudBlobContainer.Uri.AbsoluteUri + <span style="color:#e6db74">&#34;/&#34;</span> + $targetPath)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>            Set-AzureStorageBlobContent <span style="color:#f92672">-File</span> $x.fullname -Container $container.Name -Blob $targetPath -Context $ctx -Properties @{<span style="color:#e6db74">&#34;ContentEncoding&#34;</span> = <span style="color:#e6db74">&#34;gzip&#34;</span>} -Force:$Force | Out-Null
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>UploadFilesToAzureStorageContainer -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -ContainerName $ContainerName -sourceFileRootDirectory $sourceFileRootDirectory -Verbose
+</span></span></code></pre></div><p>As mentioned earlier the AzCopy utility is another option for high-performance scriptable data transfer for Azure Storage. The following command will recursively copy data from the <em>C:\data\citibike</em> local folder to the <em>citibike-tripdata</em> container</p>
 <p><code>AzCopy /Source:C:\data\citibike /Dest:https://citibiketripdata.blob.core.windows.net/citibike-tripdata /DestKey:PUT_YOUR_ACCESS_KEY_HERE /S</code></p>
 <p><strong>Delete object(s)</strong></p>
-<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_delete_batch" target="_blank">az storage blob delete-batch</a>. Delete blobs from a blob container recursively</p>
+<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_delete_batch"  class="external-link" target="_blank" rel="noopener">az storage blob delete-batch</a>. Delete blobs from a blob container recursively</p>
 <p>Azure-CLI<br>
-*<strong>Note:</strong> It’s documented! But at the time of writing this post, it’s not yet implemented. The following GitHub Pull Request as been approved and should be released soon. Details here -&gt; <a href="https://github.com/Azure/azure-cli/pull/4781" target="_blank">https://github.com/Azure/azure-cli/pull/4781</a></p>
+*<strong>Note:</strong> It’s documented! But at the time of writing this post, it’s not yet implemented. The following GitHub Pull Request as been approved and should be released soon. Details here -&gt; <a href="https://github.com/Azure/azure-cli/pull/4781"  class="external-link" target="_blank" rel="noopener">https://github.com/Azure/azure-cli/pull/4781</a></p>
 <p><code>Get-AzureStorageBlob -Container $ContainerName -Context $ctx | ForEach-Object {Remove-AzureStorageBlob -Blob $_.Name -Container $ContainerName -Context $ctx}</code></p>
 <p><strong>Delete container</strong></p>
-<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_delete" target="_blank">az storage container delete</a>. The following command marks the specified container for deletion</p>
+<p><a href="https://docs.microsoft.com/en-us/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_delete"  class="external-link" target="_blank" rel="noopener">az storage container delete</a>. The following command marks the specified container for deletion</p>
 <p><code>az storage container delete --name citibike-tripdata</code></p>
-<p><a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/remove-azurestoragecontainer" target="_blank">Remove-AzureStorageContainer</a>. The following command removes the specified storage container</p>
+<p><a href="https://docs.microsoft.com/en-us/powershell/module/azure.storage/remove-azurestoragecontainer"  class="external-link" target="_blank" rel="noopener">Remove-AzureStorageContainer</a>. The following command removes the specified storage container</p>
 <p><code>Remove-AzureStorageContainer -Name &quot;citibike-tripdata&quot;</code></p>
-<p>But wait! It can be easier… If you no longer need any of the resources in your resource group, including the storage account and blobs, delete the resource group with the <a href="https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_delete" target="_blank">az group delete</a> command using Azure CLI or the <a href="https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup" target="_blank">Remove-AzureRmResourceGroup</a> command in Azure PowerShell</p>
+<p>But wait! It can be easier… If you no longer need any of the resources in your resource group, including the storage account and blobs, delete the resource group with the <a href="https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_delete"  class="external-link" target="_blank" rel="noopener">az group delete</a> command using Azure CLI or the <a href="https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup"  class="external-link" target="_blank" rel="noopener">Remove-AzureRmResourceGroup</a> command in Azure PowerShell</p>
 <p><code>az group delete --name citibiketripdata_rg</code></p>
 <p><code>Remove-AzureRmResourceGroup -Name &quot;citibiketripdata_rg&quot;</code></p>
 <p>Voilà! We are done. Need further assistance and guidance, post a comment below.<br>
 Enjoy!</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<!-- AddThis Advanced Settings generic via filter on the_content -->
+<!-- AddThis Share Buttons generic via filter on the_content -->
       </div>
+
 
       <footer>
         
 
 
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "stephanefrechettedev" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+        
+        
+        
+
+        
+        
       </footer>
     </article>
 
     
   </section>
 
-      </div>
+    </div>
 
-      <footer class="footer">
+    <footer class="footer">
   <section class="container">
+    ©
     
-     © 2022 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+    2026
+     Stéphane Fréchette 
+    
+    
     
     
   </section>
 </footer>
 
-    </main>
+  </main>
 
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-137528572-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  
 
-  </body>
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
 
 </html>

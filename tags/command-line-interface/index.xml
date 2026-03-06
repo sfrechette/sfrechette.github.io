@@ -13,14 +13,14 @@
       <link>https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/</link>
       <pubDate>Sun, 19 Nov 2017 16:46:01 -0400</pubDate>
       <guid>https://stephanefrechette.dev/posts/copying-data-to-the-cloud-from-the-command-line/</guid>
-      <description>Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.</description>
+      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;https://stephanefrechette.dev/images/legacy-post/sky-1513292_640.png#floatleft&#34; width=&#34;250&#34; height=&#34;160&#34;&gt;&#xA;&lt;/figure&gt;&#xA;Copying data to the Cloud from the Command line, this is what this post is all about. Over the last couple of years we have seen vendors offering different object storage platforms/services in the Cloud. Cloud storage typically refers to a hosted object storage service! The following are considered the most known and used Cloud Object Storage platforms and we are going to demonstrate how to copy data to each from the command line.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Upload multiple files &#34;recursively&#34; to Azure Blob Storage with the Azure CLI 2.0...</title>
       <link>https://stephanefrechette.dev/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</link>
       <pubDate>Tue, 04 Apr 2017 11:13:18 -0400</pubDate>
       <guid>https://stephanefrechette.dev/posts/upload-multiple-files-recursively-azure-blob-storage-azure-cli-2-0-macoslinux/</guid>
-      <description>Files and the Azure Cloud. This post is about how to upload multiple files from a local directory “recursively” to Azure Blob Storage with the Azure CLI 2.0 from macOS/Linux. For the Windows platform, AzCopy is a awesome command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance.&#xA;You can download the latest version of AzCopy.&#xA;The basic syntax for AzCopy commands is:</description>
+      <description>&lt;p&gt;Files and the Azure Cloud. This post is about how to upload multiple files from a local directory “recursively” to Azure Blob Storage with the Azure CLI 2.0 from macOS/Linux. For the Windows platform, AzCopy is a awesome command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance.&lt;/p&gt;&#xA;&lt;p&gt;You can download the &lt;a href=&#34;http://aka.ms/downloadazcopy&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;latest version of AzCopy&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The basic syntax for AzCopy commands is:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -16,3 +16,11 @@ img[src$="#thumbnail"] {
     width:100px;
     height:100px;
  }
+
+a {
+    color: #f57c00;
+}
+
+body.colorscheme-dark a {
+    color: #f57c00;
+}

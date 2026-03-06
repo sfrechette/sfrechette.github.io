@@ -20,10 +20,10 @@
     <loc>https://stephanefrechette.dev/</loc>
     <lastmod>2022-02-18T08:52:19-05:00</lastmod>
   </url><url>
-    <loc>https://stephanefrechette.dev/tags/tableau/</loc>
+    <loc>https://stephanefrechette.dev/categories/tableau/</loc>
     <lastmod>2022-02-18T08:52:19-05:00</lastmod>
   </url><url>
-    <loc>https://stephanefrechette.dev/categories/tableau/</loc>
+    <loc>https://stephanefrechette.dev/tags/tableau/</loc>
     <lastmod>2022-02-18T08:52:19-05:00</lastmod>
   </url><url>
     <loc>https://stephanefrechette.dev/tags/</loc>
@@ -56,10 +56,10 @@
     <loc>https://stephanefrechette.dev/tags/google-cloud/</loc>
     <lastmod>2020-07-31T10:21:12-05:00</lastmod>
   </url><url>
-    <loc>https://stephanefrechette.dev/tags/google-cloud-platform/</loc>
+    <loc>https://stephanefrechette.dev/categories/google-cloud-platform/</loc>
     <lastmod>2020-07-31T10:21:12-05:00</lastmod>
   </url><url>
-    <loc>https://stephanefrechette.dev/categories/google-cloud-platform/</loc>
+    <loc>https://stephanefrechette.dev/tags/google-cloud-platform/</loc>
     <lastmod>2020-07-31T10:21:12-05:00</lastmod>
   </url><url>
     <loc>https://stephanefrechette.dev/tags/podcast/</loc>
@@ -254,10 +254,10 @@
     <loc>https://stephanefrechette.dev/tags/timeseries/</loc>
     <lastmod>2018-04-17T11:59:21-04:00</lastmod>
   </url><url>
-    <loc>https://stephanefrechette.dev/tags/analytics/</loc>
+    <loc>https://stephanefrechette.dev/categories/analytics/</loc>
     <lastmod>2018-02-08T15:09:48-04:00</lastmod>
   </url><url>
-    <loc>https://stephanefrechette.dev/categories/analytics/</loc>
+    <loc>https://stephanefrechette.dev/tags/analytics/</loc>
     <lastmod>2018-02-08T15:09:48-04:00</lastmod>
   </url><url>
     <loc>https://stephanefrechette.dev/posts/analyzing-nyc-citi-bike-data-with-azure-databricks/</loc>
@@ -365,10 +365,10 @@
     <loc>https://stephanefrechette.dev/tags/dashboard/</loc>
     <lastmod>2017-07-18T15:32:29-04:00</lastmod>
   </url><url>
-    <loc>https://stephanefrechette.dev/tags/data-visualization/</loc>
+    <loc>https://stephanefrechette.dev/categories/data-visualization/</loc>
     <lastmod>2017-07-18T15:32:29-04:00</lastmod>
   </url><url>
-    <loc>https://stephanefrechette.dev/categories/data-visualization/</loc>
+    <loc>https://stephanefrechette.dev/tags/data-visualization/</loc>
     <lastmod>2017-07-18T15:32:29-04:00</lastmod>
   </url><url>
     <loc>https://stephanefrechette.dev/tags/iot/</loc>

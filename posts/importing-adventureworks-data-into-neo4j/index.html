@@ -1,147 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="author" content="Stéphane Fréchette">
-    <meta name="description" content="Stéphane Fréchette&#39;s personal website">
-    <meta name="keywords" content="stephane frechette,blog,data engineer,cloud solution architect,azure,google cloud">
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Importing AdventureWorks data into Neo4j"/>
-<meta name="twitter:description" content="Graphs are everywhere! In my efforts to spread the word and inform SQL Server Professionals about Neo4j and learn how to take a relational database schema and model it as a graph… AdventureWorks was a no-brainer! Let’s explore how to import a subset of the AdventureWorks database from SQL Server (RDBMS) into Neo4j (GraphDB).
-But first some prerequisites. You should at least have a basic understanding of what is a property graph model and have completed the following modeling guidelines."/>
-
-    <meta property="og:title" content="Importing AdventureWorks data into Neo4j" />
-<meta property="og:description" content="Graphs are everywhere! In my efforts to spread the word and inform SQL Server Professionals about Neo4j and learn how to take a relational database schema and model it as a graph… AdventureWorks was a no-brainer! Let’s explore how to import a subset of the AdventureWorks database from SQL Server (RDBMS) into Neo4j (GraphDB).
-But first some prerequisites. You should at least have a basic understanding of what is a property graph model and have completed the following modeling guidelines." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2015-04-01T11:45:53-04:00" />
-<meta property="article:modified_time" content="2015-04-01T11:45:53-04:00" />
-
-
-
-    
-      <base href="https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/">
-    
-    <title>
+<head>
+  <title>
   Importing AdventureWorks data into Neo4j · Stéphane Fréchette
 </title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 
+
+
+
+<meta name="author" content="Stéphane Fréchette">
+<meta name="description" content="Graphs are everywhere! In my efforts to spread the word and inform SQL Server Professionals about Neo4j and learn how to take a relational database schema and model it as a graph… AdventureWorks was a no-brainer! Let’s explore how to import a subset of the AdventureWorks database from SQL Server (RDBMS) into Neo4j (GraphDB).
+But first some prerequisites. You should at least have a basic understanding of what is a property graph model and have completed the following modeling guidelines. Download and install Neo4j to be able to follow along with the examples.">
+<meta name="keywords" content="stephane frechette,blog,data engineer,cloud solution architect,azure,google cloud">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Importing AdventureWorks data into Neo4j">
+  <meta name="twitter:description" content="Graphs are everywhere! In my efforts to spread the word and inform SQL Server Professionals about Neo4j and learn how to take a relational database schema and model it as a graph… AdventureWorks was a no-brainer! Let’s explore how to import a subset of the AdventureWorks database from SQL Server (RDBMS) into Neo4j (GraphDB).
+But first some prerequisites. You should at least have a basic understanding of what is a property graph model and have completed the following modeling guidelines. Download and install Neo4j to be able to follow along with the examples.">
+
+<meta property="og:url" content="https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/">
+  <meta property="og:site_name" content="Stéphane Fréchette">
+  <meta property="og:title" content="Importing AdventureWorks data into Neo4j">
+  <meta property="og:description" content="Graphs are everywhere! In my efforts to spread the word and inform SQL Server Professionals about Neo4j and learn how to take a relational database schema and model it as a graph… AdventureWorks was a no-brainer! Let’s explore how to import a subset of the AdventureWorks database from SQL Server (RDBMS) into Neo4j (GraphDB).
+But first some prerequisites. You should at least have a basic understanding of what is a property graph model and have completed the following modeling guidelines. Download and install Neo4j to be able to follow along with the examples.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2015-04-01T11:45:53-04:00">
+    <meta property="article:modified_time" content="2015-04-01T11:45:53-04:00">
+    <meta property="article:tag" content="Adventureworks">
+    <meta property="article:tag" content="Graph Database">
+    <meta property="article:tag" content="Graph Databases">
+    <meta property="article:tag" content="Graphdb">
+    <meta property="article:tag" content="Neo4j">
+    <meta property="article:tag" content="Nosql">
+
+
+
+
+<link rel="canonical" href="https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.0ab58f0bc42b4f21bff7ac349245f3c5579ad3c46dee51b49ad860d174431d73.css" integrity="sha256-CrWPC8QrTyG/96w0kkXzxVea08Rt7lG0mthg0XRDHXM=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+  
     
-      <link rel="canonical" href="https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/">
-    
+    <link rel="stylesheet" href="/css/custom.min.4a404bec5204d9d065ea08b9c1432f757d34b53a80074c804b9ab84e833f5c23.css" integrity="sha256-SkBL7FIE2dBl6gi5wUMvdX00tTqAB0yAS5q4ToM/XCM=" crossorigin="anonymous" media="screen" />
+  
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
 
-    
-      
-      
-      <link rel="stylesheet" href="https://stephanefrechette.dev/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
 
-    
 
-    
 
-    
-      <link rel="stylesheet" href="https://stephanefrechette.dev/css/custom.css">
-    
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/me-cartoon-32x32.jpg" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    <meta name="generator" content="Hugo 0.92.2" />
-  </head>
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
 
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://stephanefrechette.dev">
+    
+    <a class="navigation-title" href="https://stephanefrechette.dev/">
       Stéphane Fréchette
     </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://stephanefrechette.dev/posts/">Blog</a>
-          </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://stephanefrechette.dev/talks/">Talks</a>
-          </li>
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://stephanefrechette.dev/about/">About</a>
-          </li>
-        
-      
-      
-    </ul>
+      </ul>
+    
   </section>
 </nav>
 
 
-      <div class="content">
-        
+    <div class="content">
+      
   <section class="container post">
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Importing AdventureWorks data into Neo4j</h1>
+          <h1 class="title">
+            <a class="title-link" href="https://stephanefrechette.dev/posts/importing-adventureworks-data-into-neo4j/">
+              Importing AdventureWorks data into Neo4j
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2015-04-01T11:45:53-04:00'>
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2015-04-01T11:45:53-04:00">
                 April 1, 2015
               </time>
             </span>
             <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              3 minutes read
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5-minute read
             </span>
           </div>
+          
           <div class="categories">
-  <i class="fas fa-folder"></i>
-    <a href="https://stephanefrechette.dev/categories/databases/">Databases</a></div>
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/databases/">Databases</a></div>
 
           <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://stephanefrechette.dev/tags/adventureworks/">adventureworks</a>
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/adventureworks/">Adventureworks</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/graph-database/">graph database</a>
+    <span class="tag">
+      <a href="/tags/graph-database/">Graph Database</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/graph-databases/">graph databases</a>
+    <span class="tag">
+      <a href="/tags/graph-databases/">Graph Databases</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/graphdb/">graphdb</a>
+    <span class="tag">
+      <a href="/tags/graphdb/">Graphdb</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/neo4j/">neo4j</a>
+    <span class="tag">
+      <a href="/tags/neo4j/">Neo4j</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/nosql/">nosql</a>
+    <span class="tag">
+      <a href="/tags/nosql/">Nosql</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/rdbms/">rdbms</a>
+    <span class="tag">
+      <a href="/tags/rdbms/">Rdbms</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/sql-server/">sql server</a></div>
+    <span class="tag">
+      <a href="/tags/sql-server/">Sql Server</a>
+    </span></div>
 
         </div>
       </header>
-      
-      <div>
+
+      <div class="post-content">
+        
         <p>Graphs are everywhere! In my efforts to spread the word and inform SQL Server Professionals about Neo4j and learn how to take a relational database schema and model it as a graph… AdventureWorks was a no-brainer! Let’s explore how to import a <strong>subset</strong> of the AdventureWorks database from SQL Server (RDBMS) into Neo4j (GraphDB).</p>
-<p>But first some prerequisites. You should at least have a basic understanding of what is a <a href="http://neo4j.com/developer/graph-database/#property-graph" target="_blank">property graph model</a> and have completed the following <a href="http://neo4j.com/developer/guide-data-modeling/" target="_blank">modeling guidelines</a>. <a href="http://neo4j.com/download/" target="_blank">Download</a> and install Neo4j to be able to follow along with the examples.</p>
+<p>But first some prerequisites. You should at least have a basic understanding of what is a <a href="http://neo4j.com/developer/graph-database/#property-graph"  class="external-link" target="_blank" rel="noopener">property graph model</a> and have completed the following <a href="http://neo4j.com/developer/guide-data-modeling/"  class="external-link" target="_blank" rel="noopener">modeling guidelines</a>. <a href="http://neo4j.com/download/"  class="external-link" target="_blank" rel="noopener">Download</a> and install Neo4j to be able to follow along with the examples.</p>
 <p>The AdventureWorks database is a fictitious company database that has existed since SQL Server 2005 as a means to show new functionality in each new version released. AdventureWorks has become a vital aspect of learning new features/constructs within SQL Server.</p>
-<figure><img src="https://stephanefrechette.dev/images/legacy-post/AdventureWorks2008-1024x634.gif"
-         alt="AdventureWorks2008" width="675" height="475"/>
+<figure><img src="/images/legacy-post/AdventureWorks2008-1024x634.gif"
+    alt="AdventureWorks2008" width="675" height="475">
 </figure>
 
 <p>For our demonstration I have decided to choose a subset of tables and select only offline sales transactions (OnlineOrderFlag = 0).<br>
@@ -155,220 +223,241 @@ As a result the following CSV files will be used to import data into our graph s
 <li>producsubcategories.csv</li>
 <li>vendorproduct.csv</li>
 <li>vendors.csv
-You can find all the necessary code and files here -&gt; <a href="https://github.com/sfrechette/adventureworks-neo4j" target="_blank">https://github.com/sfrechette/adventureworks-neo4j</a></li>
+You can find all the necessary code and files here -&gt; <a href="https://github.com/sfrechette/adventureworks-neo4j"  class="external-link" target="_blank" rel="noopener">https://github.com/sfrechette/adventureworks-neo4j</a></li>
 </ul>
-<p>If you still need to download a copy of the AdventureWorks sample database (I used the SQL Server 2014 version) you can find them here -&gt; <a href="https://msftdbprodsamples.codeplex.com/" target="_blank">https://msftdbprodsamples.codeplex.com/</a></p>
+<p>If you still need to download a copy of the AdventureWorks sample database (I used the SQL Server 2014 version) you can find them here -&gt; <a href="https://msftdbprodsamples.codeplex.com/"  class="external-link" target="_blank" rel="noopener">https://msftdbprodsamples.codeplex.com/</a></p>
 <p><strong>Developing a Graph Model</strong><br>
 When deriving and defining a graph model from a relational model, you should keep the following base guidelines in mind:</p>
 <ul>
 <li>A row is a node</li>
 <li>A table name is a label name
-For further understanding read the following <a href="http://neo4j.com/developer/graph-db-vs-rdbms/#_from_relational_to_graph_databases" target="_blank">GraphDB vs. RDBMS</a>. This article explores the differences between relational and graph databases and data models. In addition, it explains how to integrate graph databases with relational databases and how to import data from a relational store.</li>
+For further understanding read the following <a href="http://neo4j.com/developer/graph-db-vs-rdbms/#_from_relational_to_graph_databases"  class="external-link" target="_blank" rel="noopener">GraphDB vs. RDBMS</a>. This article explores the differences between relational and graph databases and data models. In addition, it explains how to integrate graph databases with relational databases and how to import data from a relational store.</li>
 </ul>
 <p>With this dataset, this simple AdventureWorks graph data model serves as a foundation:</p>
-<figure><img src="https://stephanefrechette.dev/images/legacy-post/graphmodel_adventureworks.png"
-         alt="graphmodel_adventureworks" width="742" height="410"/>
+<figure><img src="/images/legacy-post/graphmodel_adventureworks.png"
+    alt="graphmodel_adventureworks" width="742" height="410">
 </figure>
 
 <p>The key difference between a graph and relational database is that relational databases work with sets while graph databases work with paths and relationships are first-class entities in a graph database and are semantically far stronger than those implied relationships reified at runtime in a relational store.</p>
 <p><strong>Importing the Data using Cypher</strong></p>
 <p>Now that we have extracted data from the AdventureWorks database, will be using Cypher’s LOAD CSV command to transform and load the content of these CSV files into a graph structure.</p>
 <p>First we create specific indexes and constraints</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>indexes<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">for</span><span style="color:#bbb"> </span>faster<span style="color:#bbb"> </span>lookup<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:Category(categoryName);<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:SubCategory(subCategoryName);<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:Vendor(vendorName);<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">INDEX</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>:Product(productName);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">constraints</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(o:<span style="color:#007020;font-weight:bold">Order</span>)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span>o.orderId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(p:Product)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span>p.productId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">c</span>:Category)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">c</span>.categoryId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(s:SubCategory)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span>s.subCategoryId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(e:Employee)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span>e.employeeId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(v:Vendor)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span>v.vendorId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CONSTRAINT</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">c</span>:Customer)<span style="color:#bbb"> </span>ASSERT<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">c</span>.customerId<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">IS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">UNIQUE</span>;<span style="color:#bbb">
-</span></code></pre></div><p>Schema await – now create nodes:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>products<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/products.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:Product<span style="color:#bbb"> </span><span style="">{</span>productName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ProductName,<span style="color:#bbb"> </span>productNumber:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ProductNumber,<span style="color:#bbb"> </span>productId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ProductID,<span style="color:#bbb"> </span>modelName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ProductModelName,<span style="color:#bbb"> </span>standardCost:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.StandardCost,<span style="color:#bbb"> </span>listPrice:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ListPrice<span style="">}</span>);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>vendors<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/vendors.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:Vendor<span style="color:#bbb"> </span><span style="">{</span>vendorName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.VendorName,<span style="color:#bbb"> </span>vendorNumber:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.AccountNumber,<span style="color:#bbb"> </span>vendorId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.VendorID,<span style="color:#bbb"> </span>creditRating:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.CreditRating,<span style="color:#bbb"> </span>activeFlag:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ActiveFlag<span style="">}</span>);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>employees<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/employees.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:Employee<span style="color:#bbb"> </span><span style="">{</span>firstName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.FirstName,<span style="color:#bbb"> </span>lastName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.LastName,<span style="color:#bbb"> </span>fullName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.FullName,<span style="color:#bbb"> </span>employeeId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.EmployeeID,<span style="color:#bbb"> </span>jobTitle:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.JobTitle,<span style="color:#bbb"> </span>organizationLevel:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.OrganizationLevel,<span style="color:#bbb"> </span>maritalStatus:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.MaritalStatus,<span style="color:#bbb"> </span>gender:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.Gender,<span style="color:#bbb"> </span>territoty:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.Territory,<span style="color:#bbb"> </span>country:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.Country,<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">group</span>:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.<span style="color:#007020;font-weight:bold">Group</span><span style="">}</span>);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>customers<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/customers.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:Customer<span style="color:#bbb"> </span><span style="">{</span>firstName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.FirstName,<span style="color:#bbb"> </span>lastName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.LastName,<span style="color:#bbb"> </span>fullName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.FullName,<span style="color:#bbb"> </span>customerId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.CustomerID<span style="">}</span>);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>categories<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/productcategories.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:Category<span style="color:#bbb"> </span><span style="">{</span>categoryName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.CategoryName,<span style="color:#bbb"> </span>categoryId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.CategoryID<span style="">}</span>);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>sub<span style="color:#666">-</span>categories<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/productsubcategories.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span>(:SubCategory<span style="color:#bbb"> </span><span style="">{</span>subCategoryName:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.SubCategoryName,<span style="color:#bbb"> </span>subCategoryId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.SubCategoryID<span style="">}</span>);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Prepare</span><span style="color:#bbb"> </span>orders<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/orders.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">order</span>:<span style="color:#007020;font-weight:bold">Order</span><span style="color:#bbb"> </span><span style="">{</span>orderId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.SalesOrderID<span style="">}</span>)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">SET</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">order</span>.orderDate<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb">  </span><span style="color:#007020;font-weight:bold">row</span>.OrderDate;<span style="color:#bbb">
-</span></code></pre></div><p>Create relationships</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Order</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>Product<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/orders.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">order</span>:<span style="color:#007020;font-weight:bold">Order</span><span style="color:#bbb"> </span><span style="">{</span>orderId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.SalesOrderID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(product:Product<span style="color:#bbb"> </span><span style="">{</span>productId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ProductID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">order</span>)<span style="color:#666">-</span>[pu:PRODUCT]<span style="color:#666">-&gt;</span>(product)<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">ON</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">SET</span><span style="color:#bbb"> </span>pu.unitPrice<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>toFloat(<span style="color:#007020;font-weight:bold">row</span>.UnitPrice),<span style="color:#bbb"> </span>pu.quantity<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>toFloat(<span style="color:#007020;font-weight:bold">row</span>.OrderQty);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Order</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>Employee<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/orders.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">order</span>:<span style="color:#007020;font-weight:bold">Order</span><span style="color:#bbb"> </span><span style="">{</span>orderId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.SalesOrderID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(employee:Employee<span style="color:#bbb"> </span><span style="">{</span>employeeId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.EmployeeID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(employee)<span style="color:#666">-</span>[:SOLD]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">order</span>);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Order</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>Customer<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/orders.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">order</span>:<span style="color:#007020;font-weight:bold">Order</span><span style="color:#bbb"> </span><span style="">{</span>orderId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.SalesOrderID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(customer:Customer<span style="color:#bbb"> </span><span style="">{</span>customerId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.CustomerID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(customer)<span style="color:#666">-</span>[:PURCHASED]<span style="color:#666">-&gt;</span>(<span style="color:#007020;font-weight:bold">order</span>);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span>Product<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>Vendor<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/vendorproduct.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(product:Product<span style="color:#bbb"> </span><span style="">{</span>productId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ProductID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(vendor:Vendor<span style="color:#bbb"> </span><span style="">{</span>vendorId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.VendorID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(vendor)<span style="color:#666">-</span>[:SUPPLIES]<span style="color:#666">-&gt;</span>(product);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span>Product<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>SubCategory<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/products.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(product:Product<span style="color:#bbb"> </span><span style="">{</span>productId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ProductID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(subcategory:SubCategory<span style="color:#bbb"> </span><span style="">{</span>subCategoryId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.SubCategoryID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(product)<span style="color:#666">-</span>[:PART_OF_SUBCAT]<span style="color:#666">-&gt;</span>(subcategory);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationships:<span style="color:#bbb"> </span>SubCategory<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>Category<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/productsubcategories.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(subcategory:SubCategory<span style="color:#bbb"> </span><span style="">{</span>subCategoryId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.SubCategoryID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(category:Category<span style="color:#bbb"> </span><span style="">{</span>categoryId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.CategoryID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(subcategory)<span style="color:#666">-</span>[:PART_OF_CAT]<span style="color:#666">-&gt;</span>(category);<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#666">//</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Create</span><span style="color:#bbb"> </span>relationship<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">for</span><span style="color:#bbb"> </span>employee<span style="color:#bbb"> </span>reporting<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">structure</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">USING</span><span style="color:#bbb"> </span>PERIODIC<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">COMMIT</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LOAD</span><span style="color:#bbb"> </span>CSV<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">WITH</span><span style="color:#bbb"> </span>HEADERS<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">FROM</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#34;file:data/employees.csv&#34;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">AS</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(employee:Employee<span style="color:#bbb"> </span><span style="">{</span>employeeId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.EmployeeID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(manager:Employee<span style="color:#bbb"> </span><span style="">{</span>employeeId:<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">row</span>.ManagerID<span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span>MERGE<span style="color:#bbb"> </span>(employee)<span style="color:#666">-</span>[:REPORTS_TO]<span style="color:#666">-&gt;</span>(manager);<span style="color:#bbb">
-</span></code></pre></div><p>You can also import and run the entire Cypher script using the neo4j-shell: <strong>bin/neo4j-shell -path adventure.db -file cypher/import.cypher</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> indexes <span style="color:#66d9ef">for</span> faster lookup
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">INDEX</span> <span style="color:#66d9ef">ON</span> :Category(categoryName);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">INDEX</span> <span style="color:#66d9ef">ON</span> :SubCategory(subCategoryName);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">INDEX</span> <span style="color:#66d9ef">ON</span> :Vendor(vendorName);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">INDEX</span> <span style="color:#66d9ef">ON</span> :Product(productName);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> <span style="color:#66d9ef">constraints</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#66d9ef">ON</span> (o:<span style="color:#66d9ef">Order</span>) ASSERT o.orderId <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">UNIQUE</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#66d9ef">ON</span> (p:Product) ASSERT p.productId <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">UNIQUE</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#66d9ef">ON</span> (<span style="color:#66d9ef">c</span>:Category) ASSERT <span style="color:#66d9ef">c</span>.categoryId <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">UNIQUE</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#66d9ef">ON</span> (s:SubCategory) ASSERT s.subCategoryId <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">UNIQUE</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#66d9ef">ON</span> (e:Employee) ASSERT e.employeeId <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">UNIQUE</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#66d9ef">ON</span> (v:Vendor) ASSERT v.vendorId <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">UNIQUE</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CONSTRAINT</span> <span style="color:#66d9ef">ON</span> (<span style="color:#66d9ef">c</span>:Customer) ASSERT <span style="color:#66d9ef">c</span>.customerId <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">UNIQUE</span>;
+</span></span></code></pre></div><p>Schema await – now create nodes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> products
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/products.csv&#34;</span> <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> (:Product <span style="color:#960050;background-color:#1e0010">{</span>productName: <span style="color:#66d9ef">row</span>.ProductName, productNumber: <span style="color:#66d9ef">row</span>.ProductNumber, productId: <span style="color:#66d9ef">row</span>.ProductID, modelName: <span style="color:#66d9ef">row</span>.ProductModelName, standardCost: <span style="color:#66d9ef">row</span>.StandardCost, listPrice: <span style="color:#66d9ef">row</span>.ListPrice<span style="color:#960050;background-color:#1e0010">}</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> vendors
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/vendors.csv&#34;</span> <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> (:Vendor <span style="color:#960050;background-color:#1e0010">{</span>vendorName: <span style="color:#66d9ef">row</span>.VendorName, vendorNumber: <span style="color:#66d9ef">row</span>.AccountNumber, vendorId: <span style="color:#66d9ef">row</span>.VendorID, creditRating: <span style="color:#66d9ef">row</span>.CreditRating, activeFlag: <span style="color:#66d9ef">row</span>.ActiveFlag<span style="color:#960050;background-color:#1e0010">}</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> employees
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/employees.csv&#34;</span> <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> (:Employee <span style="color:#960050;background-color:#1e0010">{</span>firstName: <span style="color:#66d9ef">row</span>.FirstName, lastName: <span style="color:#66d9ef">row</span>.LastName, fullName: <span style="color:#66d9ef">row</span>.FullName, employeeId: <span style="color:#66d9ef">row</span>.EmployeeID, jobTitle: <span style="color:#66d9ef">row</span>.JobTitle, organizationLevel: <span style="color:#66d9ef">row</span>.OrganizationLevel, maritalStatus: <span style="color:#66d9ef">row</span>.MaritalStatus, gender: <span style="color:#66d9ef">row</span>.Gender, territoty: <span style="color:#66d9ef">row</span>.Territory, country: <span style="color:#66d9ef">row</span>.Country, <span style="color:#66d9ef">group</span>: <span style="color:#66d9ef">row</span>.<span style="color:#66d9ef">Group</span><span style="color:#960050;background-color:#1e0010">}</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> customers
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/customers.csv&#34;</span> <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> (:Customer <span style="color:#960050;background-color:#1e0010">{</span>firstName: <span style="color:#66d9ef">row</span>.FirstName, lastName: <span style="color:#66d9ef">row</span>.LastName, fullName: <span style="color:#66d9ef">row</span>.FullName, customerId: <span style="color:#66d9ef">row</span>.CustomerID<span style="color:#960050;background-color:#1e0010">}</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> categories
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/productcategories.csv&#34;</span> <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> (:Category <span style="color:#960050;background-color:#1e0010">{</span>categoryName: <span style="color:#66d9ef">row</span>.CategoryName, categoryId: <span style="color:#66d9ef">row</span>.CategoryID<span style="color:#960050;background-color:#1e0010">}</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> sub<span style="color:#f92672">-</span>categories
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/productsubcategories.csv&#34;</span> <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> (:SubCategory <span style="color:#960050;background-color:#1e0010">{</span>subCategoryName: <span style="color:#66d9ef">row</span>.SubCategoryName, subCategoryId: <span style="color:#66d9ef">row</span>.SubCategoryID<span style="color:#960050;background-color:#1e0010">}</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Prepare</span> orders
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/orders.csv&#34;</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span>MERGE (<span style="color:#66d9ef">order</span>:<span style="color:#66d9ef">Order</span> <span style="color:#960050;background-color:#1e0010">{</span>orderId: <span style="color:#66d9ef">row</span>.SalesOrderID<span style="color:#960050;background-color:#1e0010">}</span>) <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">SET</span> <span style="color:#66d9ef">order</span>.orderDate <span style="color:#f92672">=</span>  <span style="color:#66d9ef">row</span>.OrderDate;
+</span></span></code></pre></div><p>Create relationships</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> relationships: <span style="color:#66d9ef">Order</span> <span style="color:#66d9ef">to</span> Product
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/orders.csv&#34;</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (<span style="color:#66d9ef">order</span>:<span style="color:#66d9ef">Order</span> <span style="color:#960050;background-color:#1e0010">{</span>orderId: <span style="color:#66d9ef">row</span>.SalesOrderID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (product:Product <span style="color:#960050;background-color:#1e0010">{</span>productId: <span style="color:#66d9ef">row</span>.ProductID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span>MERGE (<span style="color:#66d9ef">order</span>)<span style="color:#f92672">-</span>[pu:PRODUCT]<span style="color:#f92672">-&gt;</span>(product)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">SET</span> pu.unitPrice <span style="color:#f92672">=</span> toFloat(<span style="color:#66d9ef">row</span>.UnitPrice), pu.quantity <span style="color:#f92672">=</span> toFloat(<span style="color:#66d9ef">row</span>.OrderQty);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> relationships: <span style="color:#66d9ef">Order</span> <span style="color:#66d9ef">to</span> Employee
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/orders.csv&#34;</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (<span style="color:#66d9ef">order</span>:<span style="color:#66d9ef">Order</span> <span style="color:#960050;background-color:#1e0010">{</span>orderId: <span style="color:#66d9ef">row</span>.SalesOrderID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (employee:Employee <span style="color:#960050;background-color:#1e0010">{</span>employeeId: <span style="color:#66d9ef">row</span>.EmployeeID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span>MERGE (employee)<span style="color:#f92672">-</span>[:SOLD]<span style="color:#f92672">-&gt;</span>(<span style="color:#66d9ef">order</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> relationships: <span style="color:#66d9ef">Order</span> <span style="color:#66d9ef">to</span> Customer
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/orders.csv&#34;</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (<span style="color:#66d9ef">order</span>:<span style="color:#66d9ef">Order</span> <span style="color:#960050;background-color:#1e0010">{</span>orderId: <span style="color:#66d9ef">row</span>.SalesOrderID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (customer:Customer <span style="color:#960050;background-color:#1e0010">{</span>customerId: <span style="color:#66d9ef">row</span>.CustomerID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span>MERGE (customer)<span style="color:#f92672">-</span>[:PURCHASED]<span style="color:#f92672">-&gt;</span>(<span style="color:#66d9ef">order</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> relationships: Product <span style="color:#66d9ef">to</span> Vendor
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/vendorproduct.csv&#34;</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (product:Product <span style="color:#960050;background-color:#1e0010">{</span>productId: <span style="color:#66d9ef">row</span>.ProductID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (vendor:Vendor <span style="color:#960050;background-color:#1e0010">{</span>vendorId: <span style="color:#66d9ef">row</span>.VendorID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span>MERGE (vendor)<span style="color:#f92672">-</span>[:SUPPLIES]<span style="color:#f92672">-&gt;</span>(product);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> relationships: Product <span style="color:#66d9ef">to</span> SubCategory
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/products.csv&#34;</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (product:Product <span style="color:#960050;background-color:#1e0010">{</span>productId: <span style="color:#66d9ef">row</span>.ProductID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (subcategory:SubCategory <span style="color:#960050;background-color:#1e0010">{</span>subCategoryId: <span style="color:#66d9ef">row</span>.SubCategoryID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span>MERGE (product)<span style="color:#f92672">-</span>[:PART_OF_SUBCAT]<span style="color:#f92672">-&gt;</span>(subcategory);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> relationships: SubCategory <span style="color:#66d9ef">to</span> Category
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/productsubcategories.csv&#34;</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (subcategory:SubCategory <span style="color:#960050;background-color:#1e0010">{</span>subCategoryId: <span style="color:#66d9ef">row</span>.SubCategoryID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (category:Category <span style="color:#960050;background-color:#1e0010">{</span>categoryId: <span style="color:#66d9ef">row</span>.CategoryID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span>MERGE (subcategory)<span style="color:#f92672">-</span>[:PART_OF_CAT]<span style="color:#f92672">-&gt;</span>(category);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">Create</span> relationship <span style="color:#66d9ef">for</span> employee reporting <span style="color:#66d9ef">structure</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">USING</span> PERIODIC <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LOAD</span> CSV <span style="color:#66d9ef">WITH</span> HEADERS <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;file:data/employees.csv&#34;</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">row</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (employee:Employee <span style="color:#960050;background-color:#1e0010">{</span>employeeId: <span style="color:#66d9ef">row</span>.EmployeeID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (manager:Employee <span style="color:#960050;background-color:#1e0010">{</span>employeeId: <span style="color:#66d9ef">row</span>.ManagerID<span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span>MERGE (employee)<span style="color:#f92672">-</span>[:REPORTS_TO]<span style="color:#f92672">-&gt;</span>(manager);
+</span></span></code></pre></div><p>You can also import and run the entire Cypher script using the neo4j-shell: <strong>bin/neo4j-shell -path adventure.db -file cypher/import.cypher</strong></p>
 <p>Once completed you will be able query and do stuff like this:</p>
-<figure><img src="https://stephanefrechette.dev/images/legacy-post/cypher_subcat-1024x639.png"
-         alt="cypher_subcat" width="1024" height="639"/>
+<figure><img src="/images/legacy-post/cypher_subcat-1024x639.png"
+    alt="cypher_subcat" width="1024" height="639">
 </figure>
 
 <p><strong>Querying the Graph with Cypher</strong></p>
 <p>Let’s issue some cypher queries to our newly created graph database:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span><span style="color:#bbb"> </span>List<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>product<span style="color:#bbb"> </span>subcategories<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">and</span><span style="color:#bbb"> </span>categories<span style="color:#bbb"> </span>provided<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">by</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">each</span><span style="color:#bbb"> </span>supplier.<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(v:Vendor)<span style="color:#60a0b0;font-style:italic">--&gt;(:Product)--&gt;(s:SubCategory)--&gt;(c:Category)
-</span><span style="color:#60a0b0;font-style:italic"></span><span style="color:#007020;font-weight:bold">RETURN</span><span style="color:#bbb"> </span>v.vendorName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>Vendor,<span style="color:#bbb"> </span>collect(<span style="color:#007020;font-weight:bold">distinct</span><span style="color:#bbb"> </span>s.subCategoryName)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>SubCategories,<span style="color:#bbb"> </span>collect(<span style="color:#007020;font-weight:bold">distinct</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">c</span>.categoryName)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>Categories;<span style="color:#bbb">
-</span></code></pre></div><figure><img src="https://stephanefrechette.dev/images/legacy-post/cypher_aw01.png"
-         alt="cypher_aw01" width="1093" height="543"/>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> List the product subcategories <span style="color:#66d9ef">and</span> categories provided <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">each</span> supplier.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (v:Vendor)<span style="color:#75715e">--&gt;(:Product)--&gt;(s:SubCategory)--&gt;(c:Category)
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">RETURN</span> v.vendorName <span style="color:#66d9ef">as</span> Vendor, collect(<span style="color:#66d9ef">distinct</span> s.subCategoryName) <span style="color:#66d9ef">as</span> SubCategories, collect(<span style="color:#66d9ef">distinct</span> <span style="color:#66d9ef">c</span>.categoryName) <span style="color:#66d9ef">as</span> Categories;
+</span></span></code></pre></div><figure><img src="/images/legacy-post/cypher_aw01.png"
+    alt="cypher_aw01" width="1093" height="543">
 </figure>
 
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span><span style="color:#bbb"> </span>Which<span style="color:#bbb"> </span>employee<span style="color:#bbb"> </span>had<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>highest<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">cross</span><span style="color:#666">-</span>selling<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">count</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">of</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;AWC Logo Cap&#39;</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">and</span><span style="color:#bbb"> </span>which<span style="color:#bbb"> </span>product<span style="color:#666">?</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(p:Product<span style="color:#bbb"> </span><span style="">{</span>productName:<span style="color:#4070a0">&#39;AWC Logo Cap&#39;</span><span style="">}</span>)<span style="color:#666">&lt;</span><span style="color:#bbb"> </span><span style="color:#666">-</span>[:PRODUCT]<span style="color:#666">-</span>(:<span style="color:#007020;font-weight:bold">Order</span>)<span style="color:#666">&lt;-</span>[:SOLD]<span style="color:#666">-</span>(employee),<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>(employee)<span style="color:#666">-</span>[:SOLD]<span style="color:#666">-&gt;</span>(o2)<span style="color:#666">-</span>[:PRODUCT]<span style="color:#666">-&gt;</span>(other:Product)<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">RETURN</span><span style="color:#bbb"> </span>employee.fullName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>Employee,<span style="color:#bbb"> </span>other.productName<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>Product,<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">count</span>(<span style="color:#007020;font-weight:bold">distinct</span><span style="color:#bbb"> </span>o2)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Count</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">ORDER</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Count</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">DESC</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">LIMIT</span><span style="color:#bbb"> </span><span style="color:#40a070">5</span>;<span style="color:#bbb">
-</span></code></pre></div><figure><img src="https://stephanefrechette.dev/images/legacy-post/cypher_aw021.png"
-         alt="cypher_aw02" width="1095" height="254"/>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Which employee had the highest <span style="color:#66d9ef">cross</span><span style="color:#f92672">-</span>selling <span style="color:#66d9ef">count</span> <span style="color:#66d9ef">of</span> <span style="color:#e6db74">&#39;AWC Logo Cap&#39;</span> <span style="color:#66d9ef">and</span> which product<span style="color:#f92672">?</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (p:Product <span style="color:#960050;background-color:#1e0010">{</span>productName:<span style="color:#e6db74">&#39;AWC Logo Cap&#39;</span><span style="color:#960050;background-color:#1e0010">}</span>)<span style="color:#f92672">&lt;</span> <span style="color:#f92672">-</span>[:PRODUCT]<span style="color:#f92672">-</span>(:<span style="color:#66d9ef">Order</span>)<span style="color:#f92672">&lt;-</span>[:SOLD]<span style="color:#f92672">-</span>(employee),
+</span></span><span style="display:flex;"><span>      (employee)<span style="color:#f92672">-</span>[:SOLD]<span style="color:#f92672">-&gt;</span>(o2)<span style="color:#f92672">-</span>[:PRODUCT]<span style="color:#f92672">-&gt;</span>(other:Product)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">RETURN</span> employee.fullName <span style="color:#66d9ef">as</span> Employee, other.productName <span style="color:#66d9ef">as</span> Product, <span style="color:#66d9ef">count</span>(<span style="color:#66d9ef">distinct</span> o2) <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">Count</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">Count</span> <span style="color:#66d9ef">DESC</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">5</span>;
+</span></span></code></pre></div><figure><img src="/images/legacy-post/cypher_aw021.png"
+    alt="cypher_aw02" width="1095" height="254">
 </figure>
 
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#666">//</span><span style="color:#bbb"> </span>What<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">is</span><span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>total<span style="color:#bbb"> </span>quantity<span style="color:#bbb"> </span>sold<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">of</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>particular<span style="color:#bbb"> </span>product<span style="color:#666">?</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">MATCH</span><span style="color:#bbb"> </span>(o:<span style="color:#007020;font-weight:bold">Order</span>)<span style="color:#666">-</span>[r:PRODUCT]<span style="color:#666">-&gt;</span>(p:Product<span style="color:#bbb"> </span><span style="">{</span>productName:<span style="color:#bbb"> </span><span style="color:#4070a0">&#34;Long-Sleeve Logo Jersey, L&#34;</span><span style="">}</span>)<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">RETURN</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">sum</span>(r.quantity)<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>TotalQuantitySold;<span style="color:#bbb">
-</span></code></pre></div><figure><img src="https://stephanefrechette.dev/images/legacy-post/cypher_aw03.png"
-         alt="cypher_aw03" width="758" height="231"/>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> What <span style="color:#66d9ef">is</span> the total quantity sold <span style="color:#66d9ef">of</span> a particular product<span style="color:#f92672">?</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">MATCH</span> (o:<span style="color:#66d9ef">Order</span>)<span style="color:#f92672">-</span>[r:PRODUCT]<span style="color:#f92672">-&gt;</span>(p:Product <span style="color:#960050;background-color:#1e0010">{</span>productName: <span style="color:#e6db74">&#34;Long-Sleeve Logo Jersey, L&#34;</span><span style="color:#960050;background-color:#1e0010">}</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">RETURN</span> <span style="color:#66d9ef">sum</span>(r.quantity) <span style="color:#66d9ef">as</span> TotalQuantitySold;
+</span></span></code></pre></div><figure><img src="/images/legacy-post/cypher_aw03.png"
+    alt="cypher_aw03" width="758" height="231">
 </figure>
 
 <p>Explore, learn Cypher and write your own queries<br>
 Enjoy!</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<!-- AddThis Advanced Settings generic via filter on the_content -->
+<!-- AddThis Share Buttons generic via filter on the_content -->
       </div>
+
 
       <footer>
         
 
 
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "stephanefrechettedev" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+        
+        
+        
+
+        
+        
       </footer>
     </article>
 
     
   </section>
 
-      </div>
+    </div>
 
-      <footer class="footer">
+    <footer class="footer">
   <section class="container">
+    ©
     
-     © 2022 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+    2026
+     Stéphane Fréchette 
+    
+    
     
     
   </section>
 </footer>
 
-    </main>
+  </main>
 
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-137528572-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  
 
-  </body>
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
 
 </html>

@@ -1,135 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="author" content="Stéphane Fréchette">
-    <meta name="description" content="Stéphane Fréchette&#39;s personal website">
-    <meta name="keywords" content="stephane frechette,blog,data engineer,cloud solution architect,azure,google cloud">
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SQL Server 2016 Row-Level Security"/>
-<meta name="twitter:description" content="With SQL Server 2016 literately just days away from being officially available to public for download Get ready, SQL Server 2016 coming on June 1st. I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context)."/>
-
-    <meta property="og:title" content="SQL Server 2016 Row-Level Security" />
-<meta property="og:description" content="With SQL Server 2016 literately just days away from being officially available to public for download Get ready, SQL Server 2016 coming on June 1st. I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context)." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2016-05-19T16:47:34-04:00" />
-<meta property="article:modified_time" content="2016-05-19T16:47:34-04:00" />
-
-
-
-    
-      <base href="https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/">
-    
-    <title>
+<head>
+  <title>
   SQL Server 2016 Row-Level Security · Stéphane Fréchette
 </title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 
+
+
+
+<meta name="author" content="Stéphane Fréchette">
+<meta name="description" content="With SQL Server 2016 literately just days away from being officially available to public for download Get ready, SQL Server 2016 coming on June 1st. I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).">
+<meta name="keywords" content="stephane frechette,blog,data engineer,cloud solution architect,azure,google cloud">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SQL Server 2016 Row-Level Security">
+  <meta name="twitter:description" content="With SQL Server 2016 literately just days away from being officially available to public for download Get ready, SQL Server 2016 coming on June 1st. I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).">
+
+<meta property="og:url" content="https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/">
+  <meta property="og:site_name" content="Stéphane Fréchette">
+  <meta property="og:title" content="SQL Server 2016 Row-Level Security">
+  <meta property="og:description" content="With SQL Server 2016 literately just days away from being officially available to public for download Get ready, SQL Server 2016 coming on June 1st. I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2016-05-19T16:47:34-04:00">
+    <meta property="article:modified_time" content="2016-05-19T16:47:34-04:00">
+    <meta property="article:tag" content="Row Level Security">
+    <meta property="article:tag" content="Security">
+    <meta property="article:tag" content="Sql Server">
+    <meta property="article:tag" content="Sql Server 2016">
+
+
+
+
+<link rel="canonical" href="https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.0ab58f0bc42b4f21bff7ac349245f3c5579ad3c46dee51b49ad860d174431d73.css" integrity="sha256-CrWPC8QrTyG/96w0kkXzxVea08Rt7lG0mthg0XRDHXM=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+
+
+ 
+  
     
-      <link rel="canonical" href="https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/">
-    
+    <link rel="stylesheet" href="/css/custom.min.4a404bec5204d9d065ea08b9c1432f757d34b53a80074c804b9ab84e833f5c23.css" integrity="sha256-SkBL7FIE2dBl6gi5wUMvdX00tTqAB0yAS5q4ToM/XCM=" crossorigin="anonymous" media="screen" />
+  
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
 
-    
-      
-      
-      <link rel="stylesheet" href="https://stephanefrechette.dev/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
 
-    
 
-    
 
-    
-      <link rel="stylesheet" href="https://stephanefrechette.dev/css/custom.css">
-    
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/me-cartoon-32x32.jpg" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/me-cartoon-16x16.jpg" sizes="16x16">
 
-    <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-32x32.jpg" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://stephanefrechette.dev/images/me-cartoon-16x16.jpg" sizes="16x16">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-    <meta name="generator" content="Hugo 0.92.2" />
-  </head>
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
 
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://stephanefrechette.dev">
+    
+    <a class="navigation-title" href="https://stephanefrechette.dev/">
       Stéphane Fréchette
     </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://stephanefrechette.dev/posts/">Blog</a>
-          </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://stephanefrechette.dev/talks/">Talks</a>
-          </li>
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://stephanefrechette.dev/about/">About</a>
-          </li>
-        
-      
-      
-    </ul>
+      </ul>
+    
   </section>
 </nav>
 
 
-      <div class="content">
-        
+    <div class="content">
+      
   <section class="container post">
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">SQL Server 2016 Row-Level Security</h1>
+          <h1 class="title">
+            <a class="title-link" href="https://stephanefrechette.dev/posts/sql-server-2016-row-level-security/">
+              SQL Server 2016 Row-Level Security
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2016-05-19T16:47:34-04:00'>
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2016-05-19T16:47:34-04:00">
                 May 19, 2016
               </time>
             </span>
             <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              2 minutes read
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
             </span>
           </div>
+          
           <div class="categories">
-  <i class="fas fa-folder"></i>
-    <a href="https://stephanefrechette.dev/categories/databases/">Databases</a></div>
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/categories/databases/">Databases</a></div>
 
           <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://stephanefrechette.dev/tags/row-level-security/">row level security</a>
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/row-level-security/">Row Level Security</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/security/">security</a>
+    <span class="tag">
+      <a href="/tags/security/">Security</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/sql-server/">sql server</a>
+    <span class="tag">
+      <a href="/tags/sql-server/">Sql Server</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://stephanefrechette.dev/tags/sql-server-2016/">sql server 2016</a></div>
+    <span class="tag">
+      <a href="/tags/sql-server-2016/">Sql Server 2016</a>
+    </span></div>
 
         </div>
       </header>
-      
-      <div>
-        <p>With SQL Server 2016 literately just days away from being officially available to public for download <a href="https://blogs.technet.microsoft.com/dataplatforminsider/2016/05/02/get-ready-sql-server-2016-coming-on-june-1st" target="_blank">Get ready, SQL Server 2016 coming on June 1st</a>. I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).</p>
-<figure><img src="https://stephanefrechette.dev/images/legacy-post/sql-server-2016-row-level-security-04.png"
-         alt="sql-server-2016-row-level-security-04" width="625" height="325"/>
+
+      <div class="post-content">
+        
+        <p>With SQL Server 2016 literately just days away from being officially available to public for download <a href="https://blogs.technet.microsoft.com/dataplatforminsider/2016/05/02/get-ready-sql-server-2016-coming-on-june-1st"  class="external-link" target="_blank" rel="noopener">Get ready, SQL Server 2016 coming on June 1st</a>. I wanted to highlight one important new key future called Row-Level Security. So what is Row Level Security? Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).</p>
+<figure><img src="/images/legacy-post/sql-server-2016-row-level-security-04.png"
+    alt="sql-server-2016-row-level-security-04" width="625" height="325">
 </figure>
 
 <p>Row-Level Security (RLS) simplifies the design and coding of security in your application. RLS enables you to implement restrictions on data row access. For example ensuring that workers can access only those data rows that are pertinent to their department, or restricting a customer’s data access to only the data relevant to their company.</p>
@@ -137,129 +194,150 @@
 <p>You implement RLS by using the <strong>CREATE SECURITY POLICY</strong> T-SQL statement, and predicates created as inline table valued functions.</p>
 <p>To better understand SQL Server 2016 Row-Level Security let’s go through some code sample:</p>
 <p>Create three user accounts that will demonstrate different access capabilities.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">user</span><span style="color:#bbb"> </span>Manager<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">without</span><span style="color:#bbb"> </span>login;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">user</span><span style="color:#bbb"> </span>Sales1<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">without</span><span style="color:#bbb"> </span>login;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">user</span><span style="color:#bbb"> </span>Sales2<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">without</span><span style="color:#bbb"> </span>login;<span style="color:#bbb">
-</span></code></pre></div><p>Create a quick table to hold data.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">table</span><span style="color:#bbb"> </span>dbo.Orders<span style="color:#bbb">
-</span><span style="color:#bbb"></span>(<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>OrderID<span style="color:#bbb">	</span><span style="color:#007020">int</span>,<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>SalesRep<span style="color:#bbb">	</span>sysname,<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>Product<span style="color:#bbb">	</span><span style="color:#007020">varchar</span>(<span style="color:#40a070">25</span>),<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>Quantity<span style="color:#bbb">	</span><span style="color:#007020">int</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>);<span style="color:#bbb">
-</span></code></pre></div><p>Populate the table with 10 rows of data, showing 5 orders for each sales person.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">insert</span><span style="color:#bbb"> </span>dbo.Orders<span style="color:#bbb">
-</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">values</span><span style="color:#bbb"> </span>(<span style="color:#40a070">1</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Sales1&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Bracket&#39;</span>,<span style="color:#bbb"> </span><span style="color:#40a070">11</span>),<span style="color:#bbb"> 
-</span><span style="color:#bbb">	</span>(<span style="color:#40a070">2</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Sales1&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Wheel&#39;</span>,<span style="color:#bbb"> </span><span style="color:#40a070">21</span>),<span style="color:#bbb"> 
-</span><span style="color:#bbb">	</span>(<span style="color:#40a070">3</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Sales1&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Valve&#39;</span>,<span style="color:#bbb"> </span><span style="color:#40a070">4</span>),<span style="color:#bbb">
-</span><span style="color:#bbb">	</span>(<span style="color:#40a070">4</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Sales1&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Bracket&#39;</span>,<span style="color:#bbb"> </span><span style="color:#40a070">6</span>),<span style="color:#bbb"> 
-</span><span style="color:#bbb">	</span>(<span style="color:#40a070">5</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Sales1&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Wheel&#39;</span>,<span style="color:#bbb"> </span><span style="color:#40a070">8</span>),<span style="color:#bbb"> 
-</span><span style="color:#bbb">	</span>(<span style="color:#40a070">6</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Sales2&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Seat&#39;</span>,<span style="color:#bbb"> </span><span style="color:#40a070">13</span>),<span style="color:#bbb">
-</span><span style="color:#bbb">	</span>(<span style="color:#40a070">7</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Sales2&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Seat&#39;</span>,<span style="color:#bbb"> </span><span style="color:#40a070">5</span>),<span style="color:#bbb">
-</span><span style="color:#bbb">	</span>(<span style="color:#40a070">8</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Sales2&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Seat&#39;</span>,<span style="color:#bbb"> </span><span style="color:#40a070">7</span>),<span style="color:#bbb">
-</span><span style="color:#bbb">	</span>(<span style="color:#40a070">9</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Sales2&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Bracket&#39;</span>,<span style="color:#bbb"> </span><span style="color:#40a070">17</span>),<span style="color:#bbb">
-</span><span style="color:#bbb">	</span>(<span style="color:#40a070">10</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Sales2&#39;</span>,<span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Wheel&#39;</span>,<span style="color:#bbb"> </span><span style="color:#40a070">20</span>);<span style="color:#bbb">
-</span></code></pre></div><p>View the rows in the table</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">select</span><span style="color:#bbb"> </span><span style="color:#666">*</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">from</span><span style="color:#bbb"> </span>dbo.Orders;<span style="color:#bbb"> 
-</span></code></pre></div><p>Grant read access on the table to each of the users.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">grant</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">select</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">on</span><span style="color:#bbb"> </span>dbo.Orders<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>Manager;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">grant</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">select</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">on</span><span style="color:#bbb"> </span>dbo.Orders<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>Sales1;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">grant</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">select</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">on</span><span style="color:#bbb"> </span>dbo.Orders<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">to</span><span style="color:#bbb"> </span>Sales2;<span style="color:#bbb">
-</span></code></pre></div><p>Create a new schema, and an inline table valued function. The function returns 1 when a row in the SalesRep column is the same as the user executing the query (@SalesRep = USER_NAME()) or if the user executing the query is the Manager user (USER_NAME() = ‘Manager’).</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">schema</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Security</span>;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">go</span><span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">function</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Security</span>.fn_securitypredicate(<span style="color:#666">@</span>SalesRep<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>sysname)<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#007020;font-weight:bold">returns</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">table</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">with</span><span style="color:#bbb"> </span>schemabinding<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#007020;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">select</span><span style="color:#bbb"> </span><span style="color:#40a070">1</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span>fn_securitypredicate_result<span style="color:#bbb"> 
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">where</span><span style="color:#bbb"> </span><span style="color:#666">@</span>SalesRep<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>user_name()<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">or</span><span style="color:#bbb"> </span>user_name()<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Manager&#39;</span>;<span style="color:#bbb">
-</span></code></pre></div><p>Create a security policy adding the function as a filter predicate. The state must be set to ON to enable the policy.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">create</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">security</span><span style="color:#bbb"> </span>policy<span style="color:#bbb"> </span>OrdersFilter<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">add</span><span style="color:#bbb"> </span>filter<span style="color:#bbb"> </span>predicate<span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">Security</span>.fn_securitypredicate(SalesRep)<span style="color:#bbb"> 
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">on</span><span style="color:#bbb"> </span>dbo.Orders<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">with</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">state</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">on</span>);<span style="color:#bbb">
-</span></code></pre></div><p>Let’s now test the filtering predicate, by selected from the Orders table as each user. The Manager should see all 10 rows. The Sales1 and Sales2 users should only see their own sales.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">execute</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">user</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Sales1&#39;</span>;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">select</span><span style="color:#bbb"> </span><span style="color:#666">*</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">from</span><span style="color:#bbb"> </span>dbo.Orders;<span style="color:#bbb"> 
-</span><span style="color:#bbb"></span>revert;<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">execute</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">user</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Sales2&#39;</span>;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">select</span><span style="color:#bbb"> </span><span style="color:#666">*</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">from</span><span style="color:#bbb"> </span>dbo.Orders;<span style="color:#bbb"> 
-</span><span style="color:#bbb"></span>revert;<span style="color:#bbb">
-</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">execute</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">user</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#4070a0">&#39;Manager&#39;</span>;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">select</span><span style="color:#bbb"> </span><span style="color:#666">*</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">from</span><span style="color:#bbb"> </span>dbo.Orders;<span style="color:#bbb"> 
-</span><span style="color:#bbb"></span>revert;<span style="color:#bbb">
-</span></code></pre></div><p>To alter and disable the security policy.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#007020;font-weight:bold">alter</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">security</span><span style="color:#bbb"> </span>policy<span style="color:#bbb"> </span>OrdersFilter<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#007020;font-weight:bold">with</span><span style="color:#bbb"> </span>(<span style="color:#007020;font-weight:bold">state</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#007020;font-weight:bold">off</span>);<span style="color:#bbb">
-</span></code></pre></div><p>In general, row-level security will work as expected across features. However, there are a few exceptions. The <strong>Cross-Feature Compatibility</strong> section documents several notes and caveats for using row-level security with certain other features of SQL Server. Details and information on RLS can be found here on the <a href="https://msdn.microsoft.com/en-us/library/dn765131.aspx" target="_blank">online documentation</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">user</span> Manager <span style="color:#66d9ef">without</span> login;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">user</span> Sales1 <span style="color:#66d9ef">without</span> login;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">user</span> Sales2 <span style="color:#66d9ef">without</span> login;
+</span></span></code></pre></div><p>Create a quick table to hold data.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> dbo.Orders
+</span></span><span style="display:flex;"><span>(
+</span></span><span style="display:flex;"><span>    OrderID	int,
+</span></span><span style="display:flex;"><span>    SalesRep	sysname,
+</span></span><span style="display:flex;"><span>    Product	varchar(<span style="color:#ae81ff">25</span>),
+</span></span><span style="display:flex;"><span>    Quantity	int
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><p>Populate the table with 10 rows of data, showing 5 orders for each sales person.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">insert</span> dbo.Orders
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">values</span> (<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;Sales1&#39;</span>, <span style="color:#e6db74">&#39;Bracket&#39;</span>, <span style="color:#ae81ff">11</span>), 
+</span></span><span style="display:flex;"><span>	(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;Sales1&#39;</span>, <span style="color:#e6db74">&#39;Wheel&#39;</span>, <span style="color:#ae81ff">21</span>), 
+</span></span><span style="display:flex;"><span>	(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;Sales1&#39;</span>, <span style="color:#e6db74">&#39;Valve&#39;</span>, <span style="color:#ae81ff">4</span>),
+</span></span><span style="display:flex;"><span>	(<span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;Sales1&#39;</span>, <span style="color:#e6db74">&#39;Bracket&#39;</span>, <span style="color:#ae81ff">6</span>), 
+</span></span><span style="display:flex;"><span>	(<span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;Sales1&#39;</span>, <span style="color:#e6db74">&#39;Wheel&#39;</span>, <span style="color:#ae81ff">8</span>), 
+</span></span><span style="display:flex;"><span>	(<span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;Sales2&#39;</span>, <span style="color:#e6db74">&#39;Seat&#39;</span>, <span style="color:#ae81ff">13</span>),
+</span></span><span style="display:flex;"><span>	(<span style="color:#ae81ff">7</span>, <span style="color:#e6db74">&#39;Sales2&#39;</span>, <span style="color:#e6db74">&#39;Seat&#39;</span>, <span style="color:#ae81ff">5</span>),
+</span></span><span style="display:flex;"><span>	(<span style="color:#ae81ff">8</span>, <span style="color:#e6db74">&#39;Sales2&#39;</span>, <span style="color:#e6db74">&#39;Seat&#39;</span>, <span style="color:#ae81ff">7</span>),
+</span></span><span style="display:flex;"><span>	(<span style="color:#ae81ff">9</span>, <span style="color:#e6db74">&#39;Sales2&#39;</span>, <span style="color:#e6db74">&#39;Bracket&#39;</span>, <span style="color:#ae81ff">17</span>),
+</span></span><span style="display:flex;"><span>	(<span style="color:#ae81ff">10</span>, <span style="color:#e6db74">&#39;Sales2&#39;</span>, <span style="color:#e6db74">&#39;Wheel&#39;</span>, <span style="color:#ae81ff">20</span>);
+</span></span></code></pre></div><p>View the rows in the table</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> dbo.Orders; 
+</span></span></code></pre></div><p>Grant read access on the table to each of the users.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">select</span> <span style="color:#66d9ef">on</span> dbo.Orders <span style="color:#66d9ef">to</span> Manager;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">select</span> <span style="color:#66d9ef">on</span> dbo.Orders <span style="color:#66d9ef">to</span> Sales1;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">select</span> <span style="color:#66d9ef">on</span> dbo.Orders <span style="color:#66d9ef">to</span> Sales2;
+</span></span></code></pre></div><p>Create a new schema, and an inline table valued function. The function returns 1 when a row in the SalesRep column is the same as the user executing the query (@SalesRep = USER_NAME()) or if the user executing the query is the Manager user (USER_NAME() = ‘Manager’).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">schema</span> <span style="color:#66d9ef">Security</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">go</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">function</span> <span style="color:#66d9ef">Security</span>.fn_securitypredicate(<span style="color:#f92672">@</span>SalesRep <span style="color:#66d9ef">as</span> sysname)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">returns</span> <span style="color:#66d9ef">table</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> schemabinding
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">as</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">select</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">as</span> fn_securitypredicate_result 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">where</span> <span style="color:#f92672">@</span>SalesRep <span style="color:#f92672">=</span> user_name() <span style="color:#66d9ef">or</span> user_name() <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Manager&#39;</span>;
+</span></span></code></pre></div><p>Create a security policy adding the function as a filter predicate. The state must be set to ON to enable the policy.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">security</span> policy OrdersFilter
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">add</span> filter predicate <span style="color:#66d9ef">Security</span>.fn_securitypredicate(SalesRep) 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">on</span> dbo.Orders
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> (<span style="color:#66d9ef">state</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">on</span>);
+</span></span></code></pre></div><p>Let’s now test the filtering predicate, by selected from the Orders table as each user. The Manager should see all 10 rows. The Sales1 and Sales2 users should only see their own sales.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">execute</span> <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">user</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Sales1&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> dbo.Orders; 
+</span></span><span style="display:flex;"><span>revert;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">execute</span> <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">user</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Sales2&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> dbo.Orders; 
+</span></span><span style="display:flex;"><span>revert;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">execute</span> <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">user</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Manager&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> dbo.Orders; 
+</span></span><span style="display:flex;"><span>revert;
+</span></span></code></pre></div><p>To alter and disable the security policy.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">alter</span> <span style="color:#66d9ef">security</span> policy OrdersFilter
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> (<span style="color:#66d9ef">state</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">off</span>);
+</span></span></code></pre></div><p>In general, row-level security will work as expected across features. However, there are a few exceptions. The <strong>Cross-Feature Compatibility</strong> section documents several notes and caveats for using row-level security with certain other features of SQL Server. Details and information on RLS can be found here on the <a href="https://msdn.microsoft.com/en-us/library/dn765131.aspx"  class="external-link" target="_blank" rel="noopener">online documentation</a>.</p>
 <p>Enjoy</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-
+<!-- AddThis Advanced Settings generic via filter on the_content -->
+<!-- AddThis Share Buttons generic via filter on the_content -->
       </div>
+
 
       <footer>
         
 
 
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "stephanefrechettedev" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+        
+        
+        
+
+        
+        
       </footer>
     </article>
 
     
   </section>
 
-      </div>
+    </div>
 
-      <footer class="footer">
+    <footer class="footer">
   <section class="container">
+    ©
     
-     © 2022 Stéphane Fréchette | <a href="https://stephanefrechette.dev/index.xml">Subscribe RSS</a> 
+    2026
+     Stéphane Fréchette 
+    
+    
     
     
   </section>
 </footer>
 
-    </main>
+  </main>
 
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-137528572-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
+  
 
-  </body>
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
 
 </html>
